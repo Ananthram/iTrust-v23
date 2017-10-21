@@ -58,15 +58,18 @@ var fuzzer =
             	if (fuzzer.random.bool(0.2) && !string.match("@") && !string.match("private") && !string.match("final") && !string.match("Locale"))
             	{
             		//will match for a value surronded by quotes, aka a string!
-            		var mtch = string.match(/(["])(?:(?=(\\?))\2.)*?\1/);
-            		if( mtch != null)
-            		{
-            			//create a new random string
-            			var newString = fuzzer.random.string(mtch[0].length - 2);
+            		// var mtch = string.match(/(["])(?:(?=(\\?))\2.)*?\1/);
+            		// if( mtch != null)
+            		// {
+            		// 	//create a new random string
+            		// 	var newString = fuzzer.random.string(mtch[0].length - 2);
 
-            			//replace the string with random string, but make sure to maintain quotes around it
-            			string = string.replace(mtch[0], '"' + newString + '"');
-            		}
+            		// 	//replace the string with random string, but make sure to maintain quotes around it
+            		// 	string = string.replace(mtch[0], '"' + newString + '"');
+
+            		// }
+
+                    string = string.replace(/"([^"]*)"/g, `"ThisIsANotSoRandomString"`);
             	}
             	
 
