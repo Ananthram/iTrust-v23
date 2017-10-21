@@ -72,26 +72,26 @@ var fuzzer =
 
             	//avoid anything with public, private, import, or package JUST IN CASE
                 //also some exception have 0/1 in the variable name e1
-            	if(!string.match("public") && !string.match("private") && !string.match("import") && !string.match("package") && !string.match("e1"))
-            	{
-            		if (string.match("0"))
-            		{
-            			// half the time, replace first zero, other half replace all zeroes
-            			if (fuzzer.random.bool(0.5) )
-            			{
-            				string = string.replace("0","1");
-            			} else
-            				string = string.replace("0/g","1");
+            	// if(!string.match("public") && !string.match("private") && !string.match("import") && !string.match("package") && !string.match("e1"))
+            	// {
+            	// 	if (string.match("0"))
+            	// 	{
+            	// 		// half the time, replace first zero, other half replace all zeroes
+            	// 		if (fuzzer.random.bool(0.5) )
+            	// 		{
+            	// 			string = string.replace("0","1");
+            	// 		} else
+            	// 			string = string.replace("0/g","1");
             			
-            		} else if (string.match("1"))
-            		{
-            			if (fuzzer.random.bool(0.5) )
-            			{
-            				string = string.replace("1","0");
-            			} else
-            				string = string.replace("1/g","0");
-            		}
-            	}
+            	// 	} else if (string.match("1"))
+            	// 	{
+            	// 		if (fuzzer.random.bool(0.5) )
+            	// 		{
+            	// 			string = string.replace("1","0");
+            	// 		} else
+            	// 			string = string.replace("1/g","0");
+            	// 	}
+            	// }
 
             	//set mutated string back
             	array[i] = string;
