@@ -58,7 +58,7 @@ var fuzzer =
             	if (fuzzer.random.bool(0.6) && !string.match("@") && !string.match("private") && !string.match("final") && !string.match("Locale"))
             	{
             		//will match for a value surronded by quotes, aka a string!
-            		var mtch = string.match(/"(.*?)"/);
+            		var mtch = string.match(/(["'])(?:(?=(\\?))\2.)*?\1/);
             		if( mtch != null)
             		{
             			//create a new random string
