@@ -28,7 +28,7 @@ var fuzzer =
             {
             	var string = array[i];
 
-            	if( fuzzer.random.bool(0.9) )
+            	if( fuzzer.random.bool(0.2) )
             	{
             		if(string.match("while") || string.match("if"))
 	            	{
@@ -42,7 +42,7 @@ var fuzzer =
 	            	}
             	}
 
-            	if( fuzzer.random.bool(0.7) )
+            	if( fuzzer.random.bool(0.3) )
             	{
             		if(string.match("==")) {
             			string = string.replace("==","!=");	
@@ -55,7 +55,7 @@ var fuzzer =
             	
             	//mutuate existing strings into random strings
             	//make sure to not change any beans (line will have @)/final (line will have final)/important strings/dont mess up locale
-            	if (fuzzer.random.bool(0.6) && !string.match("@") && !string.match("private") && !string.match("final") && !string.match("Locale"))
+            	if (fuzzer.random.bool(0.2) && !string.match("@") && !string.match("private") && !string.match("final") && !string.match("Locale"))
             	{
             		//will match for a value surronded by quotes, aka a string!
             		var mtch = string.match(/(["])(?:(?=(\\?))\2.)*?\1/);
@@ -125,7 +125,7 @@ var walkSync = function(dir, filelist) {
 //there is a hook set up in jenkins to pull after every push for the branch fuzzer
 function commitandrevert(iteration){
 	// push mutated code to fuzzer branch, force it to overwrite previous mutated code, but give new commit
-	proc.execSync('git add . && git commit -m "fuzzed code, iteration ${iteration}" && git push origin fuzzer --force');
+	proc.execSync('git add . && git commit -m "fuzzed code, iteration ' + iteration +'" && git push origin fuzzer --force');
 
 	// now revert fuzzer branch to what the master branch has
 	proc.execSync('git fetch origin && git reset --hard origin/master');
