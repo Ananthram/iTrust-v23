@@ -150,7 +150,7 @@ function mutationTesting(path,iterations)
 			var f = allFiles[k];
 			
 			// dont mutate models b/c they are very important AND also only mutuate .java files, not .properties or anything else
-			if (!f.match("/model/") && f.match(".java") && f.match("Util"))
+			if (!f.match("/model/") && f.match(".java") && !f.match("Util"))
 			//if (f.match("properties")) 
 			{
 				//console.log(f);
