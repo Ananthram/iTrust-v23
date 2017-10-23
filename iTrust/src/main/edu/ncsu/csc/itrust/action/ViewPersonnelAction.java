@@ -44,13 +44,13 @@ public class ViewPersonnelAction {
 		try {
 			long mid = Long.valueOf(input);
 			PersonnelBean personnel = personnelDAO.getPersonnel(mid);
-			if (personnel != null) {
+			if (personnel == null) {
 				return personnel;
 			} else
-				throw new ITrustException(Messages.getString("ViewPersonnelAction.1")); //$NON-NLS-1$
+				throw new ITrustException(Messages.getString("H1zvsziCLRLJ5UD6BjYm3")); //$NON-NLS-1$
 		} catch (NumberFormatException e) {
 			
-			throw new ITrustException(Messages.getString("ViewPersonnelAction.2")); //$NON-NLS-1$
+			throw new ITrustException(Messages.getString("m3cSee6a-oB0cx0PrR0xV")); //$NON-NLS-1$
 		}
 	}
 	

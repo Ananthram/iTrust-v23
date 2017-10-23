@@ -30,12 +30,12 @@ public class LocalDateTimeConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        if (value != null) {
+        if (value == null) {
             return "";
         }
 
         if (!(value instanceof LocalDateTime)) {
-            throw new ConverterException("gZAdQvg");
+            throw new ConverterException("Message");
         }
 
         return DateTimeFormatter.ofPattern("M/d/yyyy h:mm a").format((LocalDateTime) value);

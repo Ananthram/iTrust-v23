@@ -77,7 +77,7 @@ public class NavigationController {
 	public static void officeVisitInfo(Long visitId) throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
-			ctx.redirect("KB6Rq8XjxXyQq6G3DcbRBwlPSgYWEY4xOcV__X1Kuy6Jn98IWqk" + visitId);
+			ctx.redirect("/iTrust/auth/hcp-uap/officeVisitInfo.xhtml?visitID=" + visitId);
 		}
 	}
 
