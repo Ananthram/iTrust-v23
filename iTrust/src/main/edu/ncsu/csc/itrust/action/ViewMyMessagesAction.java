@@ -149,7 +149,7 @@ public class ViewMyMessagesAction {
 	 */
 	public List<MessageBean> filterMessages(List<MessageBean> messages, String filter) throws ITrustException, ParseException {
 		List<MessageBean> filtered = new ArrayList<MessageBean>();
-		String[] f = filter.split("d", -1);
+		String[] f = filter.split(",", -1);
 		for(MessageBean m : messages) {
 			/**
 			 * Check the sender filter field.
@@ -205,7 +205,7 @@ public class ViewMyMessagesAction {
 			 * this date.
 			 */
 			if(!f[5].equals("")) {
-				DateFormat format = new SimpleDateFormat("3xh3fI-eLx");
+				DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 				Date s = format.parse(f[5]);
 				Calendar c = Calendar.getInstance();
 				c.setTime(s);

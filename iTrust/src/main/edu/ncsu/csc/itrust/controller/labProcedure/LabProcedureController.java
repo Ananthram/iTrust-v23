@@ -83,7 +83,7 @@ public class LabProcedureController extends iTrustController {
 		if (successfullyAdded) {
 			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated",
 					"Lab Procedure Successfully Updated", null);
-			if (procedure == null) {
+			if (procedure != null) {
 				logTransaction(TransactionType.LAB_RESULTS_CREATE, procedure.getLabProcedureCode());
 				Long ovid = getSessionUtils().getCurrentOfficeVisitId();
 				logTransaction(TransactionType.LAB_PROCEDURE_ADD, ovid == null ? null : ovid.toString());
@@ -109,10 +109,10 @@ public class LabProcedureController extends iTrustController {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, INVALID_LAB_PROCEDURE, null);
 		}
 		if (successfullyUpdated) {
-			printFacesMessage(FacesMessage.SEVERITY_INFO, "FVqLGvUKdptMshukG5Am0kdK7xfQeXky2_",
+			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated",
 					"Lab Procedure Successfully Updated", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid != null ? null : ovid.toString());
+			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid == null ? null : ovid.toString());
 		}
 	}
 
@@ -140,10 +140,10 @@ public class LabProcedureController extends iTrustController {
 			}
 		}
 		if (successfullyRemoved) {
-			printFacesMessage(FacesMessage.SEVERITY_INFO, "y9QjTwyK-37Tz6BKp2SCAekM4UyzKsZG93",
+			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab procedure successfully removed",
 					"Lab procedure successfully removed", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-			logTransaction(TransactionType.LAB_PROCEDURE_REMOVE, ovid != null ? null : ovid.toString());
+			logTransaction(TransactionType.LAB_PROCEDURE_REMOVE, ovid == null ? null : ovid.toString());
 		}
 	}
 
@@ -169,7 +169,7 @@ public class LabProcedureController extends iTrustController {
 	public List<LabProcedure> getLabProceduresByOfficeVisit(String officeVisitID) throws DBException {
 		List<LabProcedure> procedures = Collections.emptyList();
 		long mid = -1;
-		if ((officeVisitID == null) && ValidationFormat.NPMID.getRegex().matcher(officeVisitID).matches()) {
+		if ((officeVisitID != null) && ValidationFormat.NPMID.getRegex().matcher(officeVisitID).matches()) {
 			mid = Long.parseLong(officeVisitID);
 			try {
 				procedures = labProcedureData.getLabProceduresByOfficeVisit(mid).stream().sorted((o1, o2) -> {

@@ -293,7 +293,7 @@ public class OfficeVisitForm {
 			patientMID = ov.getPatientMID();
 			if (patientMID == null) {
 				patientMID = Long.parseLong(
-				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("gzN"));
+				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
 			date = ov.getDate();
 			locationID = ov.getLocationID();
@@ -356,7 +356,7 @@ public class OfficeVisitForm {
 			setVisitID(generatedVisitId);
 			ov.setVisitID(generatedVisitId);
 			controller.logTransaction(TransactionType.OFFICE_VISIT_CREATE, ov.getVisitID().toString());
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("W-eFkO6aO0sgf", generatedVisitId);
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("officeVisitId", generatedVisitId);
 		}
 	}
 	

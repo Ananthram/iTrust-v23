@@ -93,7 +93,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("1VKIGXFF2AedMJ6dCLQ3LkaFHzV4iwF6zIMFG1WRKfBO_GgjbXzLJHic3KwII12Zr5IjOcgg81r7k1s_szu20HuwDYWUI4Nu_qXLzChYn6EW8g8BVgE0j1UQZljENhdJsfv3GL-ph35CN_4W4Y4KYNHNHIvcDKppTcgQnlkndEtDBns0jFrkGvnNgT", senderName));
+					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/patient/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 				}
 				fromEmail = sender.getEmail();
 				
@@ -120,7 +120,7 @@ public class SendMessageAction {
 		}
 		email.setToList(toList);
 		email.setFrom(fromEmail);
-		email.setSubject(String.format("Q32J1h-DgLUH5_l4ob5ny", senderName));
+		email.setSubject(String.format("A new message from %s", senderName));
 		emailer.sendEmail(email);
 		TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, loggedInMID, mBean.getTo(), "");
 		TransactionLogger.getInstance().logTransaction(TransactionType.MESSAGE_SEND, loggedInMID, mBean.getTo(), "");

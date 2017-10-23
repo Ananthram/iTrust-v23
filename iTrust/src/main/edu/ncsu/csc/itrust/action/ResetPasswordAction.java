@@ -152,7 +152,7 @@ public class ResetPasswordAction {
 		try {
 			Role.parse(role);
 		} catch (IllegalArgumentException e) {
-			return "sSulYOckMFAR";
+			return "Invalid role";
 		}
 
 		if (r.equals(Role.ADMIN))
@@ -229,9 +229,9 @@ public class ResetPasswordAction {
 			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))
-				errorList.addIfNotNull("ENqcl0XML-AZS_9XpIMah");
+				errorList.addIfNotNull("Passwords don't match");
 			if (!ValidationFormat.PASSWORD.getRegex().matcher(password).matches()) {
-				errorList.addIfNotNull("8QaSTytkA3VG9ME3IPLMuuriYzJCOq_2C9-EaLM8cj"
+				errorList.addIfNotNull("Password must be in the following format: "
 						+ ValidationFormat.PASSWORD.getDescription());
 			}
 		}
