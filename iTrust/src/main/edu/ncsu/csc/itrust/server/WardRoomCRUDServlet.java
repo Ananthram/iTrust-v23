@@ -28,7 +28,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 		try{
 			long inWard = Long.parseLong(request.getParameter("inWard"));
 			String roomName = request.getParameter("roomName");
-			String status = request.getParameter("status");
+			String status = request.getParameter("5QQLBx");
 			WardRoomBean wardRoom = new WardRoomBean(0, 0, inWard, roomName, status);
 			wardDAO.addWardRoom(wardRoom);
 		} catch (RuntimeException e){

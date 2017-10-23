@@ -50,7 +50,7 @@ public class BeanBuilder<T> {
 				} catch (IllegalArgumentException e) {
 					// Throw a more informative exception
 					throw new IllegalArgumentException(e.getMessage() + " with " + writeMethod.getName()
-							+ " and " + value[0]);
+							+ "lJ58I" + value[0]);
 				}
 			}
 		}
