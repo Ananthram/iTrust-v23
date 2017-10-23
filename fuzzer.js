@@ -145,7 +145,7 @@ function stashandcommitandrevert(iteration){
     //CHECK JENKINS IP//
     //THIS will triger a jenkins build using the git plugin, we set both the specific branch and the commit hash
 		var gitURL = "https://github.com/vchawla3/iTrust-v23.git"
-    proc.execSync('curl "http://192.168.41.10:8080/git/notifyCommit?url=${gitURL}&branches=fuzzer&sha1=' + commitHASH.toString().trim() + '"')
+    proc.execSync('curl "http://192.168.41.10:8080/git/notifyCommit?url=https://github.com/vchawla3/iTrust-v23.git&branches=fuzzer&sha1=' + commitHASH.toString().trim() + '"')
 
     //Now checkout master again, changes were stashed then dropped, so master is clean iTrust repo
     proc.execSync('git checkout master');
