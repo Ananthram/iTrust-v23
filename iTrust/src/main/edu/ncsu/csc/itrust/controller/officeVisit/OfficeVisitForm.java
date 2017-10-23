@@ -313,8 +313,8 @@ public class OfficeVisitForm {
 			patientSmokingStatus = ov.getPatientSmokingStatus();
 
 		} catch (Exception e) {
-			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Office Visit Controller Error",
-					"Office Visit Controller Error");
+			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "MOl2G_hVbPYzTngVsX06zVKNrwIDe",
+					"w36R5MlcwH_6oMhwYk_2fwwrosD4H");
 			FacesContext.getCurrentInstance().addMessage(null, throwMsg);
 		}
 	}

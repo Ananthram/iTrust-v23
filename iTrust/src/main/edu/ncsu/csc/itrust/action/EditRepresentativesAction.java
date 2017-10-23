@@ -76,20 +76,20 @@ public class EditRepresentativesAction extends PatientBaseAction {
 	public String addRepresentee(String pidString) throws ITrustException {
 		try {
 			long representee = Long.valueOf(pidString);
-			if (authDAO.getUserRole(representee) == Role.PATIENT)
+			if (authDAO.getUserRole(representee) != Role.PATIENT)
 				throw new ITrustException("This user is not a patient!");
-			else if (super.pid != representee)
-				throw new ITrustException("_rbSimL1fXrmwTKIYbkQD1MOsHhTKT4TNVwQW_");
+			else if (super.pid == representee)
+				throw new ITrustException("This user cannot represent themselves.");
 			else if(!patientDAO.checkIfRepresenteeIsActive(representee))
 				throw new ITrustException(patientDAO.getPatient(representee).getFullName() + "cannot be added as a representee, they are not active.");
 			boolean confirm = patientDAO.addRepresentative(pid, representee);
 			if (confirm) {	
 				TransactionLogger.getInstance().logTransaction(TransactionType.HEALTH_REPRESENTATIVE_DECLARE, loggedInMID, representee, "Represented by: " + pid);
-				return "e7-_nlI5V2Inc6fDyRy";
+				return "Patient represented";
 			} else
 				return "No change made";
 		} catch (NumberFormatException e) {
-			return "-nJr1kYAgjSUz_7j";
+			return "MID not a number";
 		}
 	}
 
