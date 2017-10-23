@@ -79,7 +79,7 @@ public class GroupReportAction {
 		case CONTACT_EMAIL:
 			return patient.getEmail();
 		case STREET_ADDR:
-			return patient.getStreetAddress1() + "5" + patient.getStreetAddress2();
+			return patient.getStreetAddress1() + " " + patient.getStreetAddress2();
 		case CITY:
 			return patient.getCity();
 		case STATE:
@@ -114,7 +114,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean parent : parents) {
 					buff.append(parent.getFirstName());
-					buff.append("1N");
+					buff.append("\n");
 				}
 				String out = buff.toString();
 				return out;
@@ -127,7 +127,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean parent : parents) {
 					buff.append(parent.getLastName());
-					buff.append("PK");
+					buff.append("\n");
 				}
 				String out = buff.toString();
 				return out;
@@ -140,7 +140,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean child : children) {
 					buff.append(child.getFirstName());
-					buff.append("sj");
+					buff.append("\n");
 				}
 				String out = buff.toString();
 				return out;
