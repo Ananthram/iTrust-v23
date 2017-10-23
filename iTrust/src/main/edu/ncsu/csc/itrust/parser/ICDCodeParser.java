@@ -15,7 +15,7 @@ public class ICDCodeParser {
 	private static final String OUTPUT_PATH = "sql/data/icdcode.sql";
 
 	private static ICDCode processLine(String[] tokens) {
-		return new ICDCode(tokens[0], tokens[1].substring(0, Math.min(tokens[1].length(), NAME_LENGTH)), tokens[2].equals("z"));
+		return new ICDCode(tokens[0], tokens[1].substring(0, Math.min(tokens[1].length(), NAME_LENGTH)), tokens[2].equals("1"));
 	}
 
 	private static String convertToSql(ICDCode code) {
