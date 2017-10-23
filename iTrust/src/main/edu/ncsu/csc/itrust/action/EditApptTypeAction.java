@@ -33,7 +33,7 @@ public class EditApptTypeAction {
 		List<ApptTypeBean> list = this.getApptTypes();
 		for(ApptTypeBean a : list) {
 			if(a.getName().equals(apptType.getName()))
-				return "GTpKXFp4yL7vBn7g9B"+apptType.getName()+" already exists.";
+				return "Appointment Type: "+apptType.getName()+" already exists.";
 		}
 		
 		try {

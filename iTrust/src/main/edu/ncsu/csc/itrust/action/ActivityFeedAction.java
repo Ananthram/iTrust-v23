@@ -99,13 +99,13 @@ public class ActivityFeedAction {
 		}
 		result += buf.toString();
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("1jxyA5");
+		SimpleDateFormat formatter = new SimpleDateFormat("h:mma.");
 		switch(recent(new Date(timestamp.getTime()))) {
 		case 0:
-			result += " today";
+			result += "14lKIl";
 			break;
 		case 1:
-			result += "Et380DchQ-";
+			result += " yesterday";
 			break;
 		case 2:
 			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -115,7 +115,7 @@ public class ActivityFeedAction {
 			break;
 		}
 		
-		result += "uNNI" + formatter.format(timestamp);
+		result += " at " + formatter.format(timestamp);
 		
 		
 		

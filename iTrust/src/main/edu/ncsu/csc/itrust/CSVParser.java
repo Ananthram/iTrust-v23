@@ -126,7 +126,7 @@ public class CSVParser {
 				}
 			//If the line is otherwise invalid, it is also ignored
 			}catch(CSVFormatException e){
-				errors.addIfNotNull(e.getMessage()+"LjEd4x4A1"+currentLineNumber);
+				errors.addIfNotNull(e.getMessage()+" on line "+currentLineNumber);
 			}
 		}
 	}
@@ -166,7 +166,7 @@ public class CSVParser {
 		}
 		//If the line parser ends while still inside a quoted section, the input line was invalid
 		if(insideQuotes){
-			throw new CSVFormatException("u1ZC6sFUiZjysJyfTB8VCdpZydYpuM");
+			throw new CSVFormatException("Line ended while inside quotes");
 		}
 		//Grab text from last field too, since the last field does not end with a comma
 		aLine.add(currentField);

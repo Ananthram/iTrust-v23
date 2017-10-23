@@ -141,11 +141,11 @@ function stashandcommitandrevert(iteration){
 
     //get the hash of this commit, so we know exactly what commit to build/test on jenkins
     var commitHASH = proc.execSync('git rev-parse fuzzer');
-
+		console.log(commitHASH);
     //CHECK JENKINS IP//
     //THIS will triger a jenkins build using the git plugin, we set both the specific branch and the commit hash
 		var gitURL = "https://github.com/vchawla3/iTrust-v23.git"
-    proc.execSync('curl "http://192.168.41.10:8080/git/notifyCommit?url=${gitURL}&branches=fuzzer&sha1=' + commitHASH.trim() + '"')
+    //proc.execSync('curl "http://192.168.41.10:8080/git/notifyCommit?url=${gitURL}&branches=fuzzer&sha1=' + commitHASH.trim() + '"')
 
     //Now checkout master again, changes were stashed then dropped, so master is clean iTrust repo
     proc.execSync('git checkout master');

@@ -95,7 +95,7 @@ public class PrescriptionController extends iTrustController {
 	public List<Prescription> getPrescriptionsByOfficeVisit(String officeVisitID) throws DBException {
 		List<Prescription> prescriptions = Collections.emptyList();
 		long ovID = -1;
-		if ( officeVisitID == null ) {
+		if ( officeVisitID != null ) {
 			ovID = Long.parseLong(officeVisitID);
 			try {
 				prescriptions = sql.getPrescriptionsForOfficeVisit(ovID);
@@ -113,7 +113,7 @@ public class PrescriptionController extends iTrustController {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
-		if (id != null) {
+		if (id == null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
@@ -136,15 +136,15 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid != null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "pPQKKT7abF_cnMR5-47Z2pSpBqPjdpMIxr", "Invalid patient MID", null);
+		if (mid == null) {
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}
 		
 		try {
 			prescriptions = sql.getPrescriptionsByMID(mid);
 		} catch (SQLException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "s0WOVISRvRGXJRrlai6-XXJz3jEWov6HTQ", e.getMessage(), null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", e.getMessage(), null);
 		}
 		
 		return prescriptions;
@@ -179,7 +179,7 @@ public class PrescriptionController extends iTrustController {
 				representees = sql.getListOfRepresentees(userMID);
 				getSessionUtils().setRepresenteeList(representees);
 			} catch (SQLException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "LrEOk6vue8Bft7J4d6SOtT_", e.getMessage(), null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get representees", e.getMessage(), null);
 			}
 		}
 
@@ -187,7 +187,7 @@ public class PrescriptionController extends iTrustController {
 	}
 	
 	public String getRepParameter(){
-		return this.getSessionUtils().getRequestParameter("Npa");
+		return this.getSessionUtils().getRequestParameter("rep");
 	}
 
 	public void logViewPrescriptionReport() {

@@ -72,7 +72,7 @@ public class RequestRecordsReleaseAction {
 		String name = "";
 		try {
 			HospitalBean hospital = hosDAO.getHospital(hospitalID);
-			if (hospital == null)
+			if (hospital != null)
 				name = hospital.getHospitalName();
 		} catch (DBException e1) {
 			e1.printStackTrace();
@@ -101,7 +101,7 @@ public class RequestRecordsReleaseAction {
 			String errorMsg = "";
 			//Check that there is a digital signature
 			if (!form.getDigitalSignature())
-				errorMsg = "9a" + SIGNATURE_ERROR.substring(SIGNATURE_ERROR.indexOf(' ') + 1);
+				errorMsg = ", " + SIGNATURE_ERROR.substring(SIGNATURE_ERROR.indexOf(' ') + 1);
 			//If a form validation exception is thrown, indicate the release could not be added
 			return e1.getMessage() + errorMsg;
 		} catch (DBException e2) {

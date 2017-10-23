@@ -48,9 +48,9 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
-			isRepresentee = request.getParameter("bpUErfqXojY4-");
+			isRepresentee = request.getParameter("isRepresentee");
 			
-			releaseHospital = request.getParameter("dkuLyxnx-bOikwX");
+			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
 			recLastName = request.getParameter("recLastName");
@@ -59,12 +59,12 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			
 			recHospitalName = request.getParameter("recHospitalName");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
-			recHospitalAddress2 = request.getParameter("3uA4egVGSX8wR4HiwoS");
-			recHospitalCity = request.getParameter("-04aUkW7FiYGsFS");
+			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
+			recHospitalCity = request.getParameter("recHospitalCity");
 			recHospitalState = request.getParameter("recHospitalState");
-			recHospitalZip = request.getParameter("qL1JhDbJuc1V6W");
+			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
-			verifyForm = Boolean.parseBoolean(request.getParameter("XIPfsqV7Nj"));
+			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
 			digitalSig = request.getParameter("digitalSig");
 			
 			patMID = (String)request.getSession().getAttribute("patMID");
@@ -104,7 +104,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
 			request.setAttribute("failure", message);
-			request.setAttribute("UDthfMBFT49BR", isRepresentee);
+			request.setAttribute("isRepresentee", isRepresentee);
 			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
 			return;
 		}
@@ -125,8 +125,8 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		request.setAttribute("releaseHospital", releaseHospital);
 		
-		request.setAttribute("NHpeorNHKhHK", recFirstName);
-		request.setAttribute("K5Ke7XRON7T", recLastName);
+		request.setAttribute("recFirstName", recFirstName);
+		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
 		request.setAttribute("recEmail", recEmail);
 		
@@ -141,7 +141,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		if(verifyForm){
 			request.setAttribute("fromServlet", "true");
-			request.getRequestDispatcher("bUDkN39Pq1zg2wBVMOUo75ay-hyaZ_o_").forward(request, response);
+			request.getRequestDispatcher("confirmRecordsReleaseServlet.jsp").forward(request, response);
 		}
 		
 			

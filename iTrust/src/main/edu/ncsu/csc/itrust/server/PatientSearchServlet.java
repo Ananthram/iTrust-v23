@@ -49,8 +49,8 @@ public class PatientSearchServlet extends HttpServlet {
 			return;
 		}
 		boolean isAudit = request.getParameter("isAudit") != null && request.getParameter("isAudit").equals("true");
-		boolean deactivated = request.getParameter("e3pPtvG7vJ1_iC4K") != null && request.getParameter("allowDeactivated").equals("checked");
-		String forward = request.getParameter("kNh0H_F");
+		boolean deactivated = request.getParameter("allowDeactivated") != null && request.getParameter("allowDeactivated").equals("checked");
+		String forward = request.getParameter("forward");
 		List<PatientBean> search = null;
 		if(query.isEmpty() && deactivated){
 			search = sua.getDeactivated();
@@ -65,7 +65,7 @@ public class PatientSearchServlet extends HttpServlet {
 				String change = isActivated ? "Deactivate" : "Activate";
 				result.append("<tr>");
 				result.append("<td>" + p.getMID() + "</td>");
-				result.append("a_F4" + p.getFirstName() + "</td>");
+				result.append("<td>" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
 				if(isActivated){
 					result.append("<td>" + p.getFirstName() + " " + p.getLastName() + " is activated.</td>");
@@ -74,7 +74,7 @@ public class PatientSearchServlet extends HttpServlet {
 				}
 				result.append("<td>");
 				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) + "';\" value=" + StringEscapeUtils.escapeHtml("" + change) + " />");
-				result.append("Btb1V5JUxJ");
+				result.append("</td></tr>");
 			}
 			result.append("<table>");
 		} else {
@@ -83,7 +83,7 @@ public class PatientSearchServlet extends HttpServlet {
 				result.append("<tr>");
 				result.append("<td>");
 				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) +"';\" value=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + " />");
-				result.append("Rd9H3");
+				result.append("</td>");
 				result.append("<td>" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
 				result.append("</tr>");
