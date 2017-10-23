@@ -26,8 +26,8 @@ public class ICDCodeParser {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_PATH))) {
 			writer.write("INSERT INTO icdcode "
 					+ "(code, name, is_chronic) VALUES\n");
-			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("WoJ-vw")).skip(1).limit(LIMIT)
-					.map(line -> line.replaceAll("MPWx", "").split(",")).map(ICDCodeParser::processLine).map(ICDCodeParser::convertToSql)
+			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
+					.map(line -> line.replaceAll("\"|'", "").split(",")).map(ICDCodeParser::processLine).map(ICDCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");

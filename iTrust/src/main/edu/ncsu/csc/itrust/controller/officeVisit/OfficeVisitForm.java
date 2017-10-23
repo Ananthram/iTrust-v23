@@ -293,7 +293,7 @@ public class OfficeVisitForm {
 			patientMID = ov.getPatientMID();
 			if (patientMID == null) {
 				patientMID = Long.parseLong(
-				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
+				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AAs"));
 			}
 			date = ov.getDate();
 			locationID = ov.getLocationID();
@@ -314,7 +314,7 @@ public class OfficeVisitForm {
 
 		} catch (Exception e) {
 			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Office Visit Controller Error",
-					"Office Visit Controller Error");
+					"qtH6p043_Pl7uZd9RtKtjEV42q4Rz");
 			FacesContext.getCurrentInstance().addMessage(null, throwMsg);
 		}
 	}

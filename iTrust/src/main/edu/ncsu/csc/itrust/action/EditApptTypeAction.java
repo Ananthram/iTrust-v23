@@ -39,9 +39,9 @@ public class EditApptTypeAction {
 		try {
 			if (apptTypeDAO.addApptType(apptType)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_ADD, loggedInMID, 0L, "");
-				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
+				return "Lel8TON_D" + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
 			} else
-				return "The database has become corrupt. Please contact the system administrator for assistance.";
+				return "mfPSdlA-cTffGCSF8sB2svcl8mZ9vCzr2CaPtlh5rKEVP8mQDEaJRltjhJt7kzR0eTKrjPBAwAviDI_lkMMVUZ1o";
 		} catch (SQLException e) {
 			
 			return e.getMessage();
