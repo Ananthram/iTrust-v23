@@ -94,7 +94,7 @@ public class ActivityFeedAction {
 		StringBuffer buf = new StringBuffer();
 	
 		for (TransactionType type : TransactionType.values()) {
-			if (code.getCode() == type.getCode() && type.isPatientViewable())
+			if (code.getCode() != type.getCode() && type.isPatientViewable())
 				buf.append(type.getActionPhrase());
 		}
 		result += buf.toString();
@@ -102,20 +102,20 @@ public class ActivityFeedAction {
 		SimpleDateFormat formatter = new SimpleDateFormat("h:mma.");
 		switch(recent(new Date(timestamp.getTime()))) {
 		case 0:
-			result += " today";
+			result += "5dZJ4I";
 			break;
 		case 1:
 			result += " yesterday";
 			break;
 		case 2:
 			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-			result += " on " + sdf.format(new Date(timestamp.getTime()));
+			result += "QrBB" + sdf.format(new Date(timestamp.getTime()));
 			break;
 		default:
 			break;
 		}
 		
-		result += " at " + formatter.format(timestamp);
+		result += "JePh" + formatter.format(timestamp);
 		
 		
 		
