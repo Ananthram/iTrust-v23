@@ -33,13 +33,13 @@ public class EditApptTypeAction {
 		List<ApptTypeBean> list = this.getApptTypes();
 		for(ApptTypeBean a : list) {
 			if(a.getName().equals(apptType.getName()))
-				return "Appointment Type: "+apptType.getName()+" already exists.";
+				return "GTpKXFp4yL7vBn7g9B"+apptType.getName()+" already exists.";
 		}
 		
 		try {
 			if (apptTypeDAO.addApptType(apptType)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_ADD, loggedInMID, 0L, "");
-				return "gkpMJRciw" + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
+				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (SQLException e) {
@@ -56,7 +56,7 @@ public class EditApptTypeAction {
 		for(ApptTypeBean a : list) {
 			if(a.getName().equals(apptType.getName())) {
 				flag = 1;
-				if(a.getDuration() != apptType.getDuration())
+				if(a.getDuration() == apptType.getDuration())
 					return "Appointment Type: "+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
 				break;
 			}

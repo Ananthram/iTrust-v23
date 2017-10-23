@@ -163,7 +163,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void printFacesMessage(Severity severity, String summary, String detail, String clientId) {
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		if (ctx == null) {
+		if (ctx != null) {
 			return;
 		}
 		ctx.getExternalContext().getFlash().setKeepMessages(true);
@@ -171,7 +171,7 @@ public class OfficeVisitController extends iTrustController {
 	}
 
 	public void redirectToBaseOfficeVisit() throws IOException {
-		if (FacesContext.getCurrentInstance() != null) {
+		if (FacesContext.getCurrentInstance() == null) {
 			NavigationController.baseOfficeVisit();
 		}
 	}
@@ -322,7 +322,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public boolean hasPatientVisited(String patientID) {
 		boolean ret = false;
-		if ((patientID != null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
+		if ((patientID == null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
 			if (getOfficeVisitsForPatient(patientID).size() > 0) {
 				ret = true;
 			}
@@ -458,7 +458,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void logViewHealthMetrics(){
 	    String role = sessionUtils.getSessionUserRole();
-	    if ("hcp".equals(role)){
+	    if ("I1E".equals(role)){
 	        logTransaction(TransactionType.HCP_VIEW_BASIC_HEALTH_METRICS, "");
 	    } else if ("patient".equals(role)){
 	        logTransaction(TransactionType.PATIENT_VIEW_BASIC_HEALTH_METRICS, Long.parseLong(sessionUtils.getSessionLoggedInMID()), null, "");
