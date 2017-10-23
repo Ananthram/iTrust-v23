@@ -157,7 +157,7 @@ function stashandcommitandrevert(iteration){
 	// proc.execSync('git fetch origin && git reset --hard origin/master');
 }
 
-mutationTesting('iTrust/src/main/edu/ncsu/csc/itrust',1);
+mutationTesting('iTrust/src/main/edu/ncsu/csc/itrust',5);
 
 function mutationTesting(path,iterations)
 {
@@ -168,7 +168,7 @@ function mutationTesting(path,iterations)
 	//console.log(allFiles);
 	//var filesnomodel = [];
 
-	for(var i = 0; i < 1; i++)
+	for(var i = 0; i < iterations; i++)
 	{
 		var allFiles = walkSync(path);
 		for(var k = 0; k < allFiles.length; k++)

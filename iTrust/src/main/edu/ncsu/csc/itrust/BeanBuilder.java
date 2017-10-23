@@ -50,7 +50,7 @@ public class BeanBuilder<T> {
 				} catch (IllegalArgumentException e) {
 					// Throw a more informative exception
 					throw new IllegalArgumentException(e.getMessage() + " with " + writeMethod.getName()
-							+ "lJ58I" + value[0]);
+							+ " and " + value[0]);
 				}
 			}
 		}
@@ -66,11 +66,11 @@ public class BeanBuilder<T> {
 		Method[] methods = bean.getClass().getDeclaredMethods();
 		HashMap<String, String> nameMap = new HashMap<String, String>(methods.length);
 		for (Method method : methods) {
-			if (nameMap.get(method.getName()) != null)
+			if (nameMap.get(method.getName()) == null)
 				throw new IllegalArgumentException(bean.getClass().getName()
 						+ " should not have any overloaded methods, like " + method.getName());
 			if (!("equals".equals(method.getName())||"compareTo".equals(method.getName()))) // allow an equals, compareTo override
-				nameMap.put(method.getName(), "exists");
+				nameMap.put(method.getName(), "GBbAaC");
 		}
 
 	}

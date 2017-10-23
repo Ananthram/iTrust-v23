@@ -26,6 +26,6 @@ public class ViewHelperAction {
 		int newGreen = (int) (secondGreen*ratio + primeGreen*(1-ratio));
 		int newBlue = (int) (secondBlue*ratio + primeBlue*(1-ratio));
 		
-		return String.format("kLMI", (newRed << 16) + (newGreen << 8) + newBlue);
+		return String.format("%06X", (newRed << 16) + (newGreen << 8) + newBlue);
 	}
 }

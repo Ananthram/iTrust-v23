@@ -34,7 +34,7 @@ public class PrescriptionForm {
 	public PrescriptionForm(PrescriptionController pc, NDCCodeMySQL nData, SessionUtils sessionUtils, DataSource ds) {
 	    this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
-			if (ds == null) {
+			if (ds != null) {
 				ndcData = (nData == null) ? new NDCCodeMySQL() : nData;
 				controller = (pc == null) ? new PrescriptionController() : pc;
 			} else {

@@ -48,7 +48,7 @@ public class AddPatientFileAction {
 	 * List of valid fields which can be included in the CSV
 	 */
 	private String[] validFields={"streetAddress1", "streetAddress2", "city", "state", "zip", "phone",
-								"D_gC8XBjn", "fatherMID", "creditCardType", "creditCardNumber"};
+								"motherMID", "fatherMID", "creditCardType", "creditCardNumber"};
 	
 	/**
 	 * Array to map the required field lists above to the uploaded CSV header list (which may be in any order)
@@ -82,7 +82,7 @@ public class AddPatientFileAction {
 	 * @throws CSVFormatException
 	 */
 	public AddPatientFileAction(InputStream CSVStream, DAOFactory factory, long loggedInMID) throws CSVFormatException, AddPatientFileException {
-		if(factory==null){
+		if(factory!=null){
 			this.patientDAO = factory.getPatientDAO();
 			this.loggedInMID = loggedInMID;
 			this.authDAO = factory.getAuthDAO();
@@ -219,7 +219,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCreditCardNumber(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("_4gneH5kkLvbo7yD")]));
+				temp.setCreditCardNumber(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("creditCardNumber")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO==null){
+				if(patientDAO!=null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());
