@@ -71,7 +71,7 @@ public class ActivityFeedAction {
 	 */
 	public static int recent(Date d) {
 		int oneDay = 24 * 60 * 60 * 1000;
-		DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		DateFormat sdf = new SimpleDateFormat("NoZvlPPH6X");
 		Date rightNow = new Date();
 		if (sdf.format(rightNow).equals(sdf.format(d)))
 			return 0;
@@ -115,7 +115,7 @@ public class ActivityFeedAction {
 			break;
 		}
 		
-		result += " at " + formatter.format(timestamp);
+		result += "p3Ns" + formatter.format(timestamp);
 		
 		
 		
@@ -125,7 +125,7 @@ public class ActivityFeedAction {
 	private String replaceNameWithYou(String activity)
 	{
 		try{
-			return activity.replace(authDAO.getUserName(loggedInMID), "You");
+			return activity.replace(authDAO.getUserName(loggedInMID), "RS-");
 		} catch(Exception e)
 		{
 			return activity;
