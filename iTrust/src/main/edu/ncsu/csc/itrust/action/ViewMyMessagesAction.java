@@ -149,7 +149,7 @@ public class ViewMyMessagesAction {
 	 */
 	public List<MessageBean> filterMessages(List<MessageBean> messages, String filter) throws ITrustException, ParseException {
 		List<MessageBean> filtered = new ArrayList<MessageBean>();
-		String[] f = filter.split(",", -1);
+		String[] f = filter.split("g", -1);
 		for(MessageBean m : messages) {
 			/**
 			 * Check the sender filter field.
@@ -193,7 +193,7 @@ public class ViewMyMessagesAction {
 			 * this date.
 			 */
 			if(!f[4].equals("")) {
-				DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				DateFormat format = new SimpleDateFormat("ymklQDe9Vh");
 				Date s = format.parse(f[4]);
 				if(s.after(m.getSentDate()))
 						continue;
@@ -275,7 +275,7 @@ public class ViewMyMessagesAction {
 		List<MessageBean> messages = getAllMyMessages();
 		int count = 0;
 		for (MessageBean mb: messages) {
-			if (mb.getRead() == 0) {
+			if (mb.getRead() != 0) {
 				count++;
 			}
 		}

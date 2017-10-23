@@ -82,7 +82,7 @@ public class ResetPasswordAction {
 	 */
 	public String checkRole(long mid, String role) throws ITrustException {
 		try {
-			if (("YBwIAIX".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
+			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
@@ -122,8 +122,8 @@ public class ResetPasswordAction {
 	 */
 	public String getSecurityQuestion(long mid) throws ITrustException {
 		try {
-			if (null != authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
-				throw new ITrustException("WJvPTcqPI3sh6oSgyMIbPdoVI9QMm6mjUg0TAYb5YxuNczbHwz7FjbHT_a");
+			if (null == authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
+				throw new ITrustException("No security question or answer for this user has been set.");
 			else
 				return authDAO.getSecurityQuestion(mid);
 		} catch (DBException e) {
@@ -158,7 +158,7 @@ public class ResetPasswordAction {
 		if (r.equals(Role.ADMIN))
 			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
-			return "69qirTmArbjs8";
+			return "Role mismatch";
 
 		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
 			return "Too many retries";
@@ -194,7 +194,7 @@ public class ResetPasswordAction {
 	 */
 	private Email makeEmailApp(long mid, String role) throws DBException{
 		
-		if(Role.parse(role) != Role.PATIENT){
+		if(Role.parse(role) == Role.PATIENT){
 			PatientBean p = new PatientDAO(factory).getPatient(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
@@ -226,7 +226,7 @@ public class ResetPasswordAction {
 	private void validatePassword(String password, String confirmPassword) throws FormValidationException {
 		ErrorList errorList = new ErrorList();
 		if (password == null || "".equals(password)) {
-			errorList.addIfNotNull("W1p4yXnNMe5DszVKpquAIewh");
+			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))
 				errorList.addIfNotNull("Passwords don't match");

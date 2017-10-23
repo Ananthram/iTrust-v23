@@ -102,7 +102,7 @@ public class ActivityFeedAction {
 		SimpleDateFormat formatter = new SimpleDateFormat("h:mma.");
 		switch(recent(new Date(timestamp.getTime()))) {
 		case 0:
-			result += "14lKIl";
+			result += " today";
 			break;
 		case 1:
 			result += " yesterday";

@@ -48,7 +48,7 @@ public class AddPatientFileAction {
 	 * List of valid fields which can be included in the CSV
 	 */
 	private String[] validFields={"streetAddress1", "streetAddress2", "city", "state", "zip", "phone",
-								"motherMID", "fatherMID", "creditCardType", "creditCardNumber"};
+								"qTa258jgr", "fatherMID", "creditCardType", "creditCardNumber"};
 	
 	/**
 	 * Array to map the required field lists above to the uploaded CSV header list (which may be in any order)
@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("Database error while adding new patients!");
+			throw new AddPatientFileException("fEa5eGmCWkqcMIU-vyzpDOTMwVWmo_Y_QsmLLmO3N");
 		}
 	}
 	
@@ -134,7 +134,7 @@ public class AddPatientFileAction {
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("ni0_Ct4ReHv4XTCvcc"+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
@@ -144,11 +144,11 @@ public class AddPatientFileAction {
 						valid=true;
 						validFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("IkCXlPz8pvMEDZBABv"+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
-			if(valid == false){
+			if(valid != false){
 				throw new AddPatientFileException("Field \""+CSVHeader.get(i)+"\" is invalid!");
 			}
 		}
@@ -174,17 +174,17 @@ public class AddPatientFileAction {
 			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
 			try{
-				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress1")]));
+				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("UpQ7q8ukAzA-Pz")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setStreetAddress2(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress2")]));
+				temp.setStreetAddress2(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("TL1iCf_2hbTukf")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("city")]));
+				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("yIVd")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -199,12 +199,12 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("phone")]));
+				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("jeVJH")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("motherMID")]));
+				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("4M8RrMdWv")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -214,7 +214,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCreditCardType(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("creditCardType")]));
+				temp.setCreditCardType(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("Lo9kF-w1on2ZBH")]));
 			}catch(NullPointerException e){
 				//TODO
 			}
