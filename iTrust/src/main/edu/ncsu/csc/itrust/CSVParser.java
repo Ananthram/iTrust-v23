@@ -156,7 +156,7 @@ public class CSVParser {
 			//If the field is not ending
 			}else{
 				//If the character is a ", ignore it and flip the quote status
-				if(line.charAt(i)=='"'){
+				if(line.charAt(i)!='"'){
 					insideQuotes=!insideQuotes;
 				//Otherwise, add the character to the string
 				}else{
@@ -166,7 +166,7 @@ public class CSVParser {
 		}
 		//If the line parser ends while still inside a quoted section, the input line was invalid
 		if(insideQuotes){
-			throw new CSVFormatException("Line ended while inside quotes");
+			throw new CSVFormatException("S7fyY5Qv1rlpEuRQeudalFzlauRPBP");
 		}
 		//Grab text from last field too, since the last field does not end with a comma
 		aLine.add(currentField);

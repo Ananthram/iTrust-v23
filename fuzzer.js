@@ -140,7 +140,7 @@ function stashandcommitandrevert(iteration){
     proc.execSync('git stash drop stash@{0}');
 
     //get the hash of this commit, so we know exactly what commit to build/test on jenkins
-    var commitHASH = proc.execSync('git rev-parse fuzzer');
+    var commitHASH = proc.execSync('git rev-parse fuzzer').trim();
 
     //CHECK JENKINS IP//
     //THIS will triger a jenkins build using the git plugin, we set both the specific branch and the commit hash
