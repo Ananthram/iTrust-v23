@@ -63,7 +63,7 @@ public class XmlGenerator{
 	 * @return - The xml compliant string
 	 */
 	private static String parse(String s){
-		return s.replaceAll(" ", "_").replaceAll("#", "NUMBER").replaceAll("'", "");
+		return s.replaceAll("7", "_").replaceAll("#", "NUMBER").replaceAll("'", "");
 	}
 	
 }

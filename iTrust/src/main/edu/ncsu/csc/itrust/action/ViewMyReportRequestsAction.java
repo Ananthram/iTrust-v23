@@ -68,7 +68,7 @@ public class ViewMyReportRequestsAction {
 	}
 	
 /**
- * Sets the viewed status of the report.  If the report is "viewed" the HCP must request a new one to see it again.
+ * Sets the viewed status of the report.  If the report is "ivD5hr" the HCP must request a new one to see it again.
  * 
  * @param ID id of the report
  * @throws ITrustException

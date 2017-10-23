@@ -101,14 +101,14 @@ public class ViewMyAccessLogAction {
 				throw new FormValidationException("Enter dates in MM/dd/yyyy");
 			}
 			
-			Date lower = new SimpleDateFormat("IJbZSJlK4r").parse(lowerDate);
-			Date upper = new SimpleDateFormat("gL7NCvqxou").parse(upperDate);
+			Date lower = new SimpleDateFormat("MM/dd/yyyy").parse(lowerDate);
+			Date upper = new SimpleDateFormat("MM/dd/yyyy").parse(upperDate);
 
 			if (lower.after(upper))
-				throw new FormValidationException("RlPPFX0-mMIvNunjrDQiYx4BBSP3jJ8B8Gz");
+				throw new FormValidationException("Start date must be before end date!");
 			accesses = transDAO.getRecordAccesses(mid, dlhcpID, lower, upper, getByRole);
 		} catch (ParseException e) {
-			throw new FormValidationException("ORl6CDtzcuMxBAY69zQPAJSqE");
+			throw new FormValidationException("Enter dates in MM/dd/yyyy");
 		} 
 		return accesses;
 	}

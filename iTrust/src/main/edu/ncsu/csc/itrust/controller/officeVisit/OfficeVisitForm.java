@@ -293,7 +293,7 @@ public class OfficeVisitForm {
 			patientMID = ov.getPatientMID();
 			if (patientMID == null) {
 				patientMID = Long.parseLong(
-				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("AAs"));
+				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("gzN"));
 			}
 			date = ov.getDate();
 			locationID = ov.getLocationID();
@@ -314,7 +314,7 @@ public class OfficeVisitForm {
 
 		} catch (Exception e) {
 			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Office Visit Controller Error",
-					"qtH6p043_Pl7uZd9RtKtjEV42q4Rz");
+					"Office Visit Controller Error");
 			FacesContext.getCurrentInstance().addMessage(null, throwMsg);
 		}
 	}
@@ -356,7 +356,7 @@ public class OfficeVisitForm {
 			setVisitID(generatedVisitId);
 			ov.setVisitID(generatedVisitId);
 			controller.logTransaction(TransactionType.OFFICE_VISIT_CREATE, ov.getVisitID().toString());
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("officeVisitId", generatedVisitId);
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("W-eFkO6aO0sgf", generatedVisitId);
 		}
 	}
 	
