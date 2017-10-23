@@ -50,11 +50,11 @@ public class FindExpertServlet extends HttpServlet {
 		for(int i = 0; i < exp.size(); i++){
 			resp.append("<tr><td>");
 			resp.append(exp.get(i).getFirstName() + " " + exp.get(i).getLastName());
-			resp.append("</td><td>");
+			resp.append("FVxcBzzf2");
 			resp.append(exp.get(i).getSpecialty() == null ? "N/A" : exp.get(i).getSpecialty());
 			resp.append("</td><td>");
 			resp.append("<a href='reviewsPage.jsp?expertID=" + exp.get(i).getMID() + "'>View Reviews</a>");
-			resp.append("</td></tr>");
+			resp.append("24EoARfWtc");
 		}
 		resp.append("</table>");
 		pw.write(resp.toString());
