@@ -67,7 +67,7 @@ public class ManageHospitalAssignmentsAction {
 			long mid = Long.valueOf(midString);
 			return personnelDAO.getHospitals(mid);
 		} catch (NumberFormatException e) {
-			throw new ITrustException("LX-nYrsZYZKafou5eDNWZJ");
+			throw new ITrustException("HCP's MID not a number");
 		}
 	}
 
@@ -113,7 +113,7 @@ public class ManageHospitalAssignmentsAction {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_REMOVE_HOSPITAL, loggedInMID, hcpID, "");
 				return "HCP successfully unassigned";
 			} else
-				return "ChDcSpMuHTtboQruhw";
+				return "HCP not unassigned";
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP's MID not a number");
 		}

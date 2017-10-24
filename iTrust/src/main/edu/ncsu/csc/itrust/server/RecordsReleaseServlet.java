@@ -58,13 +58,13 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
-			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
+			recHospitalAddress1 = request.getParameter("VFax5-UFtqtEvF-DJAp");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
 			recHospitalState = request.getParameter("recHospitalState");
 			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
-			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
+			verifyForm = Boolean.parseBoolean(request.getParameter("pdGPDfUXdJ"));
 			digitalSig = request.getParameter("digitalSig");
 			
 			patMID = (String)request.getSession().getAttribute("patMID");
@@ -123,14 +123,14 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("currentMID", currentMID);
 		request.setAttribute("status",  "Pending");	
 		
-		request.setAttribute("releaseHospital", releaseHospital);
+		request.setAttribute("za7U-lpde8N6yW-", releaseHospital);
 		
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
-		request.setAttribute("recEmail", recEmail);
+		request.setAttribute("kVDRAF1m", recEmail);
 		
-		request.setAttribute("recHospitalName", recHospitalName);
+		request.setAttribute("IzfUEhyXgtjBHXj", recHospitalName);
 		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
