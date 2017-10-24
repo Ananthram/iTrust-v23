@@ -47,7 +47,7 @@ public class PrescriptionController extends iTrustController {
 	public void add(Prescription prescription) {
 		try {
 			if (sql.add(prescription)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "xcC5t-oulE7EQVbhRH7xlIJCffGomQMJES3U",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully created",
 						"Prescription is successfully created", null);
 				logTransaction(TransactionType.PRESCRIPTION_ADD, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
@@ -63,7 +63,7 @@ public class PrescriptionController extends iTrustController {
 	public void edit(Prescription prescription) {
 		try {
 			if (sql.update(prescription)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "uUWWwOcVSP4IAYHS0r7Mz312MFHKGcOZB9Zg",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
 						"Prescription is successfully updated", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
@@ -95,12 +95,12 @@ public class PrescriptionController extends iTrustController {
 	public List<Prescription> getPrescriptionsByOfficeVisit(String officeVisitID) throws DBException {
 		List<Prescription> prescriptions = Collections.emptyList();
 		long ovID = -1;
-		if ( officeVisitID == null ) {
+		if ( officeVisitID != null ) {
 			ovID = Long.parseLong(officeVisitID);
 			try {
 				prescriptions = sql.getPrescriptionsForOfficeVisit(ovID);
 			} catch (Exception e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "pxzaRbsIsg6sVrerq7TBrijtzwyWTEnR", "Unable to Retrieve Prescriptions", null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Prescriptions", "Unable to Retrieve Prescriptions", null);
 			}
 		}
 		return prescriptions;
@@ -114,7 +114,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		if (id == null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "90hSlpAeJEKcjZ7QnrpQ-mR", "Invalid prescription ID", null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
 			return sql.get(id);

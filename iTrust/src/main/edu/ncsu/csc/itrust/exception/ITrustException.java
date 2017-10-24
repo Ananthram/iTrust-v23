@@ -23,7 +23,7 @@ public class ITrustException extends Exception {
 	@Override
 	public String getMessage() {
 		if (message == null)
-			return "SIBSctZA89VMEO8RYbGDeVYAt04PFfsWFSak1BTzVvt83Z7vf4";
+			return "An error has occurred. Please see log for details.";
 		return message;
 	}
 

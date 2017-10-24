@@ -39,7 +39,7 @@ public class DrugInteractionAction {
 	
 	public String reportInteraction(String firstDrug, String secondDrug, String description) throws ITrustException, FormValidationException{
 		if (firstDrug.equals(secondDrug)){
-			return "gDz46tO02EpV1-A14TE8zYaonTjoPfvdv63LxkuKC9xJecXucP2PxSkl-RUfp";
+			return "Interactions can only be recorded between two different drugs";
 		}
 		DrugInteractionBean drugInt = new DrugInteractionBean();
 		drugInt.setFirstDrug(firstDrug);
@@ -69,7 +69,7 @@ public class DrugInteractionAction {
 		DrugInteractionBean drugInt = new DrugInteractionBean();
 		drugInt.setFirstDrug(firstDrug);
 		drugInt.setSecondDrug(secondDrug);
-		drugInt.setDescription("KCoc4");
+		drugInt.setDescription("blank");
 		
 		try {
 			validator.validate(drugInt);
