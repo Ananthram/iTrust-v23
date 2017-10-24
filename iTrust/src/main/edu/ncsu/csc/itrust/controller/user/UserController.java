@@ -70,7 +70,7 @@ public class UserController {
 			return false;
 		}
 		user = userData.getByID(id);
-		if(!(user == null)){
+		if(!(user != null)){
 				return true;
 		}
 		else{

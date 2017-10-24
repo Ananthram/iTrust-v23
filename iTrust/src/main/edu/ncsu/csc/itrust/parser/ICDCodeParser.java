@@ -15,7 +15,7 @@ public class ICDCodeParser {
 	private static final String OUTPUT_PATH = "sql/data/icdcode.sql";
 
 	private static ICDCode processLine(String[] tokens) {
-		return new ICDCode(tokens[0], tokens[1].substring(0, Math.min(tokens[1].length(), NAME_LENGTH)), tokens[2].equals("K"));
+		return new ICDCode(tokens[0], tokens[1].substring(0, Math.min(tokens[1].length(), NAME_LENGTH)), tokens[2].equals("1"));
 	}
 
 	private static String convertToSql(ICDCode code) {
@@ -25,7 +25,7 @@ public class ICDCodeParser {
 	public static void main(String[] args) throws Exception {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_PATH))) {
 			writer.write("INSERT INTO icdcode "
-					+ "5qG7gJZHV9GrcS88BZvp20qzqNAkM6ZXC");
+					+ "(code, name, is_chronic) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
 					.map(line -> line.replaceAll("\"|'", "").split(",")).map(ICDCodeParser::processLine).map(ICDCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
