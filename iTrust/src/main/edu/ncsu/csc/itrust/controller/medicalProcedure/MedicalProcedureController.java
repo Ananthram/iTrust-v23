@@ -34,7 +34,7 @@ public class MedicalProcedureController extends iTrustController {
     public void add(MedicalProcedure mp){
         try {
             if (sql.add(mp)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "6tYo6QnBww2MW8Gyvedg9suBfX6LjnGLnL4wtZ",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully created",
                         "Medical Procedure successfully created", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.PROCEDURE_ADD, ovid == null ? null : ovid.toString());
@@ -69,7 +69,7 @@ public class MedicalProcedureController extends iTrustController {
         try {
             if (sql.remove(mpID)) {
                 printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully deleted",
-                        "BeF81nq5fQA6qqTO2AifsQrKXL_rWta6TILX7T", null);
+                        "Medical Procedure successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.PROCEDURE_REMOVE, ovid == null ? null : ovid.toString());
             } else {
@@ -90,7 +90,7 @@ public class MedicalProcedureController extends iTrustController {
             try {
                 medicalProcedures = sql.getMedicalProceduresForOfficeVisit(ovID);
             } catch (Exception e) {
-                printFacesMessage(FacesMessage.SEVERITY_ERROR, "D8xMe8DEMuhybe8-zWy2MaAkCaM86ZDmYAjKq", "Unable to Retrieve Medical Procedures", null);
+                printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Medical Procedures", "Unable to Retrieve Medical Procedures", null);
             }
         }
         return medicalProcedures;

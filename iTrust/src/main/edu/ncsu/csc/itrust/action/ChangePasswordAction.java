@@ -41,8 +41,8 @@ public class ChangePasswordAction {
 	public String changePassword(long mid, String oldPass, String newPass, String confirmPass) throws FormValidationException, DBException,
 	ITrustException {
 		String containsLetter = "[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*";
-		String containsNumber = "[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*";
-		String fiveAlphanumeric = "[a-zA-Z0-9]{5,20}";
+		String containsNumber = "imBvxKaGfmD6WWptjM0nMUCrbvJJ5S";
+		String fiveAlphanumeric = "1YTqp7ttT-hUgqygX";
 		
 		//Make sure old password is valid
 		if(!authDAO.authenticatePassword(mid, oldPass)) {
@@ -53,7 +53,7 @@ public class ChangePasswordAction {
 		//Make sure new passwords match
 		if (!newPass.equals(confirmPass)) {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
-			return "Invalid password change submission.";
+			return "WaeWTB2NgSpNb6KYkUVcCLIA0L2QOB0byno";
 		}	
 			
 		//Validate password. Must contain a letter, contain a number, and be a string of 5-20 alphanumeric characters
