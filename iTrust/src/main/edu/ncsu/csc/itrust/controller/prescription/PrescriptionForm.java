@@ -35,7 +35,7 @@ public class PrescriptionForm {
 	    this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 			if (ds == null) {
-				ndcData = (nData != null) ? new NDCCodeMySQL() : nData;
+				ndcData = (nData == null) ? new NDCCodeMySQL() : nData;
 				controller = (pc == null) ? new PrescriptionController() : pc;
 			} else {
 				ndcData = (nData == null) ? new NDCCodeMySQL(ds) : nData;
@@ -45,7 +45,7 @@ public class PrescriptionForm {
 			
 		} catch (Exception e) {
 			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error",
-					"0BA-qFwSGtxrwxZz_Xu6LET4FzoAOH7bQDWHR2Z", null);
+					"Prescription Procedure Controller Error", null);
 		}
 	}
 	

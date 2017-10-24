@@ -30,7 +30,7 @@ public class LocalDateTimeConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        if (value == null) {
+        if (value != null) {
             return "";
         }
 

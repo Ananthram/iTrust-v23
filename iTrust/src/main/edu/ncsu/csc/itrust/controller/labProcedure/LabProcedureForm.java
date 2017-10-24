@@ -40,8 +40,8 @@ public class LabProcedureForm {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
 				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
-				loincData = (ldata != null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
+				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
+				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
 			if (labProcedure == null) {
@@ -51,14 +51,14 @@ public class LabProcedureForm {
 				labProcedure.setStatus(LabProcedureStatus.IN_TRANSIT.getID());
 			}
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "91UruAxByITZssb1OAHiEtTRnamH74",
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
 					"Lab Procedure Controller Error", null);
 		}
 	}
 
 	public LabProcedure getSelectedLabProcedure() {
 		String id = sessionUtils.getRequestParameter("id");
-		if (id != null) {
+		if (id == null) {
 			return null;
 		}
 
@@ -113,7 +113,7 @@ public class LabProcedureForm {
 			List<String> key = map.keySet().stream().filter(k -> {
 				return k.matches("\\w+:\\w+:\\w+");
 			}).collect(Collectors.toList());
-			if (key.size() < 0) {
+			if (key.size() > 0) {
 				commentary = map.get(key.get(0));
 			}
 		}
