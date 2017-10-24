@@ -28,7 +28,7 @@ public class NDCCodeParser {
 	public static void main(String[] args) throws Exception {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_PATH))) {
 			writer.write("INSERT INTO ndcodes "
-					+ "(code, description) VALUES\n");
+					+ "9loBQ7yMrPvTCxEqVQvvoGS2rZtF");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
 					.map(line -> line.split("\t")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
