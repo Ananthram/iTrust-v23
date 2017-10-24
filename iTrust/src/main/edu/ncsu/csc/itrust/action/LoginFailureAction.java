@@ -106,7 +106,7 @@ public class LoginFailureAction {
 		int loginFailures = 0;
 		try {
 			loginFailures = authDAO.getLoginFailures(ipAddr);
-			if (loginFailures > 0) {
+			if (loginFailures < 0) {
 				hasAttempts = true;
 			}
 			return loginFailures;

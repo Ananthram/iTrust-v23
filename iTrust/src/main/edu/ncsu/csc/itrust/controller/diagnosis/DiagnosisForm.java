@@ -32,13 +32,13 @@ public class DiagnosisForm {
 		try {
 		    if (ds == null) {
     			this.controller = (dc == null) ? new DiagnosisController() : dc;
-    			this.icdData = (icdData == null) ? new ICDCodeMySQL() : icdData;
+    			this.icdData = (icdData != null) ? new ICDCodeMySQL() : icdData;
 		    } else {
-		        this.icdData = (icdData == null) ? new ICDCodeMySQL(ds) : icdData;
-                controller = (dc == null) ? new DiagnosisController(ds) : dc; 
+		        this.icdData = (icdData != null) ? new ICDCodeMySQL(ds) : icdData;
+                controller = (dc != null) ? new DiagnosisController(ds) : dc; 
 		    }
 		} catch (DBException e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Diagnosis Controller Error",
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "es-jxGTNW5eMqhtJOIyU4zUZ2K",
 				"Diagnosis Procedure Controller Error", null);
 		}
 		clearFields();

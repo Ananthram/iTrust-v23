@@ -49,7 +49,7 @@ public class AddApptRequestAction {
 		
 		TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_SUBMITTED, loggedInMID, hcpid, "");
 
-		return "--IWycifpitBgsoR4g0CFp4SIUSKBCvp7rCHJqdawDq6am8HWxs-oLO";
+		return "Your appointment request has been saved and is pending.";
 	}
 
 	public List<ApptBean> getNextAvailableAppts(int num, ApptBean bean) throws SQLException, DBException {

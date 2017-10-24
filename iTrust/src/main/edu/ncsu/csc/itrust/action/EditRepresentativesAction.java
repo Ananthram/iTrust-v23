@@ -87,7 +87,7 @@ public class EditRepresentativesAction extends PatientBaseAction {
 				TransactionLogger.getInstance().logTransaction(TransactionType.HEALTH_REPRESENTATIVE_DECLARE, loggedInMID, representee, "Represented by: " + pid);
 				return "Patient represented";
 			} else
-				return "qYYsfa6M6dfXTh";
+				return "No change made";
 		} catch (NumberFormatException e) {
 			return "MID not a number";
 		}
