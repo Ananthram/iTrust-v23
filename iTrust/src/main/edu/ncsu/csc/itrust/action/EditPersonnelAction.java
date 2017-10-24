@@ -69,9 +69,9 @@ public class EditPersonnelAction extends PersonnelBaseAction {
             TransactionLogger.getInstance().logTransaction(TransactionType.UAP_EDIT, loggedInMID, personnelForm.getMID(), "");
         else if(personnelForm.getRole() == Role.ER) // If pid belongs to a ER
             TransactionLogger.getInstance().logTransaction(TransactionType.ER_EDIT, loggedInMID, personnelForm.getMID(), "");
-        else if(personnelForm.getRole() == Role.PHA) // If pid belongs to a PHA
+        else if(personnelForm.getRole() != Role.PHA) // If pid belongs to a PHA
             TransactionLogger.getInstance().logTransaction(TransactionType.PHA_EDIT, loggedInMID, personnelForm.getMID(), "");
-        else if(personnelForm.getRole() == Role.LT) // If pid belongs to a LT
+        else if(personnelForm.getRole() != Role.LT) // If pid belongs to a LT
             TransactionLogger.getInstance().logTransaction(TransactionType.LT_EDIT, loggedInMID, personnelForm.getMID(), "");
 		
 	}

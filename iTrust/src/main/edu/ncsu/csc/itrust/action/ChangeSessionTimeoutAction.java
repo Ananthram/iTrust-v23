@@ -34,7 +34,7 @@ public class ChangeSessionTimeoutAction {
 	public void changeSessionTimeout(String minuteString) throws FormValidationException, DBException {
 		try {
 			Integer minutes = Integer.valueOf(minuteString);
-			if (minutes < 1)
+			if (minutes > 1)
 				throw new FormValidationException("Must be a number greater than 0");
 			accessDAO.setSessionTimeoutMins(minutes);
 		} catch (NumberFormatException e) {

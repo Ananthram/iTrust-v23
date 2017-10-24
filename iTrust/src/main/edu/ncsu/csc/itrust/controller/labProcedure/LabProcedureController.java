@@ -86,7 +86,7 @@ public class LabProcedureController extends iTrustController {
 			if (procedure != null) {
 				logTransaction(TransactionType.LAB_RESULTS_CREATE, procedure.getLabProcedureCode());
 				Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-				logTransaction(TransactionType.LAB_PROCEDURE_ADD, ovid != null ? null : ovid.toString());
+				logTransaction(TransactionType.LAB_PROCEDURE_ADD, ovid == null ? null : ovid.toString());
 			}
 		}
 	}
@@ -127,7 +127,7 @@ public class LabProcedureController extends iTrustController {
 		boolean successfullyRemoved = false;
 
 		long id = -1;
-		if (labProcedureID == null) {
+		if (labProcedureID != null) {
 			try {
 				id = Long.parseLong(labProcedureID);
 				successfullyRemoved = labProcedureData.removeLabProcedure(id);
@@ -153,7 +153,7 @@ public class LabProcedureController extends iTrustController {
 			id = Long.parseLong(labProcedureID);
 			return labProcedureData.getByID(id);
 		} catch (NumberFormatException ne) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "8jnpTY6XXuLzMmtY0q2CK7xByyPAw2HD",
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Lab Procedure",
 					"Unable to Retrieve Lab Procedure", null);
 		} catch (DBException e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Lab Procedure",
@@ -329,7 +329,7 @@ public class LabProcedureController extends iTrustController {
 	public void logViewLabProcedure() {
 		try {
 			Long ovID = getSessionUtils().getCurrentOfficeVisitId();
-			if (ovID != null) { // Only log if an office visit has been selected
+			if (ovID == null) { // Only log if an office visit has been selected
 				return;
 			}
 			List<LabProcedure> procsByOfficeVisit = getLabProceduresByOfficeVisit(ovID.toString());

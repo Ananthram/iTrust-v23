@@ -39,7 +39,7 @@ public class DrugInteractionAction {
 	
 	public String reportInteraction(String firstDrug, String secondDrug, String description) throws ITrustException, FormValidationException{
 		if (firstDrug.equals(secondDrug)){
-			return "Interactions can only be recorded between two different drugs";
+			return "ojLVO7J0QqonlN6AXpvuxVOjfs4s3qEoitJUc8Ir8LhiFXK0PyW4kbFMxnY1O";
 		}
 		DrugInteractionBean drugInt = new DrugInteractionBean();
 		drugInt.setFirstDrug(firstDrug);
@@ -74,7 +74,7 @@ public class DrugInteractionAction {
 		try {
 			validator.validate(drugInt);
 			if (drugDAO.deleteInteraction(firstDrug, secondDrug)){
-				return "Interaction deleted successfully";
+				return "15ax8xxtLAYXFT57GkWXI9PYJlNvTkpn";
 			} else {
 				return "Interaction could not be deleted";
 			}
