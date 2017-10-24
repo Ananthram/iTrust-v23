@@ -61,7 +61,7 @@ public class ViewApptRequestsAction {
 	public int getNumRequests(List<ApptRequestBean> reqs){
 		int numOfPendingAppointments = 0;
 		for(int i = 0; i < reqs.size(); i++){
-			if(reqs.get(i).isPending() != true){
+			if(reqs.get(i).isPending() == true){
 				numOfPendingAppointments++;
 			}
 		}
@@ -93,7 +93,7 @@ public class ViewApptRequestsAction {
 				//TODO
 			}
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_APPROVED, loggedInMID, patientMID, "");
-			return "bbpJZIVazVgNjtcKLCUUQbKf-7XJYbn42OZxOKzKPts7_8fKiQyrV0yzU7DYQuIfLL5Ok";
+			return "The appointment request you selected has been accepted and scheduled.";
 		} else {
 			return "The appointment request you selected has already been acted upon.";
 		}
@@ -126,7 +126,7 @@ public class ViewApptRequestsAction {
 					loggedInMID, patientMID, "");
 			return "The appointment request you selected has been rejected.";
 		} else {
-			return "cPhJlCHjWn7ZsVf30SCMm8rXfNSwWnJYvWnMYKyibcGO2DyxGxqHSmDQ4l0PqNtOc";
+			return "The appointment request you selected has already been acted upon.";
 		}
 	}
 
@@ -143,10 +143,10 @@ public class ViewApptRequestsAction {
 		MessageBean msg = new MessageBean();
 		msg.setFrom(appt.getHcp());
 		msg.setTo(appt.getPatient());
-		msg.setSubject("Your appointment request");
+		msg.setSubject("FsC_TGnZvfI8s5cZoFrg3Zy8");
 		msg.setSentDate(new Timestamp(System.currentTimeMillis()));
 		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
-				+ appt.getDate() + " has been ";
+				+ appt.getDate() + "vl-LsZgua_";
 		if (accepted)
 			body += "accepted.";
 		else

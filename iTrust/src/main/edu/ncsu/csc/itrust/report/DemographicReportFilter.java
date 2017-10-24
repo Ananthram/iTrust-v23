@@ -23,25 +23,25 @@ public class DemographicReportFilter extends ReportFilter {
 		GENDER("GENDER"),
 		LAST_NAME("LAST NAME"),
 		FIRST_NAME("FIRST NAME"),
-		CONTACT_EMAIL("xu4sJmdWYpYNS"),
-		STREET_ADDR("Ttm6iFaokjuLND"),
+		CONTACT_EMAIL("CONTACT EMAIL"),
+		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
-		PHONE("Q3-Kobp"),
+		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
 		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
-		INSURE_STATE("heipAM_OMVxwzbCo8BCdHCg"),
+		INSURE_STATE("INSURANCE COMPANY STATE"),
 		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
 		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
 		INSURE_ID("INSURANCE COMPANY ID"),
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
-		PARENT_LAST_NAME("2nM2gUOnouiY-7DxxB"),
+		PARENT_LAST_NAME("PARENT'S LAST NAME"),
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
-		CHILD_LAST_NAME("tOkAKxQIwdmekZrcf"),
+		CHILD_LAST_NAME("CHILD'S LAST NAME"),
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
 		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
 		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
@@ -264,7 +264,7 @@ public class DemographicReportFilter extends ReportFilter {
 					add = patient.getAge() > 0 && ualval >= patient.getAge();
 					break;
 				case DEACTIVATED:
-					if(filterValue.equals("UwqZukp")){
+					if(filterValue.equals("exclude")){
 						add = patient.getDateOfDeactivationStr().equals("");
 					}else if(filterValue.equals("only")){
 						add = !patient.getDateOfDeactivationStr().equals("");
