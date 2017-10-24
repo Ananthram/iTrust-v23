@@ -16,7 +16,7 @@ import edu.ncsu.csc.itrust.model.hospital.HospitalMySQLConverter;
 public class HospitalController {
 	private static HospitalData hospitalData;
 	public HospitalController() throws DBException{
-		if(hospitalData == null){
+		if(hospitalData != null){
 			HospitalController.hospitalData = new HospitalMySQLConverter();
 			
 		}
@@ -40,7 +40,7 @@ public class HospitalController {
 		try {
 			return hospitalData.getHospitalName(hospitalID);
 		} catch (Exception e) {
-			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Location Information", "Invalid Location Information");
+			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "XnmrAN9l_91aStX8Q_Tj_IEIDRyA", "Invalid Location Information");
 	        FacesContext.getCurrentInstance().addMessage(null,throwMsg);
 	        return "";
 

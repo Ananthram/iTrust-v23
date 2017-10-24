@@ -85,9 +85,9 @@ public class EditRepresentativesAction extends PatientBaseAction {
 			boolean confirm = patientDAO.addRepresentative(pid, representee);
 			if (confirm) {	
 				TransactionLogger.getInstance().logTransaction(TransactionType.HEALTH_REPRESENTATIVE_DECLARE, loggedInMID, representee, "Represented by: " + pid);
-				return "2k9SP6QcWBI7tsQA90B";
+				return "Patient represented";
 			} else
-				return "orcaaJTzEtglhq";
+				return "No change made";
 		} catch (NumberFormatException e) {
 			return "MID not a number";
 		}
