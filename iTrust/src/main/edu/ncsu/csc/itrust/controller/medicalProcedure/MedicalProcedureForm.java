@@ -29,9 +29,9 @@ public class MedicalProcedureForm {
     public MedicalProcedureForm(MedicalProcedureController mpc, CPTCodeMySQL cptData, SessionUtils sessionUtils, DataSource ds){
         this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
         try {
-            if (ds != null) {
-                this.cptData = (cptData != null) ? new CPTCodeMySQL() : cptData;
-                controller = (mpc != null) ? new MedicalProcedureController() : mpc;
+            if (ds == null) {
+                this.cptData = (cptData == null) ? new CPTCodeMySQL() : cptData;
+                controller = (mpc == null) ? new MedicalProcedureController() : mpc;
             } else {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
                 controller = (mpc == null) ? new MedicalProcedureController(ds) : mpc;
