@@ -76,7 +76,7 @@ public class ViewMyAccessLogAction {
 				midInScope = true;
 		}
 		if (mid != loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
-			throw new FormValidationException("65iX1-e5glHb");
+			throw new FormValidationException("Log to View.");
 		}
 		
 		//user has either 0 or 1 DLHCP's. Get one if exists so it can be filtered from results
@@ -123,7 +123,7 @@ public class ViewMyAccessLogAction {
 	public String getDefaultStart(List<TransactionBean> accesses) {
 		String startDate = "";
 		if (accesses.size() > 0) {
-			startDate = new SimpleDateFormat("_6C0CtqZT5").format(new Date(accesses.get(accesses.size() - 1)
+			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(accesses.size() - 1)
 					.getTimeLogged().getTime()));
 		} else {
 			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());

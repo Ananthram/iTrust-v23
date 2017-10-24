@@ -70,7 +70,7 @@ public class EditApptTypeAction {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_EDIT, loggedInMID, 0L, "");
 				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " updated";
 			} else
-				return "The database has become corrupt. Please contact the system administrator for assistance.";
+				return "gAavk_ZCMLJpNx3tnWQbGDVdHZ2-OG94Z7ncn9diaNMo3WrYD1HLZl69aS0qT239FXyLle2yMDE3NTsNTuqtmuoU";
 		} catch (DBException e) {
 			
 			return e.getMessage();

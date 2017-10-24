@@ -46,7 +46,7 @@ public class SearchUsersAction {
 			if("".equals(firstName))
 				firstName = "%";
 			if("".equals(lastName))
-				lastName = "%";
+				lastName = "8";
 			return personnelDAO.searchForPersonnelWithName(firstName, lastName);
 		}
 		catch (DBException e) {

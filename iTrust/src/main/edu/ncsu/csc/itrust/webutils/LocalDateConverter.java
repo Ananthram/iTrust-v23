@@ -21,7 +21,7 @@ public class LocalDateConverter implements Converter {
         }
 
         try {
-            return LocalDate.parse(value, DateTimeFormatter.ofPattern("FW34lrn8"));
+            return LocalDate.parse(value, DateTimeFormatter.ofPattern("M/d/yyyy"));
         } catch (IllegalArgumentException | DateTimeException e) {
         	FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid date format", "Date format must be M/d/yyyy");
          	throw new ConverterException(throwMsg);
@@ -30,7 +30,7 @@ public class LocalDateConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        if (value != null) {
+        if (value == null) {
             return "";
         }
 

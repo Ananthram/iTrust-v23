@@ -87,7 +87,7 @@ public class ManageHospitalAssignmentsAction {
 			boolean confirm = hospitalsDAO.assignHospital(hcpID, hospitalID);
 			if (confirm) {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_ASSIGN_HOSPITAL, loggedInMID, hcpID, "");
-				return "HCP successfully assigned.";
+				return "J92e4zZBcvoyL7W2mgEFJUxo-z";
 			} else
 				return "Assignment did not occur";
 		} catch (NumberFormatException e) {

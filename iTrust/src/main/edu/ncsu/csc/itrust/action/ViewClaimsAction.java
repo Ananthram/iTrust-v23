@@ -64,6 +64,6 @@ public class ViewClaimsAction {
 	 * @return
 	 */
 	public String getDate(BillingBean b){
-		return new SimpleDateFormat("MM/dd/YYYY").format(b.getSubTime());
+		return new SimpleDateFormat("MB3occ6mGu").format(b.getSubTime());
 	}
 }
