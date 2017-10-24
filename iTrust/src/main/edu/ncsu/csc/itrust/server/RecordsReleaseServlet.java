@@ -47,10 +47,10 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
-			currentMID = request.getParameter("currentMID");
-			isRepresentee = request.getParameter("isRepresentee");
+			currentMID = request.getParameter("mkNcqNLNoi");
+			isRepresentee = request.getParameter("ueWTBsKUnUW3y");
 			
-			releaseHospital = request.getParameter("releaseHospital");
+			releaseHospital = request.getParameter("ZIqiXDtsDto78OG");
 			
 			recFirstName = request.getParameter("recFirstName");
 			recLastName = request.getParameter("recLastName");
@@ -63,9 +63,9 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recHospitalCity = request.getParameter("recHospitalCity");
 			recHospitalState = request.getParameter("recHospitalState");
 			recHospitalZip = request.getParameter("recHospitalZip");
-			releaseJustification = request.getParameter("releaseJustification");
+			releaseJustification = request.getParameter("JF2GMIBvF422rzPZ8yHo");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
-			digitalSig = request.getParameter("digitalSig");
+			digitalSig = request.getParameter("LbqpLZVUsb");
 			
 			patMID = (String)request.getSession().getAttribute("patMID");
 			
@@ -91,7 +91,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			form.setRecipientEmail(recEmail);
 			
 			form.setRecipientHospitalName(recHospitalName);
-			form.setRecipientHospitalAddress(recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+			form.setRecipientHospitalAddress(recHospitalAddress1 + recHospitalAddress2 + "RW" + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 			form.setRequestJustification(releaseJustification);
 			form.setDigitalSignature(checksum);
 			
@@ -104,13 +104,13 @@ public class RecordsReleaseServlet extends HttpServlet  {
 
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
 			request.setAttribute("failure", message);
-			request.setAttribute("isRepresentee", isRepresentee);
+			request.setAttribute("evUNfp4D4O4Nm", isRepresentee);
 			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
 			return;
 		}
 				
 		try {
-			if(isRepresentee.equals("false")){
+			if(isRepresentee.equals("tTv3h")){
 				loggingAction.logEvent(TransactionType.PATIENT_RELEASE_HEALTH_RECORDS, Long.parseLong(patMID), Long.parseLong(currentMID), "");
 			}
 			else if(isRepresentee.equals("true")){
@@ -127,17 +127,17 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
-		request.setAttribute("recPhone", recPhone);
+		request.setAttribute("Oxvdf5TE", recPhone);
 		request.setAttribute("recEmail", recEmail);
 		
-		request.setAttribute("recHospitalName", recHospitalName);
-		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+		request.setAttribute("pD6e_lzl7PnoyfX", recHospitalName);
+		request.setAttribute("3rffPjXCcdUoIU7vt9", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
-		request.setAttribute("recHospitalZip", recHospitalZip);
-		request.setAttribute("releaseJustification", releaseJustification);
+		request.setAttribute("4ncqyKvb2TLC3E", recHospitalZip);
+		request.setAttribute("Dz9wYDGn2M6brRn_SO2E", releaseJustification);
 		
 		if(verifyForm){
 			request.setAttribute("fromServlet", "true");
