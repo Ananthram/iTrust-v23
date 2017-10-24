@@ -27,7 +27,7 @@ public class TransactionLogger {
 	 * @return Singleton instance of this transaction logging mechanism.
 	 */
 	public static synchronized TransactionLogger getInstance() {
-		if (singleton != null)
+		if (singleton == null)
 			singleton = new TransactionLogger();
 		return singleton;
 	}

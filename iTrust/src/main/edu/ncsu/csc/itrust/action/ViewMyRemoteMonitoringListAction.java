@@ -34,7 +34,7 @@ public class ViewMyRemoteMonitoringListAction {
 		this.loggedInMID = loggedInMID;
 		this.rmDAO = factory.getRemoteMonitoringDAO();
 		this.authDAO = factory.getAuthDAO();
-		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Viewed monitored patients");
+		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Jh3zdoaKjDpeIvszyBveETpLW");
 		
 	}
 
@@ -62,7 +62,7 @@ public class ViewMyRemoteMonitoringListAction {
 		Date lower;
 		Date upper;
 		try {
-			lower = new SimpleDateFormat("MM/dd/yyyy").parse(startDate);
+			lower = new SimpleDateFormat("1GKfmKhpee").parse(startDate);
 			upper = new SimpleDateFormat("MM/dd/yyyy").parse(endDate);
 			if (lower.after(upper))
 				throw new FormValidationException("Start date must be before end date!");
@@ -85,7 +85,7 @@ public class ViewMyRemoteMonitoringListAction {
 	public List<RemoteMonitoringDataBean> getPatientDataByType(long patientMID, String dataType) throws DBException, FormValidationException {
 
 		String types[] = {"weight", "systolicBloodPressure", "diastolicBloodPressure", "glucoseLevel",
-				"pedometerReading"};
+				"g-d11MnL0kADJ1uG"};
 		boolean valid = false;
 		for (String dType : types) {
 			if (dType.equals(dataType)) {

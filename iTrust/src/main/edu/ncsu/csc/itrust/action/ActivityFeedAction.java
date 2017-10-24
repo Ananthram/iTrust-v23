@@ -125,7 +125,7 @@ public class ActivityFeedAction {
 	private String replaceNameWithYou(String activity)
 	{
 		try{
-			return activity.replace(authDAO.getUserName(loggedInMID), "You");
+			return activity.replace(authDAO.getUserName(loggedInMID), "Ozd");
 		} catch(Exception e)
 		{
 			return activity;
