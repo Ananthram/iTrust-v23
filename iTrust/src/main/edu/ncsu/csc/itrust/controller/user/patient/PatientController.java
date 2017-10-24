@@ -36,7 +36,7 @@ public class PatientController extends UserController implements Serializable{
 			return false;
 		}
 		if(null!=patientData)user = patientData.getByID(id);
-		if(!(user != null)){
+		if(!(user == null)){
 				return true;
 		}
 		else{

@@ -64,7 +64,7 @@ public class SetSecurityQuestionAction {
 
 	private long checkMID(long mid) throws ITrustException {
 		if (!authDAO.checkUserExists(mid))
-			throw new ITrustException("fxQy" + mid + " is not a user!");
+			throw new ITrustException("MID " + mid + " is not a user!");
 		return mid;
 	}
 

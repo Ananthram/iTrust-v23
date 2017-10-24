@@ -51,7 +51,7 @@ public class ManageHospitalAssignmentsAction {
 
 			return allHospitals;
 		} catch (NumberFormatException e) {
-			throw new ITrustException("Fdjb8GkTZ8koVbPYcVCg7H");
+			throw new ITrustException("HCP's MID not a number");
 		}
 	}
 
@@ -134,7 +134,7 @@ public class ManageHospitalAssignmentsAction {
 
 			return numAssignments;
 		} catch (NumberFormatException e) {
-			throw new ITrustException("dKBtrBKXXzlkgpjJd70CfS");
+			throw new ITrustException("HCP's MID not a number");
 		}
 	}
 

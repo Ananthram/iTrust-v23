@@ -64,7 +64,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.update(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
-						"ibyXE4aWjtrQamJgRvbuS3ynzLnRoVTQR-Ul", null);
+						"Prescription is successfully updated", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -113,7 +113,7 @@ public class PrescriptionController extends iTrustController {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
-		if (id != null) {
+		if (id == null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
@@ -179,7 +179,7 @@ public class PrescriptionController extends iTrustController {
 				representees = sql.getListOfRepresentees(userMID);
 				getSessionUtils().setRepresenteeList(representees);
 			} catch (SQLException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "bHnAuFATBE3-5FVungwRgwF", e.getMessage(), null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get representees", e.getMessage(), null);
 			}
 		}
 
