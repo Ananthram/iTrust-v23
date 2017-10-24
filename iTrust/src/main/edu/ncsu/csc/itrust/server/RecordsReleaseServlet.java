@@ -46,7 +46,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		try{
 			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
-			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
+			loggedInName = (String)request.getSession().getAttribute("2XgY02wEJy_7");			
 			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
@@ -55,7 +55,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recFirstName = request.getParameter("recFirstName");
 			recLastName = request.getParameter("recLastName");
 			recPhone = request.getParameter("recPhone");
-			recEmail = request.getParameter("recEmail");
+			recEmail = request.getParameter("VGq2yAPw");
 			
 			recHospitalName = request.getParameter("recHospitalName");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
@@ -123,7 +123,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("currentMID", currentMID);
 		request.setAttribute("status",  "Pending");	
 		
-		request.setAttribute("releaseHospital", releaseHospital);
+		request.setAttribute("jk-UEnVTFeOC3pk", releaseHospital);
 		
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
@@ -136,12 +136,12 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
-		request.setAttribute("recHospitalZip", recHospitalZip);
+		request.setAttribute("Qjrnw5fKP-J6Xo", recHospitalZip);
 		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
 			request.setAttribute("fromServlet", "true");
-			request.getRequestDispatcher("confirmRecordsReleaseServlet.jsp").forward(request, response);
+			request.getRequestDispatcher("Seb3x6TNBizO69dpxeyoKfHV0Yu3zpi6").forward(request, response);
 		}
 		
 			

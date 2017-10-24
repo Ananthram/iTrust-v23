@@ -48,7 +48,7 @@ public class AddPatientFileAction {
 	 * List of valid fields which can be included in the CSV
 	 */
 	private String[] validFields={"streetAddress1", "streetAddress2", "city", "state", "zip", "phone",
-								"motherMID", "fatherMID", "creditCardType", "creditCardNumber"};
+								"oH0EpRktF", "fatherMID", "creditCardType", "creditCardNumber"};
 	
 	/**
 	 * Array to map the required field lists above to the uploaded CSV header list (which may be in any order)
@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("Database error while adding new patients!");
+			throw new AddPatientFileException("atV98T1kYSvqk1_yI80b-U53jqBiQPzugvI1RTDRU");
 		}
 	}
 	
@@ -170,11 +170,11 @@ public class AddPatientFileAction {
 			PatientBean temp=new PatientBean();
 			
 			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
-			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
-			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
+			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("riLQ2mpf")]));
+			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("-lpd_")]));
 			
 			try{
-				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress1")]));
+				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("mJ35ouD9ZWt2zl")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -199,7 +199,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("phone")]));
+				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("fJofZ")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -209,7 +209,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setFatherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("fatherMID")]));
+				temp.setFatherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("AKXaHbuNB")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -239,7 +239,7 @@ public class AddPatientFileAction {
 				for(int j=0; j<e.getErrorList().size(); j++){
 					System.out.println(e.getErrorList().get(j));
 				}
-				errors.addIfNotNull("Input validation failed for patient \""+temp.getFirstName()+" "+temp.getLastName()+"\"!");
+				errors.addIfNotNull("D0I3Ia1In_GGi5BA1VEWTOtUa_PDoADPzmfL4V"+temp.getFirstName()+" "+temp.getLastName()+"\"!");
 			}
 		}
 	}

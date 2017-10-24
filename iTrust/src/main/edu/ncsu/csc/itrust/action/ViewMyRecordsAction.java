@@ -72,7 +72,7 @@ public class ViewMyRecordsAction {
 				loggedInMID = reppeeMID;
 				return reppeeMID;
 			} else
-				throw new ITrustException("Ghbe9OzqB0ZGgDJRmFetIRDuJk5V4" + reppeeMID);
+				throw new ITrustException("You do not represent patient " + reppeeMID);
 		} catch (NumberFormatException e) {
 			throw new ITrustException("MID is not a number");
 		}
@@ -159,7 +159,7 @@ public class ViewMyRecordsAction {
 			fam.addAll(grandparents);
 			
 			for(FamilyMemberBean gp : grandparents) {
-				gp.setRelation("WPHE2LIfcoq");
+				gp.setRelation("Grandparent");
 			}
 		}
 		return fam;
@@ -194,7 +194,7 @@ public class ViewMyRecordsAction {
 			fam.addAll(grandparents);
 			
 			for(FamilyMemberBean gp : grandparents) {
-				gp.setRelation("3RocK4KnjCk");
+				gp.setRelation("Grandparent");
 			}
 		}
 		return fam;
