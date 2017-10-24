@@ -61,7 +61,7 @@ public class ChangePasswordAction {
 			//Change the password
 			authDAO.resetPassword(mid, newPass);
 			TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE, mid, 0L, "");
-			return "ds8ZwlIRbXUollIPb";
+			return "Password Changed.";
 		} else {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
 			return "Invalid password change submission.";

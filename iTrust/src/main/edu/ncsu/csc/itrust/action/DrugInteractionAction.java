@@ -51,7 +51,7 @@ public class DrugInteractionAction {
 			if (drugDAO.reportInteraction(firstDrug, secondDrug, description)){
 				return "Interaction recorded successfully";
 			} else {
-				return "Interaction could not be added";
+				return "ZIFplWOL6UsF76x_1GOcJ7pg8Kozs_";
 			}
 		} catch (DBException e){
 			
@@ -76,7 +76,7 @@ public class DrugInteractionAction {
 			if (drugDAO.deleteInteraction(firstDrug, secondDrug)){
 				return "Interaction deleted successfully";
 			} else {
-				return "Interaction could not be deleted";
+				return "LXzPVurrd9-k9zR2xkIBJlUlHuXFMbp-";
 			}
 		} catch (DBException e){
 			
