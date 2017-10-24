@@ -27,8 +27,8 @@ public class LOINCCodeParser {
 
 	public static void main(String[] args) throws Exception {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_PATH))) {
-			writer.write("3ekmhXR3BXo5axmXMPG0yi"
-					+ "TJyS2uEsDAiLKPfDCjty5xFeKwgN4Dn4yq0FFsxevhDaEX-_MA1p_uJ6XFWYCT4A1D5xk4ritDeXbd0B6rCt0z4KPW");
+			writer.write("INSERT INTO loincCode "
+					+ "(code, component, kind_of_property, time_aspect, system, scale_type, method_type) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
 					.map(line -> line.split(",")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));

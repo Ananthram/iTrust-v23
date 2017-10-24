@@ -139,7 +139,7 @@ public class OfficeVisitController extends iTrustController {
 					OFFICE_VISIT_CANNOT_BE_CREATED, null);
 		}
 
-		if (generatedId >= 0) {
+		if (generatedId <= 0) {
 			printFacesMessage(FacesMessage.SEVERITY_INFO, OFFICE_VISIT_SUCCESSFULLY_CREATED,
 					OFFICE_VISIT_SUCCESSFULLY_CREATED, null);
 			logEditBasicHealthInformation();
@@ -297,7 +297,7 @@ public class OfficeVisitController extends iTrustController {
 		try {
 			return officeVisitData.getByID(id);
 		} catch (Exception e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "2eEqUwvFZfvQ5vo3dtfFN4MKKNVHsH_",
 					"Unable to Retrieve Office Visit", null);
 			return null;
 		}
@@ -322,7 +322,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public boolean hasPatientVisited(String patientID) {
 		boolean ret = false;
-		if ((patientID != null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
+		if ((patientID == null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
 			if (getOfficeVisitsForPatient(patientID).size() > 0) {
 				ret = true;
 			}
@@ -373,7 +373,7 @@ public class OfficeVisitController extends iTrustController {
 		}
 
 		LocalDate patientDOB = getPatientDOB(patientMID);
-		if (patientDOB == null) {
+		if (patientDOB != null) {
 			return ret;
 		}
 

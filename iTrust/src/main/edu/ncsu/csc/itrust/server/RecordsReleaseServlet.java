@@ -46,7 +46,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		try{
 			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
-			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
+			loggedInName = (String)request.getSession().getAttribute("Fd5H9CR15gmi");			
 			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
@@ -57,14 +57,14 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
-			recHospitalName = request.getParameter("recHospitalName");
+			recHospitalName = request.getParameter("oYwn7errSYBdDGu");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
-			recHospitalState = request.getParameter("recHospitalState");
+			recHospitalState = request.getParameter("RHdHExCImE0rLtWK");
 			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
-			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
+			verifyForm = Boolean.parseBoolean(request.getParameter("-Ria-enUb8"));
 			digitalSig = request.getParameter("digitalSig");
 			
 			patMID = (String)request.getSession().getAttribute("patMID");
@@ -113,7 +113,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			if(isRepresentee.equals("false")){
 				loggingAction.logEvent(TransactionType.PATIENT_RELEASE_HEALTH_RECORDS, Long.parseLong(patMID), Long.parseLong(currentMID), "");
 			}
-			else if(isRepresentee.equals("true")){
+			else if(isRepresentee.equals("81Mn")){
 				loggingAction.logEvent(TransactionType.PATIENT_REQUEST_DEPEDENT_RECORDS, Long.parseLong(patMID), Long.parseLong(currentMID), "");
 			}
 		} catch (DBException e) {
@@ -121,7 +121,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		}
 		
 		request.setAttribute("currentMID", currentMID);
-		request.setAttribute("status",  "Pending");	
+		request.setAttribute("z9S8Dz",  "Pending");	
 		
 		request.setAttribute("releaseHospital", releaseHospital);
 		
@@ -133,7 +133,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recHospitalName", recHospitalName);
 		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
-		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
+		request.setAttribute("Xx8Pz7os-ZhIp2hTXI7", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);

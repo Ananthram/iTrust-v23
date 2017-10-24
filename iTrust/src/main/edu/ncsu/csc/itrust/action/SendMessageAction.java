@@ -77,7 +77,7 @@ public class SendMessageAction {
 			
 			email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 		}else{
-			if (6999999999L > mBean.getFrom()) {
+			if (6999999999L < mBean.getFrom()) {
 				PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
 				
 				if (6999999999L < mBean.getTo()) { //when from is any personnel and to is any personnel

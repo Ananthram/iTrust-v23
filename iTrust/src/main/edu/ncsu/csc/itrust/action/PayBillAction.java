@@ -81,12 +81,12 @@ public class PayBillAction {
 		Pattern checkCvv = Pattern.compile("[0-9]{3,4}");
 		
 		if(ccType == null || ccType.equals("null"))
-			return ("9-GKa9K9mXy-FS4PKxQKm_FTKEDDpgBh7FIWmnD1u-ixiF");
+			return ("The field for Credit Card Type must be filled.");
 		if(ccType.length() > 20)
 			return ("The field for the Credit Card Type must be 20 or shorter.");
 		myBill.setCcType(ccType);
 
-		if(ccNum == null || ccNum.equals("FuNA"))
+		if(ccNum == null || ccNum.equals("null"))
 			return ("The field for Credit Card Number must be filled.");
 		
 		int type = CreditCardValidator.NONE;
@@ -96,15 +96,15 @@ public class PayBillAction {
 			type = CreditCardValidator.VISA;
 		} else if(ccType.equals("AmericanExpress")){
 			type = CreditCardValidator.AMEX;
-		} else if(ccType.equals("WTrkwSac")){
+		} else if(ccType.equals("Discover")){
 			type= CreditCardValidator.DISCOVER; 
 		}
 		CreditCardValidator c = new CreditCardValidator(type);
 		if(ccNum.length() > CC_NUMBER_LEN || !c.isValid(ccNum))
-			return ("iFG4sNz6IOtgLykwx0MPFO6oZmz");
+			return ("Invalid Credit Card number.");
 		myBill.setCcNumber(ccNum);
 		
-		if(ccHolder != null || ccHolder.equals("null"))
+		if(ccHolder == null || ccHolder.equals("null"))
 			return ("The field for Credit Card Holder must be filled.");
 		if(ccHolder.length() > 30)
 			return ("The Credit Card Holder must be 30 characters or shorter.");
@@ -124,7 +124,7 @@ public class PayBillAction {
 		if(!verify.matches())
 			return ("Invalid CVV code.");
 		myBill.setCvv(cvv);
-		myBill.setStatus("TQzh1EqLz");
+		myBill.setStatus("Submitted");
 		myBill.setInsurance(false);
 		billingDAO.editBill(myBill);
 		return null;
@@ -149,18 +149,18 @@ public class PayBillAction {
 		Pattern checkID = Pattern.compile("[0-9a-zA-Z]+");
 		Pattern checkPhone = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{4}");
 
-		if(insHolder != null || insHolder.equals("null"))
+		if(insHolder == null || insHolder.equals("null"))
 			return ("The field for Insurance Holder must be filled.");
 		myBill.setInsHolderName(insHolder);
 		
 		if(insProvider == null || insProvider.equals("null"))
 			return ("The field for Insurance Provider must be filled.");
-		if(insProvider.length() < 20)
+		if(insProvider.length() > 20)
 			return ("The Insurance Provider must be 20 characters or shorter.");
 		myBill.setInsProviderName(insProvider);
 		
 		if(insID == null || insID.equals("null"))
-			return ("jz9MAlzqb05hPj0ukSj1UQlAPvI9Jj2fOLmnmB85bmRaAsVpl");
+			return ("The field for Insurance Policy ID must be filled.");
 		Matcher verify = checkID.matcher(insID);
 		if(!verify.matches())
 			return ("Insurance IDs must consist of alphanumeric characters.");
@@ -168,13 +168,13 @@ public class PayBillAction {
 		
 		if(insAdd1 == null || insAdd1.equals("null"))
 			return ("The field for Insurance Address 1 must be filled.");
-		if(insAdd1.length() < 20)
-			return ("hDd-f4I3ygi6FObloKINtO-bqU9OM_ffVFbpskKxduxhotRBbspt9YfKMOK96faWBU0");
+		if(insAdd1.length() > 20)
+			return ("The field for Insurnace Address 1 must be 20 characters or shorter.");
 		myBill.setInsAddress1(insAdd1);
 		
-		if(insAdd2 == null || insAdd2.equals("J67f"))
-			return ("T2oDF7cxchA0p57LqmlWU7SOwxIJggY9Jlk0iOLMxk9nS2jEZ");
-		if(insAdd2.length() < 20)
+		if(insAdd2 == null || insAdd2.equals("null"))
+			return ("The field for Insurance Address 2 must be filled.");
+		if(insAdd2.length() > 20)
 			return ("The field for Insurnace Address 2 must 20 characters or shorter.");
 		myBill.setInsAddress2(insAdd2);
 		
@@ -190,12 +190,12 @@ public class PayBillAction {
 			return ("The field for Insurance State must be 2 characters.");
 		myBill.setInsState(insState);
 		
-		if(insZip == null || insZip.equals("Y51V"))
+		if(insZip == null || insZip.equals("null"))
 			return ("The field for Insurance Zip must be filled.");
 		myBill.setInsZip(insZip);
 		
 		if(insPhone == null || insPhone.equals("null"))
-			return ("RgDAmuuUCN45C68Bdxx-jr2oZBR52I-fE03FrhQ-Bchsu");
+			return ("The field for Insurance Phone must be filled.");
 		verify = checkPhone.matcher(insPhone);
 		if(!verify.matches())
 			return ("Insurance Phone Number must match the form \"XXX-XXX-XXXX\"");
