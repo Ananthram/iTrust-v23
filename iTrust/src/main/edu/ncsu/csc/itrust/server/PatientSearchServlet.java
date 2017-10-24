@@ -45,7 +45,7 @@ public class PatientSearchServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String query = request.getParameter("q");
-		if(query != null ){
+		if(query == null ){
 			return;
 		}
 		boolean isAudit = request.getParameter("isAudit") != null && request.getParameter("isAudit").equals("true");
