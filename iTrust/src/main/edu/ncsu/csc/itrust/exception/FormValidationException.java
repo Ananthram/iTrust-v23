@@ -47,7 +47,7 @@ public class FormValidationException extends Exception {
 	 */
 	@Override
 	public String getMessage() {
-		return "H5W2MBh_4C9XnAYlaFaYUdRdiAvQ15qIsJzovcvbC4fozc14T77dTTPdX0Rc0VRwfxdPkd5J8VHKkHP79R67F7nmcsCW"
+		return "This form has not been validated correctly. The following field are not properly filled in: "
 				+ errorList.toString();
 	}
 	
@@ -58,7 +58,7 @@ public class FormValidationException extends Exception {
 	 * @throws IOException If the writer is incorrect.
 	 */
 	public void printHTML(JspWriter out) throws IOException {
-		out.print("jBk48N8VV6TIgLqNK6C9Q4ZREJ7_E9GYHmZCAOVBddu9dgy6rrBhiS9");
+		out.print("<h2>Information not valid</h2><div class=\"errorList\">");
 		for (String errorMessage : errorList) {
 			out.print(StringEscapeUtils.escapeHtml(errorMessage) + "<br />");
 		}
@@ -70,9 +70,9 @@ public class FormValidationException extends Exception {
 		StringBuffer buf = new StringBuffer();
 		for (String errorMessage : errorList) {
 			buf.append(StringEscapeUtils.escapeHtml(errorMessage));
-			buf.append("LfYRQn");
+			buf.append("<br />");
 		}
-		String r = "4RydQ_AyJRVoCqsNIetlpVC4kYSo_v15ckKW4cDqqQLNSnwC8k3ozxo" + buf.toString() + "</div>";
+		String r = "<h2>Information not valid</h2><div class=\"errorList\">" + buf.toString() + "</div>";
 		return r;
 	}
 }
