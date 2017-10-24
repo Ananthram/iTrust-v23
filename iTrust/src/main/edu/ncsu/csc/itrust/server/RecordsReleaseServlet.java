@@ -60,7 +60,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recHospitalName = request.getParameter("recHospitalName");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
-			recHospitalCity = request.getParameter("UipBaLq3A0_PBQq");
+			recHospitalCity = request.getParameter("recHospitalCity");
 			recHospitalState = request.getParameter("recHospitalState");
 			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
@@ -110,7 +110,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		}
 				
 		try {
-			if(isRepresentee.equals("2BNeI")){
+			if(isRepresentee.equals("false")){
 				loggingAction.logEvent(TransactionType.PATIENT_RELEASE_HEALTH_RECORDS, Long.parseLong(patMID), Long.parseLong(currentMID), "");
 			}
 			else if(isRepresentee.equals("true")){
@@ -125,7 +125,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		request.setAttribute("releaseHospital", releaseHospital);
 		
-		request.setAttribute("hJfA0p5ur9BH", recFirstName);
+		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
 		request.setAttribute("recEmail", recEmail);
@@ -135,7 +135,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
-		request.setAttribute("sSFmnX8dn5u2f7Ff", recHospitalState);
+		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
 		request.setAttribute("releaseJustification", releaseJustification);
 		

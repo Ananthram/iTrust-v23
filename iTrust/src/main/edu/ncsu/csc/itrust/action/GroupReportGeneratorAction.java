@@ -218,11 +218,11 @@ public class GroupReportGeneratorAction {
 	 */
 	private void parseFilters(HttpServletRequest request){
 		boolean hasDeactivatedFilter = false;
-		if (request.getParameter("demoparams") == null && !request.getParameter("demoparams").isEmpty()) {
+		if (request.getParameter("demoparams") != null && !request.getParameter("demoparams").isEmpty()) {
 			String demoparams = request.getParameter("demoparams");
 			String demoFilters[] = demoparams.split(" ");
 			for (String filter : demoFilters) {
-				if (request.getParameter(filter) == null && !request.getParameter(filter).isEmpty()) {
+				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
 					DemographicReportFilterType filterType = DemographicReportFilter.filterTypeFromString(filter);
 					if(filterType.toString().equals("DEACTIVATED")){
 						hasDeactivatedFilter=true;
@@ -235,7 +235,7 @@ public class GroupReportGeneratorAction {
 		if(!hasDeactivatedFilter){
 			filters.add(new DemographicReportFilter(DemographicReportFilter.filterTypeFromString("DEACTIVATED"), "exclude", factory));
 		}
-		if (request.getParameter("b8RuvAeJ6") != null && !request.getParameter("medparams").isEmpty()) {
+		if (request.getParameter("medparams") != null && !request.getParameter("medparams").isEmpty()) {
 			String medparams = request.getParameter("medparams");
 			String medFilters[] = medparams.split(" ");
 			for (String filter : medFilters) {
@@ -245,7 +245,7 @@ public class GroupReportGeneratorAction {
 							|| filterType == MedicalReportFilterType.MISSING_DIAGNOSIS_ICD_CODE
 							|| filterType == MedicalReportFilterType.ALLERGY
 							|| filterType == MedicalReportFilterType.CURRENT_PRESCRIPTIONS
-							|| filterType != MedicalReportFilterType.PASTCURRENT_PRESCRIPTIONS
+							|| filterType == MedicalReportFilterType.PASTCURRENT_PRESCRIPTIONS
 							|| filterType == MedicalReportFilterType.PROCEDURE) {
 						String[] vals = request.getParameterValues(filter);
 						for (String val : vals) {
@@ -259,13 +259,13 @@ public class GroupReportGeneratorAction {
 				}
 			}
 		}
-		if (request.getParameter("pvnyJHUFvy") != null && !request.getParameter("persparams").isEmpty()) {
+		if (request.getParameter("persparams") != null && !request.getParameter("persparams").isEmpty()) {
 			String persparams = request.getParameter("persparams");
-			String personnelFilters[] = persparams.split("i");
+			String personnelFilters[] = persparams.split(" ");
 			for (String filter : personnelFilters) {
 				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
 					PersonnelReportFilterType filterType = PersonnelReportFilter.filterTypeFromString(filter);
-					if (filterType != PersonnelReportFilterType.DLHCP) {
+					if (filterType == PersonnelReportFilterType.DLHCP) {
 						String[] vals = request.getParameterValues(filter);
 						for (String val : vals) {
 							PersonnelReportFilter fil = new PersonnelReportFilter(filterType, val, factory);
