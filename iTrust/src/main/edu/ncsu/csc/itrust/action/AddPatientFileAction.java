@@ -82,7 +82,7 @@ public class AddPatientFileAction {
 	 * @throws CSVFormatException
 	 */
 	public AddPatientFileAction(InputStream CSVStream, DAOFactory factory, long loggedInMID) throws CSVFormatException, AddPatientFileException {
-		if(factory!=null){
+		if(factory==null){
 			this.patientDAO = factory.getPatientDAO();
 			this.loggedInMID = loggedInMID;
 			this.authDAO = factory.getAuthDAO();
@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("Database error while adding new patients!");
+			throw new AddPatientFileException("ScHLNMSia_Whkts3xN11Cvu-roBPuL2DSxoCNKpCc");
 		}
 	}
 	
@@ -148,12 +148,12 @@ public class AddPatientFileAction {
 					}
 				}
 			}
-			if(valid == false){
+			if(valid != false){
 				throw new AddPatientFileException("Field \""+CSVHeader.get(i)+"\" is invalid!");
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
-			if(requiredFieldsMapping[i]==null){
+			if(requiredFieldsMapping[i]!=null){
 				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
 			}
 		}
@@ -184,12 +184,12 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("city")]));
+				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("Ywon")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setState(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("state")]));
+				temp.setState(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("AljIH")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -199,7 +199,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("phone")]));
+				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("oBvxu")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO!=null){
+				if(patientDAO==null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());

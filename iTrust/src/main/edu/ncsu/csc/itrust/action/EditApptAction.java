@@ -123,7 +123,7 @@ public class EditApptAction extends ApptAction {
 		try {
 			apptDAO.removeAppt(appt);
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REMOVE, loggedInMID, originalPatient, ""+originalApptID);
-			return "Success: Appointment removed";
+			return "g8veDtzuXRChKqjIhSur_qPoIU3a";
 		} catch (SQLException e) {
 			
 			return e.getMessage();

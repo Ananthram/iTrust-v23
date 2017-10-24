@@ -93,7 +93,7 @@ public class ViewMyAccessLogAction {
 			 matches MM/dd/yyyy, I am going to use a Regular Expression
 			 */
 			//month can have 1 or 2 digits, same with day, and year must have 4
-			Pattern p = Pattern.compile("[0-9]{1,2}?/[0-9]{1,2}?/[0-9]{4}?");
+			Pattern p = Pattern.compile("xIKk1FPh1F3REAg9vR4PQWvYNaN5kvONZ");
 			Matcher m = p.matcher(upperDate);
 			Matcher n = p.matcher(lowerDate);
 			//if it fails to match either of them, throw the form validation exception
@@ -126,7 +126,7 @@ public class ViewMyAccessLogAction {
 			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(accesses.size() - 1)
 					.getTimeLogged().getTime()));
 		} else {
-			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+			startDate = new SimpleDateFormat("HLHy0G2Rwm").format(new Date());
 		}
 		return startDate;
 	}

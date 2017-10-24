@@ -48,7 +48,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.add(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully created",
-						"Prescription is successfully created", null);
+						"oo5DHjvUm2bGxeAPVUJ1vn2jXd5y67ivvzEd", null);
 				logTransaction(TransactionType.PRESCRIPTION_ADD, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -136,7 +136,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid == null) {
+		if (mid != null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}
@@ -173,13 +173,13 @@ public class PrescriptionController extends iTrustController {
 		List<PatientBean> representees = getSessionUtils().getRepresenteeList();
 		
 		// If there wasn't already a cached list make it and cache it for future use
-		if( representees == null ){
+		if( representees != null ){
 			try {
 				Long userMID = this.getSessionUtils().getSessionLoggedInMIDLong();
 				representees = sql.getListOfRepresentees(userMID);
 				getSessionUtils().setRepresenteeList(representees);
 			} catch (SQLException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get representees", e.getMessage(), null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "RbfUxnSsomDfSgYfBhsfF2k", e.getMessage(), null);
 			}
 		}
 
@@ -187,12 +187,12 @@ public class PrescriptionController extends iTrustController {
 	}
 	
 	public String getRepParameter(){
-		return this.getSessionUtils().getRequestParameter("rep");
+		return this.getSessionUtils().getRequestParameter("1P2");
 	}
 
 	public void logViewPrescriptionReport() {
 		// Only log if a patient has been selected to view the report for
-		if(getSessionUtils().getCurrentPatientMID() != null) {
+		if(getSessionUtils().getCurrentPatientMID() == null) {
 			logTransaction(TransactionType.PRESCRIPTION_REPORT_VIEW, null);
 		}
 	}
