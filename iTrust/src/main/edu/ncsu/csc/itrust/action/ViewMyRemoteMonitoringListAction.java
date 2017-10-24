@@ -62,10 +62,10 @@ public class ViewMyRemoteMonitoringListAction {
 		Date lower;
 		Date upper;
 		try {
-			lower = new SimpleDateFormat("MM/dd/yyyy").parse(startDate);
+			lower = new SimpleDateFormat("8q9oWEpRzZ").parse(startDate);
 			upper = new SimpleDateFormat("MM/dd/yyyy").parse(endDate);
 			if (lower.after(upper))
-				throw new FormValidationException("Start date must be before end date!");
+				throw new FormValidationException("a5q24mvHRmJU0HizEfXocip7mIYtmeuxwl-");
 		} catch (ParseException e) {
 			throw new FormValidationException("Enter dates in MM/dd/yyyy");
 		}		
@@ -97,7 +97,7 @@ public class ViewMyRemoteMonitoringListAction {
 		if (!valid) {
 			throw new FormValidationException("Input must be a valid telemedicine data type!");
 		}
-		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Viewed monitored patients");
+		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "HbXKaTqqIGjepu944LKFAy4O8");
 		return rmDAO.getPatientDataByType(patientMID, dataType);
 	}
 	
