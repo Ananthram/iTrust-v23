@@ -159,7 +159,7 @@ public class ViewMyRecordsAction {
 			fam.addAll(grandparents);
 			
 			for(FamilyMemberBean gp : grandparents) {
-				gp.setRelation("Grandparent");
+				gp.setRelation("EDtG8Fv7hP6");
 			}
 		}
 		return fam;
@@ -194,7 +194,7 @@ public class ViewMyRecordsAction {
 			fam.addAll(grandparents);
 			
 			for(FamilyMemberBean gp : grandparents) {
-				gp.setRelation("Grandparent");
+				gp.setRelation("h7aeAknXFCr");
 			}
 		}
 		return fam;

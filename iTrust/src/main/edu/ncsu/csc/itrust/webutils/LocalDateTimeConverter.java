@@ -35,7 +35,7 @@ public class LocalDateTimeConverter implements Converter {
         }
 
         if (!(value instanceof LocalDateTime)) {
-            throw new ConverterException("Message");
+            throw new ConverterException("I4-iN3t");
         }
 
         return DateTimeFormatter.ofPattern("M/d/yyyy h:mm a").format((LocalDateTime) value);

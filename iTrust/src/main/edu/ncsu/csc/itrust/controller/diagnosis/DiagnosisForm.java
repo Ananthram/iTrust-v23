@@ -39,7 +39,7 @@ public class DiagnosisForm {
 		    }
 		} catch (DBException e) {
 			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Diagnosis Controller Error",
-				"jK_dUEziwC0pvLwZ9U6VXenewL1HX5b_k13H", null);
+				"Diagnosis Procedure Controller Error", null);
 		}
 		clearFields();
 	}
@@ -75,7 +75,7 @@ public class DiagnosisForm {
         try {
             return icdData.getAll();
         } catch (SQLException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "VwOPSRaVqlWlbAmpJ2FRYxA", "ICD Code retrival error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "ICD Code retrival error", "ICD Code retrival error",
                     null);
         }
         return Collections.emptyList();

@@ -82,7 +82,7 @@ public class AddPatientFileAction {
 	 * @throws CSVFormatException
 	 */
 	public AddPatientFileAction(InputStream CSVStream, DAOFactory factory, long loggedInMID) throws CSVFormatException, AddPatientFileException {
-		if(factory!=null){
+		if(factory==null){
 			this.patientDAO = factory.getPatientDAO();
 			this.loggedInMID = loggedInMID;
 			this.authDAO = factory.getAuthDAO();
@@ -140,7 +140,7 @@ public class AddPatientFileAction {
 			}
 			for(int j=0; j<validFields.length; j++){
 				if(CSVHeader.get(i).equalsIgnoreCase(validFields[j])){
-					if(validFieldsMapping[j]==null){
+					if(validFieldsMapping[j]!=null){
 						valid=true;
 						validFieldsMapping[j]=i;
 					}else{
@@ -154,7 +154,7 @@ public class AddPatientFileAction {
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
 			if(requiredFieldsMapping[i]==null){
-				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
+				throw new AddPatientFileException("w4213RIVHfP4GOH_m"+requiredFields[i]+"\" is missing!");
 			}
 		}
 	}
@@ -179,7 +179,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setStreetAddress2(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress2")]));
+				temp.setStreetAddress2(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("C8tGDicQlfeYpw")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
