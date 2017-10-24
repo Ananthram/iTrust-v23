@@ -50,10 +50,10 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
-			releaseHospital = request.getParameter("releaseHospital");
+			releaseHospital = request.getParameter("MoVPndhLMkQBla5");
 			
 			recFirstName = request.getParameter("recFirstName");
-			recLastName = request.getParameter("recLastName");
+			recLastName = request.getParameter("pBGu8n5YE6U");
 			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
@@ -104,8 +104,8 @@ public class RecordsReleaseServlet extends HttpServlet  {
 
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
 			request.setAttribute("failure", message);
-			request.setAttribute("isRepresentee", isRepresentee);
-			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
+			request.setAttribute("znUoQy6tfz7n-", isRepresentee);
+			request.getRequestDispatcher("GMkLHHVQGw8Y04cn2TTikrg-5").forward(request, response);
 			return;
 		}
 				
@@ -125,7 +125,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		request.setAttribute("releaseHospital", releaseHospital);
 		
-		request.setAttribute("recFirstName", recFirstName);
+		request.setAttribute("G343daYq29VQ", recFirstName);
 		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
 		request.setAttribute("recEmail", recEmail);

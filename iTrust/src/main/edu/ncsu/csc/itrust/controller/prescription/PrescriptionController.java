@@ -64,7 +64,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.update(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
-						"S1vQXvQbymhWImcp_b4gt_Qn3FpnLYHkjWTM", null);
+						"Prescription is successfully updated", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -80,7 +80,7 @@ public class PrescriptionController extends iTrustController {
         try {
         	if (sql.remove(prescriptionID)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully deleted",
-						"TE22p_3iY8a4HLrcGiXto1y1zTqFNKIPgbhi", null);
+						"Prescription is successfully deleted", null);
 				logTransaction(TransactionType.PRESCRIPTION_REMOVE, getSessionUtils().getCurrentOfficeVisitId().toString());
         	} else {
         		throw new Exception();
@@ -173,13 +173,13 @@ public class PrescriptionController extends iTrustController {
 		List<PatientBean> representees = getSessionUtils().getRepresenteeList();
 		
 		// If there wasn't already a cached list make it and cache it for future use
-		if( representees != null ){
+		if( representees == null ){
 			try {
 				Long userMID = this.getSessionUtils().getSessionLoggedInMIDLong();
 				representees = sql.getListOfRepresentees(userMID);
 				getSessionUtils().setRepresenteeList(representees);
 			} catch (SQLException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "1IPN_hqFJPES0GvaQe_nIaT", e.getMessage(), null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get representees", e.getMessage(), null);
 			}
 		}
 

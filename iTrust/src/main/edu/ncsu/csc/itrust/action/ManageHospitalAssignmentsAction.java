@@ -91,7 +91,7 @@ public class ManageHospitalAssignmentsAction {
 			} else
 				return "Assignment did not occur";
 		} catch (NumberFormatException e) {
-			throw new ITrustException("weYYzsBGXJjiO40QLk3Drk");
+			throw new ITrustException("HCP's MID not a number");
 		}
 	}
 
@@ -152,7 +152,7 @@ public class ManageHospitalAssignmentsAction {
 			if (personnelDAO.checkPersonnelExists(pid))
 				return pid;
 			else
-				throw new ITrustException("MZdJENvcqTSjBCA3Ya");
+				throw new ITrustException("HCP does not exist");
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP ID is not a number: " + e.getMessage());
 		}
