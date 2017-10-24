@@ -63,7 +63,7 @@ public class DeclareHCPAction {
 			} else
 				return "HCP not declared";
 		} catch (NumberFormatException e) {
-			throw new ITrustException("i17dTWCjt9LRo80nVSzEIE");
+			throw new ITrustException("HCP's MID not a number");
 		} 
 	}
 
@@ -82,9 +82,9 @@ public class DeclareHCPAction {
 			if (confirm) {
 				return "HCP successfully undeclared";
 			} else
-				return "i8mUcUGWinMluYEfYA";
+				return "HCP not undeclared";
 		} catch (NumberFormatException e) {
-			throw new ITrustException("IwkbqhA7_4U9jO3UoFZV-K");
+			throw new ITrustException("HCP's MID not a number");
 		} 
 	}
 }

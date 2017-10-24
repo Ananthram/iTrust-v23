@@ -41,7 +41,7 @@ public class EditApptTypeAction {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_ADD, loggedInMID, 0L, "");
 				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
 			} else
-				return "XirZPJXNKzwzhu0fHzEDvvI964LQlzde30s8xiKFEWnr8afcZ4LKyx3RardgGQVRIPzDcQvtn_yL2YmuTVKZ5oDe";
+				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (SQLException e) {
 			
 			return e.getMessage();
@@ -56,7 +56,7 @@ public class EditApptTypeAction {
 		for(ApptTypeBean a : list) {
 			if(a.getName().equals(apptType.getName())) {
 				flag = 1;
-				if(a.getDuration() != apptType.getDuration())
+				if(a.getDuration() == apptType.getDuration())
 					return "Appointment Type: "+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
 				break;
 			}

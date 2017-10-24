@@ -80,7 +80,7 @@ public class PrescriptionController extends iTrustController {
         try {
         	if (sql.remove(prescriptionID)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully deleted",
-						"1Tg22iaLcbiV2OpVbWVdAcNvgYS9KP6t-d5-", null);
+						"Prescription is successfully deleted", null);
 				logTransaction(TransactionType.PRESCRIPTION_REMOVE, getSessionUtils().getCurrentOfficeVisitId().toString());
         	} else {
         		throw new Exception();
@@ -173,7 +173,7 @@ public class PrescriptionController extends iTrustController {
 		List<PatientBean> representees = getSessionUtils().getRepresenteeList();
 		
 		// If there wasn't already a cached list make it and cache it for future use
-		if( representees != null ){
+		if( representees == null ){
 			try {
 				Long userMID = this.getSessionUtils().getSessionLoggedInMIDLong();
 				representees = sql.getListOfRepresentees(userMID);
@@ -192,7 +192,7 @@ public class PrescriptionController extends iTrustController {
 
 	public void logViewPrescriptionReport() {
 		// Only log if a patient has been selected to view the report for
-		if(getSessionUtils().getCurrentPatientMID() == null) {
+		if(getSessionUtils().getCurrentPatientMID() != null) {
 			logTransaction(TransactionType.PRESCRIPTION_REPORT_VIEW, null);
 		}
 	}
