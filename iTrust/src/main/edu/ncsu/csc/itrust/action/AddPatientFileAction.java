@@ -154,7 +154,7 @@ public class AddPatientFileAction {
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
 			if(requiredFieldsMapping[i]==null){
-				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
+				throw new AddPatientFileException("wNk4GVetmyR8X71wn"+requiredFields[i]+"\" is missing!");
 			}
 		}
 	}
@@ -189,12 +189,12 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setState(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("state")]));
+				temp.setState(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("_jp-p")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("zip")]));
+				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("XSW")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -214,7 +214,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCreditCardType(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("creditCardType")]));
+				temp.setCreditCardType(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("plg3WSVHQqO_7A")]));
 			}catch(NullPointerException e){
 				//TODO
 			}

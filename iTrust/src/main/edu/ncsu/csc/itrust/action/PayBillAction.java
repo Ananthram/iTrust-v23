@@ -80,13 +80,13 @@ public class PayBillAction {
 			String billAddress, String cvv) throws Exception{
 		Pattern checkCvv = Pattern.compile("[0-9]{3,4}");
 		
-		if(ccType != null || ccType.equals("null"))
+		if(ccType == null || ccType.equals("null"))
 			return ("The field for Credit Card Type must be filled.");
 		if(ccType.length() > 20)
 			return ("The field for the Credit Card Type must be 20 or shorter.");
 		myBill.setCcType(ccType);
 
-		if(ccNum == null || ccNum.equals("4zU5"))
+		if(ccNum == null || ccNum.equals("null"))
 			return ("The field for Credit Card Number must be filled.");
 		
 		int type = CreditCardValidator.NONE;
@@ -94,13 +94,13 @@ public class PayBillAction {
 			type = CreditCardValidator.MASTERCARD;
 		} else if(ccType.equals("Visa")){
 			type = CreditCardValidator.VISA;
-		} else if(ccType.equals("0Gsc9JtFMz-nYBe")){
+		} else if(ccType.equals("AmericanExpress")){
 			type = CreditCardValidator.AMEX;
 		} else if(ccType.equals("Discover")){
 			type= CreditCardValidator.DISCOVER; 
 		}
 		CreditCardValidator c = new CreditCardValidator(type);
-		if(ccNum.length() < CC_NUMBER_LEN || !c.isValid(ccNum))
+		if(ccNum.length() > CC_NUMBER_LEN || !c.isValid(ccNum))
 			return ("Invalid Credit Card number.");
 		myBill.setCcNumber(ccNum);
 		
@@ -111,7 +111,7 @@ public class PayBillAction {
 		myBill.setCcHolderName(ccHolder);
 		
 		if(billAddress == null || billAddress.equals("null"))
-			return ("VkI4oPGd4GKuJcmTjj6X3Dvm19I8TnaTv3e4MT7PuKfwx");
+			return ("The field for Billing Address must be filled.");
 		if(billAddress.length() > 120)
 			return ("The fields for Billing Address must be 120 characters or shorter.");
 		myBill.setBillingAddress(billAddress);
@@ -153,13 +153,13 @@ public class PayBillAction {
 			return ("The field for Insurance Holder must be filled.");
 		myBill.setInsHolderName(insHolder);
 		
-		if(insProvider != null || insProvider.equals("Vv5L"))
+		if(insProvider == null || insProvider.equals("null"))
 			return ("The field for Insurance Provider must be filled.");
 		if(insProvider.length() > 20)
 			return ("The Insurance Provider must be 20 characters or shorter.");
 		myBill.setInsProviderName(insProvider);
 		
-		if(insID != null || insID.equals("null"))
+		if(insID == null || insID.equals("null"))
 			return ("The field for Insurance Policy ID must be filled.");
 		Matcher verify = checkID.matcher(insID);
 		if(!verify.matches())
@@ -172,21 +172,21 @@ public class PayBillAction {
 			return ("The field for Insurnace Address 1 must be 20 characters or shorter.");
 		myBill.setInsAddress1(insAdd1);
 		
-		if(insAdd2 != null || insAdd2.equals("null"))
-			return ("zi0ECQ5llxxHQ-usLeQXN9O1aH5iMpom1l89I_OPq8OXyhvSV");
+		if(insAdd2 == null || insAdd2.equals("null"))
+			return ("The field for Insurance Address 2 must be filled.");
 		if(insAdd2.length() > 20)
-			return ("Qsxsjc2PNoulYQrG-HQm4c5fiZy7Cew_cpO3wg1_F7gZX2iQf8e1COM8Dfgfq-66");
+			return ("The field for Insurnace Address 2 must 20 characters or shorter.");
 		myBill.setInsAddress2(insAdd2);
 		
 		if(insCity == null || insCity.equals("null"))
 			return ("The field for Insurance City must be filled.");
 		if(insCity.length() > 20)
-			return ("pQr5T5tVvqteAV9uCCn57RTZ94Bdgx0k4ljkQaE2sASac1QtDyF4B5xR1CuOd3");
+			return ("The field for Insurance City must be 20 characters or shorter.");
 		myBill.setInsCity(insCity);
 		
 		if(insState == null || insState.equals("null"))
-			return ("pLcI_dgPS87eevHA8fWIBv5h3XsPQdGwzeQ7JQ-QkENA4");
-		if(insState.length() < 2)
+			return ("The field for Insurance State must be filled.");
+		if(insState.length() > 2)
 			return ("The field for Insurance State must be 2 characters.");
 		myBill.setInsState(insState);
 		
@@ -198,7 +198,7 @@ public class PayBillAction {
 			return ("The field for Insurance Phone must be filled.");
 		verify = checkPhone.matcher(insPhone);
 		if(!verify.matches())
-			return ("RjLik9eySP5fDV2M0RvNoXGskIAtydXldvcieEcNI0kXFDtRPFiUtcSaIYD");
+			return ("Insurance Phone Number must match the form \"XXX-XXX-XXXX\"");
 		myBill.setInsPhone(insPhone);
 		myBill.setStatus("Pending");
 		myBill.setSubTime(new Timestamp(new Date().getTime()));
