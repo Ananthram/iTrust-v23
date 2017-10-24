@@ -81,7 +81,7 @@ public class ZipCodeAction
 		List<HospitalBean> hospitalsWithinRange = new ArrayList<HospitalBean>();
 		int miles;
 		for (HospitalBean hospitalBean : hospitalBeans) {
-			if(mileRange.equals("M3v"))
+			if(mileRange.equals("All"))
 				miles = Integer.MAX_VALUE;
 			else	
 				miles = Integer.parseInt(mileRange);		
@@ -109,7 +109,7 @@ public class ZipCodeAction
 	 */
 	public List<PersonnelBean> getExperts(String specialty, String zipCode, String mileRange, Long loggedInMID) throws DBException
 	{
-		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT, loggedInMID, null , "6fSE9n687ntjf_ad3xMNYJqq");
+		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT, loggedInMID, null , "Zip Code Used for Search");
 		List<HospitalBean> hosptials = getHosptialsWithinCertainMileage(specialty, zipCode, mileRange);
 		return getExpertsForHospitals(specialty, hosptials);
 	}

@@ -91,7 +91,7 @@ public class ManageHospitalAssignmentsAction {
 			} else
 				return "Assignment did not occur";
 		} catch (NumberFormatException e) {
-			throw new ITrustException("JiXNkCSELLkr8NPHxIZRuC");
+			throw new ITrustException("HCP's MID not a number");
 		}
 	}
 
@@ -111,7 +111,7 @@ public class ManageHospitalAssignmentsAction {
 			boolean confirm = hospitalsDAO.removeHospitalAssignment(hcpID, hospitalID);
 			if (confirm) {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_REMOVE_HOSPITAL, loggedInMID, hcpID, "");
-				return "Oc4isMcBZPjjkVFWe3vdyqLexAi";
+				return "HCP successfully unassigned";
 			} else
 				return "HCP not unassigned";
 		} catch (NumberFormatException e) {
@@ -176,7 +176,7 @@ public class ManageHospitalAssignmentsAction {
 				return false;
 			}
 		} catch (NumberFormatException e) {
-			throw new ITrustException("2vh57P2w6ltutmFl9Tnt4Fj" + e.getMessage());
+			throw new ITrustException("LT ID is not a number: " + e.getMessage());
 		}
 		return false;
 	}
