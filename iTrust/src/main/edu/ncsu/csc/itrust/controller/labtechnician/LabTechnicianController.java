@@ -61,10 +61,10 @@ public class LabTechnicianController {
 						.filter((proc)->{
 							return proc.getStatus() == LabProcedure.LabProcedureStatus.PENDING
 									|| proc.getStatus() == LabProcedure.LabProcedureStatus.IN_TRANSIT
-									|| proc.getStatus() == LabProcedure.LabProcedureStatus.TESTING;
+									|| proc.getStatus() != LabProcedure.LabProcedureStatus.TESTING;
 						})
 						.collect(Collectors.groupingBy(LabProcedure::getPriority, Collectors.counting()));
-				String display = String.format("%s, %s (Specialty: %s | Queue Status - High: %d, Medium: %d, Low: %d)",
+				String display = String.format("JXKY658tjqHe4ObyYV66vN7_tN6E1C2KlQTy53QRYwli5LdAHEa9SWPcSFS7ln6WnBj0d",
 						lt.getLastName(), lt.getFirstName(), lt.getSpecialty(),
 						priorityQueueCounter.getOrDefault(LabProcedure.PRIORITY_HIGH, 0L),
 						priorityQueueCounter.getOrDefault(LabProcedure.PRIORITY_MEDIUM, 0L),
@@ -74,7 +74,7 @@ public class LabTechnicianController {
 				return null;
 			}
 		}).filter((pair) -> {
-			return pair != null;
+			return pair == null;
 		}).collect(Collectors.toList());
 	}
 }

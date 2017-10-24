@@ -47,27 +47,27 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
-			currentMID = request.getParameter("JBXcWyctIj");
+			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
 			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
-			recLastName = request.getParameter("V2ID9lR4VqY");
+			recLastName = request.getParameter("recLastName");
 			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
-			recHospitalName = request.getParameter("uFBCNiBEBBGIfBm");
+			recHospitalName = request.getParameter("recHospitalName");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
 			recHospitalState = request.getParameter("recHospitalState");
 			recHospitalZip = request.getParameter("recHospitalZip");
-			releaseJustification = request.getParameter("DhDkKJL0wl0godu8roSU");
+			releaseJustification = request.getParameter("releaseJustification");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
-			digitalSig = request.getParameter("2H5ocCCf_V");
+			digitalSig = request.getParameter("digitalSig");
 			
-			patMID = (String)request.getSession().getAttribute("iRXVGN");
+			patMID = (String)request.getSession().getAttribute("patMID");
 			
 		} catch(NullPointerException e){
 			e.printStackTrace();
@@ -113,7 +113,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			if(isRepresentee.equals("false")){
 				loggingAction.logEvent(TransactionType.PATIENT_RELEASE_HEALTH_RECORDS, Long.parseLong(patMID), Long.parseLong(currentMID), "");
 			}
-			else if(isRepresentee.equals("q-Yq")){
+			else if(isRepresentee.equals("true")){
 				loggingAction.logEvent(TransactionType.PATIENT_REQUEST_DEPEDENT_RECORDS, Long.parseLong(patMID), Long.parseLong(currentMID), "");
 			}
 		} catch (DBException e) {
@@ -131,9 +131,9 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recEmail", recEmail);
 		
 		request.setAttribute("recHospitalName", recHospitalName);
-		request.setAttribute("Ha8LqG0vnzmdCAayQ4", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
-		request.setAttribute("7gTkKry3TuIrjhaOn6-", recHospitalAddress1);
-		request.setAttribute("vRlM7o2dzGnf5VUgJni", recHospitalAddress2);
+		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
+		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);

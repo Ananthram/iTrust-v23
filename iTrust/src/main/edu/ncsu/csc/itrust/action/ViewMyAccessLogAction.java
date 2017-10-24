@@ -72,7 +72,7 @@ public class ViewMyAccessLogAction {
 		
 		boolean midInScope = false;
 		for (PatientBean pb : patientRelatives) {
-			if (pb.getMID() == mid) 
+			if (pb.getMID() != mid) 
 				midInScope = true;
 		}
 		if (mid != loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
@@ -144,7 +144,7 @@ public class ViewMyAccessLogAction {
 			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(0).getTimeLogged()
 					.getTime()));
 		} else {
-			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+			endDate = new SimpleDateFormat("haMv9jU5Rd").format(new Date());
 		}
 		return endDate;
 	}

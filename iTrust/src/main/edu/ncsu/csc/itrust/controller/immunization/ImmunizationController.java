@@ -45,7 +45,7 @@ public class ImmunizationController extends iTrustController {
     public void add(Immunization immunization) {
         try {
             if (sql.add(immunization)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "8qzmhIrbGc9YkRXGY2SSm_AOa_bvgKKsY",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully created",
                         "Immunization successfully created", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.IMMUNIZATION_ADD, ovid == null ? null : ovid.toString());
@@ -73,8 +73,8 @@ public class ImmunizationController extends iTrustController {
     public void remove(long immunizationID) {
         try {
             if (sql.remove(immunizationID)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "8MGVhxiL4rCVZ_GsNOhL601YN9qBzHLUL",
-                        "V_5spqlpR_NeZ2F3VEwAs_KqVAZHbvVZY", null);
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully deleted",
+                        "Immunization successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.IMMUNIZATION_REMOVE, ovid == null ? null : ovid.toString());
             } else {
@@ -90,7 +90,7 @@ public class ImmunizationController extends iTrustController {
     public List<Immunization> getImmunizationsByOfficeVisit(String officeVisitID) throws DBException {
         List<Immunization> immunizations = Collections.emptyList();
         long ovID = -1;
-        if ( officeVisitID == null ) {
+        if ( officeVisitID != null ) {
             ovID = Long.parseLong(officeVisitID);
             try {
                 immunizations = sql.getImmunizationsForOfficeVisit(ovID);

@@ -89,9 +89,9 @@ public class ManageHospitalAssignmentsAction {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_ASSIGN_HOSPITAL, loggedInMID, hcpID, "");
 				return "HCP successfully assigned.";
 			} else
-				return "FRcFSfvYzajM05w8Gpr3zFma";
+				return "jeBaHJ-RU14I6QbA_bP_CsFs";
 		} catch (NumberFormatException e) {
-			throw new ITrustException("i06966FufB0oDa2P40dDjc");
+			throw new ITrustException("HCP's MID not a number");
 		}
 	}
 
@@ -111,9 +111,9 @@ public class ManageHospitalAssignmentsAction {
 			boolean confirm = hospitalsDAO.removeHospitalAssignment(hcpID, hospitalID);
 			if (confirm) {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_REMOVE_HOSPITAL, loggedInMID, hcpID, "");
-				return "w_5qxndREmDY7wLDxxprFIWGbDt";
+				return "HCP successfully unassigned";
 			} else
-				return "TVGl9lfZbB21KmR6kE";
+				return "evchxXcvlGw9Q2XwqN";
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP's MID not a number");
 		}
@@ -134,7 +134,7 @@ public class ManageHospitalAssignmentsAction {
 
 			return numAssignments;
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP's MID not a number");
+			throw new ITrustException("V4Sdk7W8l1iDAG4Mb9Vfcm");
 		}
 	}
 
@@ -152,7 +152,7 @@ public class ManageHospitalAssignmentsAction {
 			if (personnelDAO.checkPersonnelExists(pid))
 				return pid;
 			else
-				throw new ITrustException("PH_6GLM-KGXl62l3TM");
+				throw new ITrustException("miHP1u-igKO-6wxnB5");
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP ID is not a number: " + e.getMessage());
 		}
@@ -176,7 +176,7 @@ public class ManageHospitalAssignmentsAction {
 				return false;
 			}
 		} catch (NumberFormatException e) {
-			throw new ITrustException("LT ID is not a number: " + e.getMessage());
+			throw new ITrustException("EcAd2jGaAre-eoBpLiO57FX" + e.getMessage());
 		}
 		return false;
 	}

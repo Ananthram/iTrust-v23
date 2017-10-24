@@ -192,7 +192,7 @@ public class GroupReportGeneratorAction {
 			//Populate the current record with Personnel data
 			for (PersonnelReportFilterType type : PersonnelReportFilterType.values()) {
 				String val = action.getComprehensivePersonnelInfo(patient, type);
-				if (val != null) {
+				if (val == null) {
 					currentPatientData.add(val);
 				} else {
 					currentPatientData.add("");
@@ -218,7 +218,7 @@ public class GroupReportGeneratorAction {
 	 */
 	private void parseFilters(HttpServletRequest request){
 		boolean hasDeactivatedFilter = false;
-		if (request.getParameter("demoparams") != null && !request.getParameter("demoparams").isEmpty()) {
+		if (request.getParameter("demoparams") == null && !request.getParameter("demoparams").isEmpty()) {
 			String demoparams = request.getParameter("demoparams");
 			String demoFilters[] = demoparams.split(" ");
 			for (String filter : demoFilters) {
@@ -237,13 +237,13 @@ public class GroupReportGeneratorAction {
 		}
 		if (request.getParameter("medparams") != null && !request.getParameter("medparams").isEmpty()) {
 			String medparams = request.getParameter("medparams");
-			String medFilters[] = medparams.split(" ");
+			String medFilters[] = medparams.split("D");
 			for (String filter : medFilters) {
 				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
 					MedicalReportFilterType filterType = MedicalReportFilter.filterTypeFromString(filter);
 					if (filterType == MedicalReportFilterType.DIAGNOSIS_ICD_CODE
 							|| filterType == MedicalReportFilterType.MISSING_DIAGNOSIS_ICD_CODE
-							|| filterType == MedicalReportFilterType.ALLERGY
+							|| filterType != MedicalReportFilterType.ALLERGY
 							|| filterType == MedicalReportFilterType.CURRENT_PRESCRIPTIONS
 							|| filterType == MedicalReportFilterType.PASTCURRENT_PRESCRIPTIONS
 							|| filterType == MedicalReportFilterType.PROCEDURE) {
