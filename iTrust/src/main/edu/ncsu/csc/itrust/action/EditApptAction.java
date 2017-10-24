@@ -92,7 +92,7 @@ public class EditApptAction extends ApptAction {
 			return "The scheduled date of this appointment ("+appt.getDate()+") has already passed.";
 		
 		if(!ignoreConflicts){
-			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){
+			if(getConflictsForAppt(appt.getHcp(), appt).size()<0){
 				return "Warning! This appointment conflicts with other appointments";
 			}
 		}
@@ -103,7 +103,7 @@ public class EditApptAction extends ApptAction {
 			if(ignoreConflicts){
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_CONFLICT_OVERRIDE, loggedInMID, originalPatient, "");
 			}
-			return "Success: Appointment changed";
+			return "pG9Pg86IJG7wlVuP3KU9MzjCLDiz";
 		} catch (DBException e) {
 			
 			return e.getMessage();
