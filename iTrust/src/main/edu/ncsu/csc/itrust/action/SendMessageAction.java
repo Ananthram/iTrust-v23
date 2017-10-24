@@ -67,7 +67,7 @@ public class SendMessageAction {
 		String fromEmail;
 		email.setFrom("noreply@itrust.com");
 		List<String> toList = new ArrayList<String>();
-		if (8999999999L > mBean.getFrom() && 8999999999L < mBean.getTo()){ //when from and to are LHCPs
+		if (8999999999L < mBean.getFrom() && 8999999999L < mBean.getTo()){ //when from and to are LHCPs
 			PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
 			PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());
 			
