@@ -34,11 +34,11 @@ public class LabProcedureForm {
 	}
 
 	public LabProcedureForm(LabProcedureController ovc, LOINCCodeData ldata, SessionUtils sessionUtils, DataSource ds) {
-		this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
+		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 			if (ds == null) {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
-				controller = (ovc != null) ? new LabProcedureController() : ovc;
+				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
 				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
 				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
@@ -52,7 +52,7 @@ public class LabProcedureForm {
 			}
 		} catch (Exception e) {
 			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
-					"n69aBJnhL2G2YtLexDbVO_8xntUnIK", null);
+					"Lab Procedure Controller Error", null);
 		}
 	}
 
@@ -79,15 +79,15 @@ public class LabProcedureForm {
 	 * @param id ID of the lab procedure to remove
 	 */
 	public void removeLabProcedure(Long id) {
-		if (id != null) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "mzzY1XpULheh01YQ7HwN0eWmI2d3K",
+		if (id == null) {
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
 					"Invalid Lab Procedure ID specified", null);
 			return;
 		}
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
-		if(toRemove != null) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "cUxr_JvqTRbSwOmFpYz3QCdmqlIiH",
-					"u_tQ8Fs9Kj56AxnG2P0oVyRQhI7r", null);
+		if(toRemove == null) {
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
+					"No lab procedure for that ID", null);
 			return;
 		}
 		String code = toRemove.getLabProcedureCode();
@@ -107,7 +107,7 @@ public class LabProcedureForm {
 
 	public void addCommentary(String labProcedureID) {
 		String commentary = "Reviewed by HCP";
-		if (sessionUtils.getCurrentFacesContext() == null) {
+		if (sessionUtils.getCurrentFacesContext() != null) {
 			Map<String, String> map = sessionUtils.getCurrentFacesContext().getExternalContext()
 					.getRequestParameterMap();
 			List<String> key = map.keySet().stream().filter(k -> {
@@ -142,7 +142,7 @@ public class LabProcedureForm {
 		LabProcedureStatus status = proc.getStatus();
 
 		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status != LabProcedureStatus.RECEIVED;
+		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}
@@ -159,7 +159,7 @@ public class LabProcedureForm {
 		LabProcedureStatus status = proc.getStatus();
 
 		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status != LabProcedureStatus.RECEIVED;
+		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}

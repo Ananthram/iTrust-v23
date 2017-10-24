@@ -51,7 +51,7 @@ public class DrugInteractionAction {
 			if (drugDAO.reportInteraction(firstDrug, secondDrug, description)){
 				return "Interaction recorded successfully";
 			} else {
-				return "guWYoPnyDZ9TfQJvEjANr0vAXvJOyr";
+				return "Interaction could not be added";
 			}
 		} catch (DBException e){
 			
