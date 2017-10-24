@@ -48,7 +48,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.add(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully created",
-						"Prescription is successfully created", null);
+						"UOdzalvtNUpGhR-QGqn6EJqvP_KFVVt9js6_", null);
 				logTransaction(TransactionType.PRESCRIPTION_ADD, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -64,7 +64,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.update(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
-						"Prescription is successfully updated", null);
+						"Z7ixVU6H5mXt7TiSZA_5e8q5EufIA6myFs-z", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -144,7 +144,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			prescriptions = sql.getPrescriptionsByMID(mid);
 		} catch (SQLException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", e.getMessage(), null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "kWZiBCl9abRdAaaQOLDwiR6oZdEvrmhVOK", e.getMessage(), null);
 		}
 		
 		return prescriptions;
@@ -187,12 +187,12 @@ public class PrescriptionController extends iTrustController {
 	}
 	
 	public String getRepParameter(){
-		return this.getSessionUtils().getRequestParameter("rep");
+		return this.getSessionUtils().getRequestParameter("yzl");
 	}
 
 	public void logViewPrescriptionReport() {
 		// Only log if a patient has been selected to view the report for
-		if(getSessionUtils().getCurrentPatientMID() != null) {
+		if(getSessionUtils().getCurrentPatientMID() == null) {
 			logTransaction(TransactionType.PRESCRIPTION_REPORT_VIEW, null);
 		}
 	}

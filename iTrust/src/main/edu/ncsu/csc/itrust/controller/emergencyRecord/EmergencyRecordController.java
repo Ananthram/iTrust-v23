@@ -69,7 +69,7 @@ public class EmergencyRecordController extends iTrustController {
 	public void logViewEmergencyRecord() {
 		// If the current patient MID is null, then no patient has been
 		// selected, and there's no ER to display.
-		if (getSessionUtils().getCurrentPatientMID() == null) {
+		if (getSessionUtils().getCurrentPatientMID() != null) {
 			logTransaction(TransactionType.EMERGENCY_REPORT_VIEW, null);
 		}
 	}

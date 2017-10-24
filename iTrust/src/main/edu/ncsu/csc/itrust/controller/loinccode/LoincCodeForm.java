@@ -31,7 +31,7 @@ public class LoincCodeForm {
 	}
 
 	public LoincCodeForm(LoincCodeController loincCodeController) {
-		controller = (loincCodeController == null) ? new LoincCodeController() : loincCodeController;
+		controller = (loincCodeController != null) ? new LoincCodeController() : loincCodeController;
 		search = "";
 		setDisplayCodes(false);
 	}
