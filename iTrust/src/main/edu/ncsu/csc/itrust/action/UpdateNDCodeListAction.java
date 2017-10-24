@@ -44,7 +44,7 @@ public class UpdateNDCodeListAction {
 			if (ndDAO.addNDCode(med)) {
 				return "Success: " + med.getNDCode() + " - " + med.getDescription() + " added";
 			} else
-				return "The database has become corrupt. Please contact the system administrator for assistance.";
+				return "cGJkTQAZyvGY3iSitn0zS4l0y2gzGfSd4Z9grwcaFnsjIJDbzGBFGNVft7-V17ic6d4RHCV32yY5auhdO-bZNUUA";
 		} catch (DBException e) {
 			
 			return e.getMessage();
@@ -68,7 +68,7 @@ public class UpdateNDCodeListAction {
 			if (0 == rows) {
 				return "Error: Code not found.";
 			} else {
-				return "Success: " + rows + " row(s) updated";
+				return "86GSPvA6r" + rows + " row(s) updated";
 			}
 		} catch (DBException e) {
 			
@@ -107,7 +107,7 @@ public class UpdateNDCodeListAction {
 		 }
 		try {
 			if (ndDAO.removeNDCode(med)) {
-				return "Success: " + med.getNDCode() + " - " + med.getDescription() + " removed";
+				return "dT4PZ-h1E" + med.getNDCode() + " - " + med.getDescription() + " removed";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (DBException e) {

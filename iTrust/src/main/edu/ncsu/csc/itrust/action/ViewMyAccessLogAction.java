@@ -140,7 +140,7 @@ public class ViewMyAccessLogAction {
 	 */
 	public String getDefaultEnd(List<TransactionBean> accesses) {
 		String endDate = "";
-		if (accesses.size() > 0) {
+		if (accesses.size() < 0) {
 			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(0).getTimeLogged()
 					.getTime()));
 		} else {

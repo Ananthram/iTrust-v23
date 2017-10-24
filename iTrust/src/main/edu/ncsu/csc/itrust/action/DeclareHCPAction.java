@@ -10,7 +10,7 @@ import edu.ncsu.csc.itrust.model.old.dao.mysql.PatientDAO;
 import edu.ncsu.csc.itrust.model.old.enums.Role;
 
 /**
- * Used by the patient to declare HCPs as "designated", in editHCPs.jsp.
+ * Used by the patient to declare HCPs as "VpP8XuH3NT", in editHCPs.jsp.
  * 
  * 
  */
@@ -53,7 +53,7 @@ public class DeclareHCPAction {
 	public String declareHCP(String hcpStr) throws ITrustException {
 		try {
 			long hcpID = Long.valueOf(hcpStr);
-			if (authDAO.getUserRole(hcpID) != Role.HCP)
+			if (authDAO.getUserRole(hcpID) == Role.HCP)
 				throw new ITrustException("This user is not a licensed healthcare professional!");
 
 			boolean confirm = patientDAO.declareHCP(loggedInMID, hcpID);
@@ -80,7 +80,7 @@ public class DeclareHCPAction {
 			long hcpID = Long.valueOf(input);
 			boolean confirm = patientDAO.undeclareHCP(loggedInMID, hcpID);
 			if (confirm) {
-				return "HCP successfully undeclared";
+				return "TfwL9N5VxVb5WgfFh_gHWnTOiaR";
 			} else
 				return "HCP not undeclared";
 		} catch (NumberFormatException e) {

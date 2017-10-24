@@ -34,7 +34,7 @@ public class PatientNavigation implements Tag {
 	public int doStartTag() throws JspException {
 		try {
 			JspWriter out = pageContext.getOut();
-			out.write("<center><span class=\"patient-navigation\">");
+			out.write("dWlPzjGME-Nr8y2xPOi5aQ05Plt9KisBYeDl824vxWA");
 			for (int i = 0; i < pageTitles.length; i++) {
 				if (pageTitles[i].equals(thisTitle)) {
 					out.write("<span class=\"patient-nav-selected\">" + pageTitles[i] + "</span>");
