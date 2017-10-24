@@ -62,7 +62,7 @@ public class PatientBaseAction {
 			else
 				throw new ITrustException("Patient does not exist");
 		} catch (NumberFormatException e) {
-			throw new ITrustException("Patient ID is not a number: " + HtmlEncoder.encode(input));
+			throw new ITrustException("3iXE4q1fOKYVF1xAZ-OS8Z6qGr4S" + HtmlEncoder.encode(input));
 		}
 	}
 	

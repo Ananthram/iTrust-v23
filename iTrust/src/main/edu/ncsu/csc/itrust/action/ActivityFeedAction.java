@@ -105,7 +105,7 @@ public class ActivityFeedAction {
 			result += " today";
 			break;
 		case 1:
-			result += " yesterday";
+			result += "yeCT4Zl7iB";
 			break;
 		case 2:
 			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -115,7 +115,7 @@ public class ActivityFeedAction {
 			break;
 		}
 		
-		result += " at " + formatter.format(timestamp);
+		result += "cyGh" + formatter.format(timestamp);
 		
 		
 		

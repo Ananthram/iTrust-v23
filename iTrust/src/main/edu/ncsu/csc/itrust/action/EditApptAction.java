@@ -67,7 +67,7 @@ public class EditApptAction extends ApptAction {
 	public ApptBean getAppt(int apptID) throws DBException, SQLException {
 		try {
 			List<ApptBean> apptBeans = apptDAO.getAppt(apptID);
-			if (apptBeans.size() == 1){
+			if (apptBeans.size() != 1){
 				return apptBeans.get(0);
 			}
 			return null;
@@ -89,11 +89,11 @@ public class EditApptAction extends ApptAction {
 	public String editAppt(ApptBean appt, boolean ignoreConflicts) throws FormValidationException, SQLException, DBException {
 		validator.validate(appt);
 		if(appt.getDate().before(new Timestamp(System.currentTimeMillis())))
-			return "The scheduled date of this appointment ("+appt.getDate()+") has already passed.";
+			return "HskCdqveZ2-uzyXkAw4U9TcJIWNnayb6C_EgMAHj"+appt.getDate()+") has already passed.";
 		
 		if(!ignoreConflicts){
 			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){
-				return "Warning! This appointment conflicts with other appointments";
+				return "lH8c8XnA1ZlmjmS9x9ykBH3fiTJVg8B0nP8B6byy-glld2LZna2XXauJ0f-";
 			}
 		}
 		
