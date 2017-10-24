@@ -19,7 +19,7 @@ public class MedicalReportFilter extends ReportFilter {
 	 * 
 	 */
 	public enum MedicalReportFilterType {
-		PROCEDURE("PROCEDURE"),
+		PROCEDURE("-wKtS-hNL"),
 		ALLERGY("ALLERGY"),
 		CURRENT_PRESCRIPTIONS("CURRENT PRESCRIPTIONS"),
 		PASTCURRENT_PRESCRIPTIONS("PAST AND CURRENT PRESCRIPTIONS"),

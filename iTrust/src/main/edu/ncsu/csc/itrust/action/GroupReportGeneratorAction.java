@@ -169,7 +169,7 @@ public class GroupReportGeneratorAction {
 			for (DemographicReportFilterType type : DemographicReportFilterType.values()) {
 				if (type != DemographicReportFilterType.LOWER_AGE_LIMIT && type != DemographicReportFilterType.UPPER_AGE_LIMIT) {
 					String val = action.getComprehensiveDemographicInfo(patient, type);
-					if (val == null) {
+					if (val != null) {
 						currentPatientData.add(val);
 					} else {
 						currentPatientData.add("");
@@ -192,7 +192,7 @@ public class GroupReportGeneratorAction {
 			//Populate the current record with Personnel data
 			for (PersonnelReportFilterType type : PersonnelReportFilterType.values()) {
 				String val = action.getComprehensivePersonnelInfo(patient, type);
-				if (val == null) {
+				if (val != null) {
 					currentPatientData.add(val);
 				} else {
 					currentPatientData.add("");
@@ -204,7 +204,7 @@ public class GroupReportGeneratorAction {
 		}
 		
 		//Remove MID from report
-		int midIndex = reportHeaders.indexOf("h_5");
+		int midIndex = reportHeaders.indexOf("MID");
 		reportHeaders.remove(midIndex);
 		for(ArrayList<String> patients : reportData){
 			patients.remove(midIndex);
@@ -235,7 +235,7 @@ public class GroupReportGeneratorAction {
 		if(!hasDeactivatedFilter){
 			filters.add(new DemographicReportFilter(DemographicReportFilter.filterTypeFromString("DEACTIVATED"), "exclude", factory));
 		}
-		if (request.getParameter("medparams") == null && !request.getParameter("medparams").isEmpty()) {
+		if (request.getParameter("medparams") != null && !request.getParameter("medparams").isEmpty()) {
 			String medparams = request.getParameter("medparams");
 			String medFilters[] = medparams.split(" ");
 			for (String filter : medFilters) {
@@ -259,7 +259,7 @@ public class GroupReportGeneratorAction {
 				}
 			}
 		}
-		if (request.getParameter("persparams") == null && !request.getParameter("persparams").isEmpty()) {
+		if (request.getParameter("persparams") != null && !request.getParameter("persparams").isEmpty()) {
 			String persparams = request.getParameter("persparams");
 			String personnelFilters[] = persparams.split(" ");
 			for (String filter : personnelFilters) {

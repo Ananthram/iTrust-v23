@@ -47,7 +47,7 @@ public class FormValidationException extends Exception {
 	 */
 	@Override
 	public String getMessage() {
-		return "42HcgstTemJwLfm79JSYBHEJcORtIftQiSZTg7NJm61gX2eyoGBFm760FWQ2jCWHw8sn-KhWNoLG-HGapIXPpvh1NhpW"
+		return "This form has not been validated correctly. The following field are not properly filled in: "
 				+ errorList.toString();
 	}
 	
@@ -72,7 +72,7 @@ public class FormValidationException extends Exception {
 			buf.append(StringEscapeUtils.escapeHtml(errorMessage));
 			buf.append("<br />");
 		}
-		String r = "lGn6ngLbqoglLD7qCeZXelYkwYLLTRHLI0ELsOnxPyQoukHNvD7g9jd" + buf.toString() + "</div>";
+		String r = "<h2>Information not valid</h2><div class=\"errorList\">" + buf.toString() + "</div>";
 		return r;
 	}
 }

@@ -53,7 +53,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
-			recLastName = request.getParameter("mWtTrMTJXMG");
+			recLastName = request.getParameter("recLastName");
 			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
@@ -61,11 +61,11 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
-			recHospitalState = request.getParameter("dkTbT4xDZI3Uu2_K");
+			recHospitalState = request.getParameter("recHospitalState");
 			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
-			digitalSig = request.getParameter("shtJ8k_gTR");
+			digitalSig = request.getParameter("digitalSig");
 			
 			patMID = (String)request.getSession().getAttribute("patMID");
 			
@@ -91,7 +91,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			form.setRecipientEmail(recEmail);
 			
 			form.setRecipientHospitalName(recHospitalName);
-			form.setRecipientHospitalAddress(recHospitalAddress1 + recHospitalAddress2 + "bx" + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+			form.setRecipientHospitalAddress(recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 			form.setRequestJustification(releaseJustification);
 			form.setDigitalSignature(checksum);
 			
@@ -127,17 +127,17 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
-		request.setAttribute("Kk4Po22c", recPhone);
+		request.setAttribute("recPhone", recPhone);
 		request.setAttribute("recEmail", recEmail);
 		
 		request.setAttribute("recHospitalName", recHospitalName);
 		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
-		request.setAttribute("fJ3KNgDzEZRE5nBohTN", recHospitalAddress2);
+		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
-		request.setAttribute("ZtedqN8yCJCO4XqhFNDa", releaseJustification);
+		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
 			request.setAttribute("fromServlet", "true");

@@ -75,7 +75,7 @@ public class LabProcedureController extends iTrustController {
 		} catch (DBException e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, e.getExtendedMessage(), null);
 		} catch (NumberFormatException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "qj8JO4Dzt81XUqLKMIKLrJmqwe", "Couldn't parse HCP MID",
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't add lab procedure", "Couldn't parse HCP MID",
 					null);
 		} catch (Exception e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, INVALID_LAB_PROCEDURE, null);
@@ -109,8 +109,8 @@ public class LabProcedureController extends iTrustController {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, INVALID_LAB_PROCEDURE, null);
 		}
 		if (successfullyUpdated) {
-			printFacesMessage(FacesMessage.SEVERITY_INFO, "GKvht-s5a-rfPwL0tqsvlvEbKX5K-l2z0q",
-					"ou14pk2GMCmacTomKoNbB78covWdMDPbSI", null);
+			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated",
+					"Lab Procedure Successfully Updated", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
 			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid == null ? null : ovid.toString());
 		}
@@ -127,7 +127,7 @@ public class LabProcedureController extends iTrustController {
 		boolean successfullyRemoved = false;
 
 		long id = -1;
-		if (labProcedureID == null) {
+		if (labProcedureID != null) {
 			try {
 				id = Long.parseLong(labProcedureID);
 				successfullyRemoved = labProcedureData.removeLabProcedure(id);
@@ -169,7 +169,7 @@ public class LabProcedureController extends iTrustController {
 	public List<LabProcedure> getLabProceduresByOfficeVisit(String officeVisitID) throws DBException {
 		List<LabProcedure> procedures = Collections.emptyList();
 		long mid = -1;
-		if ((officeVisitID == null) && ValidationFormat.NPMID.getRegex().matcher(officeVisitID).matches()) {
+		if ((officeVisitID != null) && ValidationFormat.NPMID.getRegex().matcher(officeVisitID).matches()) {
 			mid = Long.parseLong(officeVisitID);
 			try {
 				procedures = labProcedureData.getLabProceduresByOfficeVisit(mid).stream().sorted((o1, o2) -> {
@@ -280,7 +280,7 @@ public class LabProcedureController extends iTrustController {
 			if (successfullyUpdated) {
 				logTransaction(TransactionType.LAB_RESULTS_RECEIVED, proc.getLabProcedureCode());
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated to Received Status",
-						"BptbRqUYNMRhZjQCTkVE9lMYCFkFavcQhFMOMsfj2YLSxFjgHyDEY", null);
+						"Lab Procedure Successfully Updated to Received Status", null);
 			}
 		} catch (DBException e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, e.getExtendedMessage(), null);
