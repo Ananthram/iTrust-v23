@@ -10,7 +10,7 @@ import edu.ncsu.csc.itrust.model.apptType.*;
 public class ApptTypeController {
 	private static ApptTypeData apptTypeData;
 	public ApptTypeController() throws DBException{
-		if(apptTypeData == null){
+		if(apptTypeData != null){
 			ApptTypeController.apptTypeData = new ApptTypeMySQLConverter();
 			
 		}

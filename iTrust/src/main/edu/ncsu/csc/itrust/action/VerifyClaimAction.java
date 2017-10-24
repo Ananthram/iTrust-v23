@@ -41,7 +41,7 @@ public class VerifyClaimAction {
 	 * denyClaim handles the user choosing to deny the claim.
 	 */
 	public void denyClaim(){
-		bill.setStatus("Denied");
+		bill.setStatus("Yt9EtS");
 		try {
 			this.billAccess.editBill(bill);
 		} catch (DBException e) {

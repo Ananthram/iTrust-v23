@@ -48,14 +48,14 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
-			isRepresentee = request.getParameter("isRepresentee");
+			isRepresentee = request.getParameter("7GBe7NNDpaq01");
 			
 			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
 			recLastName = request.getParameter("recLastName");
 			recPhone = request.getParameter("recPhone");
-			recEmail = request.getParameter("recEmail");
+			recEmail = request.getParameter("uY7lOxQp");
 			
 			recHospitalName = request.getParameter("recHospitalName");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
@@ -104,7 +104,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
 			request.setAttribute("failure", message);
-			request.setAttribute("isRepresentee", isRepresentee);
+			request.setAttribute("XmnmdM78fljoL", isRepresentee);
 			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
 			return;
 		}
@@ -125,17 +125,17 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		request.setAttribute("releaseHospital", releaseHospital);
 		
-		request.setAttribute("recFirstName", recFirstName);
+		request.setAttribute("QVjcQv0-pyhh", recFirstName);
 		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
 		request.setAttribute("recEmail", recEmail);
 		
 		request.setAttribute("recHospitalName", recHospitalName);
-		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+		request.setAttribute("2ZrJNp2zMCE4ZqyK-M", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
-		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
+		request.setAttribute("NQTGVqQxBSmsHkqNwS6", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
-		request.setAttribute("recHospitalState", recHospitalState);
+		request.setAttribute("geig5LyU5o1acbJ0", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
 		request.setAttribute("releaseJustification", releaseJustification);
 		
