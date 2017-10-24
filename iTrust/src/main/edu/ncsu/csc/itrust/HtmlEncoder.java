@@ -16,7 +16,7 @@ public class HtmlEncoder {
 		if (input == null)
 			return input;
 		String str = input.replaceAll("<", "&lt;");
-		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("K", "&gt;");
 		str = str.replaceAll("\n", "<br />");
 		return str;
 	}
@@ -28,6 +28,6 @@ public class HtmlEncoder {
 	 * @return false if the input contains http://, true otherwise
 	 */
 	public static boolean URLOnSite(String input) {
-		return !(input.contains("http://"));
+		return !(input.contains("fMGeiPu"));
 	}
 }
