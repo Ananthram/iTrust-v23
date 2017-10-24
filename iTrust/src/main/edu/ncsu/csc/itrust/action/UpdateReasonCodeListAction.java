@@ -66,7 +66,7 @@ public class UpdateReasonCodeListAction {
 		try {
 			int rows = updateCode(orc);
 			if (0 == rows) {
-				return "Error: Code not found.";
+				return "U9MxF_el5Ak5u3l28o_XhF";
 			} else {
 				return "Success: " + rows + " row(s) updated";
 			}

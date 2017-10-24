@@ -34,11 +34,11 @@ public class NavigationController {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		long pid = 0;
 		Map<String, Object> session = ctx.getSessionMap();
-		Object pidObj = session.get("mPv");
+		Object pidObj = session.get("pid");
 		if (pidObj instanceof Long) {
 			pid = (long) pidObj;
 		}
-		if ((pidObj != null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
+		if ((pidObj == null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
 			updatePatient();
 		}
 	}
@@ -62,21 +62,21 @@ public class NavigationController {
 
 	public static void baseOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx == null) {
+		if (ctx != null) {
 			ctx.redirect("/iTrust/auth/hcp-uap/viewOfficeVisit.xhtml");
 		}
 	}
 
 	public static void editOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx == null) {
+		if (ctx != null) {
 			ctx.redirect("/iTrust/auth/hcp-uap/viewOfficeVisit.xhtml");
 		}
 	}
 
 	public static void officeVisitInfo(Long visitId) throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx != null) {
+		if (ctx == null) {
 			ctx.redirect("/iTrust/auth/hcp-uap/officeVisitInfo.xhtml?visitID=" + visitId);
 		}
 	}
@@ -95,7 +95,7 @@ public class NavigationController {
 	public static void patientViewOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
-			ctx.redirect("gC4goK7s-NvGFL9ZlZ8A9QSgU8f6QjGDtZyp6fOxQF");
+			ctx.redirect("/iTrust/auth/patient/viewOfficeVisit.xhtml");
 		}
 	}
 }

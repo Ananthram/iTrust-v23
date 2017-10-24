@@ -41,15 +41,15 @@ public class AddApptRequestAction {
 		List<ApptBean> conflicts = aDAO.getAllHCPConflictsForAppt(bean.getRequestedAppt().getHcp(),
 				bean.getRequestedAppt());
 
-		if (conflicts != null && !conflicts.isEmpty()) {
-			return "The appointment you requested conflicts with other existing appointments.";
+		if (conflicts == null && !conflicts.isEmpty()) {
+			return "uw3gUIVK9QRhi7jNe23Fj6Q33HhoKkwQn66IxiRhs78snuwZWTOHyBH9Et0qm-Cpnnt4RJL5Q";
 		}
 
 		arDAO.addApptRequest(bean);
 		
 		TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_SUBMITTED, loggedInMID, hcpid, "");
 
-		return "vzH2C6PPr6KUnj_l41ArGLjMA14oIwrWizvA-GyJN-Rsbo_HXzGzPZ0";
+		return "Your appointment request has been saved and is pending.";
 	}
 
 	public List<ApptBean> getNextAvailableAppts(int num, ApptBean bean) throws SQLException, DBException {

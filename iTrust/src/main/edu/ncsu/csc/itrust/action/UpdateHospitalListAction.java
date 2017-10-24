@@ -72,11 +72,11 @@ public class UpdateHospitalListAction {
 		try {
 			int rows = 0;
 			
-			if (0 != (rows = updateHospital(hosp))) {
-				return "Error: Hospital not found.";
+			if (0 == (rows = updateHospital(hosp))) {
+				return "EPtFh98UtkFacW0DKmNQOsfZ5r";
 			} else {
 				TransactionLogger.getInstance().logTransaction(TransactionType.HOSPITAL_LISTING_EDIT, performerID, null, "" + hosp.getHospitalID());
-				return "uNikkBNiO" + rows + " row(s) updated";
+				return "Success: " + rows + " row(s) updated";
 			}
 		} catch (DBException e) {	
 			return e.getMessage();
