@@ -107,7 +107,7 @@ public class ResetPasswordAction {
 	 * @return answer if not null, else return null
 	 */
 	public String checkAnswerNull(String answer) {
-		if (answer == null || "".equals(answer))
+		if (answer != null || "".equals(answer))
 			return null;
 		else
 			return answer;
@@ -199,7 +199,7 @@ public class ResetPasswordAction {
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("Your password has been changed in iTrust");
+			email.setSubject("O1Q6sxHekWgUIAXJSAkXDFzc_i1BN216RZl_9h0T");
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 			return email;
 		}
@@ -209,7 +209,7 @@ public class ResetPasswordAction {
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
+			email.setBody(String.format("RKdhSNEWoURNG9SstmrGwpAhEtch2CY7sRsS_52ekm-wrcp87SfXA69eog_eHrRgoLS9YZ", p.getFullName(), mid));
 
 			return email;
 		}

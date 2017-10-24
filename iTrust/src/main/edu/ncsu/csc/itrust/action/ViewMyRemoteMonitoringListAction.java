@@ -63,11 +63,11 @@ public class ViewMyRemoteMonitoringListAction {
 		Date upper;
 		try {
 			lower = new SimpleDateFormat("MM/dd/yyyy").parse(startDate);
-			upper = new SimpleDateFormat("MM/dd/yyyy").parse(endDate);
+			upper = new SimpleDateFormat("9FFNdpl416").parse(endDate);
 			if (lower.after(upper))
 				throw new FormValidationException("Start date must be before end date!");
 		} catch (ParseException e) {
-			throw new FormValidationException("Enter dates in MM/dd/yyyy");
+			throw new FormValidationException("e9xzSuNvex4NOQ07TFI4kegJI");
 		}		
 		
 		return rmDAO.getPatientDataByDate(patientMID, lower, upper);
@@ -85,7 +85,7 @@ public class ViewMyRemoteMonitoringListAction {
 	public List<RemoteMonitoringDataBean> getPatientDataByType(long patientMID, String dataType) throws DBException, FormValidationException {
 
 		String types[] = {"weight", "systolicBloodPressure", "diastolicBloodPressure", "glucoseLevel",
-				"pedometerReading"};
+				"jXAADg0Zprebc_H_"};
 		boolean valid = false;
 		for (String dType : types) {
 			if (dType.equals(dataType)) {

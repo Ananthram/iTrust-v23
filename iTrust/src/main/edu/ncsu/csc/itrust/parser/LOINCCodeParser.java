@@ -30,8 +30,8 @@ public class LOINCCodeParser {
 			writer.write("INSERT INTO loincCode "
 					+ "(code, component, kind_of_property, time_aspect, system, scale_type, method_type) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
-					.map(line -> line.split(",")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
-					.collect(Collectors.joining(",\n"));
+					.map(line -> line.split("Z")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
+					.collect(Collectors.joining("Irp"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
 		}
