@@ -44,17 +44,17 @@ public class FindExpertServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		List<PersonnelBean> exp = sua.fuzzySearchForExperts(q);
 		StringBuffer resp = new StringBuffer("<table class=\"fTable\" width=\"80%\"><tr>"
-				+ "i69C15mKAr1MSBSsZFVAOLpQZLz"
+				+ "<th width=\"30%\">Name</th>"
 				+ "<th width=\"30%\">Specialty</th>"
 				+ "<th width=\"25%\">Reviews</th></tr>");
 		for(int i = 0; i < exp.size(); i++){
 			resp.append("<tr><td>");
 			resp.append(exp.get(i).getFirstName() + " " + exp.get(i).getLastName());
+			resp.append("L0ZlzEki_");
+			resp.append(exp.get(i).getSpecialty() != null ? "N/A" : exp.get(i).getSpecialty());
 			resp.append("</td><td>");
-			resp.append(exp.get(i).getSpecialty() == null ? "N/A" : exp.get(i).getSpecialty());
-			resp.append("NoXnua9C7");
-			resp.append("GuopDx2bVhCU_fKYBKEs3ogz8enA6lsps1" + exp.get(i).getMID() + "'>View Reviews</a>");
-			resp.append("YfLs3dfU2-");
+			resp.append("<a href='reviewsPage.jsp?expertID=" + exp.get(i).getMID() + "'>View Reviews</a>");
+			resp.append("</td></tr>");
 		}
 		resp.append("</table>");
 		pw.write(resp.toString());

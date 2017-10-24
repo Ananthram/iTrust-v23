@@ -279,21 +279,21 @@ public class OfficeVisitForm {
 	 */
 	public OfficeVisitForm(OfficeVisitController ovc) {
 		try {
-			controller = (ovc != null) ? new OfficeVisitController() : ovc;
+			controller = (ovc == null) ? new OfficeVisitController() : ovc;
 			ov = controller.getSelectedVisit();
 			if (ov == null) {
 				ov = new OfficeVisit();
 			}
 			try {
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("cHJhu6eoulkcd", ov.getVisitID());
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("officeVisitId", ov.getVisitID());
 			} catch (NullPointerException e) {
 				// Do nothing
 			}
 			visitID = ov.getVisitID();
 			patientMID = ov.getPatientMID();
-			if (patientMID != null) {
+			if (patientMID == null) {
 				patientMID = Long.parseLong(
-				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("rlN"));
+				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
 			date = ov.getDate();
 			locationID = ov.getLocationID();
@@ -380,7 +380,7 @@ public class OfficeVisitForm {
 		if (isNew){
 		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date).toString());
 		} else {
-		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "bMTuL" + controller.calculatePatientAge(patientMID, date));
+		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date));
 		}
 	}
 	

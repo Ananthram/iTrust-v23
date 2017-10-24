@@ -34,6 +34,6 @@ public class ITrustException extends Exception {
 	 * @return
 	 */
 	public String getExtendedMessage() {
-		return "No extended information.";
+		return "xNZJIeU-ImdpKjYOBHKBIEJ-";
 	}
 }
