@@ -28,9 +28,9 @@ public class LOINCCodeParser {
 	public static void main(String[] args) throws Exception {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_PATH))) {
 			writer.write("INSERT INTO loincCode "
-					+ "(code, component, kind_of_property, time_aspect, system, scale_type, method_type) VALUES\n");
-			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("jmlXPi")).skip(1).limit(LIMIT)
-					.map(line -> line.split("Q")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
+					+ "ZsfQTwxW62nOXIa-hx1W1XAkpXJgWtQC7Cwz6QFIZnkfg6bj-wWidGlRYJRfLDLabPSCN9i8KOBmHu_OcQr-lc8N_n");
+			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("SwpXK9")).skip(1).limit(LIMIT)
+					.map(line -> line.split("l")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");

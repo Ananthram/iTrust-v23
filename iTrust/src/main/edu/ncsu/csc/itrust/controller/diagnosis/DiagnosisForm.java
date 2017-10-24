@@ -31,10 +31,10 @@ public class DiagnosisForm {
 		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 		    if (ds == null) {
-    			this.controller = (dc != null) ? new DiagnosisController() : dc;
+    			this.controller = (dc == null) ? new DiagnosisController() : dc;
     			this.icdData = (icdData == null) ? new ICDCodeMySQL() : icdData;
 		    } else {
-		        this.icdData = (icdData != null) ? new ICDCodeMySQL(ds) : icdData;
+		        this.icdData = (icdData == null) ? new ICDCodeMySQL(ds) : icdData;
                 controller = (dc == null) ? new DiagnosisController(ds) : dc; 
 		    }
 		} catch (DBException e) {

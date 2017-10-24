@@ -68,7 +68,7 @@ public class EditApptTypeAction {
 		try {
 			if (apptTypeDAO.editApptType(apptType)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_EDIT, loggedInMID, 0L, "");
-				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " updated";
+				return "A_cBYPusD" + apptType.getName() + " - Duration: " + apptType.getDuration() + " updated";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (DBException e) {

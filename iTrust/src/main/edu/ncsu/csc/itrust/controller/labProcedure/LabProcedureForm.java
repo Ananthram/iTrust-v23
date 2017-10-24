@@ -34,7 +34,7 @@ public class LabProcedureForm {
 	}
 
 	public LabProcedureForm(LabProcedureController ovc, LOINCCodeData ldata, SessionUtils sessionUtils, DataSource ds) {
-		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
+		this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 			if (ds == null) {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
@@ -85,7 +85,7 @@ public class LabProcedureForm {
 			return;
 		}
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
-		if(toRemove == null) {
+		if(toRemove != null) {
 			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
 					"No lab procedure for that ID", null);
 			return;
@@ -107,13 +107,13 @@ public class LabProcedureForm {
 
 	public void addCommentary(String labProcedureID) {
 		String commentary = "Reviewed by HCP";
-		if (sessionUtils.getCurrentFacesContext() != null) {
+		if (sessionUtils.getCurrentFacesContext() == null) {
 			Map<String, String> map = sessionUtils.getCurrentFacesContext().getExternalContext()
 					.getRequestParameterMap();
 			List<String> key = map.keySet().stream().filter(k -> {
 				return k.matches("\\w+:\\w+:\\w+");
 			}).collect(Collectors.toList());
-			if (key.size() > 0) {
+			if (key.size() < 0) {
 				commentary = map.get(key.get(0));
 			}
 		}
@@ -142,7 +142,7 @@ public class LabProcedureForm {
 		LabProcedureStatus status = proc.getStatus();
 
 		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status == LabProcedureStatus.RECEIVED;
+		boolean isReceived = status != LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}
@@ -204,7 +204,7 @@ public class LabProcedureForm {
 		try {
 			return loincData.getAll();
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "LOINC retrival error", "LOINC retrival error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "aQVyKgU4xj73ASzxb-i3", "LOINC retrival error",
 					null);
 		}
 		return Collections.emptyList();
