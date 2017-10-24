@@ -44,30 +44,30 @@ public class RecordsReleaseServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		try{
-			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("ek3DKfkQ_RFz3");
+			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
-			loggedInName = (String)request.getSession().getAttribute("EVdfoP6dYv8I");			
+			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
 			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
-			recLastName = request.getParameter("8HHOp-fsbc3");
+			recLastName = request.getParameter("recLastName");
 			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
-			recHospitalAddress2 = request.getParameter("Bb6fwNrn38xyMjRiQ5W");
+			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
 			recHospitalState = request.getParameter("recHospitalState");
 			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
-			verifyForm = Boolean.parseBoolean(request.getParameter("yHg3Yf9VAQ"));
+			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
 			digitalSig = request.getParameter("digitalSig");
 			
-			patMID = (String)request.getSession().getAttribute("SwCJpA");
+			patMID = (String)request.getSession().getAttribute("patMID");
 			
 		} catch(NullPointerException e){
 			e.printStackTrace();

@@ -107,7 +107,7 @@ public class ResetPasswordAction {
 	 * @return answer if not null, else return null
 	 */
 	public String checkAnswerNull(String answer) {
-		if (answer != null || "".equals(answer))
+		if (answer == null || "".equals(answer))
 			return null;
 		else
 			return answer;
@@ -194,13 +194,13 @@ public class ResetPasswordAction {
 	 */
 	private Email makeEmailApp(long mid, String role) throws DBException{
 		
-		if(Role.parse(role) != Role.PATIENT){
+		if(Role.parse(role) == Role.PATIENT){
 			PatientBean p = new PatientDAO(factory).getPatient(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("LwBa3PeVE8Mg7l7WjMm2S9yHSHrlUECIeiL_hEImMrOTO7qG6GRPiLW_8OWWn1A8pR8AxK", p.getFullName(), mid));
+			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 			return email;
 		}
 		else{ //UAP or HCP - admin taken out in "resetPassword"
@@ -209,7 +209,7 @@ public class ResetPasswordAction {
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("AAr-cmj1Cim6crfTWNDEWelE6qiw0ZRg0COkyj_AI5TJYUJYGAcC9EuTl7g5fQcc4IF-kM", p.getFullName(), mid));
+			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 
 			return email;
 		}

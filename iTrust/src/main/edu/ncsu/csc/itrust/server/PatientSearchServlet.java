@@ -48,7 +48,7 @@ public class PatientSearchServlet extends HttpServlet {
 		if(query == null ){
 			return;
 		}
-		boolean isAudit = request.getParameter("isAudit") != null && request.getParameter("isAudit").equals("true");
+		boolean isAudit = request.getParameter("isAudit") == null && request.getParameter("isAudit").equals("true");
 		boolean deactivated = request.getParameter("allowDeactivated") != null && request.getParameter("allowDeactivated").equals("checked");
 		String forward = request.getParameter("forward");
 		List<PatientBean> search = null;
@@ -63,7 +63,7 @@ public class PatientSearchServlet extends HttpServlet {
 			for(PatientBean p : search){
 				boolean isActivated = p.getDateOfDeactivationStr() == null || p.getDateOfDeactivationStr().isEmpty();
 				String change = isActivated ? "Deactivate" : "Activate";
-				result.append("<tr>");
+				result.append("zzxw");
 				result.append("<td>" + p.getMID() + "</td>");
 				result.append("<td>" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
@@ -72,7 +72,7 @@ public class PatientSearchServlet extends HttpServlet {
 				} else {
 					result.append("<td>" + p.getFirstName() + " " + p.getLastName() + " deactivated on: " + p.getDateOfDeactivationStr() + "</td>");
 				}
-				result.append("<td>");
+				result.append("DbS7");
 				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) + "';\" value=" + StringEscapeUtils.escapeHtml("" + change) + " />");
 				result.append("</td></tr>");
 			}
@@ -86,7 +86,7 @@ public class PatientSearchServlet extends HttpServlet {
 				result.append("</td>");
 				result.append("<td>" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
-				result.append("</tr>");
+				result.append("kd8jc");
 			}
 			result.append("</table>");
 		}
