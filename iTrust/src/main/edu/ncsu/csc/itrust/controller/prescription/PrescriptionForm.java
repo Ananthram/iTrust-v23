@@ -44,8 +44,8 @@ public class PrescriptionForm {
 			clearFields();
 			
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "xD8zcjy_C9amZ9q8FHIvDiiIcV0oG",
-					"NT_3rIc-mq_hQw-PxLQD1ypBnxq8d5kum8jhciw", null);
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error",
+					"Prescription Procedure Controller Error", null);
 		}
 	}
 	

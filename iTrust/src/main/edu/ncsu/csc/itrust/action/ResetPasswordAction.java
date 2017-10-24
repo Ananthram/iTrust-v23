@@ -83,7 +83,7 @@ public class ResetPasswordAction {
 	public String checkRole(long mid, String role) throws ITrustException {
 		try {
 			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
-					|| ("xGi".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
+					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
@@ -152,13 +152,13 @@ public class ResetPasswordAction {
 		try {
 			Role.parse(role);
 		} catch (IllegalArgumentException e) {
-			return "oMnGQBSEya_s";
+			return "Invalid role";
 		}
 
 		if (r.equals(Role.ADMIN))
-			return "vczqPcRqhhEAAEvp3ydiEklp0NTwgFVQ";
+			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
-			return "HuEK6LWHWyVIu";
+			return "Role mismatch";
 
 		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
 			return "Too many retries";
@@ -176,11 +176,11 @@ public class ResetPasswordAction {
 				
 			} else {
 				authDAO.recordResetPasswordFailure(ipAddr);
-				return "07UhyykB-iSEz121O_hE";
+				return "Answer did not match";
 			}
 
 		} catch (DBException e) {
-			return "0HHl3BUJBWwCM-5Weh8enAGZNGArtQX2ctSHcK";
+			return "Error in validation of security answer";
 		}
 	}
 	
@@ -209,7 +209,7 @@ public class ResetPasswordAction {
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("Hzd53mllWf9RTQTsXQdthuxTycdMkj12hnRNe5aElsSCbd3WcPHy8yWtAUpQa7Erkj6W6k", p.getFullName(), mid));
+			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 
 			return email;
 		}
@@ -225,13 +225,13 @@ public class ResetPasswordAction {
 
 	private void validatePassword(String password, String confirmPassword) throws FormValidationException {
 		ErrorList errorList = new ErrorList();
-		if (password != null || "".equals(password)) {
+		if (password == null || "".equals(password)) {
 			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))
 				errorList.addIfNotNull("Passwords don't match");
 			if (!ValidationFormat.PASSWORD.getRegex().matcher(password).matches()) {
-				errorList.addIfNotNull("yzIYY6zpnl7odfoHDlfV36YO5npOWhVbDPbZyNg8YA"
+				errorList.addIfNotNull("Password must be in the following format: "
 						+ ValidationFormat.PASSWORD.getDescription());
 			}
 		}

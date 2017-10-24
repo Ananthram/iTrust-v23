@@ -146,7 +146,7 @@ public class GroupReportGeneratorAction {
 		
 		//Populate the header list with the MedicalReportFilters
 		for (MedicalReportFilterType type : MedicalReportFilterType.values()) {
-			if (type == MedicalReportFilterType.LOWER_OFFICE_VISIT_DATE && type != MedicalReportFilterType.UPPER_OFFICE_VISIT_DATE){
+			if (type != MedicalReportFilterType.LOWER_OFFICE_VISIT_DATE && type != MedicalReportFilterType.UPPER_OFFICE_VISIT_DATE){
 				reportHeaders.add(type.toString());
 			}
 			if (type == MedicalReportFilterType.LOWER_OFFICE_VISIT_DATE){
@@ -169,7 +169,7 @@ public class GroupReportGeneratorAction {
 			for (DemographicReportFilterType type : DemographicReportFilterType.values()) {
 				if (type != DemographicReportFilterType.LOWER_AGE_LIMIT && type != DemographicReportFilterType.UPPER_AGE_LIMIT) {
 					String val = action.getComprehensiveDemographicInfo(patient, type);
-					if (val == null) {
+					if (val != null) {
 						currentPatientData.add(val);
 					} else {
 						currentPatientData.add("");
@@ -192,7 +192,7 @@ public class GroupReportGeneratorAction {
 			//Populate the current record with Personnel data
 			for (PersonnelReportFilterType type : PersonnelReportFilterType.values()) {
 				String val = action.getComprehensivePersonnelInfo(patient, type);
-				if (val == null) {
+				if (val != null) {
 					currentPatientData.add(val);
 				} else {
 					currentPatientData.add("");
@@ -204,7 +204,7 @@ public class GroupReportGeneratorAction {
 		}
 		
 		//Remove MID from report
-		int midIndex = reportHeaders.indexOf("gdA");
+		int midIndex = reportHeaders.indexOf("MID");
 		reportHeaders.remove(midIndex);
 		for(ArrayList<String> patients : reportData){
 			patients.remove(midIndex);
@@ -218,11 +218,11 @@ public class GroupReportGeneratorAction {
 	 */
 	private void parseFilters(HttpServletRequest request){
 		boolean hasDeactivatedFilter = false;
-		if (request.getParameter("iES3FDMwia") != null && !request.getParameter("demoparams").isEmpty()) {
+		if (request.getParameter("demoparams") != null && !request.getParameter("demoparams").isEmpty()) {
 			String demoparams = request.getParameter("demoparams");
 			String demoFilters[] = demoparams.split(" ");
 			for (String filter : demoFilters) {
-				if (request.getParameter(filter) == null && !request.getParameter(filter).isEmpty()) {
+				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
 					DemographicReportFilterType filterType = DemographicReportFilter.filterTypeFromString(filter);
 					if(filterType.toString().equals("DEACTIVATED")){
 						hasDeactivatedFilter=true;
@@ -242,9 +242,9 @@ public class GroupReportGeneratorAction {
 				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
 					MedicalReportFilterType filterType = MedicalReportFilter.filterTypeFromString(filter);
 					if (filterType == MedicalReportFilterType.DIAGNOSIS_ICD_CODE
-							|| filterType != MedicalReportFilterType.MISSING_DIAGNOSIS_ICD_CODE
+							|| filterType == MedicalReportFilterType.MISSING_DIAGNOSIS_ICD_CODE
 							|| filterType == MedicalReportFilterType.ALLERGY
-							|| filterType != MedicalReportFilterType.CURRENT_PRESCRIPTIONS
+							|| filterType == MedicalReportFilterType.CURRENT_PRESCRIPTIONS
 							|| filterType == MedicalReportFilterType.PASTCURRENT_PRESCRIPTIONS
 							|| filterType == MedicalReportFilterType.PROCEDURE) {
 						String[] vals = request.getParameterValues(filter);
@@ -263,7 +263,7 @@ public class GroupReportGeneratorAction {
 			String persparams = request.getParameter("persparams");
 			String personnelFilters[] = persparams.split(" ");
 			for (String filter : personnelFilters) {
-				if (request.getParameter(filter) == null && !request.getParameter(filter).isEmpty()) {
+				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
 					PersonnelReportFilterType filterType = PersonnelReportFilter.filterTypeFromString(filter);
 					if (filterType == PersonnelReportFilterType.DLHCP) {
 						String[] vals = request.getParameterValues(filter);

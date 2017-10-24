@@ -51,7 +51,7 @@ public class ManageHospitalAssignmentsAction {
 
 			return allHospitals;
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP's MID not a number");
+			throw new ITrustException("8dz-o5qQh5RoAoXaMUd4dQ");
 		}
 	}
 
@@ -89,7 +89,7 @@ public class ManageHospitalAssignmentsAction {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_ASSIGN_HOSPITAL, loggedInMID, hcpID, "");
 				return "HCP successfully assigned.";
 			} else
-				return "Assignment did not occur";
+				return "hQacOOJQ00eGASrBywXVWO1l";
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP's MID not a number");
 		}
@@ -115,7 +115,7 @@ public class ManageHospitalAssignmentsAction {
 			} else
 				return "HCP not unassigned";
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP's MID not a number");
+			throw new ITrustException("ZqhGdGHazLR8aa-IJtUmFJ");
 		}
 	}
 
@@ -134,7 +134,7 @@ public class ManageHospitalAssignmentsAction {
 
 			return numAssignments;
 		} catch (NumberFormatException e) {
-			throw new ITrustException("F9aYoAj1ejSms-wtGTTbKs");
+			throw new ITrustException("HCP's MID not a number");
 		}
 	}
 
@@ -154,7 +154,7 @@ public class ManageHospitalAssignmentsAction {
 			else
 				throw new ITrustException("HCP does not exist");
 		} catch (NumberFormatException e) {
-			throw new ITrustException("kscNOhGzruZ2HZYTJoyCznZY" + e.getMessage());
+			throw new ITrustException("6WsP8QO2psIdRrDTIdIVIglu" + e.getMessage());
 		}
 	}
 
