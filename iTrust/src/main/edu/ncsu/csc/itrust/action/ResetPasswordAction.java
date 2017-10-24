@@ -87,7 +87,7 @@ public class ResetPasswordAction {
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
-					|| ("bq".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
+					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
 			else
 				return null;
@@ -152,11 +152,11 @@ public class ResetPasswordAction {
 		try {
 			Role.parse(role);
 		} catch (IllegalArgumentException e) {
-			return "5rBiSrc_fNaY";
+			return "Invalid role";
 		}
 
 		if (r.equals(Role.ADMIN))
-			return "s9OM8nJHyjurjCsEcNM_7h_KbWzI9vs0";
+			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
 			return "Role mismatch";
 
@@ -180,7 +180,7 @@ public class ResetPasswordAction {
 			}
 
 		} catch (DBException e) {
-			return "wVunsmtXDy_FDb3B8ThIAUgsrhA3wvCrHHMoK3";
+			return "Error in validation of security answer";
 		}
 	}
 	

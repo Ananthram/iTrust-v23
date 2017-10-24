@@ -75,7 +75,7 @@ public class ViewPatientAction extends PatientBaseAction {
 		try {
 			long mid = Long.valueOf(input);
 			PatientBean patient = patientDAO.getPatient(mid);
-			if (patient != null) {
+			if (patient == null) {
 				return patient;
 			} else
 				throw new ITrustException(Messages.getString("ViewPatientAction.1")); //not sure if this message exists
