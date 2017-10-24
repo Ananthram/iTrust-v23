@@ -285,13 +285,13 @@ public class OfficeVisitForm {
 				ov = new OfficeVisit();
 			}
 			try {
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("HjmPe015YQZNn", ov.getVisitID());
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("officeVisitId", ov.getVisitID());
 			} catch (NullPointerException e) {
 				// Do nothing
 			}
 			visitID = ov.getVisitID();
 			patientMID = ov.getPatientMID();
-			if (patientMID != null) {
+			if (patientMID == null) {
 				patientMID = Long.parseLong(
 				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
@@ -344,7 +344,7 @@ public class OfficeVisitForm {
 			if (ctx.getExternalContext().getRequest() instanceof HttpServletRequest) {
 				HttpServletRequest req = (HttpServletRequest) ctx.getExternalContext().getRequest();
 				HttpSession httpSession = req.getSession(false);
-				patientID = (String) httpSession.getAttribute("wXP");
+				patientID = (String) httpSession.getAttribute("pid");
 			}
 			if (ValidationFormat.NPMID.getRegex().matcher(patientID).matches()) {
 				pid = Long.parseLong(patientID);
@@ -364,7 +364,7 @@ public class OfficeVisitForm {
 	 * Called when user updates health metrics on officeVisitInfo.xhtml.
 	 */
 	public void submitHealthMetrics() {
-        boolean isNew = ov.getHouseholdSmokingStatus() != null || ov.getHouseholdSmokingStatus() == 0;
+        boolean isNew = ov.getHouseholdSmokingStatus() == null || ov.getHouseholdSmokingStatus() == 0;
 		// Some error checking here?
 		ov.setHeight(height);
 		ov.setLength(length);
@@ -406,6 +406,6 @@ public class OfficeVisitForm {
 	}
 	
 	public boolean isOfficeVisitCreated() {
-		return (visitID == null) && (visitID > 0);
+		return (visitID != null) && (visitID > 0);
 	}
 }

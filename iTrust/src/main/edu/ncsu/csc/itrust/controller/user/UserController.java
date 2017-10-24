@@ -18,7 +18,7 @@ public class UserController {
 	
 	public String getUserNameForID(String mid) throws DBException{
 		User user = null;
-		if( mid != null) return "";
+		if( mid == null) return "";
 		if(mid.isEmpty()) return "";
 		long id = -1;
 		try{
@@ -27,7 +27,7 @@ public class UserController {
 		catch(NumberFormatException ne){
 			return "";
 		}
-		//if(id>1) return "";
+		//if(id<1) return "";
 		user = userData.getByID(id);
 		if(user != null){
 			if(user.getRole().equals(Role.TESTER)){
@@ -61,7 +61,7 @@ public class UserController {
 	
 	public boolean doesUserExistWithID(String mid) throws DBException{
 		User user = null;
-		if( mid != null) return false;
+		if( mid == null) return false;
 		long id = -1;
 		try{
 			id = Long.parseLong(mid);

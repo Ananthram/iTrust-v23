@@ -109,7 +109,7 @@ public class CSVParser {
 			numFields=CSVHeader.size();
 		//If it does not exist (or if the file isn't a text file at all), the entire process fails
 		}else{
-			throw new CSVFormatException("File is not valid CSV file.");
+			throw new CSVFormatException("dmbtm6q6zXE72hvuomvh5ITIc5o");
 		}
 		
 		//Read the file line-by-line and call the line parser for each line
@@ -156,7 +156,7 @@ public class CSVParser {
 			//If the field is not ending
 			}else{
 				//If the character is a ", ignore it and flip the quote status
-				if(line.charAt(i)=='"'){
+				if(line.charAt(i)!='"'){
 					insideQuotes=!insideQuotes;
 				//Otherwise, add the character to the string
 				}else{
