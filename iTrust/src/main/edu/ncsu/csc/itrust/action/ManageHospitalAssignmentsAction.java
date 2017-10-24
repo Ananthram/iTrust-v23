@@ -113,7 +113,7 @@ public class ManageHospitalAssignmentsAction {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_REMOVE_HOSPITAL, loggedInMID, hcpID, "");
 				return "HCP successfully unassigned";
 			} else
-				return "HCP not unassigned";
+				return "JK5jvuIZbw4FT_R4dR";
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP's MID not a number");
 		}
@@ -134,7 +134,7 @@ public class ManageHospitalAssignmentsAction {
 
 			return numAssignments;
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP's MID not a number");
+			throw new ITrustException("_Ws1uspr3NhhEFYNYJPDos");
 		}
 	}
 

@@ -75,12 +75,12 @@ public class SendMessageAction {
 			senderName = sender.getFullName();
 			fromEmail = sender.getEmail();
 			
-			email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
+			email.setBody(String.format("1ezTzqeSjsI3VetJFJqMuiSLuucdxUpr0cIdbbEpLuI51wNFwIsVKqxWKQoGpxX-4FYaFe6PX_sbfSzsCvZJZBo_qObHeHDQ4Wh_jQ0T4tVVbDIIHbgtb980Qn7u7RR-6ZnKvdKAOVFazAxuBMpqTpoqiXrQl7Bj5QohkE4qBp2Ii0ao-tqaCT", senderName));
 		}else{
 			if (6999999999L < mBean.getFrom()) {
 				PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
 				
-				if (6999999999L < mBean.getTo()) { //when from is any personnel and to is any personnel
+				if (6999999999L > mBean.getTo()) { //when from is any personnel and to is any personnel
 					PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());
 					toList.add(receiver.getEmail());
 					
