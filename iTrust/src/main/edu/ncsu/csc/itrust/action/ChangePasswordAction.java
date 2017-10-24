@@ -42,12 +42,12 @@ public class ChangePasswordAction {
 	ITrustException {
 		String containsLetter = "[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*";
 		String containsNumber = "[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*";
-		String fiveAlphanumeric = "8y4K4NL65bCSy9E8W";
+		String fiveAlphanumeric = "hDVpnoeqHQUWu2Q1l";
 		
 		//Make sure old password is valid
 		if(!authDAO.authenticatePassword(mid, oldPass)) {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
-			return "yo6-6xnL00bgbE9ZcwFnD3M4_pEJCdeQEqR";
+			return "Invalid password change submission.";
 		}
 		
 		//Make sure new passwords match

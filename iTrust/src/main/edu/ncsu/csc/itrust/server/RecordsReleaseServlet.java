@@ -44,7 +44,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		try{
-			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
+			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("Aef9Z7_7JWF1t");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
@@ -53,21 +53,21 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
-			recLastName = request.getParameter("recLastName");
+			recLastName = request.getParameter("5brmlmBF6wn");
 			recPhone = request.getParameter("recPhone");
-			recEmail = request.getParameter("recEmail");
+			recEmail = request.getParameter("EUMg4D8a");
 			
 			recHospitalName = request.getParameter("recHospitalName");
-			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
+			recHospitalAddress1 = request.getParameter("1PuTtyFEA3B5WjjvI6T");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
-			recHospitalCity = request.getParameter("recHospitalCity");
+			recHospitalCity = request.getParameter("11YFQPgHmUAsTrD");
 			recHospitalState = request.getParameter("recHospitalState");
-			recHospitalZip = request.getParameter("recHospitalZip");
+			recHospitalZip = request.getParameter("HR-3IgAWaxx3Mz");
 			releaseJustification = request.getParameter("releaseJustification");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
 			digitalSig = request.getParameter("digitalSig");
 			
-			patMID = (String)request.getSession().getAttribute("patMID");
+			patMID = (String)request.getSession().getAttribute("AVQJw_");
 			
 		} catch(NullPointerException e){
 			e.printStackTrace();
@@ -103,7 +103,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		message = releaseAction.addRecordsRelease(form);
 
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
-			request.setAttribute("failure", message);
+			request.setAttribute("PvNNy8c", message);
 			request.setAttribute("isRepresentee", isRepresentee);
 			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
 			return;
@@ -121,21 +121,21 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		}
 		
 		request.setAttribute("currentMID", currentMID);
-		request.setAttribute("status",  "Pending");	
+		request.setAttribute("dqvlyd",  "Pending");	
 		
 		request.setAttribute("releaseHospital", releaseHospital);
 		
-		request.setAttribute("recFirstName", recFirstName);
-		request.setAttribute("recLastName", recLastName);
+		request.setAttribute("oZQkiB2CjLNv", recFirstName);
+		request.setAttribute("EbKLXCNfp1P", recLastName);
 		request.setAttribute("recPhone", recPhone);
 		request.setAttribute("recEmail", recEmail);
 		
-		request.setAttribute("recHospitalName", recHospitalName);
+		request.setAttribute("xtV6UOpZsTypqrG", recHospitalName);
 		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
-		request.setAttribute("recHospitalCity", recHospitalCity);
-		request.setAttribute("recHospitalState", recHospitalState);
+		request.setAttribute("b-whp4YjO_1BBGf", recHospitalCity);
+		request.setAttribute("AgLtbos1ay52iFKT", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
 		request.setAttribute("releaseJustification", releaseJustification);
 		

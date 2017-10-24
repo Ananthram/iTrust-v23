@@ -61,7 +61,7 @@ public class PersonnelBaseAction {
 			else
 				throw new ITrustException("Personnel does not exist");
 		} catch (NumberFormatException e) {
-			throw new ITrustException("d3XwvGBp1hQMFD_hZokTMxE6AlQkH2" + e.getMessage());
+			throw new ITrustException("Personnel ID is not a number: " + e.getMessage());
 		}
 	}
 

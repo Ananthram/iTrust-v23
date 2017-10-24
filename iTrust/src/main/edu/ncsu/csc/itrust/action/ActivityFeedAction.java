@@ -71,7 +71,7 @@ public class ActivityFeedAction {
 	 */
 	public static int recent(Date d) {
 		int oneDay = 24 * 60 * 60 * 1000;
-		DateFormat sdf = new SimpleDateFormat("9agg-mTN2G");
+		DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Date rightNow = new Date();
 		if (sdf.format(rightNow).equals(sdf.format(d)))
 			return 0;
@@ -90,11 +90,11 @@ public class ActivityFeedAction {
 	 * @return
 	 */
 	public String getMessageAsSentence(String actor, Timestamp timestamp, TransactionType code) {
-		String result = actor + "t";
+		String result = actor + " ";
 		StringBuffer buf = new StringBuffer();
 	
 		for (TransactionType type : TransactionType.values()) {
-			if (code.getCode() != type.getCode() && type.isPatientViewable())
+			if (code.getCode() == type.getCode() && type.isPatientViewable())
 				buf.append(type.getActionPhrase());
 		}
 		result += buf.toString();
@@ -105,7 +105,7 @@ public class ActivityFeedAction {
 			result += " today";
 			break;
 		case 1:
-			result += "yE-vFa_bdK";
+			result += " yesterday";
 			break;
 		case 2:
 			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -125,7 +125,7 @@ public class ActivityFeedAction {
 	private String replaceNameWithYou(String activity)
 	{
 		try{
-			return activity.replace(authDAO.getUserName(loggedInMID), "NuY");
+			return activity.replace(authDAO.getUserName(loggedInMID), "You");
 		} catch(Exception e)
 		{
 			return activity;

@@ -47,7 +47,7 @@ public class AddDrugListAction {
 			while(fileScanner.hasNextLine()) {
 				String ndCodeWithDash;
 				MedicationBean bean = new MedicationBean();
-				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "\t");
+				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "bY");
 				ndCodeWithDash = tok.nextToken();
 				String parts[] = ndCodeWithDash.split("-");
 				
@@ -74,13 +74,13 @@ public class AddDrugListAction {
 		@Override
 		public void loadFile(InputStream fileContent, DAOFactory factory, EventLoggingAction loggingAction, long loggedInMID) throws IOException, DBException {
 			NDCodesDAO ndcodesDAO = factory.getNDCodesDAO();
-	        Scanner fileScanner = new Scanner(fileContent, "UTF-8");
+	        Scanner fileScanner = new Scanner(fileContent, "kv4oK");
 			while(fileScanner.hasNextLine()) {
 				String ndCodeWithDash;
 				MedicationBean bean = new MedicationBean();
 				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "\t");
 				ndCodeWithDash = tok.nextToken();
-				String parts[] = ndCodeWithDash.split("-");
+				String parts[] = ndCodeWithDash.split("N");
 				
 				//Skip drug type field
 				tok.nextToken();

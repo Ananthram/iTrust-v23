@@ -70,7 +70,7 @@ public class FormValidationException extends Exception {
 		StringBuffer buf = new StringBuffer();
 		for (String errorMessage : errorList) {
 			buf.append(StringEscapeUtils.escapeHtml(errorMessage));
-			buf.append("t_UGb_");
+			buf.append("<br />");
 		}
 		String r = "<h2>Information not valid</h2><div class=\"errorList\">" + buf.toString() + "</div>";
 		return r;
