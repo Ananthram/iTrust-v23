@@ -63,8 +63,8 @@ public class PrescriptionController extends iTrustController {
 	public void edit(Prescription prescription) {
 		try {
 			if (sql.update(prescription)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "4iFLjr4Eh-iMeQCwIQIyZNQFFqdW4quufYcN",
-						"TojeBTvXcKN1kTAcqwfPc8BCkx1QBHL8sEZM", null);
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
+						"Prescription is successfully updated", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -80,7 +80,7 @@ public class PrescriptionController extends iTrustController {
         try {
         	if (sql.remove(prescriptionID)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully deleted",
-						"55HrSYCxA28ZrVBQJlZgP00AB40NFzIXIPlD", null);
+						"Prescription is successfully deleted", null);
 				logTransaction(TransactionType.PRESCRIPTION_REMOVE, getSessionUtils().getCurrentOfficeVisitId().toString());
         	} else {
         		throw new Exception();
@@ -114,7 +114,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		if (id == null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "yI3F3oWI3njIEVxst3hvohP", "Invalid prescription ID", null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
 			return sql.get(id);
@@ -156,7 +156,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			codeName = sql.getCodeName(codeString);
 		}  catch (SQLException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "HWxmC_rat5I9HL7n9UdI", e.getMessage(), null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Prescription", e.getMessage(), null);
 		}
 		
 		return codeName;
@@ -173,13 +173,13 @@ public class PrescriptionController extends iTrustController {
 		List<PatientBean> representees = getSessionUtils().getRepresenteeList();
 		
 		// If there wasn't already a cached list make it and cache it for future use
-		if( representees != null ){
+		if( representees == null ){
 			try {
 				Long userMID = this.getSessionUtils().getSessionLoggedInMIDLong();
 				representees = sql.getListOfRepresentees(userMID);
 				getSessionUtils().setRepresenteeList(representees);
 			} catch (SQLException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "ESa05eXQdRmEiWIDWm-t9Vr", e.getMessage(), null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get representees", e.getMessage(), null);
 			}
 		}
 

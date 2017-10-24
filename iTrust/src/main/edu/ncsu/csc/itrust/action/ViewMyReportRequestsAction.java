@@ -99,7 +99,7 @@ public class ViewMyReportRequestsAction {
 			String fullName = "Unknown";
 			if(p != null){
 				fullName = p.getFullName();
-				s.append(String.format("Request was requested on %s by %s, ", r.getRequestedDateString(), p
+				s.append(String.format("qwZJVgFkRubpq-xX_3mC_S9FL3C4365wJGv", r.getRequestedDateString(), p
 					.getFullName()));
 			}
 			s.append(""); // removed "<br />" because it caused unit test to fail and seems to have no

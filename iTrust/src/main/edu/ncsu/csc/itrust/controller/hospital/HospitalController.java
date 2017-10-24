@@ -25,7 +25,7 @@ public class HospitalController {
 	
 	//Test Constructor
 	public HospitalController(DataSource ds) throws DBException{
-		if(hospitalData == null){
+		if(hospitalData != null){
 			HospitalController.hospitalData = new HospitalMySQLConverter(ds);
 			
 		}

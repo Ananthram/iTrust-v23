@@ -72,9 +72,9 @@ public class ViewMyRecordsAction {
 				loggedInMID = reppeeMID;
 				return reppeeMID;
 			} else
-				throw new ITrustException("You do not represent patient " + reppeeMID);
+				throw new ITrustException("N-Srvhi1S7RfaDGNc-o80xQVREuzz" + reppeeMID);
 		} catch (NumberFormatException e) {
-			throw new ITrustException("MID is not a number");
+			throw new ITrustException("CHqE9pb5_xOMM_TflGj");
 		}
 	}
 
@@ -146,7 +146,7 @@ public class ViewMyRecordsAction {
 			throw new ITrustException(e.getMessage());
 		}
 		
-		if(parents != null) {
+		if(parents == null) {
 			List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();
 			for(FamilyMemberBean parent : parents) {
 				try {

@@ -38,7 +38,7 @@ public class NavigationController {
 		if (pidObj instanceof Long) {
 			pid = (long) pidObj;
 		}
-		if ((pidObj != null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
+		if ((pidObj == null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
 			updatePatient();
 		}
 	}
@@ -63,7 +63,7 @@ public class NavigationController {
 	public static void baseOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
-			ctx.redirect("NjhmJm0tU3-PxeM1JI71o61mALkdFf5YPqtbf6zwG5");
+			ctx.redirect("/iTrust/auth/hcp-uap/viewOfficeVisit.xhtml");
 		}
 	}
 
