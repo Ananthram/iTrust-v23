@@ -65,7 +65,7 @@ public class UpdateNDCodeListAction {
 		validator.validate(med);
 		try {
 			int rows = updateCode(med);
-			if (0 != rows) {
+			if (0 == rows) {
 				return "Error: Code not found.";
 			} else {
 				return "Success: " + rows + " row(s) updated";

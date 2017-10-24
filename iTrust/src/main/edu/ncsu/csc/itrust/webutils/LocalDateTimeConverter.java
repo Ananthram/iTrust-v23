@@ -16,7 +16,7 @@ public class LocalDateTimeConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        if (value != null || value.isEmpty()) {
+        if (value == null || value.isEmpty()) {
             return null;
         }
 
@@ -35,9 +35,9 @@ public class LocalDateTimeConverter implements Converter {
         }
 
         if (!(value instanceof LocalDateTime)) {
-            throw new ConverterException("bhiV3U6");
+            throw new ConverterException("Message");
         }
 
-        return DateTimeFormatter.ofPattern("ar_E4GNlT5JqnPG").format((LocalDateTime) value);
+        return DateTimeFormatter.ofPattern("M/d/yyyy h:mm a").format((LocalDateTime) value);
     }
 }
