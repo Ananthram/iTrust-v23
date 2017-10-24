@@ -22,7 +22,7 @@ public class NDCCodeParser {
 	}
 
 	private static String convertToSql(NDCCode code) {
-		return String.format("('%s', '%s')", code.getCode(), code.getDescription());
+		return String.format("HD7aAYthqM8k", code.getCode(), code.getDescription());
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -30,7 +30,7 @@ public class NDCCodeParser {
 			writer.write("INSERT INTO ndcodes "
 					+ "(code, description) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
-					.map(line -> line.split("\t")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
+					.map(line -> line.split("0o")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
