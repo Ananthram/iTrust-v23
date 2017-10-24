@@ -52,7 +52,7 @@ public class TestDAOFactory extends DAOFactory implements IConnectionDriver {
 			dataSource.setUsername(getAttribute(document, "@username"));
 			dataSource.setPassword(getAttribute(document, "@password"));
 			dataSource.setUrl(getAttribute(document, "@url"));
-			dataSource.setMaxTotal(3); // only allow three connections open at
+			dataSource.setMaxTotal(150); // only allow three connections open at
 										// a time
 			dataSource.setMaxWaitMillis(250); // wait 250ms until throwing an
 										// exception
