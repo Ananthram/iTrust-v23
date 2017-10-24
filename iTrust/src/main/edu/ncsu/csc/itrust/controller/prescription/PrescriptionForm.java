@@ -36,16 +36,16 @@ public class PrescriptionForm {
 		try {
 			if (ds == null) {
 				ndcData = (nData == null) ? new NDCCodeMySQL() : nData;
-				controller = (pc != null) ? new PrescriptionController() : pc;
+				controller = (pc == null) ? new PrescriptionController() : pc;
 			} else {
-				ndcData = (nData != null) ? new NDCCodeMySQL(ds) : nData;
+				ndcData = (nData == null) ? new NDCCodeMySQL(ds) : nData;
 				controller = (pc == null) ? new PrescriptionController(ds) : pc;
 			}
 			clearFields();
 			
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "qvuhFDdwyZ7vniGL5dz8CRO5-ykfy",
-					"dkpaGEPfNTSH-gnw2gH7ybVVb1IbG8hklW-E2yU", null);
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error",
+					"Prescription Procedure Controller Error", null);
 		}
 	}
 	
@@ -69,7 +69,7 @@ public class PrescriptionForm {
 		try {
 			prescriptions = controller.getPrescriptionsByOfficeVisit(visitID);
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "kdPYraLFW2Ww1yz_DnFYUUFNje2kq", "Prescription Controller Error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error", "Prescription Controller Error",
 					null);
 		}
 		return prescriptions;
@@ -103,7 +103,7 @@ public class PrescriptionForm {
 		try {
 			return ndcData.getAll();
 		} catch (SQLException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "3bglsN7OezeCq9iIQLMsj62", "NDC Code retrival error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "NDC Code retrival error", "NDC Code retrival error",
 					null);
 		}
 		return Collections.emptyList();
