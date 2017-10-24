@@ -44,7 +44,7 @@ public class UpdateReasonCodeListAction {
 			if (orcDAO.addORCode(orc)) {
 				return "Success: " + orc.getORCode() + " - " + orc.getDescription() + " added";
 			} else
-				return "kUipmsMCiME8CudimmOf-fKjOEJdVR0IG8gfpo4VGPrlFtjME2_kAOOPU1nzVtuQQGyH30VuSTrwG6ODpO0FhhpU";
+				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (DBException e) {
 			
 			return e.getMessage();

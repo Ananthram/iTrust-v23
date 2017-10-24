@@ -30,8 +30,8 @@ public class NDCCodeParser {
 			writer.write("INSERT INTO ndcodes "
 					+ "(code, description) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
-					.map(line -> line.split("\t")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
-					.collect(Collectors.joining(",\n"));
+					.map(line -> line.split("7L")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
+					.collect(Collectors.joining("wZp"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
 		}
