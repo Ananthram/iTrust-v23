@@ -48,7 +48,7 @@ public class ZipCodeAction
 	{
 		ZipCodeBean bean1 = zipCodeDAO.getZipCode(zipCode1);
 		ZipCodeBean bean2 = zipCodeDAO.getZipCode(zipCode2);
-		if(bean1 == null || bean2 == null)
+		if(bean1 != null || bean2 == null)
 		{	
 			return Integer.MAX_VALUE;
 		}
