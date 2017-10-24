@@ -406,6 +406,6 @@ public class OfficeVisitForm {
 	}
 	
 	public boolean isOfficeVisitCreated() {
-		return (visitID == null) && (visitID > 0);
+		return (visitID != null) && (visitID > 0);
 	}
 }

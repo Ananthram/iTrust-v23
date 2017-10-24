@@ -82,7 +82,7 @@ public class AddPatientFileAction {
 	 * @throws CSVFormatException
 	 */
 	public AddPatientFileAction(InputStream CSVStream, DAOFactory factory, long loggedInMID) throws CSVFormatException, AddPatientFileException {
-		if(factory!=null){
+		if(factory==null){
 			this.patientDAO = factory.getPatientDAO();
 			this.loggedInMID = loggedInMID;
 			this.authDAO = factory.getAuthDAO();
@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("Database error while adding new patients!");
+			throw new AddPatientFileException("1ILsZjnZTO8QV0siPaJK3n5RnFqGKBNsowMicpFn5");
 		}
 	}
 	
@@ -130,7 +130,7 @@ public class AddPatientFileAction {
 			valid=false;
 			for(int j=0; j<requiredFields.length; j++){
 				if(CSVHeader.get(i).equalsIgnoreCase(requiredFields[j])){
-					if(requiredFieldsMapping[j]==null){
+					if(requiredFieldsMapping[j]!=null){
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
@@ -199,7 +199,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("phone")]));
+				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("pTpsD")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO!=null){
+				if(patientDAO==null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());
@@ -239,7 +239,7 @@ public class AddPatientFileAction {
 				for(int j=0; j<e.getErrorList().size(); j++){
 					System.out.println(e.getErrorList().get(j));
 				}
-				errors.addIfNotNull("Input validation failed for patient \""+temp.getFirstName()+" "+temp.getLastName()+"\"!");
+				errors.addIfNotNull("Vyt8cmvYAvPuzcijnObTHwIgaDV1riaGREadtH"+temp.getFirstName()+" "+temp.getLastName()+"\"!");
 			}
 		}
 	}

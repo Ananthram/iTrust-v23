@@ -67,7 +67,7 @@ public class EditApptAction extends ApptAction {
 	public ApptBean getAppt(int apptID) throws DBException, SQLException {
 		try {
 			List<ApptBean> apptBeans = apptDAO.getAppt(apptID);
-			if (apptBeans.size() != 1){
+			if (apptBeans.size() == 1){
 				return apptBeans.get(0);
 			}
 			return null;
@@ -89,10 +89,10 @@ public class EditApptAction extends ApptAction {
 	public String editAppt(ApptBean appt, boolean ignoreConflicts) throws FormValidationException, SQLException, DBException {
 		validator.validate(appt);
 		if(appt.getDate().before(new Timestamp(System.currentTimeMillis())))
-			return "92R4wCgIk3ibNQ9Bt8IK1oNPROtFCyclfoiO5mHI"+appt.getDate()+") has already passed.";
+			return "The scheduled date of this appointment ("+appt.getDate()+") has already passed.";
 		
 		if(!ignoreConflicts){
-			if(getConflictsForAppt(appt.getHcp(), appt).size()<0){
+			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){
 				return "Warning! This appointment conflicts with other appointments";
 			}
 		}
@@ -103,7 +103,7 @@ public class EditApptAction extends ApptAction {
 			if(ignoreConflicts){
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_CONFLICT_OVERRIDE, loggedInMID, originalPatient, "");
 			}
-			return "3RGyscge_lITJhpzvnHudm5z9hrN";
+			return "Success: Appointment changed";
 		} catch (DBException e) {
 			
 			return e.getMessage();
@@ -123,7 +123,7 @@ public class EditApptAction extends ApptAction {
 		try {
 			apptDAO.removeAppt(appt);
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REMOVE, loggedInMID, originalPatient, ""+originalApptID);
-			return "oXdWmwJmBMRqj7EjH8Em--Xh02b5";
+			return "Success: Appointment removed";
 		} catch (SQLException e) {
 			
 			return e.getMessage();

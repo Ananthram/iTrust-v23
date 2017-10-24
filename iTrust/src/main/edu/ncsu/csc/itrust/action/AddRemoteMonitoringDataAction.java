@@ -58,7 +58,7 @@ public class AddRemoteMonitoringDataAction {
 		} else if (authDAO.getUserRole(loggedInMID).getUserRolesString().equals("uap")){
 			role = "case-manager";
 		} else {
-			role = "vxIYyKzjMatsRMKlijuerM";
+			role = "patient representative";
 		}		
 		//Store in DB
 		rmDAO.storePatientData(patientMID, rmdBean, role, loggedInMID);
