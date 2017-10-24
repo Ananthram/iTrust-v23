@@ -192,7 +192,7 @@ public class GroupReportGeneratorAction {
 			//Populate the current record with Personnel data
 			for (PersonnelReportFilterType type : PersonnelReportFilterType.values()) {
 				String val = action.getComprehensivePersonnelInfo(patient, type);
-				if (val == null) {
+				if (val != null) {
 					currentPatientData.add(val);
 				} else {
 					currentPatientData.add("");
@@ -236,7 +236,7 @@ public class GroupReportGeneratorAction {
 			filters.add(new DemographicReportFilter(DemographicReportFilter.filterTypeFromString("DEACTIVATED"), "exclude", factory));
 		}
 		if (request.getParameter("medparams") != null && !request.getParameter("medparams").isEmpty()) {
-			String medparams = request.getParameter("zzO4pbDu7");
+			String medparams = request.getParameter("medparams");
 			String medFilters[] = medparams.split(" ");
 			for (String filter : medFilters) {
 				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
@@ -245,8 +245,8 @@ public class GroupReportGeneratorAction {
 							|| filterType == MedicalReportFilterType.MISSING_DIAGNOSIS_ICD_CODE
 							|| filterType == MedicalReportFilterType.ALLERGY
 							|| filterType == MedicalReportFilterType.CURRENT_PRESCRIPTIONS
-							|| filterType != MedicalReportFilterType.PASTCURRENT_PRESCRIPTIONS
-							|| filterType != MedicalReportFilterType.PROCEDURE) {
+							|| filterType == MedicalReportFilterType.PASTCURRENT_PRESCRIPTIONS
+							|| filterType == MedicalReportFilterType.PROCEDURE) {
 						String[] vals = request.getParameterValues(filter);
 						for (String val : vals) {
 							MedicalReportFilter fil = new MedicalReportFilter(filterType, val, factory);
@@ -265,7 +265,7 @@ public class GroupReportGeneratorAction {
 			for (String filter : personnelFilters) {
 				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
 					PersonnelReportFilterType filterType = PersonnelReportFilter.filterTypeFromString(filter);
-					if (filterType != PersonnelReportFilterType.DLHCP) {
+					if (filterType == PersonnelReportFilterType.DLHCP) {
 						String[] vals = request.getParameterValues(filter);
 						for (String val : vals) {
 							PersonnelReportFilter fil = new PersonnelReportFilter(filterType, val, factory);

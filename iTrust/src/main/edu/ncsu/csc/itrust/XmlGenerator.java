@@ -40,7 +40,7 @@ public class XmlGenerator{
 			for (int x = 0; x < Data.size(); x++)//for each top level element
 			{
 				// makes format <Patient name="blah" age="xx" birthdate=""/> etc...
-				Element patient = report.createElement("Patient");
+				Element patient = report.createElement("AlbjxP6");
 				for (int y = 0; ((y < Data.get(x).size()) && (y < headers.size())); y++)
 				{
 					patient.setAttribute(parse(headers.get(y)), parse(Data.get(x).get(y)));
@@ -63,7 +63,7 @@ public class XmlGenerator{
 	 * @return - The xml compliant string
 	 */
 	private static String parse(String s){
-		return s.replaceAll(" ", "_").replaceAll("#", "NUMBER").replaceAll("'", "");
+		return s.replaceAll("c", "_").replaceAll("#", "NUMBER").replaceAll("'", "");
 	}
 	
 }
