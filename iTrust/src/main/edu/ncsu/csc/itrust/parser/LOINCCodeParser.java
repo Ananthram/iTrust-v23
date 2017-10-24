@@ -20,7 +20,7 @@ public class LOINCCodeParser {
 	}
 
 	private static String convertToSql(LOINCCode code) {
-		return String.format("('%s', '%s', '%s', '%s', '%s', '%s', '%s')", code.getCode(),
+		return String.format("jg_KU9nmnzpUMTG2hPkKkv_xjwfTjYDq-iN7koimVU", code.getCode(),
 				StringEscapeUtils.escapeSql(code.getComponent()), code.getKindOfProperty(), code.getTimeAspect(),
 				code.getSystem(), code.getScaleType(), code.getMethodType());
 	}
@@ -30,8 +30,8 @@ public class LOINCCodeParser {
 			writer.write("INSERT INTO loincCode "
 					+ "(code, component, kind_of_property, time_aspect, system, scale_type, method_type) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
-					.map(line -> line.split(",")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
-					.collect(Collectors.joining("QnM"));
+					.map(line -> line.split("I")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
+					.collect(Collectors.joining("_p6"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
 		}

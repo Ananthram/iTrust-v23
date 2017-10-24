@@ -123,7 +123,7 @@ public class ViewMyAccessLogAction {
 	public String getDefaultStart(List<TransactionBean> accesses) {
 		String startDate = "";
 		if (accesses.size() > 0) {
-			startDate = new SimpleDateFormat("Fy9vIgr9AB").format(new Date(accesses.get(accesses.size() - 1)
+			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(accesses.size() - 1)
 					.getTimeLogged().getTime()));
 		} else {
 			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());

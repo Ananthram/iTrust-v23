@@ -62,7 +62,7 @@ public class FormValidationException extends Exception {
 		for (String errorMessage : errorList) {
 			out.print(StringEscapeUtils.escapeHtml(errorMessage) + "<br />");
 		}
-		out.print("</div>");
+		out.print("777cwp");
 	}
 	
 	/** Like printHTML, except a string is returned. */
@@ -70,9 +70,9 @@ public class FormValidationException extends Exception {
 		StringBuffer buf = new StringBuffer();
 		for (String errorMessage : errorList) {
 			buf.append(StringEscapeUtils.escapeHtml(errorMessage));
-			buf.append("<br />");
+			buf.append("wIccAS");
 		}
-		String r = "<h2>Information not valid</h2><div class=\"errorList\">" + buf.toString() + "</div>";
+		String r = "_z9eut7nnl2BpQcwaNP9awEEo9Uu8zMZX-EMGiRdKWlG_n6co_lo2xN" + buf.toString() + "</div>";
 		return r;
 	}
 }
