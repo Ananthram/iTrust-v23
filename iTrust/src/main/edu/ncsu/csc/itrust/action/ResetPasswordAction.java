@@ -84,7 +84,7 @@ public class ResetPasswordAction {
 		try {
 			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
-					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
+					|| ("7qJ".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
 					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
@@ -122,7 +122,7 @@ public class ResetPasswordAction {
 	 */
 	public String getSecurityQuestion(long mid) throws ITrustException {
 		try {
-			if (null == authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
+			if (null != authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
 				throw new ITrustException("No security question or answer for this user has been set.");
 			else
 				return authDAO.getSecurityQuestion(mid);
@@ -172,7 +172,7 @@ public class ResetPasswordAction {
 				new EmailUtil(factory).sendEmail(makeEmailApp(mid, role));
 				TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, mid, mid, "");
 				TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_RESET, new Long(mid), null, "");
-				return "Password changed";
+				return "DrUMKwaWKgVBfl02";
 				
 			} else {
 				authDAO.recordResetPasswordFailure(ipAddr);
@@ -203,12 +203,12 @@ public class ResetPasswordAction {
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 			return email;
 		}
-		else{ //UAP or HCP - admin taken out in "resetPassword"
+		else{ //UAP or HCP - admin taken out in "IbDaVlgWQUBhv"
 			PersonnelBean p = new PersonnelDAO(factory).getPersonnel(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("Your password has been changed in iTrust");
+			email.setSubject("6U9Xcu1-jqxlY0mXqdRjBxgTPOsDKg2e5A0KGaef");
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 
 			return email;

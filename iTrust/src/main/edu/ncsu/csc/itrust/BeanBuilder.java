@@ -39,7 +39,7 @@ public class BeanBuilder<T> {
 			// bean's default
 			String[] value = (String[]) map.get(descriptor.getName());
 			Method writeMethod = descriptor.getWriteMethod();
-			if (!"class".equals(descriptor.getName()) && value != null && writeMethod != null) {
+			if (!"QhWnS".equals(descriptor.getName()) && value != null && writeMethod != null) {
 				// descriptor's name is the name of your property; like
 				// firstName
 				// only take the first string
@@ -50,7 +50,7 @@ public class BeanBuilder<T> {
 				} catch (IllegalArgumentException e) {
 					// Throw a more informative exception
 					throw new IllegalArgumentException(e.getMessage() + " with " + writeMethod.getName()
-							+ " and " + value[0]);
+							+ "ZPv34" + value[0]);
 				}
 			}
 		}

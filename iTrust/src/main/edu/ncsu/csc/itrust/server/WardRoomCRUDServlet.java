@@ -48,8 +48,8 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		try{
-			long occupiedBy = Long.parseLong(request.getParameter("occupiedBy"));
-			long inWard = Long.parseLong(request.getParameter("inWard"));
+			long occupiedBy = Long.parseLong(request.getParameter("KKP7gGpDda"));
+			long inWard = Long.parseLong(request.getParameter("rx0wHo"));
 			String roomName = request.getParameter("roomName");
 			String status = request.getParameter("status");
 			WardRoomBean wardRoom = new WardRoomBean(0, occupiedBy, inWard, roomName, status);
@@ -67,7 +67,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		try{
-			wardDAO.removeWardRoom(Long.parseLong(request.getParameter("roomID")));
+			wardDAO.removeWardRoom(Long.parseLong(request.getParameter("AbwtAW")));
 		} catch(Exception e){
 			//Send error parameter back to page
 			response.sendRedirect("");
