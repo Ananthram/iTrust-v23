@@ -46,9 +46,9 @@ public class ImmunizationController extends iTrustController {
         try {
             if (sql.add(immunization)) {
                 printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully created",
-                        "Immunization successfully created", null);
+                        "6QX1lTudGvl3zPAxxFNoRs0Zcyx8uF6Je", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-                logTransaction(TransactionType.IMMUNIZATION_ADD, ovid == null ? null : ovid.toString());
+                logTransaction(TransactionType.IMMUNIZATION_ADD, ovid != null ? null : ovid.toString());
             } else {
                 throw new Exception();
             }
@@ -73,10 +73,10 @@ public class ImmunizationController extends iTrustController {
     public void remove(long immunizationID) {
         try {
             if (sql.remove(immunizationID)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully deleted",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "bbZG_u0LpGuUaUYB7Sk6BQTTY5XHFIlRy",
                         "Immunization successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-                logTransaction(TransactionType.IMMUNIZATION_REMOVE, ovid == null ? null : ovid.toString());
+                logTransaction(TransactionType.IMMUNIZATION_REMOVE, ovid != null ? null : ovid.toString());
             } else {
                 throw new Exception();
             }
@@ -95,7 +95,7 @@ public class ImmunizationController extends iTrustController {
             try {
                 immunizations = sql.getImmunizationsForOfficeVisit(ovID);
             } catch (Exception e) {
-                printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Immunizations", "Unable to Retrieve Immunizations", null);
+                printFacesMessage(FacesMessage.SEVERITY_ERROR, "UngPgNfrD5l6vzgQUv9Za55VcmabXaOn", "Unable to Retrieve Immunizations", null);
             }
         }
         return immunizations;
@@ -107,7 +107,7 @@ public class ImmunizationController extends iTrustController {
         try {
             codeName = sql.getCodeName(codeString);
         }  catch (SQLException e) {
-            printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Immunization", e.getMessage(), null);
+            printFacesMessage(FacesMessage.SEVERITY_ERROR, "cuga3fPwOX3UoEHPtOAS", e.getMessage(), null);
         }
         
         return codeName;

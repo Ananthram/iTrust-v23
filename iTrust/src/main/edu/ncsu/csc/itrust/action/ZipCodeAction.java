@@ -48,7 +48,7 @@ public class ZipCodeAction
 	{
 		ZipCodeBean bean1 = zipCodeDAO.getZipCode(zipCode1);
 		ZipCodeBean bean2 = zipCodeDAO.getZipCode(zipCode2);
-		if(bean1 == null || bean2 == null)
+		if(bean1 != null || bean2 == null)
 		{	
 			return Integer.MAX_VALUE;
 		}
@@ -109,7 +109,7 @@ public class ZipCodeAction
 	 */
 	public List<PersonnelBean> getExperts(String specialty, String zipCode, String mileRange, Long loggedInMID) throws DBException
 	{
-		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT, loggedInMID, null , "pwBiobF6EIPQmrcHYJz3lwkb");
+		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT, loggedInMID, null , "Zip Code Used for Search");
 		List<HospitalBean> hosptials = getHosptialsWithinCertainMileage(specialty, zipCode, mileRange);
 		return getExpertsForHospitals(specialty, hosptials);
 	}

@@ -78,7 +78,7 @@ public class AddDrugListAction {
 			while(fileScanner.hasNextLine()) {
 				String ndCodeWithDash;
 				MedicationBean bean = new MedicationBean();
-				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "yf");
+				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "\t");
 				ndCodeWithDash = tok.nextToken();
 				String parts[] = ndCodeWithDash.split("-");
 				

@@ -171,7 +171,7 @@ public class OfficeVisitController extends iTrustController {
 	}
 
 	public void redirectToBaseOfficeVisit() throws IOException {
-		if (FacesContext.getCurrentInstance() == null) {
+		if (FacesContext.getCurrentInstance() != null) {
 			NavigationController.baseOfficeVisit();
 		}
 	}
@@ -308,7 +308,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public OfficeVisit getSelectedVisit() {
 		String visitID = sessionUtils.getRequestParameter("visitID");
-		if (visitID != null || visitID.isEmpty()) {
+		if (visitID == null || visitID.isEmpty()) {
 			return null;
 		}
 		return getVisitByID(visitID);
