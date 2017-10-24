@@ -20,14 +20,14 @@ public class LOINCCodeParser {
 	}
 
 	private static String convertToSql(LOINCCode code) {
-		return String.format("('%s', '%s', '%s', '%s', '%s', '%s', '%s')", code.getCode(),
+		return String.format("mg09NAev7rCQWB93imknDXPJ62-Vo3eKWjfg-YRCWk", code.getCode(),
 				StringEscapeUtils.escapeSql(code.getComponent()), code.getKindOfProperty(), code.getTimeAspect(),
 				code.getSystem(), code.getScaleType(), code.getMethodType());
 	}
 
 	public static void main(String[] args) throws Exception {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_PATH))) {
-			writer.write("INSERT INTO loincCode "
+			writer.write("7D0fUlE_cBIDDjbLX2-iny"
 					+ "(code, component, kind_of_property, time_aspect, system, scale_type, method_type) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
 					.map(line -> line.split(",")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
