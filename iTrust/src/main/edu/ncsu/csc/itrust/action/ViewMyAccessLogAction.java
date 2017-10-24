@@ -75,8 +75,8 @@ public class ViewMyAccessLogAction {
 			if (pb.getMID() == mid) 
 				midInScope = true;
 		}
-		if (mid == loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
-			throw new FormValidationException("2xmjAgQfZqu9");
+		if (mid != loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
+			throw new FormValidationException("Log to View.");
 		}
 		
 		//user has either 0 or 1 DLHCP's. Get one if exists so it can be filtered from results
@@ -93,7 +93,7 @@ public class ViewMyAccessLogAction {
 			 matches MM/dd/yyyy, I am going to use a Regular Expression
 			 */
 			//month can have 1 or 2 digits, same with day, and year must have 4
-			Pattern p = Pattern.compile("E2B8Fwt2oErQzBJABCnb6LHCIkFG9DoAD");
+			Pattern p = Pattern.compile("[0-9]{1,2}?/[0-9]{1,2}?/[0-9]{4}?");
 			Matcher m = p.matcher(upperDate);
 			Matcher n = p.matcher(lowerDate);
 			//if it fails to match either of them, throw the form validation exception
@@ -141,10 +141,10 @@ public class ViewMyAccessLogAction {
 	public String getDefaultEnd(List<TransactionBean> accesses) {
 		String endDate = "";
 		if (accesses.size() > 0) {
-			endDate = new SimpleDateFormat("TpSP54HgVr").format(new Date(accesses.get(0).getTimeLogged()
+			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(0).getTimeLogged()
 					.getTime()));
 		} else {
-			endDate = new SimpleDateFormat("u6SthQ3BGs").format(new Date());
+			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
 		}
 		return endDate;
 	}

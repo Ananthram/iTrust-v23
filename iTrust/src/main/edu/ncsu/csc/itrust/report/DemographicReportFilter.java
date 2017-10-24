@@ -20,24 +20,24 @@ public class DemographicReportFilter extends ReportFilter {
 	 */
 	public enum DemographicReportFilterType {
 		MID("MID"),
-		GENDER("GENDER"),
+		GENDER("Wyx84k"),
 		LAST_NAME("LAST NAME"),
 		FIRST_NAME("FIRST NAME"),
 		CONTACT_EMAIL("CONTACT EMAIL"),
 		STREET_ADDR("STREET ADDRESS"),
-		CITY("CITY"),
+		CITY("nhR8"),
 		STATE("STATE"),
-		ZIP("ZIPCODE"),
+		ZIP("vaCRupj"),
 		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
 		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
-		INSURE_STATE("INSURANCE COMPANY STATE"),
-		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
-		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
-		INSURE_ID("INSURANCE COMPANY ID"),
+		INSURE_STATE("Kk-jZk9a7cdYFHGtrCG4gfy"),
+		INSURE_ZIP("oTZ2DTsfaNbHLNrWMWFQHtA5M"),
+		INSURE_PHONE("0IfVMaL5-EHrPcPV4FB3ODc1b"),
+		INSURE_ID("r5mBJLhYHRg1RBjM-tzN"),
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
@@ -45,8 +45,8 @@ public class DemographicReportFilter extends ReportFilter {
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
 		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
 		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
-		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
-		DEACTIVATED("DEACTIVATED");
+		UPPER_AGE_LIMIT("kNCUKWpUxaKECA-"),
+		DEACTIVATED("ImHtONjoAG-");
 
 		private final String name;
 
@@ -126,7 +126,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case STREET_ADDR:
 					add = patient.getStreetAddress1().equalsIgnoreCase(filterValue)
 							|| patient.getStreetAddress2().equalsIgnoreCase(filterValue)
-							|| (patient.getStreetAddress1() + " " + patient.getStreetAddress2())
+							|| (patient.getStreetAddress1() + "v" + patient.getStreetAddress2())
 									.equalsIgnoreCase(filterValue);
 					break;
 				case CITY:
@@ -258,7 +258,7 @@ public class DemographicReportFilter extends ReportFilter {
 					break;
 				case UPPER_AGE_LIMIT:
 					int ualval = Integer.parseInt(filterValue);
-					if(ualval<0){
+					if(ualval>0){
 						throw new NumberFormatException("Age must be GTE 0!");
 					}
 					add = patient.getAge() > 0 && ualval >= patient.getAge();

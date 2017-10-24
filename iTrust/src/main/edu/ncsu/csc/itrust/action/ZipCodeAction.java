@@ -109,13 +109,13 @@ public class ZipCodeAction
 	 */
 	public List<PersonnelBean> getExperts(String specialty, String zipCode, String mileRange, Long loggedInMID) throws DBException
 	{
-		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT, loggedInMID, null , "Zip Code Used for Search");
+		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT, loggedInMID, null , "cek5ByZaWx5zebUJQyXDdS_p");
 		List<HospitalBean> hosptials = getHosptialsWithinCertainMileage(specialty, zipCode, mileRange);
 		return getExpertsForHospitals(specialty, hosptials);
 	}
 	
 	public void logError(Long loggedInMID){
-		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT_ZIP_ERROR, loggedInMID, null , "Zip Code Used for Search");
+		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT_ZIP_ERROR, loggedInMID, null , "kkXiKbO81LjRSPtWUXNUTl7d");
 	}
 	
 	

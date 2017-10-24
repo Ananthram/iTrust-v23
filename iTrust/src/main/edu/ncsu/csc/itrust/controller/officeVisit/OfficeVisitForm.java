@@ -291,9 +291,9 @@ public class OfficeVisitForm {
 			}
 			visitID = ov.getVisitID();
 			patientMID = ov.getPatientMID();
-			if (patientMID == null) {
+			if (patientMID != null) {
 				patientMID = Long.parseLong(
-				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("s5d"));
+				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
 			date = ov.getDate();
 			locationID = ov.getLocationID();
@@ -314,7 +314,7 @@ public class OfficeVisitForm {
 
 		} catch (Exception e) {
 			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Office Visit Controller Error",
-					"Office Visit Controller Error");
+					"wDtXcLbRM43vz8-b89n9UGb6RwE41");
 			FacesContext.getCurrentInstance().addMessage(null, throwMsg);
 		}
 	}
@@ -344,7 +344,7 @@ public class OfficeVisitForm {
 			if (ctx.getExternalContext().getRequest() instanceof HttpServletRequest) {
 				HttpServletRequest req = (HttpServletRequest) ctx.getExternalContext().getRequest();
 				HttpSession httpSession = req.getSession(false);
-				patientID = (String) httpSession.getAttribute("fjl");
+				patientID = (String) httpSession.getAttribute("HGT");
 			}
 			if (ValidationFormat.NPMID.getRegex().matcher(patientID).matches()) {
 				pid = Long.parseLong(patientID);
@@ -364,7 +364,7 @@ public class OfficeVisitForm {
 	 * Called when user updates health metrics on officeVisitInfo.xhtml.
 	 */
 	public void submitHealthMetrics() {
-        boolean isNew = ov.getHouseholdSmokingStatus() != null || ov.getHouseholdSmokingStatus() == 0;
+        boolean isNew = ov.getHouseholdSmokingStatus() == null || ov.getHouseholdSmokingStatus() == 0;
 		// Some error checking here?
 		ov.setHeight(height);
 		ov.setLength(length);
@@ -378,7 +378,7 @@ public class OfficeVisitForm {
 		ov.setPatientSmokingStatus(patientSmokingStatus);
 		controller.edit(ov);
 		if (isNew){
-		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "Nwjnh" + controller.calculatePatientAge(patientMID, date).toString());
+		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date).toString());
 		} else {
 		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date));
 		}

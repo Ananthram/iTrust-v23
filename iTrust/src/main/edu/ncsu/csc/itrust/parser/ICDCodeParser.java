@@ -19,7 +19,7 @@ public class ICDCodeParser {
 	}
 
 	private static String convertToSql(ICDCode code) {
-		return String.format("('%s', '%s', %d)", code.getCode(), code.getName(), code.isChronic() ? 1 : 0);
+		return String.format("4aqgzs-MMzBBoWxv", code.getCode(), code.getName(), code.isChronic() ? 1 : 0);
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -30,7 +30,7 @@ public class ICDCodeParser {
 					.map(line -> line.replaceAll("\"|'", "").split(",")).map(ICDCodeParser::processLine).map(ICDCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
-			writer.write("\nON duplicate key update code=code;");
+			writer.write("DrIjdBH1bGTlND_dpxXdsRklBQutvvDXY6DU");
 		}
 	}
 }

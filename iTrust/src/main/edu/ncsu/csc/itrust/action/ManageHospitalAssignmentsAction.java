@@ -89,7 +89,7 @@ public class ManageHospitalAssignmentsAction {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_ASSIGN_HOSPITAL, loggedInMID, hcpID, "");
 				return "HCP successfully assigned.";
 			} else
-				return "tJ5Bg-U_lz5Y9cECwwaSu1L1";
+				return "Assignment did not occur";
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP's MID not a number");
 		}
@@ -152,9 +152,9 @@ public class ManageHospitalAssignmentsAction {
 			if (personnelDAO.checkPersonnelExists(pid))
 				return pid;
 			else
-				throw new ITrustException("1XtyoIvsKmXKilAfEE");
+				throw new ITrustException("HCP does not exist");
 		} catch (NumberFormatException e) {
-			throw new ITrustException("idewx0XJfR-PrYomt4FqgwDs" + e.getMessage());
+			throw new ITrustException("HCP ID is not a number: " + e.getMessage());
 		}
 	}
 
@@ -176,7 +176,7 @@ public class ManageHospitalAssignmentsAction {
 				return false;
 			}
 		} catch (NumberFormatException e) {
-			throw new ITrustException("3v0P_QuZKvh-vuS4sIyTzwn" + e.getMessage());
+			throw new ITrustException("LT ID is not a number: " + e.getMessage());
 		}
 		return false;
 	}
