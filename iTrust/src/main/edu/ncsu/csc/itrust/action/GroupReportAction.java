@@ -140,7 +140,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean child : children) {
 					buff.append(child.getFirstName());
-					buff.append("Qa");
+					buff.append("\n");
 				}
 				String out = buff.toString();
 				return out;

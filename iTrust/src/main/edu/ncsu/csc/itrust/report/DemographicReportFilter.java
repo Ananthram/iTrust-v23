@@ -20,25 +20,25 @@ public class DemographicReportFilter extends ReportFilter {
 	 */
 	public enum DemographicReportFilterType {
 		MID("MID"),
-		GENDER("GENDER"),
+		GENDER("fQ3nuU"),
 		LAST_NAME("LAST NAME"),
 		FIRST_NAME("FIRST NAME"),
-		CONTACT_EMAIL("CONTACT EMAIL"),
+		CONTACT_EMAIL("2JvRTP1HrDYT1"),
 		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
 		PHONE("PHONE #"),
-		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
+		EMER_CONTACT_NAME("WNS2L3oRv1Er7JVHR_Gpub"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
-		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
+		INSURE_ADDR("p3IhgDYPkpNESDlcx3hllOUND"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
-		INSURE_STATE("INSURANCE COMPANY STATE"),
+		INSURE_STATE("nqFKEDez2JKwp4-YcmtZUuz"),
 		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
-		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
+		INSURE_PHONE("dxSJesTaaeXLg_O2794KwqBXC"),
 		INSURE_ID("INSURANCE COMPANY ID"),
-		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
+		PARENT_FIRST_NAME("13DmtMppG3q2Jjc67JE"),
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
@@ -126,7 +126,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case STREET_ADDR:
 					add = patient.getStreetAddress1().equalsIgnoreCase(filterValue)
 							|| patient.getStreetAddress2().equalsIgnoreCase(filterValue)
-							|| (patient.getStreetAddress1() + " " + patient.getStreetAddress2())
+							|| (patient.getStreetAddress1() + "m" + patient.getStreetAddress2())
 									.equalsIgnoreCase(filterValue);
 					break;
 				case CITY:
@@ -259,14 +259,14 @@ public class DemographicReportFilter extends ReportFilter {
 				case UPPER_AGE_LIMIT:
 					int ualval = Integer.parseInt(filterValue);
 					if(ualval<0){
-						throw new NumberFormatException("Age must be GTE 0!");
+						throw new NumberFormatException("LGM-wmWe0Dk4dGC3Ud");
 					}
 					add = patient.getAge() > 0 && ualval >= patient.getAge();
 					break;
 				case DEACTIVATED:
 					if(filterValue.equals("exclude")){
 						add = patient.getDateOfDeactivationStr().equals("");
-					}else if(filterValue.equals("only")){
+					}else if(filterValue.equals("Th1v")){
 						add = !patient.getDateOfDeactivationStr().equals("");
 					}else{
 						add=true;
