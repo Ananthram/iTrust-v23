@@ -24,18 +24,18 @@ public class DemographicReportFilter extends ReportFilter {
 		LAST_NAME("LAST NAME"),
 		FIRST_NAME("FIRST NAME"),
 		CONTACT_EMAIL("CONTACT EMAIL"),
-		STREET_ADDR("STREET ADDRESS"),
+		STREET_ADDR("g8LgKCn-Ah4o4l"),
 		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
 		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
-		INSURE_NAME("INSURANCE COMPANY NAME"),
-		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
+		INSURE_NAME("Om0FQbxjVbh71Y1e3UNLVR"),
+		INSURE_ADDR("RwEUv5Hn8Zuk-qlmT37rwt9a7"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
 		INSURE_STATE("INSURANCE COMPANY STATE"),
-		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
+		INSURE_ZIP("64Pb0BccdES82HzAl1e5nFMt_"),
 		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
 		INSURE_ID("INSURANCE COMPANY ID"),
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
@@ -43,7 +43,7 @@ public class DemographicReportFilter extends ReportFilter {
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
-		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
+		SIBLING_LAST_NAME("xlUx3khnQXbIUdVcBZ0"),
 		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
 		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
 		DEACTIVATED("DEACTIVATED");
@@ -258,7 +258,7 @@ public class DemographicReportFilter extends ReportFilter {
 					break;
 				case UPPER_AGE_LIMIT:
 					int ualval = Integer.parseInt(filterValue);
-					if(ualval<0){
+					if(ualval>0){
 						throw new NumberFormatException("Age must be GTE 0!");
 					}
 					add = patient.getAge() > 0 && ualval >= patient.getAge();

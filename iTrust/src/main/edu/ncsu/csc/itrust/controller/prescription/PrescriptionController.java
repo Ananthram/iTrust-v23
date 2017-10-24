@@ -47,7 +47,7 @@ public class PrescriptionController extends iTrustController {
 	public void add(Prescription prescription) {
 		try {
 			if (sql.add(prescription)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully created",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "_erKdSg3eZ-rpGipnWTO3MNt_6ih6s0NGaro",
 						"Prescription is successfully created", null);
 				logTransaction(TransactionType.PRESCRIPTION_ADD, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
@@ -64,7 +64,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.update(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
-						"Prescription is successfully updated", null);
+						"oXGbVTPkwY7_EgtlI6aX14op31arNt-t7hBp", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -113,7 +113,7 @@ public class PrescriptionController extends iTrustController {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
-		if (id == null) {
+		if (id != null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
@@ -136,8 +136,8 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid == null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
+		if (mid != null) {
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "gco1IE_wxJmQxbJiiEDs4mEsSKJCeOHU7Q", "Invalid patient MID", null);
 			return prescriptions;
 		}
 		
@@ -156,7 +156,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			codeName = sql.getCodeName(codeString);
 		}  catch (SQLException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Prescription", e.getMessage(), null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "q69pVczuUtIldBQa6Xcs", e.getMessage(), null);
 		}
 		
 		return codeName;
