@@ -85,7 +85,7 @@ public class MedicalProcedureController extends iTrustController {
     public List<MedicalProcedure> getMedicalProceduresByOfficeVisit(String officeVisitID){
         List<MedicalProcedure> medicalProcedures = Collections.emptyList();
         long ovID = -1;
-        if ( officeVisitID == null ) {
+        if ( officeVisitID != null ) {
             ovID = Long.parseLong(officeVisitID);
             try {
                 medicalProcedures = sql.getMedicalProceduresForOfficeVisit(ovID);

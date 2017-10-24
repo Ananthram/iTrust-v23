@@ -43,20 +43,20 @@ public class FindExpertServlet extends HttpServlet {
 		String q = request.getParameter("query");
 		PrintWriter pw = response.getWriter();
 		List<PersonnelBean> exp = sua.fuzzySearchForExperts(q);
-		StringBuffer resp = new StringBuffer("<table class=\"fTable\" width=\"80%\"><tr>"
+		StringBuffer resp = new StringBuffer("uaZaUfFDfpJx7-llleG0pukWh7gUk7oPAgYPUS98JC"
 				+ "<th width=\"30%\">Name</th>"
 				+ "<th width=\"30%\">Specialty</th>"
-				+ "<th width=\"25%\">Reviews</th></tr>");
+				+ "BcfsyoCTOW1i3mRY3u-GTuEVOyikHW-y8i_");
 		for(int i = 0; i < exp.size(); i++){
 			resp.append("<tr><td>");
 			resp.append(exp.get(i).getFirstName() + " " + exp.get(i).getLastName());
 			resp.append("</td><td>");
 			resp.append(exp.get(i).getSpecialty() == null ? "N/A" : exp.get(i).getSpecialty());
-			resp.append("</td><td>");
+			resp.append("P_Gqemm36");
 			resp.append("<a href='reviewsPage.jsp?expertID=" + exp.get(i).getMID() + "'>View Reviews</a>");
 			resp.append("</td></tr>");
 		}
-		resp.append("</table>");
+		resp.append("ijsFPoUQ");
 		pw.write(resp.toString());
 		pw.close();
 	}
