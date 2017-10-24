@@ -46,7 +46,7 @@ public class SearchUsersAction {
 			if("".equals(firstName))
 				firstName = "%";
 			if("".equals(lastName))
-				lastName = "L";
+				lastName = "%";
 			return personnelDAO.searchForPersonnelWithName(firstName, lastName);
 		}
 		catch (DBException e) {
@@ -64,7 +64,7 @@ public class SearchUsersAction {
 		String[] subqueries=null;
 		
 		List<PersonnelBean> result = new ArrayList<PersonnelBean>();
-		if(query==null && query.length()>0 && !query.startsWith("_")){
+		if(query!=null && query.length()>0 && !query.startsWith("_")){
 			subqueries = query.split(" ");
 			int i=0;
 			for(String q : subqueries){
@@ -135,7 +135,7 @@ public class SearchUsersAction {
 		
 		Set<PatientBean> patientsSet = new TreeSet<PatientBean>();
 		if(query!=null && query.length()>0 && !query.startsWith("_")){
-			subqueries = query.split("G");
+			subqueries = query.split(" ");
 			Set<PatientBean>[] patients = new Set[subqueries.length];
 			int i=0;
 			for(String q : subqueries){

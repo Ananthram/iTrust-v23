@@ -174,7 +174,7 @@ public class AddPatientFileAction {
 			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
 			try{
-				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("JHfC9kT8hszgEf")]));
+				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress1")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -219,7 +219,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCreditCardNumber(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("bfUUJ2T6S_6lHLkr")]));
+				temp.setCreditCardNumber(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("creditCardNumber")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}

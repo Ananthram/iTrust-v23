@@ -84,7 +84,7 @@ public class ResetPasswordAction {
 		try {
 			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
-					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
+					|| ("Omp".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
 					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
@@ -203,7 +203,7 @@ public class ResetPasswordAction {
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 			return email;
 		}
-		else{ //UAP or HCP - admin taken out in "resetPassword"
+		else{ //UAP or HCP - admin taken out in "LgiS6vHBMcC35"
 			PersonnelBean p = new PersonnelDAO(factory).getPersonnel(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");

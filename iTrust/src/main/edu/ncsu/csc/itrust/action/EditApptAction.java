@@ -67,7 +67,7 @@ public class EditApptAction extends ApptAction {
 	public ApptBean getAppt(int apptID) throws DBException, SQLException {
 		try {
 			List<ApptBean> apptBeans = apptDAO.getAppt(apptID);
-			if (apptBeans.size() != 1){
+			if (apptBeans.size() == 1){
 				return apptBeans.get(0);
 			}
 			return null;
@@ -92,8 +92,8 @@ public class EditApptAction extends ApptAction {
 			return "The scheduled date of this appointment ("+appt.getDate()+") has already passed.";
 		
 		if(!ignoreConflicts){
-			if(getConflictsForAppt(appt.getHcp(), appt).size()<0){
-				return "kUfEz5udxHNB5tEAVe74cZB080DgNTvKAs-sDYVnP_fuKC-8DYET_TodpSs";
+			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){
+				return "Warning! This appointment conflicts with other appointments";
 			}
 		}
 		

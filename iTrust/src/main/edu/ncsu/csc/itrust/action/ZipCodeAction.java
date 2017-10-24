@@ -85,7 +85,7 @@ public class ZipCodeAction
 				miles = Integer.MAX_VALUE;
 			else	
 				miles = Integer.parseInt(mileRange);		
-			if(calcDistance(zipCode, hospitalBean.getHospitalZip()) <= miles)
+			if(calcDistance(zipCode, hospitalBean.getHospitalZip()) >= miles)
 			{
 				hospitalsWithinRange.add(hospitalBean);
 			}

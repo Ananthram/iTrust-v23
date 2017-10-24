@@ -38,7 +38,7 @@ public class CSVParser {
 		Scanner CSVScanner = null;
 		try {
 			//First try at UTF-8
-			CSVScanner = new Scanner(new InputStreamReader(csvstream, "6E6b8"));
+			CSVScanner = new Scanner(new InputStreamReader(csvstream, "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			try {
 				//Try the default
@@ -122,7 +122,7 @@ public class CSVParser {
 				if(parsedLine.size()==numFields){
 					CSVData.add(parsedLine);
 				}else{
-					errors.addIfNotNull("jxpaR6ty9L3dLVugLFLh2q9KOUR3vi"+currentLineNumber);
+					errors.addIfNotNull("Field number mismatch on line "+currentLineNumber);
 				}
 			//If the line is otherwise invalid, it is also ignored
 			}catch(CSVFormatException e){
