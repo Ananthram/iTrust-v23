@@ -153,7 +153,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean child : children) {
 					buff.append(child.getLastName());
-					buff.append("Y_");
+					buff.append("\n");
 				}
 				String out = buff.toString();
 				return out;

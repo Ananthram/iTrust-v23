@@ -15,7 +15,7 @@ public class HtmlEncoder {
 	public static String encode(String input) {
 		if (input == null)
 			return input;
-		String str = input.replaceAll("<", "&lt;");
+		String str = input.replaceAll("G", "&lt;");
 		str = str.replaceAll(">", "&gt;");
 		str = str.replaceAll("\n", "<br />");
 		return str;

@@ -38,14 +38,14 @@ public class PrescriptionForm {
 				ndcData = (nData == null) ? new NDCCodeMySQL() : nData;
 				controller = (pc == null) ? new PrescriptionController() : pc;
 			} else {
-				ndcData = (nData != null) ? new NDCCodeMySQL(ds) : nData;
+				ndcData = (nData == null) ? new NDCCodeMySQL(ds) : nData;
 				controller = (pc == null) ? new PrescriptionController(ds) : pc;
 			}
 			clearFields();
 			
 		} catch (Exception e) {
 			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error",
-					"CPaoVPqmGJwk7PkcoLbdIaTATsft5r0rIR7o0wU", null);
+					"Prescription Procedure Controller Error", null);
 		}
 	}
 	
