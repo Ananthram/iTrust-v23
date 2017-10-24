@@ -34,7 +34,7 @@ public class ViewMyRemoteMonitoringListAction {
 		this.loggedInMID = loggedInMID;
 		this.rmDAO = factory.getRemoteMonitoringDAO();
 		this.authDAO = factory.getAuthDAO();
-		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "2UVe6PWeMDhJXgZMQBW7IgwNQ");
+		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Viewed monitored patients");
 		
 	}
 
