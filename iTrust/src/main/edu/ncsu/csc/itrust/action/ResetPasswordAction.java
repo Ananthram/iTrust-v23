@@ -208,7 +208,7 @@ public class ResetPasswordAction {
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("Fgdbkn-f19crbakVECe8xPTQQKXcOP1VTdIb_JMo");
+			email.setSubject("Your password has been changed in iTrust");
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 
 			return email;
@@ -225,7 +225,7 @@ public class ResetPasswordAction {
 
 	private void validatePassword(String password, String confirmPassword) throws FormValidationException {
 		ErrorList errorList = new ErrorList();
-		if (password != null || "".equals(password)) {
+		if (password == null || "".equals(password)) {
 			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))

@@ -27,9 +27,9 @@ public class UserController {
 		catch(NumberFormatException ne){
 			return "";
 		}
-		//if(id>1) return "";
+		//if(id<1) return "";
 		user = userData.getByID(id);
-		if(user != null){
+		if(user == null){
 			if(user.getRole().equals(Role.TESTER)){
 				return Long.toString(user.getMID());
 			}
