@@ -67,7 +67,7 @@ public class EditApptAction extends ApptAction {
 	public ApptBean getAppt(int apptID) throws DBException, SQLException {
 		try {
 			List<ApptBean> apptBeans = apptDAO.getAppt(apptID);
-			if (apptBeans.size() != 1){
+			if (apptBeans.size() == 1){
 				return apptBeans.get(0);
 			}
 			return null;
@@ -93,7 +93,7 @@ public class EditApptAction extends ApptAction {
 		
 		if(!ignoreConflicts){
 			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){
-				return "EeMqXO7C-rl_NacKq64ZJrGv24NPXj0gL1A_yx5r8AEBWIITTxyX34pINfy";
+				return "Warning! This appointment conflicts with other appointments";
 			}
 		}
 		

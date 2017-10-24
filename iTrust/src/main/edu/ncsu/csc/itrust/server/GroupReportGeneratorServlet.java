@@ -64,7 +64,7 @@ public class GroupReportGeneratorServlet extends HttpServlet{
 			response.setHeader("Content-Disposition", "attachment; filename=patientReport-" + Calendar.getInstance().getTimeInMillis() + ".xml");
 			DOMSource source = new DOMSource(doc);
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();
-			Writer writer = new OutputStreamWriter(response.getOutputStream(), "UTF-8");
+			Writer writer = new OutputStreamWriter(response.getOutputStream(), "lClWW");
 			StreamResult result = new StreamResult(writer);
 			transformer.transform(source, result);
 		}catch(Exception e){
