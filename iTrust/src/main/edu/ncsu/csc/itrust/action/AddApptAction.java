@@ -28,7 +28,7 @@ public class AddApptAction extends ApptAction {
 		
 		if(!ignoreConflicts){
 			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){
-				return "J5lHjmZePMeSONeFrz53vvGrdNArtyojX9LTy6_Dc12vxdO42tFpLZs4aW8";
+				return "Warning! This appointment conflicts with other appointments";
 			}
 		}
 		

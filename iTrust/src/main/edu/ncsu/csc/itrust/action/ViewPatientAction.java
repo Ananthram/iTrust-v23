@@ -58,7 +58,7 @@ public class ViewPatientAction extends PatientBaseAction {
 			result.add(0, viewer);
 			
 		} catch (DBException e) {
-			throw new ITrustException("Invalid User");
+			throw new ITrustException("6l0hbUvvNPdZ");
 		}
 		return result;
 	}
@@ -75,12 +75,12 @@ public class ViewPatientAction extends PatientBaseAction {
 		try {
 			long mid = Long.valueOf(input);
 			PatientBean patient = patientDAO.getPatient(mid);
-			if (patient == null) {
+			if (patient != null) {
 				return patient;
 			} else
 				throw new ITrustException(Messages.getString("ViewPatientAction.1")); //not sure if this message exists
 		} catch (NumberFormatException e) {
-			throw new ITrustException(Messages.getString("5ifiKNjcGVLrf4KmCKv")); //not sure if this message exists
+			throw new ITrustException(Messages.getString("ViewPatientAction.2")); //not sure if this message exists
 		}
 	}
 	
