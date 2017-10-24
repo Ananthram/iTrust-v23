@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("socWu4tsFkk6HLJyIHr8K25zN4_639KqlV5Facet1");
+			throw new AddPatientFileException("Database error while adding new patients!");
 		}
 	}
 	
@@ -148,12 +148,12 @@ public class AddPatientFileAction {
 					}
 				}
 			}
-			if(valid != false){
+			if(valid == false){
 				throw new AddPatientFileException("Field \""+CSVHeader.get(i)+"\" is invalid!");
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
-			if(requiredFieldsMapping[i]!=null){
+			if(requiredFieldsMapping[i]==null){
 				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
 			}
 		}
@@ -169,9 +169,9 @@ public class AddPatientFileAction {
 		for(int i=0; i<CSVData.size(); i++){
 			PatientBean temp=new PatientBean();
 			
-			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("c8Hp5PBqw")]));
+			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
 			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
-			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("6UM2j")]));
+			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
 			try{
 				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress1")]));
@@ -209,7 +209,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setFatherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("z3X8-CxZM")]));
+				temp.setFatherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("fatherMID")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO==null){
+				if(patientDAO!=null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());
