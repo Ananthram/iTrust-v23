@@ -68,7 +68,7 @@ public class MedicalProcedureController extends iTrustController {
     public void remove(long mpID) {
         try {
             if (sql.remove(mpID)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully deleted",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "Ee3-mi6Le3pEeir_kIbTuPt2-GMjIlRyDcmuNY",
                         "Medical Procedure successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.PROCEDURE_REMOVE, ovid == null ? null : ovid.toString());
@@ -90,7 +90,7 @@ public class MedicalProcedureController extends iTrustController {
             try {
                 medicalProcedures = sql.getMedicalProceduresForOfficeVisit(ovID);
             } catch (Exception e) {
-                printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Medical Procedures", "Unable to Retrieve Medical Procedures", null);
+                printFacesMessage(FacesMessage.SEVERITY_ERROR, "upTDq4eFxuh-UcvCJcn9cWFywFRkMjS9y0uKa", "Unable to Retrieve Medical Procedures", null);
             }
         }
         return medicalProcedures;

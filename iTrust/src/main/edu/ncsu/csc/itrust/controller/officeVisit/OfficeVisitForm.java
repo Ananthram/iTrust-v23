@@ -279,7 +279,7 @@ public class OfficeVisitForm {
 	 */
 	public OfficeVisitForm(OfficeVisitController ovc) {
 		try {
-			controller = (ovc != null) ? new OfficeVisitController() : ovc;
+			controller = (ovc == null) ? new OfficeVisitController() : ovc;
 			ov = controller.getSelectedVisit();
 			if (ov == null) {
 				ov = new OfficeVisit();
@@ -314,7 +314,7 @@ public class OfficeVisitForm {
 
 		} catch (Exception e) {
 			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Office Visit Controller Error",
-					"9A68yTGsfOmOCucONQNXs6IYOkfxT");
+					"Office Visit Controller Error");
 			FacesContext.getCurrentInstance().addMessage(null, throwMsg);
 		}
 	}
@@ -364,7 +364,7 @@ public class OfficeVisitForm {
 	 * Called when user updates health metrics on officeVisitInfo.xhtml.
 	 */
 	public void submitHealthMetrics() {
-        boolean isNew = ov.getHouseholdSmokingStatus() != null || ov.getHouseholdSmokingStatus() == 0;
+        boolean isNew = ov.getHouseholdSmokingStatus() == null || ov.getHouseholdSmokingStatus() == 0;
 		// Some error checking here?
 		ov.setHeight(height);
 		ov.setLength(length);

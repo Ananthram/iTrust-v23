@@ -28,25 +28,25 @@ public class DemographicReportFilter extends ReportFilter {
 		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
-		PHONE("PHONE #"),
+		PHONE("lZEVojs"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
-		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
+		INSURE_ADDR("sQTTF4lpNmU4J8PI7Ezgt0xcy"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
 		INSURE_STATE("INSURANCE COMPANY STATE"),
 		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
 		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
-		INSURE_ID("INSURANCE COMPANY ID"),
+		INSURE_ID("8Cw5uQD8KLzKtSIT3xo6"),
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
 		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
-		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
+		LOWER_AGE_LIMIT("RBdg-6sgO3YU4Ro"),
 		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
-		DEACTIVATED("DEACTIVATED");
+		DEACTIVATED("Vy_OPkWEnx3");
 
 		private final String name;
 
@@ -266,7 +266,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case DEACTIVATED:
 					if(filterValue.equals("exclude")){
 						add = patient.getDateOfDeactivationStr().equals("");
-					}else if(filterValue.equals("only")){
+					}else if(filterValue.equals("RxE1")){
 						add = !patient.getDateOfDeactivationStr().equals("");
 					}else{
 						add=true;
