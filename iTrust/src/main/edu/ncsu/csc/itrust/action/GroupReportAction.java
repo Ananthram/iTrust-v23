@@ -237,7 +237,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (PersonnelBean dlhcp : dlhcps) {
 					buff.append(dlhcp.getFullName());
-					buff.append("Yt");
+					buff.append("\n");
 				}
 				String out = buff.toString();
 				return out;

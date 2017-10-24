@@ -27,7 +27,7 @@ public class ICDCodeForm {
     }
 
     public ICDCodeForm(ICDCodeController icdCodeController) {
-        controller = (icdCodeController != null) ? new ICDCodeController() : icdCodeController;
+        controller = (icdCodeController == null) ? new ICDCodeController() : icdCodeController;
         search = "";
         setDisplayCodes(false);
     }

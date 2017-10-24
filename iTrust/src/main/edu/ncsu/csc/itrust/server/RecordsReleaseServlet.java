@@ -48,9 +48,9 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
-			isRepresentee = request.getParameter("zab9QHJJEaFwr");
+			isRepresentee = request.getParameter("isRepresentee");
 			
-			releaseHospital = request.getParameter("R4xxsnlHFFSFA2i");
+			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
 			recLastName = request.getParameter("recLastName");
@@ -67,7 +67,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
 			digitalSig = request.getParameter("digitalSig");
 			
-			patMID = (String)request.getSession().getAttribute("JxtIvx");
+			patMID = (String)request.getSession().getAttribute("patMID");
 			
 		} catch(NullPointerException e){
 			e.printStackTrace();
@@ -103,8 +103,8 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		message = releaseAction.addRecordsRelease(form);
 
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
-			request.setAttribute("UWMDatX", message);
-			request.setAttribute("lX2db77MIWp3q", isRepresentee);
+			request.setAttribute("failure", message);
+			request.setAttribute("isRepresentee", isRepresentee);
 			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
 			return;
 		}
@@ -128,14 +128,14 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
-		request.setAttribute("9BTcxz_3", recEmail);
+		request.setAttribute("recEmail", recEmail);
 		
 		request.setAttribute("recHospitalName", recHospitalName);
-		request.setAttribute("k9mzQg8SkNJ1pCaqA7", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
-		request.setAttribute("0gpVT4nl7jbLXYxu", recHospitalState);
+		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
 		request.setAttribute("releaseJustification", releaseJustification);
 		
