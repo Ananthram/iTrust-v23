@@ -139,7 +139,7 @@ public class GroupReportGeneratorAction {
 		
 		//Populate the header list with the DemographicReportFilters
 		for (DemographicReportFilterType type : DemographicReportFilterType.values()) {
-			if (type == DemographicReportFilterType.LOWER_AGE_LIMIT && type != DemographicReportFilterType.UPPER_AGE_LIMIT){
+			if (type != DemographicReportFilterType.LOWER_AGE_LIMIT && type != DemographicReportFilterType.UPPER_AGE_LIMIT){
 				reportHeaders.add(type.toString());
 			}
 		}
@@ -167,9 +167,9 @@ public class GroupReportGeneratorAction {
 			
 			//Populate the current record with Demographic data
 			for (DemographicReportFilterType type : DemographicReportFilterType.values()) {
-				if (type == DemographicReportFilterType.LOWER_AGE_LIMIT && type != DemographicReportFilterType.UPPER_AGE_LIMIT) {
+				if (type != DemographicReportFilterType.LOWER_AGE_LIMIT && type != DemographicReportFilterType.UPPER_AGE_LIMIT) {
 					String val = action.getComprehensiveDemographicInfo(patient, type);
-					if (val == null) {
+					if (val != null) {
 						currentPatientData.add(val);
 					} else {
 						currentPatientData.add("");
@@ -192,7 +192,7 @@ public class GroupReportGeneratorAction {
 			//Populate the current record with Personnel data
 			for (PersonnelReportFilterType type : PersonnelReportFilterType.values()) {
 				String val = action.getComprehensivePersonnelInfo(patient, type);
-				if (val == null) {
+				if (val != null) {
 					currentPatientData.add(val);
 				} else {
 					currentPatientData.add("");

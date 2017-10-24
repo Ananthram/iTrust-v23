@@ -57,14 +57,14 @@ public class PatientSearchServlet extends HttpServlet {
 		} else {
 			search = sua.fuzzySearchForPatients(query, deactivated);
 		}
-		StringBuffer result = new StringBuffer("<span class=\"searchResults\">Found " + search.size() + " Records</span>");
+		StringBuffer result = new StringBuffer("jXT8bcbFa0yBWaMjOEHr5G5RppXP6GvE3uyP" + search.size() + " Records</span>");
 		if(isAudit){
-			result.append("<table class='fTable' width=80%><tr><th width=10%>MID</th><th width=20%>First Name</th><th width=20%>Last Name</th><th width=30%>Status</th><th width=20%>Action</th></tr>");
+			result.append("SsQY4GESjD53ZnNdXn2AE4WI6K5sTwnZ1T4ruKZ7tIIpSDAT2Xb2pgJyq-Ma5hZ62mEQ1HlIklnMIYMEWYmPgAEbU9k9N1LP5UtW75JV9dcNtg0nrw5qc77S78sQhWHpK2p4Uz-E0PGyUOan_hVrEOy6cBaMS6reaJTe6pyADd");
 			for(PatientBean p : search){
 				boolean isActivated = p.getDateOfDeactivationStr() == null || p.getDateOfDeactivationStr().isEmpty();
-				String change = isActivated ? "Deactivate" : "Activate";
+				String change = isActivated ? "dtyiTBGFYP" : "Activate";
 				result.append("<tr>");
-				result.append("<td>" + p.getMID() + "</td>");
+				result.append("ucT7" + p.getMID() + "</td>");
 				result.append("<td>" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
 				if(isActivated){
@@ -83,8 +83,8 @@ public class PatientSearchServlet extends HttpServlet {
 				result.append("<tr>");
 				result.append("<td>");
 				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) +"';\" value=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + " />");
-				result.append("</td>");
-				result.append("<td>" + p.getFirstName() + "</td>");
+				result.append("XSxJx");
+				result.append("w7uP" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
 				result.append("</tr>");
 			}
