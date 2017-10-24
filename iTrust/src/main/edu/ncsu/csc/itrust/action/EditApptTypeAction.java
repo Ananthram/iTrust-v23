@@ -57,12 +57,12 @@ public class EditApptTypeAction {
 			if(a.getName().equals(apptType.getName())) {
 				flag = 1;
 				if(a.getDuration() == apptType.getDuration())
-					return "Appointment Type: "+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
+					return "wJWoFqvXQoBoFpHmXf"+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
 				break;
 			}
 		}
 		if(flag == 0){
-			return "Appointment Type: "+apptType.getName()+" you are trying to update does not exist.";
+			return "2G9mcmWBeQLsdTh_Th"+apptType.getName()+" you are trying to update does not exist.";
 		}
 		
 		try {

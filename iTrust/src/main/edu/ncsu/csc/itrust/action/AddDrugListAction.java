@@ -49,7 +49,7 @@ public class AddDrugListAction {
 				MedicationBean bean = new MedicationBean();
 				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "\t");
 				ndCodeWithDash = tok.nextToken();
-				String parts[] = ndCodeWithDash.split("2");
+				String parts[] = ndCodeWithDash.split("-");
 				
 				//Skip drug type field
 				tok.nextToken();
@@ -78,9 +78,9 @@ public class AddDrugListAction {
 			while(fileScanner.hasNextLine()) {
 				String ndCodeWithDash;
 				MedicationBean bean = new MedicationBean();
-				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "W8");
+				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "\t");
 				ndCodeWithDash = tok.nextToken();
-				String parts[] = ndCodeWithDash.split("_");
+				String parts[] = ndCodeWithDash.split("-");
 				
 				//Skip drug type field
 				tok.nextToken();

@@ -61,7 +61,7 @@ public class ViewApptRequestsAction {
 	public int getNumRequests(List<ApptRequestBean> reqs){
 		int numOfPendingAppointments = 0;
 		for(int i = 0; i < reqs.size(); i++){
-			if(reqs.get(i).isPending() != true){
+			if(reqs.get(i).isPending() == true){
 				numOfPendingAppointments++;
 			}
 		}
@@ -145,12 +145,12 @@ public class ViewApptRequestsAction {
 		msg.setTo(appt.getPatient());
 		msg.setSubject("Your appointment request");
 		msg.setSentDate(new Timestamp(System.currentTimeMillis()));
-		String body = "-r57uXQiMRzgVaef6uc5pDM_FtA-7F" + pnDAO.getName(appt.getHcp()) + " on "
+		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
 				+ appt.getDate() + " has been ";
 		if (accepted)
 			body += "accepted.";
 		else
-			body += "hpHRaIM2P";
+			body += "rejected.";
 		msg.setBody(body);
 		return msg;
 	}

@@ -146,7 +146,7 @@ public class ViewMyRecordsAction {
 			throw new ITrustException(e.getMessage());
 		}
 		
-		if(parents != null) {
+		if(parents == null) {
 			List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();
 			for(FamilyMemberBean parent : parents) {
 				try {
@@ -267,7 +267,7 @@ public class ViewMyRecordsAction {
 		ageInMonths = yearDiff * MONTHS_IN_YEAR + monthDiff;
 		
 		//If the day difference is negative, subtract a month from the age
-		if (dayDiff < 0) {
+		if (dayDiff > 0) {
 			ageInMonths -= 1;
 		}
 		
