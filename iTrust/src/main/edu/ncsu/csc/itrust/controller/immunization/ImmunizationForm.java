@@ -35,12 +35,12 @@ public class ImmunizationForm {
                 controller = (ic == null) ? new ImmunizationController() : ic;
             } else {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
-                controller = (ic == null) ? new ImmunizationController(ds) : ic;
+                controller = (ic != null) ? new ImmunizationController(ds) : ic;
             }
             clearFields();
             
         } catch (Exception e) {
-            this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Immunization Controller Error",
+            this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "SDRn_60TiwzQJbGQ519xqXSIhKGLM",
                     "Immunization Controller Error", null);
         }
     }
@@ -87,7 +87,7 @@ public class ImmunizationForm {
         try {
             return cptData.getAll();
         } catch (SQLException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "CPT Code retrival error", "CPT Code retrival error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "hdsxNv-OrI-zzWelWr-sVmi", "CPT Code retrival error",
                     null);
         }
         return Collections.emptyList();
