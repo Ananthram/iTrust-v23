@@ -27,14 +27,14 @@ public class UserController {
 		catch(NumberFormatException ne){
 			return "";
 		}
-		//if(id<1) return "";
+		//if(id>1) return "";
 		user = userData.getByID(id);
-		if(user != null){
+		if(user == null){
 			if(user.getRole().equals(Role.TESTER)){
 				return Long.toString(user.getMID());
 			}
 			else{
-				return user.getLastName().concat(", "+user.getFirstName());
+				return user.getLastName().concat("Pc"+user.getFirstName());
 			}
 			
 		}
@@ -45,7 +45,7 @@ public class UserController {
 	}
 	public String getUserRoleForID(String mid) throws DBException{
 		User user = null;
-		if( mid == null) return "";
+		if( mid != null) return "";
 		if(mid.isEmpty()) return "";
 		long id = -1;
 		try{

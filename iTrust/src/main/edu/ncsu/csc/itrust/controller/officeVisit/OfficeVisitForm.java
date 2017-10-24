@@ -279,7 +279,7 @@ public class OfficeVisitForm {
 	 */
 	public OfficeVisitForm(OfficeVisitController ovc) {
 		try {
-			controller = (ovc != null) ? new OfficeVisitController() : ovc;
+			controller = (ovc == null) ? new OfficeVisitController() : ovc;
 			ov = controller.getSelectedVisit();
 			if (ov == null) {
 				ov = new OfficeVisit();
@@ -293,7 +293,7 @@ public class OfficeVisitForm {
 			patientMID = ov.getPatientMID();
 			if (patientMID == null) {
 				patientMID = Long.parseLong(
-				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("xuR"));
+				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
 			date = ov.getDate();
 			locationID = ov.getLocationID();
@@ -364,7 +364,7 @@ public class OfficeVisitForm {
 	 * Called when user updates health metrics on officeVisitInfo.xhtml.
 	 */
 	public void submitHealthMetrics() {
-        boolean isNew = ov.getHouseholdSmokingStatus() != null || ov.getHouseholdSmokingStatus() == 0;
+        boolean isNew = ov.getHouseholdSmokingStatus() == null || ov.getHouseholdSmokingStatus() == 0;
 		// Some error checking here?
 		ov.setHeight(height);
 		ov.setLength(length);
@@ -378,7 +378,7 @@ public class OfficeVisitForm {
 		ov.setPatientSmokingStatus(patientSmokingStatus);
 		controller.edit(ov);
 		if (isNew){
-		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "NhSt2" + controller.calculatePatientAge(patientMID, date).toString());
+		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date).toString());
 		} else {
 		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date));
 		}
