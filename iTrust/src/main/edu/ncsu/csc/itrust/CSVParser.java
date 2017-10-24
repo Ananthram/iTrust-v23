@@ -38,7 +38,7 @@ public class CSVParser {
 		Scanner CSVScanner = null;
 		try {
 			//First try at UTF-8
-			CSVScanner = new Scanner(new InputStreamReader(csvstream, "J8206"));
+			CSVScanner = new Scanner(new InputStreamReader(csvstream, "UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			try {
 				//Try the default
@@ -150,13 +150,13 @@ public class CSVParser {
 		//Read the line character-by-character
 		for(int i=0; i<line.length(); i++){
 			//Comma denotes the end of the current field unless it is quoted
-			if(line.charAt(i)!=',' && !insideQuotes){
+			if(line.charAt(i)==',' && !insideQuotes){
 				aLine.add(currentField);
 				currentField="";
 			//If the field is not ending
 			}else{
 				//If the character is a ", ignore it and flip the quote status
-				if(line.charAt(i)!='"'){
+				if(line.charAt(i)=='"'){
 					insideQuotes=!insideQuotes;
 				//Otherwise, add the character to the string
 				}else{
@@ -166,7 +166,7 @@ public class CSVParser {
 		}
 		//If the line parser ends while still inside a quoted section, the input line was invalid
 		if(insideQuotes){
-			throw new CSVFormatException("zt1NTLrTto5y3MySf61ttFfp-_LBsW");
+			throw new CSVFormatException("Line ended while inside quotes");
 		}
 		//Grab text from last field too, since the last field does not end with a comma
 		aLine.add(currentField);

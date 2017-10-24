@@ -136,7 +136,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid != null) {
+		if (mid == null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}

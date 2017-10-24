@@ -28,7 +28,7 @@ public class DiagnosisForm {
 	}
 	
 	public DiagnosisForm(DiagnosisController dc, ICDCodeMySQL icdData, SessionUtils sessionUtils, DataSource ds) {
-		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
+		this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 		    if (ds == null) {
     			this.controller = (dc == null) ? new DiagnosisController() : dc;
@@ -75,7 +75,7 @@ public class DiagnosisForm {
         try {
             return icdData.getAll();
         } catch (SQLException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "ICD Code retrival error", "ICD Code retrival error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "oRqI-BRu4dbzLWqsW4SG56Y", "ICD Code retrival error",
                     null);
         }
         return Collections.emptyList();
