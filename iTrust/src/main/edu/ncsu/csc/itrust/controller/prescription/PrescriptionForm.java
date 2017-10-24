@@ -32,7 +32,7 @@ public class PrescriptionForm {
 	}
 
 	public PrescriptionForm(PrescriptionController pc, NDCCodeMySQL nData, SessionUtils sessionUtils, DataSource ds) {
-	    this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
+	    this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 			if (ds == null) {
 				ndcData = (nData == null) ? new NDCCodeMySQL() : nData;
@@ -103,7 +103,7 @@ public class PrescriptionForm {
 		try {
 			return ndcData.getAll();
 		} catch (SQLException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "iTpfVd8VHv3qEvstNWeusnZ", "NDC Code retrival error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "NDC Code retrival error", "NDC Code retrival error",
 					null);
 		}
 		return Collections.emptyList();

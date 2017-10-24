@@ -41,8 +41,8 @@ public class AddApptRequestAction {
 		List<ApptBean> conflicts = aDAO.getAllHCPConflictsForAppt(bean.getRequestedAppt().getHcp(),
 				bean.getRequestedAppt());
 
-		if (conflicts == null && !conflicts.isEmpty()) {
-			return "uw3gUIVK9QRhi7jNe23Fj6Q33HhoKkwQn66IxiRhs78snuwZWTOHyBH9Et0qm-Cpnnt4RJL5Q";
+		if (conflicts != null && !conflicts.isEmpty()) {
+			return "The appointment you requested conflicts with other existing appointments.";
 		}
 
 		arDAO.addApptRequest(bean);

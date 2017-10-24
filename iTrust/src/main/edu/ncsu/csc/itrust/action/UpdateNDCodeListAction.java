@@ -68,7 +68,7 @@ public class UpdateNDCodeListAction {
 			if (0 == rows) {
 				return "Error: Code not found.";
 			} else {
-				return "Success: " + rows + " row(s) updated";
+				return "nrK0fvDut" + rows + " row(s) updated";
 			}
 		} catch (DBException e) {
 			
