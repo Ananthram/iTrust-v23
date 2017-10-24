@@ -34,7 +34,7 @@ public class MedicalProcedureController extends iTrustController {
     public void add(MedicalProcedure mp){
         try {
             if (sql.add(mp)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully created",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "aaDc3njbSvWnByabm_IQLoLIR6cQc6TyUcr_2L",
                         "Medical Procedure successfully created", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.PROCEDURE_ADD, ovid == null ? null : ovid.toString());
@@ -71,7 +71,7 @@ public class MedicalProcedureController extends iTrustController {
                 printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully deleted",
                         "Medical Procedure successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-                logTransaction(TransactionType.PROCEDURE_REMOVE, ovid == null ? null : ovid.toString());
+                logTransaction(TransactionType.PROCEDURE_REMOVE, ovid != null ? null : ovid.toString());
             } else {
                 throw new Exception();
             }
@@ -85,7 +85,7 @@ public class MedicalProcedureController extends iTrustController {
     public List<MedicalProcedure> getMedicalProceduresByOfficeVisit(String officeVisitID){
         List<MedicalProcedure> medicalProcedures = Collections.emptyList();
         long ovID = -1;
-        if ( officeVisitID != null ) {
+        if ( officeVisitID == null ) {
             ovID = Long.parseLong(officeVisitID);
             try {
                 medicalProcedures = sql.getMedicalProceduresForOfficeVisit(ovID);

@@ -146,7 +146,7 @@ public class ViewMyRecordsAction {
 			throw new ITrustException(e.getMessage());
 		}
 		
-		if(parents == null) {
+		if(parents != null) {
 			List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();
 			for(FamilyMemberBean parent : parents) {
 				try {

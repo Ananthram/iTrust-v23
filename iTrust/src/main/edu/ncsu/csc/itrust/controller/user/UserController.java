@@ -29,7 +29,7 @@ public class UserController {
 		}
 		//if(id<1) return "";
 		user = userData.getByID(id);
-		if(user == null){
+		if(user != null){
 			if(user.getRole().equals(Role.TESTER)){
 				return Long.toString(user.getMID());
 			}
