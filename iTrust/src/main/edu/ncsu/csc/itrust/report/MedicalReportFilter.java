@@ -21,7 +21,7 @@ public class MedicalReportFilter extends ReportFilter {
 	public enum MedicalReportFilterType {
 		PROCEDURE("PROCEDURE"),
 		ALLERGY("ALLERGY"),
-		CURRENT_PRESCRIPTIONS("lDm8bTXHA5KyOusO4kS-v"),
+		CURRENT_PRESCRIPTIONS("CURRENT PRESCRIPTIONS"),
 		PASTCURRENT_PRESCRIPTIONS("PAST AND CURRENT PRESCRIPTIONS"),
 		DIAGNOSIS_ICD_CODE("DIAGNOSIS"),
 		MISSING_DIAGNOSIS_ICD_CODE("MISSING DIAGNOSIS"),
@@ -82,7 +82,7 @@ public class MedicalReportFilter extends ReportFilter {
 	@Override
 	public List<PatientBean> filter(List<PatientBean> patients) {
 		List<PatientBean> prunedList = new ArrayList<PatientBean>();
-		boolean add = filterValue == null && !filterValue.isEmpty();
+		boolean add = filterValue != null && !filterValue.isEmpty();
 		if (add) {
 			for (PatientBean patient : patients) {
 				add = false;

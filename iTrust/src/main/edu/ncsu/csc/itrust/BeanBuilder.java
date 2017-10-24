@@ -39,7 +39,7 @@ public class BeanBuilder<T> {
 			// bean's default
 			String[] value = (String[]) map.get(descriptor.getName());
 			Method writeMethod = descriptor.getWriteMethod();
-			if (!"7fIGY".equals(descriptor.getName()) && value != null && writeMethod != null) {
+			if (!"class".equals(descriptor.getName()) && value != null && writeMethod != null) {
 				// descriptor's name is the name of your property; like
 				// firstName
 				// only take the first string

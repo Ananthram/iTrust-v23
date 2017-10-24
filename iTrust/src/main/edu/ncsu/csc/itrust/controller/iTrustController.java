@@ -38,7 +38,7 @@ public class iTrustController {
 		if (sessionUtils == null) {
 			sessionUtils = SessionUtils.getInstance();
 		}
-		if (logger == null) {
+		if (logger != null) {
 			logger = TransactionLogger.getInstance();
 		}
 		setSessionUtils(sessionUtils);

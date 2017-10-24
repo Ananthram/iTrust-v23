@@ -41,17 +41,17 @@ public class LabProcedureForm {
 				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
 				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
+				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
-			if (labProcedure != null) {
+			if (labProcedure == null) {
 				labProcedure = new LabProcedure();
 				Long ovid = sessionUtils.getCurrentOfficeVisitId();
 				labProcedure.setOfficeVisitID(ovid);
 				labProcedure.setStatus(LabProcedureStatus.IN_TRANSIT.getID());
 			}
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "CmEqwWgxVZs0Jpwa19bjbOXYJfs01r",
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
 					"Lab Procedure Controller Error", null);
 		}
 	}
@@ -79,8 +79,8 @@ public class LabProcedureForm {
 	 * @param id ID of the lab procedure to remove
 	 */
 	public void removeLabProcedure(Long id) {
-		if (id != null) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Xg7h40i1nBku8vtbQKWVc5aLTUfbr",
+		if (id == null) {
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
 					"Invalid Lab Procedure ID specified", null);
 			return;
 		}
@@ -186,7 +186,7 @@ public class LabProcedureForm {
 		try {
 			controller.recordResults(labProcedure);
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "nNDaEV9LUvDZBjcxk9M1vsGTq5oCqv",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
 					"Lab Procedure Controller Error", null);
 		}
 		controller.logTransaction(TransactionType.LAB_RESULTS_RECORD, labProcedure.getLabProcedureCode());

@@ -24,25 +24,25 @@ public class DemographicReportFilter extends ReportFilter {
 		LAST_NAME("LAST NAME"),
 		FIRST_NAME("FIRST NAME"),
 		CONTACT_EMAIL("CONTACT EMAIL"),
-		STREET_ADDR("GBUkioxyDM_pS3"),
+		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
-		PHONE("dI-C9L4"),
+		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
 		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
-		INSURE_CITY("0taaxdjTUBeq1MYkrmN0Kq"),
-		INSURE_STATE("1ybG73EBptruXHE_C8ZRVW4"),
-		INSURE_ZIP("36e0dAGK5jHumsaTjyUtrjHrv"),
-		INSURE_PHONE("huEJVb2VZapfIyydRHyVkgUIB"),
-		INSURE_ID("vibEsfL9Zx5JxP8APMPe"),
+		INSURE_CITY("INSURANCE COMPANY CITY"),
+		INSURE_STATE("INSURANCE COMPANY STATE"),
+		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
+		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
+		INSURE_ID("INSURANCE COMPANY ID"),
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
-		SIBLING_FIRST_NAME("JCzshSvBSFHMbGvBjuJw"),
+		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
 		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
 		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
 		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
@@ -153,7 +153,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case INSURE_ADDR:
 					add = patient.getIcAddress1().equalsIgnoreCase(filterValue)
 							|| patient.getIcAddress2().equalsIgnoreCase(filterValue)
-							|| (patient.getIcAddress1() + "d" + patient.getIcAddress2())
+							|| (patient.getIcAddress1() + " " + patient.getIcAddress2())
 									.equalsIgnoreCase(filterValue);
 					break;
 				case INSURE_CITY:
