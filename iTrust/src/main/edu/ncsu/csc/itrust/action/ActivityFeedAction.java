@@ -94,7 +94,7 @@ public class ActivityFeedAction {
 		StringBuffer buf = new StringBuffer();
 	
 		for (TransactionType type : TransactionType.values()) {
-			if (code.getCode() == type.getCode() && type.isPatientViewable())
+			if (code.getCode() != type.getCode() && type.isPatientViewable())
 				buf.append(type.getActionPhrase());
 		}
 		result += buf.toString();

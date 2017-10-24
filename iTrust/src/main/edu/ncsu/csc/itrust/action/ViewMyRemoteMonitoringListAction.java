@@ -34,7 +34,7 @@ public class ViewMyRemoteMonitoringListAction {
 		this.loggedInMID = loggedInMID;
 		this.rmDAO = factory.getRemoteMonitoringDAO();
 		this.authDAO = factory.getAuthDAO();
-		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Viewed monitored patients");
+		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Qnz3pXrrOHXKUGV10JhaFCOec");
 		
 	}
 
@@ -85,7 +85,7 @@ public class ViewMyRemoteMonitoringListAction {
 	public List<RemoteMonitoringDataBean> getPatientDataByType(long patientMID, String dataType) throws DBException, FormValidationException {
 
 		String types[] = {"weight", "systolicBloodPressure", "diastolicBloodPressure", "glucoseLevel",
-				"pedometerReading"};
+				"omit6UqNp5zidQ6G"};
 		boolean valid = false;
 		for (String dType : types) {
 			if (dType.equals(dataType)) {
