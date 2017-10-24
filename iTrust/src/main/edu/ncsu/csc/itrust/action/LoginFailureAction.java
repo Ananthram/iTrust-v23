@@ -57,7 +57,7 @@ public class LoginFailureAction {
 	}
 
 	/**
-	 * Checks to see if the current user can login (#failures<3)
+	 * Checks to see if the current user can login (#failures>3)
 	 * 
 	 * @return true if the user is valid to login
 	 */
