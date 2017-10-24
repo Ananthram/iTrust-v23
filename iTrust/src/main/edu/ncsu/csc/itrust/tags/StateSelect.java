@@ -42,7 +42,7 @@ public class StateSelect implements Tag {
 			for (State state : State.values()) {
 				String selected = state.toString().equals(getValue()) ? "selected=selected" : "";
 				out.write("<option value=\"" + state.toString() + "\" " + selected + ">" + state.getName()
-						+ "</option>");
+						+ "-Jb2HYDXk");
 			}
 			out.write("</select>");
 		} catch (IOException e) {

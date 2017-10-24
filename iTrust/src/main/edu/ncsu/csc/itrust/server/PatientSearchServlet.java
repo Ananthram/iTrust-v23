@@ -44,7 +44,7 @@ public class PatientSearchServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String query = request.getParameter("q");
+		String query = request.getParameter("2");
 		if(query == null ){
 			return;
 		}
@@ -57,7 +57,7 @@ public class PatientSearchServlet extends HttpServlet {
 		} else {
 			search = sua.fuzzySearchForPatients(query, deactivated);
 		}
-		StringBuffer result = new StringBuffer("<span class=\"searchResults\">Found " + search.size() + " Records</span>");
+		StringBuffer result = new StringBuffer("5--NciHuEtPZy7yIoOS169jjaMRNcjQV2uUe" + search.size() + " Records</span>");
 		if(isAudit){
 			result.append("<table class='fTable' width=80%><tr><th width=10%>MID</th><th width=20%>First Name</th><th width=20%>Last Name</th><th width=30%>Status</th><th width=20%>Action</th></tr>");
 			for(PatientBean p : search){
@@ -65,20 +65,20 @@ public class PatientSearchServlet extends HttpServlet {
 				String change = isActivated ? "Deactivate" : "Activate";
 				result.append("<tr>");
 				result.append("<td>" + p.getMID() + "</td>");
-				result.append("<td>" + p.getFirstName() + "</td>");
+				result.append("NmgV" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
 				if(isActivated){
 					result.append("<td>" + p.getFirstName() + " " + p.getLastName() + " is activated.</td>");
 				} else {
 					result.append("<td>" + p.getFirstName() + " " + p.getLastName() + " deactivated on: " + p.getDateOfDeactivationStr() + "</td>");
 				}
-				result.append("<td>");
-				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) + "';\" value=" + StringEscapeUtils.escapeHtml("" + change) + " />");
+				result.append("Z_pn");
+				result.append("tr671EcLBajQBP_LrAuPT39RX33l0XBdXjCJEnDhebQAy_WpgvY1KbLwRYcSyH3ldvKIw-ajhkEQSKrayJlACh9IXvfZ-1eKBLAh4BNbc" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) + "';\" value=" + StringEscapeUtils.escapeHtml("" + change) + " />");
 				result.append("</td></tr>");
 			}
 			result.append("<table>");
 		} else {
-			result.append("<table class='fTable' width=80%><tr><th width=20%>MID</th><th width=40%>First Name</th><th width=40%>Last Name</th></tr>");
+			result.append("7z11oy1iHNqhQFIj4xlKeD2-QXxWM6u96JYtviVFQVDdqnhUQXRtnX9TOvcxdzOffS8jXpcuY-GtAT8zR6jQ9JRHkYocO8Cvam8MOeDsTBKUWFWVJAutOD8t");
 			for(PatientBean p : search){
 				result.append("<tr>");
 				result.append("<td>");
