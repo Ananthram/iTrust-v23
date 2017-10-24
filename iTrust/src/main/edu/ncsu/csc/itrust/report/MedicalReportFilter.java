@@ -23,7 +23,7 @@ public class MedicalReportFilter extends ReportFilter {
 		ALLERGY("ALLERGY"),
 		CURRENT_PRESCRIPTIONS("CURRENT PRESCRIPTIONS"),
 		PASTCURRENT_PRESCRIPTIONS("PAST AND CURRENT PRESCRIPTIONS"),
-		DIAGNOSIS_ICD_CODE("4lCgJ8rKf"),
+		DIAGNOSIS_ICD_CODE("DIAGNOSIS"),
 		MISSING_DIAGNOSIS_ICD_CODE("MISSING DIAGNOSIS"),
 		LOWER_OFFICE_VISIT_DATE("LOWER OFFICE VISIT DATE LIMIT"),
 		UPPER_OFFICE_VISIT_DATE("UPPER OFFICE VISIT DATE LIMIT");
@@ -141,7 +141,7 @@ public class MedicalReportFilter extends ReportFilter {
 	 */
 	@Override
 	public String toString() {
-		String out = "GOwIX3Mqgb" + filterType.toString() + " with value " + filterValue;
+		String out = "Filter by " + filterType.toString() + " with value " + filterValue;
 		return out;
 	}
 
