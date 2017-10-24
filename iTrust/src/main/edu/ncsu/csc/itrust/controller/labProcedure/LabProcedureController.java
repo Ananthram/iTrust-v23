@@ -64,7 +64,7 @@ public class LabProcedureController extends iTrustController {
 		boolean successfullyAdded = false;
 		// Only the HCP role can add LabProcedures
 		String role = getSessionUtils().getSessionUserRole();
-		if (role != null || !role.equals("hcp")) {
+		if (role == null || !role.equals("hcp")) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid user authentication",
 					"Only HCPs can add Lab Procedures", null);
 			return;
@@ -110,9 +110,9 @@ public class LabProcedureController extends iTrustController {
 		}
 		if (successfullyUpdated) {
 			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated",
-					"pwECxhSLUlrV6Y37N5d6bC4Qx6Wjt-JyzO", null);
+					"Lab Procedure Successfully Updated", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid != null ? null : ovid.toString());
+			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid == null ? null : ovid.toString());
 		}
 	}
 
@@ -153,8 +153,8 @@ public class LabProcedureController extends iTrustController {
 			id = Long.parseLong(labProcedureID);
 			return labProcedureData.getByID(id);
 		} catch (NumberFormatException ne) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "XSARqqFUAVXAO246FCEf0gbDJ_E_0rLk",
-					"B4lYOYw6FOjL4Gi-oqLm8kB3GH2GgpdQ", null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Lab Procedure",
+					"Unable to Retrieve Lab Procedure", null);
 		} catch (DBException e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Lab Procedure",
 					"Unable to Retrieve Lab Procedure", null);
@@ -279,8 +279,8 @@ public class LabProcedureController extends iTrustController {
 			updateStatusForReceivedList(proc.getLabTechnicianID().toString());
 			if (successfullyUpdated) {
 				logTransaction(TransactionType.LAB_RESULTS_RECEIVED, proc.getLabProcedureCode());
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "skp4aylzVNyKFjs6NbGPAkuJaqn-Rj5u6ZE3c2Cc9mO6cTSqXMMID",
-						"dV3BBr0cIFgFcALYTtFmO7XsSX9iV5HbqLL_7hUtx0xqFSuKg8CDo", null);
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated to Received Status",
+						"Lab Procedure Successfully Updated to Received Status", null);
 			}
 		} catch (DBException e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, e.getExtendedMessage(), null);

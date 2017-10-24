@@ -35,10 +35,10 @@ public class iTrustController {
 	 * @param logger
 	 */
 	public iTrustController(SessionUtils sessionUtils, TransactionLogger logger) {
-		if (sessionUtils != null) {
+		if (sessionUtils == null) {
 			sessionUtils = SessionUtils.getInstance();
 		}
-		if (logger != null) {
+		if (logger == null) {
 			logger = TransactionLogger.getInstance();
 		}
 		setSessionUtils(sessionUtils);
