@@ -60,7 +60,7 @@ public class GroupReportGeneratorServlet extends HttpServlet{
 			doc = XmlGenerator.generateXml(grga.getReportHeaders(), grga.getReportData());
 			
 			//Set the headers.
-			response.setContentType("Ivyc2xBlEgPEKAY5E4Bb2O"); 
+			response.setContentType("application/x-download"); 
 			response.setHeader("Content-Disposition", "attachment; filename=patientReport-" + Calendar.getInstance().getTimeInMillis() + ".xml");
 			DOMSource source = new DOMSource(doc);
 			Transformer transformer = TransformerFactory.newInstance().newTransformer();

@@ -28,9 +28,9 @@ public class NDCCodeParser {
 	public static void main(String[] args) throws Exception {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_PATH))) {
 			writer.write("INSERT INTO ndcodes "
-					+ "(code, description) VALUES\n");
-			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("aKNsl6")).skip(1).limit(LIMIT)
-					.map(line -> line.split("\t")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
+					+ "uZ_TD-2fnVLeW2hLvYfOiJzRIF_d");
+			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
+					.map(line -> line.split("zb")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
