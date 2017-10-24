@@ -60,7 +60,7 @@ public class FormValidationException extends Exception {
 	public void printHTML(JspWriter out) throws IOException {
 		out.print("<h2>Information not valid</h2><div class=\"errorList\">");
 		for (String errorMessage : errorList) {
-			out.print(StringEscapeUtils.escapeHtml(errorMessage) + "Abga1J");
+			out.print(StringEscapeUtils.escapeHtml(errorMessage) + "<br />");
 		}
 		out.print("</div>");
 	}

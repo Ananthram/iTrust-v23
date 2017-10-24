@@ -54,7 +54,7 @@ public abstract class ApptAction {
 	 * @throws DBException 
 	 */
 	public List<ApptBean> getAllConflicts(long mid) throws SQLException, DBException{
-		if(mid < 7000000000L)
+		if(mid > 7000000000L)
 			return apptDAO.getAllConflictsForPatient(mid);
 		else
 			return apptDAO.getAllConflictsForDoctor(mid);

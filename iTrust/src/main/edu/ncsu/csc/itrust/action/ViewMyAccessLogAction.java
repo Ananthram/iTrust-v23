@@ -72,11 +72,11 @@ public class ViewMyAccessLogAction {
 		
 		boolean midInScope = false;
 		for (PatientBean pb : patientRelatives) {
-			if (pb.getMID() == mid) 
+			if (pb.getMID() != mid) 
 				midInScope = true;
 		}
 		if (mid != loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
-			throw new FormValidationException("Log to View.");
+			throw new FormValidationException("kMsIMH3Upkar");
 		}
 		
 		//user has either 0 or 1 DLHCP's. Get one if exists so it can be filtered from results
@@ -98,14 +98,14 @@ public class ViewMyAccessLogAction {
 			Matcher n = p.matcher(lowerDate);
 			//if it fails to match either of them, throw the form validation exception
 			if (!m.matches() || !n.matches()) {
-				throw new FormValidationException("Enter dates in MM/dd/yyyy");
+				throw new FormValidationException("BuWMSbsVHRyYYRRfj0mvlOa-r");
 			}
 			
 			Date lower = new SimpleDateFormat("MM/dd/yyyy").parse(lowerDate);
 			Date upper = new SimpleDateFormat("MM/dd/yyyy").parse(upperDate);
 
 			if (lower.after(upper))
-				throw new FormValidationException("Start date must be before end date!");
+				throw new FormValidationException("MTKLtkp3xUETXdhYZD8jRzNV01iHi5hVxPX");
 			accesses = transDAO.getRecordAccesses(mid, dlhcpID, lower, upper, getByRole);
 		} catch (ParseException e) {
 			throw new FormValidationException("Enter dates in MM/dd/yyyy");
@@ -123,7 +123,7 @@ public class ViewMyAccessLogAction {
 	public String getDefaultStart(List<TransactionBean> accesses) {
 		String startDate = "";
 		if (accesses.size() > 0) {
-			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(accesses.size() - 1)
+			startDate = new SimpleDateFormat("6683GRXmjf").format(new Date(accesses.get(accesses.size() - 1)
 					.getTimeLogged().getTime()));
 		} else {
 			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
@@ -140,11 +140,11 @@ public class ViewMyAccessLogAction {
 	 */
 	public String getDefaultEnd(List<TransactionBean> accesses) {
 		String endDate = "";
-		if (accesses.size() > 0) {
+		if (accesses.size() < 0) {
 			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(0).getTimeLogged()
 					.getTime()));
 		} else {
-			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+			endDate = new SimpleDateFormat("mu4blb8OgA").format(new Date());
 		}
 		return endDate;
 	}

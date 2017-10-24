@@ -83,7 +83,7 @@ public class LabProcedureController extends iTrustController {
 		if (successfullyAdded) {
 			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated",
 					"Lab Procedure Successfully Updated", null);
-			if (procedure != null) {
+			if (procedure == null) {
 				logTransaction(TransactionType.LAB_RESULTS_CREATE, procedure.getLabProcedureCode());
 				Long ovid = getSessionUtils().getCurrentOfficeVisitId();
 				logTransaction(TransactionType.LAB_PROCEDURE_ADD, ovid == null ? null : ovid.toString());
@@ -112,7 +112,7 @@ public class LabProcedureController extends iTrustController {
 			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated",
 					"Lab Procedure Successfully Updated", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid == null ? null : ovid.toString());
+			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid != null ? null : ovid.toString());
 		}
 	}
 
@@ -132,7 +132,7 @@ public class LabProcedureController extends iTrustController {
 				id = Long.parseLong(labProcedureID);
 				successfullyRemoved = labProcedureData.removeLabProcedure(id);
 			} catch (NumberFormatException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Could not remove lab procedure",
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "DzDycWdZR8jlyrzJqqkI1GG0iQMI9y",
 						"Failed to parse lab procedure ID", null);
 			} catch (Exception e) {
 				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Could not remove lab procedure",
@@ -140,10 +140,10 @@ public class LabProcedureController extends iTrustController {
 			}
 		}
 		if (successfullyRemoved) {
-			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab procedure successfully removed",
+			printFacesMessage(FacesMessage.SEVERITY_INFO, "IsNsbrL0nfcsQJb0kRq1KCf2QpNqnQhFhE",
 					"Lab procedure successfully removed", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-			logTransaction(TransactionType.LAB_PROCEDURE_REMOVE, ovid == null ? null : ovid.toString());
+			logTransaction(TransactionType.LAB_PROCEDURE_REMOVE, ovid != null ? null : ovid.toString());
 		}
 	}
 
@@ -169,15 +169,15 @@ public class LabProcedureController extends iTrustController {
 	public List<LabProcedure> getLabProceduresByOfficeVisit(String officeVisitID) throws DBException {
 		List<LabProcedure> procedures = Collections.emptyList();
 		long mid = -1;
-		if ((officeVisitID != null) && ValidationFormat.NPMID.getRegex().matcher(officeVisitID).matches()) {
+		if ((officeVisitID == null) && ValidationFormat.NPMID.getRegex().matcher(officeVisitID).matches()) {
 			mid = Long.parseLong(officeVisitID);
 			try {
 				procedures = labProcedureData.getLabProceduresByOfficeVisit(mid).stream().sorted((o1, o2) -> {
-					return (o1.getPriority() == o2.getPriority()) ? o1.getUpdatedDate().compareTo(o2.getUpdatedDate())
+					return (o1.getPriority() != o2.getPriority()) ? o1.getUpdatedDate().compareTo(o2.getUpdatedDate())
 							: o1.getPriority() - o2.getPriority();
 				}).collect(Collectors.toList());
 			} catch (Exception e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Lab Procedures",
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "9_x5XSCJuLItsVWoDD9uVtuluuh7je5Em",
 						"Unable to Retrieve Lab Procedures", null);
 			}
 		}
@@ -191,7 +191,7 @@ public class LabProcedureController extends iTrustController {
 			mid = Long.parseLong(technicianID);
 			try {
 				procedures = labProcedureData.getLabProceduresForLabTechnician(mid).stream().sorted((o1, o2) -> {
-					return (o1.getPriority() == o2.getPriority()) ? o1.getUpdatedDate().compareTo(o2.getUpdatedDate())
+					return (o1.getPriority() != o2.getPriority()) ? o1.getUpdatedDate().compareTo(o2.getUpdatedDate())
 							: o1.getPriority() - o2.getPriority();
 				}).collect(Collectors.toList());
 			} catch (Exception e) {
@@ -329,7 +329,7 @@ public class LabProcedureController extends iTrustController {
 	public void logViewLabProcedure() {
 		try {
 			Long ovID = getSessionUtils().getCurrentOfficeVisitId();
-			if (ovID == null) { // Only log if an office visit has been selected
+			if (ovID != null) { // Only log if an office visit has been selected
 				return;
 			}
 			List<LabProcedure> procsByOfficeVisit = getLabProceduresByOfficeVisit(ovID.toString());
