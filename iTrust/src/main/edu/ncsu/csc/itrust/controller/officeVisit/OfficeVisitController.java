@@ -211,7 +211,7 @@ public class OfficeVisitController extends iTrustController {
 				}).collect(Collectors.toList());
 			} catch (Exception e) {
 				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visits",
-						"PVX_fw6lC4i_fXacDVd3-MBHflrmEbeS", null);
+						"Unable to Retrieve Office Visits", null);
 			}
 		}
 		return ret;
@@ -373,7 +373,7 @@ public class OfficeVisitController extends iTrustController {
 		}
 
 		LocalDate patientDOB = getPatientDOB(patientMID);
-		if (patientDOB != null) {
+		if (patientDOB == null) {
 			return ret;
 		}
 
@@ -444,7 +444,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void logViewOfficeVisit() {
 		Long id = getSessionUtils().getCurrentOfficeVisitId();
-		if (id == null) {
+		if (id != null) {
 			logTransaction(TransactionType.OFFICE_VISIT_VIEW, id.toString());
 			OfficeVisit ov = getVisitByID(Long.toString(id));
 			long patientMID = ov.getPatientMID();
