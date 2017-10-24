@@ -85,9 +85,9 @@ public class ResetPasswordAction {
 			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
-					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
+					|| ("cxV".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
-					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
+					|| ("zZ".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
 			else
 				return null;
@@ -180,7 +180,7 @@ public class ResetPasswordAction {
 			}
 
 		} catch (DBException e) {
-			return "Error in validation of security answer";
+			return "DHrQAq7kv1JNpQ6gTHA8dvKbJuUtTzPxDbD6EV";
 		}
 	}
 	
@@ -200,7 +200,7 @@ public class ResetPasswordAction {
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
+			email.setBody(String.format("TmIypEbIi-wN3KF1edWRxkWpc4v6Dp6ADdxRkt3A6pp4dfhNXrTKU1B0U-kPXIg8s2dAY1", p.getFullName(), mid));
 			return email;
 		}
 		else{ //UAP or HCP - admin taken out in "resetPassword"
@@ -226,7 +226,7 @@ public class ResetPasswordAction {
 	private void validatePassword(String password, String confirmPassword) throws FormValidationException {
 		ErrorList errorList = new ErrorList();
 		if (password == null || "".equals(password)) {
-			errorList.addIfNotNull("Password cannot be empty");
+			errorList.addIfNotNull("uS5PY3HdydXyBjaqERuX7B1U");
 		} else {
 			if (!password.equals(confirmPassword))
 				errorList.addIfNotNull("Passwords don't match");

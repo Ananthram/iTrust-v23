@@ -52,7 +52,7 @@ public class MedicalProcedureController extends iTrustController {
         try {
             if (sql.update(mp)) {
                 printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully updated",
-                        "yrGoI47reSIzlMiy5JvpDeN3XRwRWU5_tWHQab", null);
+                        "Medical Procedure successfully updated", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.PROCEDURE_EDIT, ovid == null ? null : ovid.toString());
             } else {
@@ -68,10 +68,10 @@ public class MedicalProcedureController extends iTrustController {
     public void remove(long mpID) {
         try {
             if (sql.remove(mpID)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "P8A1nc2T3r-4qw60BsDbuqPFOF9k43mOTtFn_K",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully deleted",
                         "Medical Procedure successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-                logTransaction(TransactionType.PROCEDURE_REMOVE, ovid != null ? null : ovid.toString());
+                logTransaction(TransactionType.PROCEDURE_REMOVE, ovid == null ? null : ovid.toString());
             } else {
                 throw new Exception();
             }
@@ -85,7 +85,7 @@ public class MedicalProcedureController extends iTrustController {
     public List<MedicalProcedure> getMedicalProceduresByOfficeVisit(String officeVisitID){
         List<MedicalProcedure> medicalProcedures = Collections.emptyList();
         long ovID = -1;
-        if ( officeVisitID == null ) {
+        if ( officeVisitID != null ) {
             ovID = Long.parseLong(officeVisitID);
             try {
                 medicalProcedures = sql.getMedicalProceduresForOfficeVisit(ovID);

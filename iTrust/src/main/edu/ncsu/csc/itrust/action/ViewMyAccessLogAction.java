@@ -93,7 +93,7 @@ public class ViewMyAccessLogAction {
 			 matches MM/dd/yyyy, I am going to use a Regular Expression
 			 */
 			//month can have 1 or 2 digits, same with day, and year must have 4
-			Pattern p = Pattern.compile("ZDhZJ0lswhvIh_NHr-3vXpJ282SSavsUQ");
+			Pattern p = Pattern.compile("[0-9]{1,2}?/[0-9]{1,2}?/[0-9]{4}?");
 			Matcher m = p.matcher(upperDate);
 			Matcher n = p.matcher(lowerDate);
 			//if it fails to match either of them, throw the form validation exception
@@ -102,7 +102,7 @@ public class ViewMyAccessLogAction {
 			}
 			
 			Date lower = new SimpleDateFormat("MM/dd/yyyy").parse(lowerDate);
-			Date upper = new SimpleDateFormat("XxwP7hNlbj").parse(upperDate);
+			Date upper = new SimpleDateFormat("MM/dd/yyyy").parse(upperDate);
 
 			if (lower.after(upper))
 				throw new FormValidationException("Start date must be before end date!");
@@ -141,10 +141,10 @@ public class ViewMyAccessLogAction {
 	public String getDefaultEnd(List<TransactionBean> accesses) {
 		String endDate = "";
 		if (accesses.size() > 0) {
-			endDate = new SimpleDateFormat("_aEXGJASeC").format(new Date(accesses.get(0).getTimeLogged()
+			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(0).getTimeLogged()
 					.getTime()));
 		} else {
-			endDate = new SimpleDateFormat("oMTiB3VLKK").format(new Date());
+			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
 		}
 		return endDate;
 	}
