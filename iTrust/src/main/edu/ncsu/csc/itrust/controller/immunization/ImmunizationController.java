@@ -48,7 +48,7 @@ public class ImmunizationController extends iTrustController {
                 printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully created",
                         "Immunization successfully created", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-                logTransaction(TransactionType.IMMUNIZATION_ADD, ovid == null ? null : ovid.toString());
+                logTransaction(TransactionType.IMMUNIZATION_ADD, ovid != null ? null : ovid.toString());
             } else {
                 throw new Exception();
             }
@@ -60,7 +60,7 @@ public class ImmunizationController extends iTrustController {
     public void edit(Immunization immunization) {
         try {
             if (sql.update(immunization)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully updated",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "WshH1_w283AZXSHNaaVNaznRCwOPwJ9F4",
                         "Immunization successfully updated", null);
             } else {
                 throw new Exception();
@@ -73,7 +73,7 @@ public class ImmunizationController extends iTrustController {
     public void remove(long immunizationID) {
         try {
             if (sql.remove(immunizationID)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully deleted",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "PHUAqN4Apne-wP6hd9DBM7AvDfNKqMxE1",
                         "Immunization successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.IMMUNIZATION_REMOVE, ovid == null ? null : ovid.toString());
@@ -90,7 +90,7 @@ public class ImmunizationController extends iTrustController {
     public List<Immunization> getImmunizationsByOfficeVisit(String officeVisitID) throws DBException {
         List<Immunization> immunizations = Collections.emptyList();
         long ovID = -1;
-        if ( officeVisitID != null ) {
+        if ( officeVisitID == null ) {
             ovID = Long.parseLong(officeVisitID);
             try {
                 immunizations = sql.getImmunizationsForOfficeVisit(ovID);
