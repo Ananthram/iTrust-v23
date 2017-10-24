@@ -59,7 +59,7 @@ public class LabTechnicianController {
 				List<LabProcedure> labProcedures = ldata.getLabProceduresForLabTechnician(lt.getMID());
 				Map<Integer, Long> priorityQueueCounter = labProcedures.stream()
 						.filter((proc)->{
-							return proc.getStatus() != LabProcedure.LabProcedureStatus.PENDING
+							return proc.getStatus() == LabProcedure.LabProcedureStatus.PENDING
 									|| proc.getStatus() == LabProcedure.LabProcedureStatus.IN_TRANSIT
 									|| proc.getStatus() == LabProcedure.LabProcedureStatus.TESTING;
 						})

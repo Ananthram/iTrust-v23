@@ -65,7 +65,7 @@ public class ViewMyRemoteMonitoringListAction {
 			lower = new SimpleDateFormat("MM/dd/yyyy").parse(startDate);
 			upper = new SimpleDateFormat("MM/dd/yyyy").parse(endDate);
 			if (lower.after(upper))
-				throw new FormValidationException("owDJTFo14E21lv8OHkUD8Rs3YSkWCGcEwiq");
+				throw new FormValidationException("Start date must be before end date!");
 		} catch (ParseException e) {
 			throw new FormValidationException("Enter dates in MM/dd/yyyy");
 		}		

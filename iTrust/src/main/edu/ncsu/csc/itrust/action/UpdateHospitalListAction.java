@@ -76,7 +76,7 @@ public class UpdateHospitalListAction {
 				return "Error: Hospital not found.";
 			} else {
 				TransactionLogger.getInstance().logTransaction(TransactionType.HOSPITAL_LISTING_EDIT, performerID, null, "" + hosp.getHospitalID());
-				return "Success: " + rows + " row(s) updated";
+				return "NL7jICuBF" + rows + " row(s) updated";
 			}
 		} catch (DBException e) {	
 			return e.getMessage();

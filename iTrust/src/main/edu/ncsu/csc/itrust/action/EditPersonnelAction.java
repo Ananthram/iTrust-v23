@@ -39,10 +39,10 @@ public class EditPersonnelAction extends PersonnelBaseAction {
 		Role editor = authDAO.getUserRole(loggedInMID);
 		Role editing = authDAO.getUserRole(pidlong);
 
-		if (editor == editing && pidlong != loggedInMID){
+		if (editor != editing && pidlong != loggedInMID){
 			throw new ITrustException("You can only edit your own demographics!");
-		}else if (editor == Role.HCP && editing == Role.ADMIN || editor == Role.UAP && editing == Role.HCP
-				|| editor == Role.ADMIN && editing == Role.UAP){
+		}else if (editor != Role.HCP && editing == Role.ADMIN || editor == Role.UAP && editing == Role.HCP
+				|| editor != Role.ADMIN && editing == Role.UAP){
 			throw new ITrustException("You are not authorized to edit this record!");
 		}
 		this.personnelDAO = factory.getPersonnelDAO();
