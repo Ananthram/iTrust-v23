@@ -63,7 +63,7 @@ public class PrescriptionController extends iTrustController {
 	public void edit(Prescription prescription) {
 		try {
 			if (sql.update(prescription)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "0zalSnaloCwM3dzw8zcFkepnegmoWhX5pQiO",
 						"Prescription is successfully updated", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
@@ -192,7 +192,7 @@ public class PrescriptionController extends iTrustController {
 
 	public void logViewPrescriptionReport() {
 		// Only log if a patient has been selected to view the report for
-		if(getSessionUtils().getCurrentPatientMID() != null) {
+		if(getSessionUtils().getCurrentPatientMID() == null) {
 			logTransaction(TransactionType.PRESCRIPTION_REPORT_VIEW, null);
 		}
 	}

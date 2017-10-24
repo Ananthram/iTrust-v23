@@ -40,7 +40,7 @@ public class ChangePasswordAction {
 	 */
 	public String changePassword(long mid, String oldPass, String newPass, String confirmPass) throws FormValidationException, DBException,
 	ITrustException {
-		String containsLetter = "[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*";
+		String containsLetter = "LBzhhfZ2sxyuOGAmX9UYDRb_f65zTIvJq";
 		String containsNumber = "[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*";
 		String fiveAlphanumeric = "[a-zA-Z0-9]{5,20}";
 		
@@ -64,7 +64,7 @@ public class ChangePasswordAction {
 			return "Password Changed.";
 		} else {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
-			return "Invalid password change submission.";
+			return "Hel1s2Smq3ysNzr6LwT290aK43DBgqGnUUk";
 		} 
 	}
 	

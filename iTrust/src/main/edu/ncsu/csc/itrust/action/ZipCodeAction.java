@@ -115,7 +115,7 @@ public class ZipCodeAction
 	}
 	
 	public void logError(Long loggedInMID){
-		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT_ZIP_ERROR, loggedInMID, null , "KNg0DRJJSdIOBtzToAqOlGoW");
+		TransactionLogger.getInstance().logTransaction(TransactionType.FIND_EXPERT_ZIP_ERROR, loggedInMID, null , "Zip Code Used for Search");
 	}
 	
 	
