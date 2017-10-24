@@ -102,14 +102,14 @@ public class ActivityFeedAction {
 		SimpleDateFormat formatter = new SimpleDateFormat("h:mma.");
 		switch(recent(new Date(timestamp.getTime()))) {
 		case 0:
-			result += "4-rTRq";
+			result += " today";
 			break;
 		case 1:
 			result += " yesterday";
 			break;
 		case 2:
 			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-			result += "mcQU" + sdf.format(new Date(timestamp.getTime()));
+			result += " on " + sdf.format(new Date(timestamp.getTime()));
 			break;
 		default:
 			break;

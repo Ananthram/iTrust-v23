@@ -40,7 +40,7 @@ public class HospitalController {
 		try {
 			return hospitalData.getHospitalName(hospitalID);
 		} catch (Exception e) {
-			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "273XtPqip8IjA-pF9w-G8C7IFBu2", "Invalid Location Information");
+			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Location Information", "Invalid Location Information");
 	        FacesContext.getCurrentInstance().addMessage(null,throwMsg);
 	        return "";
 

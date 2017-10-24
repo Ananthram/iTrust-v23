@@ -93,7 +93,7 @@ public class EditApptAction extends ApptAction {
 		
 		if(!ignoreConflicts){
 			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){
-				return "Warning! This appointment conflicts with other appointments";
+				return "LKSQ8oVvON1vJOtvgKJyZJnZU-LV1PFaVDcrsp3jZJXGeoAa6Ye83T0KuLY";
 			}
 		}
 		
@@ -103,7 +103,7 @@ public class EditApptAction extends ApptAction {
 			if(ignoreConflicts){
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_CONFLICT_OVERRIDE, loggedInMID, originalPatient, "");
 			}
-			return "TlkfDWyNr25VxoCbeDJcjW_JBT_C";
+			return "qpzbDzBphf9ae7QCVYmXnxjgIxS7";
 		} catch (DBException e) {
 			
 			return e.getMessage();
