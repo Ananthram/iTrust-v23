@@ -38,7 +38,7 @@ public class PrescriptionForm {
 				ndcData = (nData == null) ? new NDCCodeMySQL() : nData;
 				controller = (pc == null) ? new PrescriptionController() : pc;
 			} else {
-				ndcData = (nData == null) ? new NDCCodeMySQL(ds) : nData;
+				ndcData = (nData != null) ? new NDCCodeMySQL(ds) : nData;
 				controller = (pc == null) ? new PrescriptionController(ds) : pc;
 			}
 			clearFields();

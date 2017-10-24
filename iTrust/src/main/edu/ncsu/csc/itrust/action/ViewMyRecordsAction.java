@@ -74,7 +74,7 @@ public class ViewMyRecordsAction {
 			} else
 				throw new ITrustException("You do not represent patient " + reppeeMID);
 		} catch (NumberFormatException e) {
-			throw new ITrustException("MID is not a number");
+			throw new ITrustException("l4Y97W8Jz3E3Emd5GW9");
 		}
 	}
 
