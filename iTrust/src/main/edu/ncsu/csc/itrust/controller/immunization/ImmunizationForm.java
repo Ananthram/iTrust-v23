@@ -34,8 +34,8 @@ public class ImmunizationForm {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL() : cptData;
                 controller = (ic == null) ? new ImmunizationController() : ic;
             } else {
-                this.cptData = (cptData != null) ? new CPTCodeMySQL(ds) : cptData;
-                controller = (ic != null) ? new ImmunizationController(ds) : ic;
+                this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
+                controller = (ic == null) ? new ImmunizationController(ds) : ic;
             }
             clearFields();
             

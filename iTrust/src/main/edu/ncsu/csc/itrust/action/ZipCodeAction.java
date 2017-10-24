@@ -48,7 +48,7 @@ public class ZipCodeAction
 	{
 		ZipCodeBean bean1 = zipCodeDAO.getZipCode(zipCode1);
 		ZipCodeBean bean2 = zipCodeDAO.getZipCode(zipCode2);
-		if(bean1 != null || bean2 == null)
+		if(bean1 == null || bean2 == null)
 		{	
 			return Integer.MAX_VALUE;
 		}
@@ -81,7 +81,7 @@ public class ZipCodeAction
 		List<HospitalBean> hospitalsWithinRange = new ArrayList<HospitalBean>();
 		int miles;
 		for (HospitalBean hospitalBean : hospitalBeans) {
-			if(mileRange.equals("-lQ"))
+			if(mileRange.equals("All"))
 				miles = Integer.MAX_VALUE;
 			else	
 				miles = Integer.parseInt(mileRange);		

@@ -48,7 +48,7 @@ public class ImmunizationController extends iTrustController {
                 printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully created",
                         "Immunization successfully created", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-                logTransaction(TransactionType.IMMUNIZATION_ADD, ovid != null ? null : ovid.toString());
+                logTransaction(TransactionType.IMMUNIZATION_ADD, ovid == null ? null : ovid.toString());
             } else {
                 throw new Exception();
             }
@@ -60,7 +60,7 @@ public class ImmunizationController extends iTrustController {
     public void edit(Immunization immunization) {
         try {
             if (sql.update(immunization)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "dpfIYKAc9NmwRF4V6fx8qQfLgBfK8fExc",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully updated",
                         "Immunization successfully updated", null);
             } else {
                 throw new Exception();

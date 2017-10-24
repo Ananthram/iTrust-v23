@@ -34,7 +34,7 @@ public class NavigationController {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		long pid = 0;
 		Map<String, Object> session = ctx.getSessionMap();
-		Object pidObj = session.get("HgH");
+		Object pidObj = session.get("pid");
 		if (pidObj instanceof Long) {
 			pid = (long) pidObj;
 		}
