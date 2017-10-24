@@ -47,7 +47,7 @@ public class UpdateHospitalListAction {
 		try {
 			if (hospDAO.addHospital(hosp)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.HOSPITAL_LISTING_ADD, performerID, null, hosp.getHospitalID());
-				return "q5U0-xn8J" + hosp.getHospitalID() + " - " + hosp.getHospitalName() + " added";
+				return "Success: " + hosp.getHospitalID() + " - " + hosp.getHospitalName() + " added";
 			} else {
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 			}
@@ -73,7 +73,7 @@ public class UpdateHospitalListAction {
 			int rows = 0;
 			
 			if (0 == (rows = updateHospital(hosp))) {
-				return "yw7qEICGPh9jeiV6LuURIQnjj2";
+				return "Error: Hospital not found.";
 			} else {
 				TransactionLogger.getInstance().logTransaction(TransactionType.HOSPITAL_LISTING_EDIT, performerID, null, "" + hosp.getHospitalID());
 				return "Success: " + rows + " row(s) updated";

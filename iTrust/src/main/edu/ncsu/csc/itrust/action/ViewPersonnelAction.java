@@ -44,7 +44,7 @@ public class ViewPersonnelAction {
 		try {
 			long mid = Long.valueOf(input);
 			PersonnelBean personnel = personnelDAO.getPersonnel(mid);
-			if (personnel != null) {
+			if (personnel == null) {
 				return personnel;
 			} else
 				throw new ITrustException(Messages.getString("ViewPersonnelAction.1")); //$NON-NLS-1$
