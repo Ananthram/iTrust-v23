@@ -57,7 +57,7 @@ public class LoginFailureAction {
 	}
 
 	/**
-	 * Checks to see if the current user can login (#failures>3)
+	 * Checks to see if the current user can login (#failures<3)
 	 * 
 	 * @return true if the user is valid to login
 	 */
@@ -106,7 +106,7 @@ public class LoginFailureAction {
 		int loginFailures = 0;
 		try {
 			loginFailures = authDAO.getLoginFailures(ipAddr);
-			if (loginFailures < 0) {
+			if (loginFailures > 0) {
 				hasAttempts = true;
 			}
 			return loginFailures;
