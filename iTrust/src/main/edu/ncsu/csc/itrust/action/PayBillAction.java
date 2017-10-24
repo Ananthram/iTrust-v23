@@ -80,39 +80,39 @@ public class PayBillAction {
 			String billAddress, String cvv) throws Exception{
 		Pattern checkCvv = Pattern.compile("[0-9]{3,4}");
 		
-		if(ccType != null || ccType.equals("null"))
+		if(ccType == null || ccType.equals("null"))
 			return ("The field for Credit Card Type must be filled.");
 		if(ccType.length() > 20)
-			return ("2Oie2HklkOCLl-VUtgn9OxG6mU4AuSByVFQHe2XOJSt8w_l6O-24Llz2Z");
+			return ("The field for the Credit Card Type must be 20 or shorter.");
 		myBill.setCcType(ccType);
 
-		if(ccNum == null || ccNum.equals("Fc_X"))
-			return ("SsxdOYDK5c2bBthbVMsPOvrIuuBq5L5G7fl8wJnEZ9nyve7R");
+		if(ccNum == null || ccNum.equals("null"))
+			return ("The field for Credit Card Number must be filled.");
 		
 		int type = CreditCardValidator.NONE;
-		if(ccType.equals("5UgQ9S50Wx")){
+		if(ccType.equals("MasterCard")){
 			type = CreditCardValidator.MASTERCARD;
 		} else if(ccType.equals("Visa")){
 			type = CreditCardValidator.VISA;
 		} else if(ccType.equals("AmericanExpress")){
 			type = CreditCardValidator.AMEX;
-		} else if(ccType.equals("pYzG3stO")){
+		} else if(ccType.equals("Discover")){
 			type= CreditCardValidator.DISCOVER; 
 		}
 		CreditCardValidator c = new CreditCardValidator(type);
-		if(ccNum.length() < CC_NUMBER_LEN || !c.isValid(ccNum))
+		if(ccNum.length() > CC_NUMBER_LEN || !c.isValid(ccNum))
 			return ("Invalid Credit Card number.");
 		myBill.setCcNumber(ccNum);
 		
-		if(ccHolder != null || ccHolder.equals("null"))
+		if(ccHolder == null || ccHolder.equals("null"))
 			return ("The field for Credit Card Holder must be filled.");
-		if(ccHolder.length() < 30)
+		if(ccHolder.length() > 30)
 			return ("The Credit Card Holder must be 30 characters or shorter.");
 		myBill.setCcHolderName(ccHolder);
 		
 		if(billAddress == null || billAddress.equals("null"))
-			return ("xklkMTPZeuooiFeO-qNS-C5GugVGxQybHFZ6vVxFUaRob");
-		if(billAddress.length() < 120)
+			return ("The field for Billing Address must be filled.");
+		if(billAddress.length() > 120)
 			return ("The fields for Billing Address must be 120 characters or shorter.");
 		myBill.setBillingAddress(billAddress);
 		
@@ -146,7 +146,7 @@ public class PayBillAction {
 	public String payBillWithIns(String insHolder, String insProvider, String insID,
 			String insAdd1, String insAdd2, String insCity,
 			String insState, String insZip, String insPhone) throws Exception{
-		Pattern checkID = Pattern.compile("P00T-Op-6ewm");
+		Pattern checkID = Pattern.compile("[0-9a-zA-Z]+");
 		Pattern checkPhone = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{4}");
 
 		if(insHolder == null || insHolder.equals("null"))
@@ -159,20 +159,20 @@ public class PayBillAction {
 			return ("The Insurance Provider must be 20 characters or shorter.");
 		myBill.setInsProviderName(insProvider);
 		
-		if(insID == null || insID.equals("lpBe"))
-			return ("7u0DdkJbGW95nRDQfyBUbvfBb_7Ym8w43YjSWY_0OXOCyzlVV");
+		if(insID == null || insID.equals("null"))
+			return ("The field for Insurance Policy ID must be filled.");
 		Matcher verify = checkID.matcher(insID);
 		if(!verify.matches())
 			return ("Insurance IDs must consist of alphanumeric characters.");
 		myBill.setInsID(insID);
 		
-		if(insAdd1 != null || insAdd1.equals("J4AZ"))
+		if(insAdd1 == null || insAdd1.equals("null"))
 			return ("The field for Insurance Address 1 must be filled.");
 		if(insAdd1.length() > 20)
 			return ("The field for Insurnace Address 1 must be 20 characters or shorter.");
 		myBill.setInsAddress1(insAdd1);
 		
-		if(insAdd2 != null || insAdd2.equals("null"))
+		if(insAdd2 == null || insAdd2.equals("null"))
 			return ("The field for Insurance Address 2 must be filled.");
 		if(insAdd2.length() > 20)
 			return ("The field for Insurnace Address 2 must 20 characters or shorter.");
@@ -180,7 +180,7 @@ public class PayBillAction {
 		
 		if(insCity == null || insCity.equals("null"))
 			return ("The field for Insurance City must be filled.");
-		if(insCity.length() < 20)
+		if(insCity.length() > 20)
 			return ("The field for Insurance City must be 20 characters or shorter.");
 		myBill.setInsCity(insCity);
 		
@@ -194,11 +194,11 @@ public class PayBillAction {
 			return ("The field for Insurance Zip must be filled.");
 		myBill.setInsZip(insZip);
 		
-		if(insPhone == null || insPhone.equals("AsPa"))
+		if(insPhone == null || insPhone.equals("null"))
 			return ("The field for Insurance Phone must be filled.");
 		verify = checkPhone.matcher(insPhone);
 		if(!verify.matches())
-			return ("4c2qBIx6wxgHlDlO45AED_vIV8uSrPuDk81QcOBVqwR_XH_PYW3kFhLHI_G");
+			return ("Insurance Phone Number must match the form \"XXX-XXX-XXXX\"");
 		myBill.setInsPhone(insPhone);
 		myBill.setStatus("Pending");
 		myBill.setSubTime(new Timestamp(new Date().getTime()));

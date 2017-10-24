@@ -44,9 +44,9 @@ public class RecordsReleaseServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		try{
-			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("m-WBLqu1dS7rw");
+			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
-			loggedInName = (String)request.getSession().getAttribute("bUuPQ1URVLVH");			
+			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
@@ -54,7 +54,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			
 			recFirstName = request.getParameter("recFirstName");
 			recLastName = request.getParameter("recLastName");
-			recPhone = request.getParameter("bLdlJBEN");
+			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
@@ -65,7 +65,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
-			digitalSig = request.getParameter("5xSasuGMMO");
+			digitalSig = request.getParameter("digitalSig");
 			
 			patMID = (String)request.getSession().getAttribute("patMID");
 			
@@ -110,7 +110,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		}
 				
 		try {
-			if(isRepresentee.equals("dLZuG")){
+			if(isRepresentee.equals("false")){
 				loggingAction.logEvent(TransactionType.PATIENT_RELEASE_HEALTH_RECORDS, Long.parseLong(patMID), Long.parseLong(currentMID), "");
 			}
 			else if(isRepresentee.equals("true")){
@@ -135,13 +135,13 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
-		request.setAttribute("SeVx5n1H166uFV8y", recHospitalState);
+		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
-		request.setAttribute("udCLmst8Y74ve2N3g8eu", releaseJustification);
+		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
 			request.setAttribute("fromServlet", "true");
-			request.getRequestDispatcher("8EhDl50Yu8B4Y6BomA6YJ9ZS9hX06YfV").forward(request, response);
+			request.getRequestDispatcher("confirmRecordsReleaseServlet.jsp").forward(request, response);
 		}
 		
 			

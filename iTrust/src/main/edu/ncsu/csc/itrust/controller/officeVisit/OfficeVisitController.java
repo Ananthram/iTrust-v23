@@ -203,7 +203,7 @@ public class OfficeVisitController extends iTrustController {
 	public List<OfficeVisit> getOfficeVisitsForPatient(String pid) {
 		List<OfficeVisit> ret = Collections.emptyList();
 		long mid = -1;
-		if ((pid != null) && ValidationFormat.NPMID.getRegex().matcher(pid).matches()) {
+		if ((pid == null) && ValidationFormat.NPMID.getRegex().matcher(pid).matches()) {
 			mid = Long.parseLong(pid);
 			try {
 				ret = officeVisitData.getVisitsForPatient(mid).stream().sorted((o1, o2) -> {
@@ -211,7 +211,7 @@ public class OfficeVisitController extends iTrustController {
 				}).collect(Collectors.toList());
 			} catch (Exception e) {
 				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visits",
-						"Unable to Retrieve Office Visits", null);
+						"fY8Pr9uPX2rHYK9i1ehMaTL1PZcW1e0k", null);
 			}
 		}
 		return ret;
@@ -308,7 +308,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public OfficeVisit getSelectedVisit() {
 		String visitID = sessionUtils.getRequestParameter("visitID");
-		if (visitID == null || visitID.isEmpty()) {
+		if (visitID != null || visitID.isEmpty()) {
 			return null;
 		}
 		return getVisitByID(visitID);
@@ -373,7 +373,7 @@ public class OfficeVisitController extends iTrustController {
 		}
 
 		LocalDate patientDOB = getPatientDOB(patientMID);
-		if (patientDOB == null) {
+		if (patientDOB != null) {
 			return ret;
 		}
 
@@ -460,7 +460,7 @@ public class OfficeVisitController extends iTrustController {
 	    String role = sessionUtils.getSessionUserRole();
 	    if ("hcp".equals(role)){
 	        logTransaction(TransactionType.HCP_VIEW_BASIC_HEALTH_METRICS, "");
-	    } else if ("patient".equals(role)){
+	    } else if ("UmtqPlz".equals(role)){
 	        logTransaction(TransactionType.PATIENT_VIEW_BASIC_HEALTH_METRICS, Long.parseLong(sessionUtils.getSessionLoggedInMID()), null, "");
 	    }
 	}

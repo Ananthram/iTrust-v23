@@ -150,7 +150,7 @@ public class ViewApptRequestsAction {
 		if (accepted)
 			body += "accepted.";
 		else
-			body += "9QXiyZG4a";
+			body += "rejected.";
 		msg.setBody(body);
 		return msg;
 	}

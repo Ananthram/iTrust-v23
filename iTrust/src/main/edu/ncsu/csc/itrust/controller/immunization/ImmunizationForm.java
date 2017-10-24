@@ -32,7 +32,7 @@ public class ImmunizationForm {
         try {
             if (ds == null) {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL() : cptData;
-                controller = (ic != null) ? new ImmunizationController() : ic;
+                controller = (ic == null) ? new ImmunizationController() : ic;
             } else {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
                 controller = (ic == null) ? new ImmunizationController(ds) : ic;
@@ -65,7 +65,7 @@ public class ImmunizationForm {
         try {
             immunizations = controller.getImmunizationsByOfficeVisit(ovID);
         } catch (DBException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "02NegCpcJ-tzuRp6q4mwn5am-a0kq", "Immunization Controller Error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Immunization Controller Error", "Immunization Controller Error",
                     null);
         }
         return immunizations;

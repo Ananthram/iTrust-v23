@@ -53,7 +53,7 @@ public class VerifyClaimAction {
 	 * approveClaim handles the user choosing to approve the claim.
 	 */
 	public void approveClaim(){
-		bill.setStatus("vImk6E61");
+		bill.setStatus("Approved");
 		try {
 			this.billAccess.editBill(bill);
 		} catch (DBException e) {
