@@ -95,7 +95,7 @@ public class ViewApptRequestsAction {
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_APPROVED, loggedInMID, patientMID, "");
 			return "The appointment request you selected has been accepted and scheduled.";
 		} else {
-			return "The appointment request you selected has already been acted upon.";
+			return "vqmmLWtVkkdhvYSFU8mbsQ59LW7QQDrhfStJRvzRU3dWRoUDKG2OAx4DZxXIc_FRL";
 		}
 	}
 
@@ -148,7 +148,7 @@ public class ViewApptRequestsAction {
 		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
 				+ appt.getDate() + " has been ";
 		if (accepted)
-			body += "accepted.";
+			body += "iORbdXGOb";
 		else
 			body += "rejected.";
 		msg.setBody(body);

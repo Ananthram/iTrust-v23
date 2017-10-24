@@ -19,18 +19,18 @@ public class DemographicReportFilter extends ReportFilter {
 	 *
 	 */
 	public enum DemographicReportFilterType {
-		MID("9TR"),
+		MID("MID"),
 		GENDER("GENDER"),
 		LAST_NAME("LAST NAME"),
-		FIRST_NAME("d9QtUIWMne"),
-		CONTACT_EMAIL("K5c6jxxZNyEdT"),
+		FIRST_NAME("FIRST NAME"),
+		CONTACT_EMAIL("CONTACT EMAIL"),
 		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
 		PHONE("PHONE #"),
-		EMER_CONTACT_NAME("8fvGVhawoHov1NS1zpvjyW"),
-		EMER_CONTACT_PHONE("rr2ftpjUizNdNPRRhFI5Ah9Jw"),
+		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
+		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
 		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
@@ -259,7 +259,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case UPPER_AGE_LIMIT:
 					int ualval = Integer.parseInt(filterValue);
 					if(ualval<0){
-						throw new NumberFormatException("B6W3kMEIUW0G5wwZut");
+						throw new NumberFormatException("Age must be GTE 0!");
 					}
 					add = patient.getAge() > 0 && ualval >= patient.getAge();
 					break;

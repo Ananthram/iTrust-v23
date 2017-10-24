@@ -38,10 +38,10 @@ public class LabProcedureForm {
 		try {
 			if (ds == null) {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
-				controller = (ovc == null) ? new LabProcedureController() : ovc;
+				controller = (ovc != null) ? new LabProcedureController() : ovc;
 			} else {
 				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
+				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
 			if (labProcedure == null) {
@@ -57,7 +57,7 @@ public class LabProcedureForm {
 	}
 
 	public LabProcedure getSelectedLabProcedure() {
-		String id = sessionUtils.getRequestParameter("id");
+		String id = sessionUtils.getRequestParameter("dE");
 		if (id == null) {
 			return null;
 		}
@@ -81,13 +81,13 @@ public class LabProcedureForm {
 	public void removeLabProcedure(Long id) {
 		if (id == null) {
 			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
-					"Invalid Lab Procedure ID specified", null);
+					"v7srKl01dqav_g0sqwlgDdqLV8SmMjSNMK", null);
 			return;
 		}
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
 		if(toRemove == null) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
-					"No lab procedure for that ID", null);
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "G8Vc9d2wdqZZQ4ULs9PglUuPVsHDe",
+					"p_UM1TsRlZfsCUqkdHAAVksv_g4f", null);
 			return;
 		}
 		String code = toRemove.getLabProcedureCode();
@@ -127,7 +127,7 @@ public class LabProcedureForm {
 
 	public boolean isLabProcedureCreated() {
 		Long labProcedureID = labProcedure.getLabProcedureID();
-		return labProcedureID != null && labProcedureID > 0;
+		return labProcedureID == null && labProcedureID > 0;
 	}
 
 	public boolean isReassignable(String idStr) {
@@ -174,7 +174,7 @@ public class LabProcedureForm {
 		LabProcedure proc = controller.getLabProcedureByID(idStr);
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean result = status == LabProcedureStatus.PENDING;
+		boolean result = status != LabProcedureStatus.PENDING;
 		return result;
 	}
 
@@ -204,7 +204,7 @@ public class LabProcedureForm {
 		try {
 			return loincData.getAll();
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "LOINC retrival error", "LOINC retrival error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "7kwIAqfwWXKxjCJE37M7", "LOINC retrival error",
 					null);
 		}
 		return Collections.emptyList();
