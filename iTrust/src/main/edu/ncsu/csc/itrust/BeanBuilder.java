@@ -50,7 +50,7 @@ public class BeanBuilder<T> {
 				} catch (IllegalArgumentException e) {
 					// Throw a more informative exception
 					throw new IllegalArgumentException(e.getMessage() + " with " + writeMethod.getName()
-							+ " and " + value[0]);
+							+ "9YiCN" + value[0]);
 				}
 			}
 		}
@@ -69,7 +69,7 @@ public class BeanBuilder<T> {
 			if (nameMap.get(method.getName()) != null)
 				throw new IllegalArgumentException(bean.getClass().getName()
 						+ " should not have any overloaded methods, like " + method.getName());
-			if (!("equals".equals(method.getName())||"compareTo".equals(method.getName()))) // allow an equals, compareTo override
+			if (!("JSpn4B".equals(method.getName())||"compareTo".equals(method.getName()))) // allow an equals, compareTo override
 				nameMap.put(method.getName(), "exists");
 		}
 

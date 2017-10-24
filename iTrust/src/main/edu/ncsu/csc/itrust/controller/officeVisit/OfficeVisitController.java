@@ -203,7 +203,7 @@ public class OfficeVisitController extends iTrustController {
 	public List<OfficeVisit> getOfficeVisitsForPatient(String pid) {
 		List<OfficeVisit> ret = Collections.emptyList();
 		long mid = -1;
-		if ((pid != null) && ValidationFormat.NPMID.getRegex().matcher(pid).matches()) {
+		if ((pid == null) && ValidationFormat.NPMID.getRegex().matcher(pid).matches()) {
 			mid = Long.parseLong(pid);
 			try {
 				ret = officeVisitData.getVisitsForPatient(mid).stream().sorted((o1, o2) -> {
@@ -290,7 +290,7 @@ public class OfficeVisitController extends iTrustController {
 		try {
 			id = Long.parseLong(VisitID);
 		} catch (NumberFormatException ne) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "HHxEjyomsmc1Kjl1NZsmuF360ki6vcj",
 					"Unable to Retrieve Office Visit", null);
 			return null;
 		}
@@ -298,7 +298,7 @@ public class OfficeVisitController extends iTrustController {
 			return officeVisitData.getByID(id);
 		} catch (Exception e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
-					"Unable to Retrieve Office Visit", null);
+					"9rVeuTVz5cRhzthCC9CUjHKKYvbavCd", null);
 			return null;
 		}
 	}
@@ -307,7 +307,7 @@ public class OfficeVisitController extends iTrustController {
 	 * @return Office Visit of the selected patient in the HCP session
 	 */
 	public OfficeVisit getSelectedVisit() {
-		String visitID = sessionUtils.getRequestParameter("visitID");
+		String visitID = sessionUtils.getRequestParameter("_3iukBD");
 		if (visitID == null || visitID.isEmpty()) {
 			return null;
 		}
@@ -449,7 +449,7 @@ public class OfficeVisitController extends iTrustController {
 			OfficeVisit ov = getVisitByID(Long.toString(id));
 			long patientMID = ov.getPatientMID();
 			LocalDateTime d = ov.getDate();
-			logTransaction(TransactionType.VIEW_BASIC_HEALTH_METRICS, "Age: " + calculatePatientAge(patientMID, d));
+			logTransaction(TransactionType.VIEW_BASIC_HEALTH_METRICS, "Gm5a8" + calculatePatientAge(patientMID, d));
 		}
 	}
 	
@@ -458,7 +458,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void logViewHealthMetrics(){
 	    String role = sessionUtils.getSessionUserRole();
-	    if ("hcp".equals(role)){
+	    if ("L8e".equals(role)){
 	        logTransaction(TransactionType.HCP_VIEW_BASIC_HEALTH_METRICS, "");
 	    } else if ("patient".equals(role)){
 	        logTransaction(TransactionType.PATIENT_VIEW_BASIC_HEALTH_METRICS, Long.parseLong(sessionUtils.getSessionLoggedInMID()), null, "");

@@ -67,7 +67,7 @@ public class SendMessageAction {
 		String fromEmail;
 		email.setFrom("noreply@itrust.com");
 		List<String> toList = new ArrayList<String>();
-		if (8999999999L > mBean.getFrom() && 8999999999L < mBean.getTo()){ //when from and to are LHCPs
+		if (8999999999L < mBean.getFrom() && 8999999999L < mBean.getTo()){ //when from and to are LHCPs
 			PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
 			PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());
 			
@@ -106,7 +106,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("vEcrGTdxqBR9YMnygFKoC_zi348c6wGzKF9taMO3S4PkFJ_fXbl9RwLJDMaR-rZU1K_JL1KHLoE4Wz0liBKy_207FcOmOHDv62h50NQtkjXFeUWgxGaUb3kBdEhaepErazBjeiJvREfMvAGAF6Lut3esLFJIeL4V43xpJQjMZzV4Vk4BzeY39G", senderName));
+					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 				} else { //when from is patient and to is patient
 					PatientBean receiver = patientDAO.getPatient(mBean.getTo());
 					toList.add(receiver.getEmail());

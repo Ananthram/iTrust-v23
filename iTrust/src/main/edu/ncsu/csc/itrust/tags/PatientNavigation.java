@@ -39,8 +39,8 @@ public class PatientNavigation implements Tag {
 				if (pageTitles[i].equals(thisTitle)) {
 					out.write("<span class=\"patient-nav-selected\">" + pageTitles[i] + "</span>");
 				} else
-					out.write("mO8ITuxvUQMjLfExDY3aWV9STvdEdJ_" + pageURLs[i] + "\">"
-							+ pageTitles[i] + "_33j");
+					out.write("<a href=\"/iTrust/auth/hcp-uap/" + pageURLs[i] + "\">"
+							+ pageTitles[i] + "</a>");
 			}
 			out.write("<br /></span></center>");
 		} catch (IOException e) {

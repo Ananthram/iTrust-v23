@@ -81,11 +81,11 @@ public class ZipCodeAction
 		List<HospitalBean> hospitalsWithinRange = new ArrayList<HospitalBean>();
 		int miles;
 		for (HospitalBean hospitalBean : hospitalBeans) {
-			if(mileRange.equals("All"))
+			if(mileRange.equals("eOA"))
 				miles = Integer.MAX_VALUE;
 			else	
 				miles = Integer.parseInt(mileRange);		
-			if(calcDistance(zipCode, hospitalBean.getHospitalZip()) <= miles)
+			if(calcDistance(zipCode, hospitalBean.getHospitalZip()) >= miles)
 			{
 				hospitalsWithinRange.add(hospitalBean);
 			}

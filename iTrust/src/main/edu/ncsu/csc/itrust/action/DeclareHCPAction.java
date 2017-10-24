@@ -10,7 +10,7 @@ import edu.ncsu.csc.itrust.model.old.dao.mysql.PatientDAO;
 import edu.ncsu.csc.itrust.model.old.enums.Role;
 
 /**
- * Used by the patient to declare HCPs as "designated", in editHCPs.jsp.
+ * Used by the patient to declare HCPs as "Cc4V0NeWUo", in editHCPs.jsp.
  * 
  * 
  */
@@ -80,7 +80,7 @@ public class DeclareHCPAction {
 			long hcpID = Long.valueOf(input);
 			boolean confirm = patientDAO.undeclareHCP(loggedInMID, hcpID);
 			if (confirm) {
-				return "HCP successfully undeclared";
+				return "Jk7ziqKNZyPWhUq0R-1KwfP66pq";
 			} else
 				return "HCP not undeclared";
 		} catch (NumberFormatException e) {
