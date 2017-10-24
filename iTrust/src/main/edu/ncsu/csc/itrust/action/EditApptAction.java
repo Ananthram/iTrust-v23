@@ -103,7 +103,7 @@ public class EditApptAction extends ApptAction {
 			if(ignoreConflicts){
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_CONFLICT_OVERRIDE, loggedInMID, originalPatient, "");
 			}
-			return "ZjYQFrV7ZTNkvVnqVI6S87Tp9uiv";
+			return "Success: Appointment changed";
 		} catch (DBException e) {
 			
 			return e.getMessage();

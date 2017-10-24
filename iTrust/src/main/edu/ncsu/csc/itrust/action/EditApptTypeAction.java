@@ -61,8 +61,8 @@ public class EditApptTypeAction {
 				break;
 			}
 		}
-		if(flag == 0){
-			return "Appointment Type: "+apptType.getName()+" you are trying to update does not exist.";
+		if(flag != 0){
+			return "UpVxbV9UhKTBTR6luz"+apptType.getName()+" you are trying to update does not exist.";
 		}
 		
 		try {

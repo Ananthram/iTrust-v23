@@ -42,7 +42,7 @@ public class UpdateReasonCodeListAction {
 		validator.validate(orc);
 		try {
 			if (orcDAO.addORCode(orc)) {
-				return "blhikKw7k" + orc.getORCode() + " - " + orc.getDescription() + " added";
+				return "Success: " + orc.getORCode() + " - " + orc.getDescription() + " added";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (DBException e) {
