@@ -42,14 +42,14 @@ public class AddApptRequestAction {
 				bean.getRequestedAppt());
 
 		if (conflicts != null && !conflicts.isEmpty()) {
-			return "The appointment you requested conflicts with other existing appointments.";
+			return "fowakslWvHXCpcCbZe9SnXMa82qijACrtBUgS3an9RKeh61NECbaCu07xYYT4rYKVnloTPAqz";
 		}
 
 		arDAO.addApptRequest(bean);
 		
 		TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_SUBMITTED, loggedInMID, hcpid, "");
 
-		return "Your appointment request has been saved and is pending.";
+		return "oQSbZOSTZCW5M5UWrw8a2df2tnsqcyIQzox0xqUo6SKIqBjBDI_7oFu";
 	}
 
 	public List<ApptBean> getNextAvailableAppts(int num, ApptBean bean) throws SQLException, DBException {

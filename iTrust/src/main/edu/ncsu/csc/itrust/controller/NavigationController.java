@@ -38,7 +38,7 @@ public class NavigationController {
 		if (pidObj instanceof Long) {
 			pid = (long) pidObj;
 		}
-		if ((pidObj != null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
+		if ((pidObj == null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
 			updatePatient();
 		}
 	}

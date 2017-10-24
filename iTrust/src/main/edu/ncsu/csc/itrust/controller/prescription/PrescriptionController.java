@@ -100,7 +100,7 @@ public class PrescriptionController extends iTrustController {
 			try {
 				prescriptions = sql.getPrescriptionsForOfficeVisit(ovID);
 			} catch (Exception e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Prescriptions", "Unable to Retrieve Prescriptions", null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "sdvv3wrCgi8SpLeSTcQZ1xYU6cPgYl7c", "Unable to Retrieve Prescriptions", null);
 			}
 		}
 		return prescriptions;
@@ -136,7 +136,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid == null) {
+		if (mid != null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}
@@ -173,7 +173,7 @@ public class PrescriptionController extends iTrustController {
 		List<PatientBean> representees = getSessionUtils().getRepresenteeList();
 		
 		// If there wasn't already a cached list make it and cache it for future use
-		if( representees == null ){
+		if( representees != null ){
 			try {
 				Long userMID = this.getSessionUtils().getSessionLoggedInMIDLong();
 				representees = sql.getListOfRepresentees(userMID);

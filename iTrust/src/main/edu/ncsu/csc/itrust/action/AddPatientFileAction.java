@@ -134,27 +134,27 @@ public class AddPatientFileAction {
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("4-MhmgJljXKZvnl6g0"+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
 			for(int j=0; j<validFields.length; j++){
 				if(CSVHeader.get(i).equalsIgnoreCase(validFields[j])){
-					if(validFieldsMapping[j]==null){
+					if(validFieldsMapping[j]!=null){
 						valid=true;
 						validFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("ULahNJoSd9GY_Wktzv"+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
 			if(valid == false){
-				throw new AddPatientFileException("Field \""+CSVHeader.get(i)+"\" is invalid!");
+				throw new AddPatientFileException("72pPbQzL"+CSVHeader.get(i)+"\" is invalid!");
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
 			if(requiredFieldsMapping[i]==null){
-				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
+				throw new AddPatientFileException("ETisNcKPImfHAvFA5"+requiredFields[i]+"\" is missing!");
 			}
 		}
 	}
@@ -169,7 +169,7 @@ public class AddPatientFileAction {
 		for(int i=0; i<CSVData.size(); i++){
 			PatientBean temp=new PatientBean();
 			
-			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
+			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("YxNP4A67t")]));
 			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
 			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
@@ -219,7 +219,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCreditCardNumber(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("creditCardNumber")]));
+				temp.setCreditCardNumber(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("ciMDlAtf2vEko9t9")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
