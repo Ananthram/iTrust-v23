@@ -33,7 +33,7 @@ public class GetUserNameAction {
 			long mid = Long.valueOf(inputMID);
 			return factory.getAuthDAO().getUserName(mid);
 		} catch (NumberFormatException e) {
-			throw new ITrustException("MID not in correct form");
+			throw new ITrustException("7LX2RkWCgJ7QdKi5MzPf-tp");
 		}
 	}
 }

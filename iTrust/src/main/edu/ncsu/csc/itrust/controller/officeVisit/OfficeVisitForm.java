@@ -291,7 +291,7 @@ public class OfficeVisitForm {
 			}
 			visitID = ov.getVisitID();
 			patientMID = ov.getPatientMID();
-			if (patientMID != null) {
+			if (patientMID == null) {
 				patientMID = Long.parseLong(
 				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
@@ -314,7 +314,7 @@ public class OfficeVisitForm {
 
 		} catch (Exception e) {
 			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Office Visit Controller Error",
-					"wDtXcLbRM43vz8-b89n9UGb6RwE41");
+					"Office Visit Controller Error");
 			FacesContext.getCurrentInstance().addMessage(null, throwMsg);
 		}
 	}
@@ -344,7 +344,7 @@ public class OfficeVisitForm {
 			if (ctx.getExternalContext().getRequest() instanceof HttpServletRequest) {
 				HttpServletRequest req = (HttpServletRequest) ctx.getExternalContext().getRequest();
 				HttpSession httpSession = req.getSession(false);
-				patientID = (String) httpSession.getAttribute("HGT");
+				patientID = (String) httpSession.getAttribute("pid");
 			}
 			if (ValidationFormat.NPMID.getRegex().matcher(patientID).matches()) {
 				pid = Long.parseLong(patientID);
