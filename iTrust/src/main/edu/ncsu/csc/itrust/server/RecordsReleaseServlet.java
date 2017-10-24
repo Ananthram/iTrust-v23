@@ -54,20 +54,20 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			
 			recFirstName = request.getParameter("recFirstName");
 			recLastName = request.getParameter("recLastName");
-			recPhone = request.getParameter("s7xAcke7");
+			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
-			recHospitalState = request.getParameter("Ugqsl8U2LDi9eef4");
-			recHospitalZip = request.getParameter("1GhuqMQ9fb-ET7");
+			recHospitalState = request.getParameter("recHospitalState");
+			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
 			digitalSig = request.getParameter("digitalSig");
 			
-			patMID = (String)request.getSession().getAttribute("u4ejNL");
+			patMID = (String)request.getSession().getAttribute("patMID");
 			
 		} catch(NullPointerException e){
 			e.printStackTrace();
@@ -91,7 +91,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			form.setRecipientEmail(recEmail);
 			
 			form.setRecipientHospitalName(recHospitalName);
-			form.setRecipientHospitalAddress(recHospitalAddress1 + recHospitalAddress2 + "0B" + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+			form.setRecipientHospitalAddress(recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 			form.setRequestJustification(releaseJustification);
 			form.setDigitalSignature(checksum);
 			
@@ -103,7 +103,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		message = releaseAction.addRecordsRelease(form);
 
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
-			request.setAttribute("jbym6lI", message);
+			request.setAttribute("failure", message);
 			request.setAttribute("isRepresentee", isRepresentee);
 			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
 			return;
@@ -131,12 +131,12 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recEmail", recEmail);
 		
 		request.setAttribute("recHospitalName", recHospitalName);
-		request.setAttribute("PtYzrlxcnsBJhMQa_p", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
-		request.setAttribute("RTdHS5YJZA6FdBZJp7x", recHospitalAddress2);
+		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
-		request.setAttribute("tfgrphkN3Dm941", recHospitalZip);
+		request.setAttribute("recHospitalZip", recHospitalZip);
 		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){

@@ -36,22 +36,22 @@ public class LabProcedureForm {
 	public LabProcedureForm(LabProcedureController ovc, LOINCCodeData ldata, SessionUtils sessionUtils, DataSource ds) {
 		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
-			if (ds != null) {
+			if (ds == null) {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
 				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
-				loincData = (ldata != null) ? new LOINCCodeMySQL(ds) : ldata;
+				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
 				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
-			if (labProcedure != null) {
+			if (labProcedure == null) {
 				labProcedure = new LabProcedure();
 				Long ovid = sessionUtils.getCurrentOfficeVisitId();
 				labProcedure.setOfficeVisitID(ovid);
 				labProcedure.setStatus(LabProcedureStatus.IN_TRANSIT.getID());
 			}
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "3w_K-kj0jYX2GoIkCs0CUUKrPlkCaj",
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
 					"Lab Procedure Controller Error", null);
 		}
 	}
@@ -86,7 +86,7 @@ public class LabProcedureForm {
 		}
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
 		if(toRemove == null) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "OI-Fi6cJlJDamZaMVSdO_WRRK5sot",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
 					"No lab procedure for that ID", null);
 			return;
 		}
@@ -111,7 +111,7 @@ public class LabProcedureForm {
 			Map<String, String> map = sessionUtils.getCurrentFacesContext().getExternalContext()
 					.getRequestParameterMap();
 			List<String> key = map.keySet().stream().filter(k -> {
-				return k.matches("1Wlyuacj_WDsb8");
+				return k.matches("\\w+:\\w+:\\w+");
 			}).collect(Collectors.toList());
 			if (key.size() > 0) {
 				commentary = map.get(key.get(0));
@@ -141,8 +141,8 @@ public class LabProcedureForm {
 
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean isInTransit = status != LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status != LabProcedureStatus.RECEIVED;
+		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
+		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}
@@ -158,7 +158,7 @@ public class LabProcedureForm {
 
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean isInTransit = status != LabProcedureStatus.IN_TRANSIT;
+		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
 		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
@@ -186,8 +186,8 @@ public class LabProcedureForm {
 		try {
 			controller.recordResults(labProcedure);
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "TeU1Hmti_4xUQ439Jmw1LJdhAJy9_K",
-					"w5-vFUqfNOap-sXT60tMx8wkCqulPt", null);
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
+					"Lab Procedure Controller Error", null);
 		}
 		controller.logTransaction(TransactionType.LAB_RESULTS_RECORD, labProcedure.getLabProcedureCode());
 	}

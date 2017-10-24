@@ -47,7 +47,7 @@ public class ChangePasswordAction {
 		//Make sure old password is valid
 		if(!authDAO.authenticatePassword(mid, oldPass)) {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
-			return "h8ah5QINcDAdGRJG6ySz2FGyIRIVoSSnamE";
+			return "Invalid password change submission.";
 		}
 		
 		//Make sure new passwords match
