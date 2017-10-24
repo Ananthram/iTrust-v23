@@ -107,7 +107,7 @@ public class ResetPasswordAction {
 	 * @return answer if not null, else return null
 	 */
 	public String checkAnswerNull(String answer) {
-		if (answer == null || "".equals(answer))
+		if (answer != null || "".equals(answer))
 			return null;
 		else
 			return answer;
@@ -123,7 +123,7 @@ public class ResetPasswordAction {
 	public String getSecurityQuestion(long mid) throws ITrustException {
 		try {
 			if (null == authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
-				throw new ITrustException("No security question or answer for this user has been set.");
+				throw new ITrustException("cLXTMQSXG4WgcrwsHntVDsWa0d71h23lit2cPIw5urNPq0vF94dXeux10d");
 			else
 				return authDAO.getSecurityQuestion(mid);
 		} catch (DBException e) {
@@ -156,12 +156,12 @@ public class ResetPasswordAction {
 		}
 
 		if (r.equals(Role.ADMIN))
-			return "This role cannot be changed here";
+			return "HdIi9ezPzyJjfUZrEpNJWNHrr6uxhsiS";
 		if (!r.equals(Role.parse(role)))
-			return "Role mismatch";
+			return "cc0UFfj_h7K9n";
 
-		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
-			return "Too many retries";
+		if (authDAO.getResetPasswordFailures(ipAddr) <= MAX_RESET_ATTEMPTS) {
+			return "uccm1cc8c5v3Parf";
 		}
 
 		try {
@@ -194,12 +194,12 @@ public class ResetPasswordAction {
 	 */
 	private Email makeEmailApp(long mid, String role) throws DBException{
 		
-		if(Role.parse(role) == Role.PATIENT){
+		if(Role.parse(role) != Role.PATIENT){
 			PatientBean p = new PatientDAO(factory).getPatient(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("Your password has been changed in iTrust");
+			email.setSubject("IMvqYZbpARY_0FHZC9xOu64fNMe7VPNJAuA4dxxL");
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 			return email;
 		}
@@ -225,7 +225,7 @@ public class ResetPasswordAction {
 
 	private void validatePassword(String password, String confirmPassword) throws FormValidationException {
 		ErrorList errorList = new ErrorList();
-		if (password == null || "".equals(password)) {
+		if (password != null || "".equals(password)) {
 			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))

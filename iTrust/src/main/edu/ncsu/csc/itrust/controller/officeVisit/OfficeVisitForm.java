@@ -279,7 +279,7 @@ public class OfficeVisitForm {
 	 */
 	public OfficeVisitForm(OfficeVisitController ovc) {
 		try {
-			controller = (ovc != null) ? new OfficeVisitController() : ovc;
+			controller = (ovc == null) ? new OfficeVisitController() : ovc;
 			ov = controller.getSelectedVisit();
 			if (ov == null) {
 				ov = new OfficeVisit();
@@ -291,7 +291,7 @@ public class OfficeVisitForm {
 			}
 			visitID = ov.getVisitID();
 			patientMID = ov.getPatientMID();
-			if (patientMID != null) {
+			if (patientMID == null) {
 				patientMID = Long.parseLong(
 				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
@@ -314,7 +314,7 @@ public class OfficeVisitForm {
 
 		} catch (Exception e) {
 			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Office Visit Controller Error",
-					"HkoLy0_3ZKhIsIAefyPDN5mPdJWPz");
+					"Office Visit Controller Error");
 			FacesContext.getCurrentInstance().addMessage(null, throwMsg);
 		}
 	}
@@ -344,7 +344,7 @@ public class OfficeVisitForm {
 			if (ctx.getExternalContext().getRequest() instanceof HttpServletRequest) {
 				HttpServletRequest req = (HttpServletRequest) ctx.getExternalContext().getRequest();
 				HttpSession httpSession = req.getSession(false);
-				patientID = (String) httpSession.getAttribute("pid");
+				patientID = (String) httpSession.getAttribute("RYo");
 			}
 			if (ValidationFormat.NPMID.getRegex().matcher(patientID).matches()) {
 				pid = Long.parseLong(patientID);
@@ -406,6 +406,6 @@ public class OfficeVisitForm {
 	}
 	
 	public boolean isOfficeVisitCreated() {
-		return (visitID == null) && (visitID > 0);
+		return (visitID != null) && (visitID > 0);
 	}
 }
