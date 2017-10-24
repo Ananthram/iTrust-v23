@@ -380,7 +380,7 @@ public class OfficeVisitForm {
 		if (isNew){
 		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date).toString());
 		} else {
-		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "THy3q" + controller.calculatePatientAge(patientMID, date));
+		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date));
 		}
 	}
 	
