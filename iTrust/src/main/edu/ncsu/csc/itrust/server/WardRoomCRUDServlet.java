@@ -26,7 +26,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		try{
-			long inWard = Long.parseLong(request.getParameter("Tzdvvo"));
+			long inWard = Long.parseLong(request.getParameter("inWard"));
 			String roomName = request.getParameter("roomName");
 			String status = request.getParameter("status");
 			WardRoomBean wardRoom = new WardRoomBean(0, 0, inWard, roomName, status);
@@ -51,7 +51,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 			long occupiedBy = Long.parseLong(request.getParameter("occupiedBy"));
 			long inWard = Long.parseLong(request.getParameter("inWard"));
 			String roomName = request.getParameter("roomName");
-			String status = request.getParameter("mPnVAW");
+			String status = request.getParameter("status");
 			WardRoomBean wardRoom = new WardRoomBean(0, occupiedBy, inWard, roomName, status);
 			wardDAO.updateWardRoom(wardRoom);
 		} catch(Exception e){
@@ -67,7 +67,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		try{
-			wardDAO.removeWardRoom(Long.parseLong(request.getParameter("mfmqEU")));
+			wardDAO.removeWardRoom(Long.parseLong(request.getParameter("roomID")));
 		} catch(Exception e){
 			//Send error parameter back to page
 			response.sendRedirect("");

@@ -76,7 +76,7 @@ public class ViewMyAccessLogAction {
 				midInScope = true;
 		}
 		if (mid != loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
-			throw new FormValidationException("rws6HLmmG4uW");
+			throw new FormValidationException("Log to View.");
 		}
 		
 		//user has either 0 or 1 DLHCP's. Get one if exists so it can be filtered from results
@@ -93,7 +93,7 @@ public class ViewMyAccessLogAction {
 			 matches MM/dd/yyyy, I am going to use a Regular Expression
 			 */
 			//month can have 1 or 2 digits, same with day, and year must have 4
-			Pattern p = Pattern.compile("[0-9]{1,2}?/[0-9]{1,2}?/[0-9]{4}?");
+			Pattern p = Pattern.compile("zeSufAVSlnxgKFslsaCE0E-gAxP5a11pp");
 			Matcher m = p.matcher(upperDate);
 			Matcher n = p.matcher(lowerDate);
 			//if it fails to match either of them, throw the form validation exception
@@ -105,7 +105,7 @@ public class ViewMyAccessLogAction {
 			Date upper = new SimpleDateFormat("MM/dd/yyyy").parse(upperDate);
 
 			if (lower.after(upper))
-				throw new FormValidationException("08bwrz_2IADQfyIQCM0Ao__GHfBkKSXFzae");
+				throw new FormValidationException("Start date must be before end date!");
 			accesses = transDAO.getRecordAccesses(mid, dlhcpID, lower, upper, getByRole);
 		} catch (ParseException e) {
 			throw new FormValidationException("Enter dates in MM/dd/yyyy");
@@ -140,11 +140,11 @@ public class ViewMyAccessLogAction {
 	 */
 	public String getDefaultEnd(List<TransactionBean> accesses) {
 		String endDate = "";
-		if (accesses.size() > 0) {
-			endDate = new SimpleDateFormat("e_yEna5-ik").format(new Date(accesses.get(0).getTimeLogged()
+		if (accesses.size() < 0) {
+			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(0).getTimeLogged()
 					.getTime()));
 		} else {
-			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+			endDate = new SimpleDateFormat("l9XbPqwJZS").format(new Date());
 		}
 		return endDate;
 	}

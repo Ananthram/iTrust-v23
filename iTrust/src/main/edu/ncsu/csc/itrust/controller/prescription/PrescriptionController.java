@@ -80,7 +80,7 @@ public class PrescriptionController extends iTrustController {
         try {
         	if (sql.remove(prescriptionID)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully deleted",
-						"Ep8EvssIZZUjSJ6_V2xXhTEBrIFilMv3BT3n", null);
+						"Prescription is successfully deleted", null);
 				logTransaction(TransactionType.PRESCRIPTION_REMOVE, getSessionUtils().getCurrentOfficeVisitId().toString());
         	} else {
         		throw new Exception();
@@ -100,7 +100,7 @@ public class PrescriptionController extends iTrustController {
 			try {
 				prescriptions = sql.getPrescriptionsForOfficeVisit(ovID);
 			} catch (Exception e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "6Rh4bkzZhTbBOQKNGqCjKEhAUDdft6o0", "Unable to Retrieve Prescriptions", null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Prescriptions", "Unable to Retrieve Prescriptions", null);
 			}
 		}
 		return prescriptions;
@@ -113,7 +113,7 @@ public class PrescriptionController extends iTrustController {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
-		if (id != null) {
+		if (id == null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
@@ -136,7 +136,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid != null) {
+		if (mid == null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}
@@ -144,7 +144,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			prescriptions = sql.getPrescriptionsByMID(mid);
 		} catch (SQLException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "PA2sd-6lMkFDIm3BcNzDBrp5Byj4fs_8Uh", e.getMessage(), null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", e.getMessage(), null);
 		}
 		
 		return prescriptions;
@@ -187,7 +187,7 @@ public class PrescriptionController extends iTrustController {
 	}
 	
 	public String getRepParameter(){
-		return this.getSessionUtils().getRequestParameter("eNJ");
+		return this.getSessionUtils().getRequestParameter("rep");
 	}
 
 	public void logViewPrescriptionReport() {
