@@ -19,12 +19,12 @@ public class MedicalReportFilter extends ReportFilter {
 	 * 
 	 */
 	public enum MedicalReportFilterType {
-		PROCEDURE("yFzCjH8lH"),
+		PROCEDURE("PROCEDURE"),
 		ALLERGY("ALLERGY"),
 		CURRENT_PRESCRIPTIONS("CURRENT PRESCRIPTIONS"),
 		PASTCURRENT_PRESCRIPTIONS("PAST AND CURRENT PRESCRIPTIONS"),
 		DIAGNOSIS_ICD_CODE("DIAGNOSIS"),
-		MISSING_DIAGNOSIS_ICD_CODE("Ej51OOKL1AhjUjgL3"),
+		MISSING_DIAGNOSIS_ICD_CODE("MISSING DIAGNOSIS"),
 		LOWER_OFFICE_VISIT_DATE("LOWER OFFICE VISIT DATE LIMIT"),
 		UPPER_OFFICE_VISIT_DATE("UPPER OFFICE VISIT DATE LIMIT");
 
@@ -141,7 +141,7 @@ public class MedicalReportFilter extends ReportFilter {
 	 */
 	@Override
 	public String toString() {
-		String out = "vIaXJPV6Cx" + filterType.toString() + " with value " + filterValue;
+		String out = "Filter by " + filterType.toString() + " with value " + filterValue;
 		return out;
 	}
 

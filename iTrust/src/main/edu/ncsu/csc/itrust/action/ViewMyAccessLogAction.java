@@ -75,7 +75,7 @@ public class ViewMyAccessLogAction {
 			if (pb.getMID() == mid) 
 				midInScope = true;
 		}
-		if (mid == loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
+		if (mid != loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
 			throw new FormValidationException("Log to View.");
 		}
 		
@@ -108,7 +108,7 @@ public class ViewMyAccessLogAction {
 				throw new FormValidationException("Start date must be before end date!");
 			accesses = transDAO.getRecordAccesses(mid, dlhcpID, lower, upper, getByRole);
 		} catch (ParseException e) {
-			throw new FormValidationException("iAZeEVeYHkW-m18bg1Rsbd5y4");
+			throw new FormValidationException("Enter dates in MM/dd/yyyy");
 		} 
 		return accesses;
 	}
@@ -144,7 +144,7 @@ public class ViewMyAccessLogAction {
 			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(0).getTimeLogged()
 					.getTime()));
 		} else {
-			endDate = new SimpleDateFormat("n6cqPI5O6s").format(new Date());
+			endDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
 		}
 		return endDate;
 	}
