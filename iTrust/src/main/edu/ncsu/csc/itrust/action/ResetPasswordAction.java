@@ -87,7 +87,7 @@ public class ResetPasswordAction {
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
-					|| ("Tb".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
+					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
 			else
 				return null;
@@ -156,7 +156,7 @@ public class ResetPasswordAction {
 		}
 
 		if (r.equals(Role.ADMIN))
-			return "zEnqBOqsW6XwrXz3X31ZVyTBInJMkuiZ";
+			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
 			return "Role mismatch";
 
@@ -194,7 +194,7 @@ public class ResetPasswordAction {
 	 */
 	private Email makeEmailApp(long mid, String role) throws DBException{
 		
-		if(Role.parse(role) != Role.PATIENT){
+		if(Role.parse(role) == Role.PATIENT){
 			PatientBean p = new PatientDAO(factory).getPatient(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");

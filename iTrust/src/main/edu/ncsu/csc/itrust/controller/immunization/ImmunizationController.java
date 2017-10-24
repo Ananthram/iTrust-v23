@@ -74,7 +74,7 @@ public class ImmunizationController extends iTrustController {
         try {
             if (sql.remove(immunizationID)) {
                 printFacesMessage(FacesMessage.SEVERITY_INFO, "Immunization successfully deleted",
-                        "V0MiJn4K8P6P68Ep24iX_AZ36eXiHZ3R0", null);
+                        "Immunization successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.IMMUNIZATION_REMOVE, ovid == null ? null : ovid.toString());
             } else {
@@ -107,7 +107,7 @@ public class ImmunizationController extends iTrustController {
         try {
             codeName = sql.getCodeName(codeString);
         }  catch (SQLException e) {
-            printFacesMessage(FacesMessage.SEVERITY_ERROR, "n7o9GRUBdN5yXpGvatl9", e.getMessage(), null);
+            printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Immunization", e.getMessage(), null);
         }
         
         return codeName;
