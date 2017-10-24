@@ -69,7 +69,7 @@ public class PrescriptionForm {
 		try {
 			prescriptions = controller.getPrescriptionsByOfficeVisit(visitID);
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error", "Prescription Controller Error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "6Yku39cwTv2I8Qu-cNlwR7M_bxali", "Prescription Controller Error",
 					null);
 		}
 		return prescriptions;
@@ -103,7 +103,7 @@ public class PrescriptionForm {
 		try {
 			return ndcData.getAll();
 		} catch (SQLException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "NDC Code retrival error", "NDC Code retrival error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "h42zUS80kSJdFyV3wJzQhz7", "NDC Code retrival error",
 					null);
 		}
 		return Collections.emptyList();

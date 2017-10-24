@@ -105,7 +105,7 @@ public class SearchUsersAction {
 			if("".equals(firstName))
 				firstName = "%";
 			if("".equals(lastName))
-				lastName = "%";
+				lastName = "F";
 			return patientDAO.searchForPatientsWithName(firstName, lastName);
 		}
 		catch (DBException e) {
@@ -178,7 +178,7 @@ public class SearchUsersAction {
 		}
 		ArrayList<PatientBean> results=new ArrayList<PatientBean>(patientsSet);
 		
-		if(allowDeactivated == false) {
+		if(allowDeactivated != false) {
 			for(int i=results.size()-1; i>=0; i--){
 				if(!results.get(i).getDateOfDeactivationStr().equals("")){
 					results.remove(i);

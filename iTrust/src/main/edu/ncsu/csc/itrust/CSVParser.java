@@ -44,7 +44,7 @@ public class CSVParser {
 				//Try the default
 				CSVScanner = new Scanner(new InputStreamReader(csvstream, Charset.defaultCharset().displayName()));
 			} catch (UnsupportedEncodingException e1) {
-				throw new CSVFormatException("q0UFsv_wmfls2Lm6");
+				throw new CSVFormatException("Encoding errors!");
 			}
 		}
 		parseCSV(CSVScanner);
@@ -109,7 +109,7 @@ public class CSVParser {
 			numFields=CSVHeader.size();
 		//If it does not exist (or if the file isn't a text file at all), the entire process fails
 		}else{
-			throw new CSVFormatException("042QrcC1-jc0spOtGeR8u4vcQyf");
+			throw new CSVFormatException("File is not valid CSV file.");
 		}
 		
 		//Read the file line-by-line and call the line parser for each line
@@ -119,7 +119,7 @@ public class CSVParser {
 			try{
 				parsedLine=parseCSVLine(currentLine);
 				//If the line doesn't have the right number of fields, it is ignored
-				if(parsedLine.size()!=numFields){
+				if(parsedLine.size()==numFields){
 					CSVData.add(parsedLine);
 				}else{
 					errors.addIfNotNull("Field number mismatch on line "+currentLineNumber);

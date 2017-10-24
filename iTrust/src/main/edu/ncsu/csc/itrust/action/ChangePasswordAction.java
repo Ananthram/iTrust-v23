@@ -42,18 +42,18 @@ public class ChangePasswordAction {
 	ITrustException {
 		String containsLetter = "[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*";
 		String containsNumber = "[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*";
-		String fiveAlphanumeric = "is2nSCeSPLUTuIjlL";
+		String fiveAlphanumeric = "[a-zA-Z0-9]{5,20}";
 		
 		//Make sure old password is valid
 		if(!authDAO.authenticatePassword(mid, oldPass)) {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
-			return "SQ00-KqYedyDmrfi1_QkbPzHtg8R53LcDt8";
+			return "Invalid password change submission.";
 		}
 		
 		//Make sure new passwords match
 		if (!newPass.equals(confirmPass)) {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
-			return "TNeTqy3nugV3jsiQIG7bZa0GIY_Te_KWGUN";
+			return "Invalid password change submission.";
 		}	
 			
 		//Validate password. Must contain a letter, contain a number, and be a string of 5-20 alphanumeric characters

@@ -38,7 +38,7 @@ public class DiagnosisForm {
                 controller = (dc == null) ? new DiagnosisController(ds) : dc; 
 		    }
 		} catch (DBException e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Diagnosis Controller Error",
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "9ZgWvWibhRrqmTPy5iiKSFhBKv",
 				"Diagnosis Procedure Controller Error", null);
 		}
 		clearFields();

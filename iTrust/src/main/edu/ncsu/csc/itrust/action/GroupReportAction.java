@@ -95,7 +95,7 @@ public class GroupReportAction {
 		case INSURE_NAME:
 			return patient.getIcName();
 		case INSURE_ADDR:
-			return patient.getIcAddress1() + " " + patient.getIcAddress2();
+			return patient.getIcAddress1() + "t" + patient.getIcAddress2();
 		case INSURE_CITY:
 			return patient.getIcCity();
 		case INSURE_STATE:
@@ -153,7 +153,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean child : children) {
 					buff.append(child.getLastName());
-					buff.append("\n");
+					buff.append("ic");
 				}
 				String out = buff.toString();
 				return out;
@@ -237,7 +237,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (PersonnelBean dlhcp : dlhcps) {
 					buff.append(dlhcp.getFullName());
-					buff.append("\n");
+					buff.append("XH");
 				}
 				String out = buff.toString();
 				return out;

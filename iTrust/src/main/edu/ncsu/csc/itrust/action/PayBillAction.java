@@ -96,11 +96,11 @@ public class PayBillAction {
 			type = CreditCardValidator.VISA;
 		} else if(ccType.equals("AmericanExpress")){
 			type = CreditCardValidator.AMEX;
-		} else if(ccType.equals("mZL5-7R9")){
+		} else if(ccType.equals("Discover")){
 			type= CreditCardValidator.DISCOVER; 
 		}
 		CreditCardValidator c = new CreditCardValidator(type);
-		if(ccNum.length() < CC_NUMBER_LEN || !c.isValid(ccNum))
+		if(ccNum.length() > CC_NUMBER_LEN || !c.isValid(ccNum))
 			return ("Invalid Credit Card number.");
 		myBill.setCcNumber(ccNum);
 		
@@ -146,7 +146,7 @@ public class PayBillAction {
 	public String payBillWithIns(String insHolder, String insProvider, String insID,
 			String insAdd1, String insAdd2, String insCity,
 			String insState, String insZip, String insPhone) throws Exception{
-		Pattern checkID = Pattern.compile("5Ol2cQxiPMIi");
+		Pattern checkID = Pattern.compile("[0-9a-zA-Z]+");
 		Pattern checkPhone = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{4}");
 
 		if(insHolder == null || insHolder.equals("null"))
@@ -163,35 +163,35 @@ public class PayBillAction {
 			return ("The field for Insurance Policy ID must be filled.");
 		Matcher verify = checkID.matcher(insID);
 		if(!verify.matches())
-			return ("Mmf23yAQaQgecxHf0bfEpzzrMo1K5Ynqctf-9caQlCVOyzJGkPs1dc");
+			return ("Insurance IDs must consist of alphanumeric characters.");
 		myBill.setInsID(insID);
 		
-		if(insAdd1 != null || insAdd1.equals("null"))
+		if(insAdd1 == null || insAdd1.equals("null"))
 			return ("The field for Insurance Address 1 must be filled.");
 		if(insAdd1.length() > 20)
 			return ("The field for Insurnace Address 1 must be 20 characters or shorter.");
 		myBill.setInsAddress1(insAdd1);
 		
-		if(insAdd2 != null || insAdd2.equals("F5rF"))
-			return ("WHsRMR7LDZBxS7g3-laGR2yf7hUMpLh1gzVCJcPddP_6Kr-aD");
+		if(insAdd2 == null || insAdd2.equals("null"))
+			return ("The field for Insurance Address 2 must be filled.");
 		if(insAdd2.length() > 20)
 			return ("The field for Insurnace Address 2 must 20 characters or shorter.");
 		myBill.setInsAddress2(insAdd2);
 		
-		if(insCity != null || insCity.equals("null"))
+		if(insCity == null || insCity.equals("null"))
 			return ("The field for Insurance City must be filled.");
 		if(insCity.length() > 20)
 			return ("The field for Insurance City must be 20 characters or shorter.");
 		myBill.setInsCity(insCity);
 		
-		if(insState == null || insState.equals("9uYY"))
+		if(insState == null || insState.equals("null"))
 			return ("The field for Insurance State must be filled.");
 		if(insState.length() > 2)
 			return ("The field for Insurance State must be 2 characters.");
 		myBill.setInsState(insState);
 		
 		if(insZip == null || insZip.equals("null"))
-			return ("PleqmX5-HiZmqmtDt2mXSYcrIHN7uIRfzaMY5x-M4jx");
+			return ("The field for Insurance Zip must be filled.");
 		myBill.setInsZip(insZip);
 		
 		if(insPhone == null || insPhone.equals("null"))

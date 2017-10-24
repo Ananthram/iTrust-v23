@@ -80,7 +80,7 @@ public class ViewPatientAction extends PatientBaseAction {
 			} else
 				throw new ITrustException(Messages.getString("ViewPatientAction.1")); //not sure if this message exists
 		} catch (NumberFormatException e) {
-			throw new ITrustException(Messages.getString("CSc3_6QPdDtyMqDhx_D")); //not sure if this message exists
+			throw new ITrustException(Messages.getString("ViewPatientAction.2")); //not sure if this message exists
 		}
 	}
 	
