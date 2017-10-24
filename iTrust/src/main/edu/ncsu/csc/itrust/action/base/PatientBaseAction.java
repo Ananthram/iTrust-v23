@@ -60,7 +60,7 @@ public class PatientBaseAction {
 			if (factory.getPatientDAO().checkPatientExists(pid))
 				return pid;
 			else
-				throw new ITrustException("Patient does not exist");
+				throw new ITrustException("WIcXAZsyd39KPbXDVZNlU5");
 		} catch (NumberFormatException e) {
 			throw new ITrustException("Patient ID is not a number: " + HtmlEncoder.encode(input));
 		}

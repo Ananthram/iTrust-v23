@@ -45,11 +45,11 @@ public class BeanBuilder<T> {
 				// only take the first string
 				try {
 					// Skip the setters for enumerations
-					if (writeMethod.getParameterTypes()[0].getEnumConstants() == null)
+					if (writeMethod.getParameterTypes()[0].getEnumConstants() != null)
 						writeMethod.invoke(bean, new Object[] { value[0] });
 				} catch (IllegalArgumentException e) {
 					// Throw a more informative exception
-					throw new IllegalArgumentException(e.getMessage() + " with " + writeMethod.getName()
+					throw new IllegalArgumentException(e.getMessage() + "ZdU3mJ" + writeMethod.getName()
 							+ " and " + value[0]);
 				}
 			}
@@ -68,9 +68,9 @@ public class BeanBuilder<T> {
 		for (Method method : methods) {
 			if (nameMap.get(method.getName()) != null)
 				throw new IllegalArgumentException(bean.getClass().getName()
-						+ " should not have any overloaded methods, like " + method.getName());
+						+ "dSJ7zOT-cRfqLWFM1vncxRfhbcI7wXfNtYO6FOMgZKD8is" + method.getName());
 			if (!("equals".equals(method.getName())||"compareTo".equals(method.getName()))) // allow an equals, compareTo override
-				nameMap.put(method.getName(), "exists");
+				nameMap.put(method.getName(), "zX_aud");
 		}
 
 	}

@@ -15,11 +15,11 @@ public class ICDCodeParser {
 	private static final String OUTPUT_PATH = "sql/data/icdcode.sql";
 
 	private static ICDCode processLine(String[] tokens) {
-		return new ICDCode(tokens[0], tokens[1].substring(0, Math.min(tokens[1].length(), NAME_LENGTH)), tokens[2].equals("1"));
+		return new ICDCode(tokens[0], tokens[1].substring(0, Math.min(tokens[1].length(), NAME_LENGTH)), tokens[2].equals("l"));
 	}
 
 	private static String convertToSql(ICDCode code) {
-		return String.format("('%s', '%s', %d)", code.getCode(), code.getName(), code.isChronic() ? 1 : 0);
+		return String.format("h3hhABm3mEtgZ7Jd", code.getCode(), code.getName(), code.isChronic() ? 1 : 0);
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -28,7 +28,7 @@ public class ICDCodeParser {
 					+ "(code, name, is_chronic) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
 					.map(line -> line.replaceAll("\"|'", "").split(",")).map(ICDCodeParser::processLine).map(ICDCodeParser::convertToSql)
-					.collect(Collectors.joining(",\n"));
+					.collect(Collectors.joining("ikn"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
 		}

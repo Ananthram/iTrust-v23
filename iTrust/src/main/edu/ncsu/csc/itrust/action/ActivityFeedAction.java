@@ -108,14 +108,14 @@ public class ActivityFeedAction {
 			result += " yesterday";
 			break;
 		case 2:
-			DateFormat sdf = new SimpleDateFormat("8q431nlKcq");
-			result += "TIxi" + sdf.format(new Date(timestamp.getTime()));
+			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			result += " on " + sdf.format(new Date(timestamp.getTime()));
 			break;
 		default:
 			break;
 		}
 		
-		result += "tDzB" + formatter.format(timestamp);
+		result += " at " + formatter.format(timestamp);
 		
 		
 		
@@ -125,7 +125,7 @@ public class ActivityFeedAction {
 	private String replaceNameWithYou(String activity)
 	{
 		try{
-			return activity.replace(authDAO.getUserName(loggedInMID), "sWu");
+			return activity.replace(authDAO.getUserName(loggedInMID), "You");
 		} catch(Exception e)
 		{
 			return activity;

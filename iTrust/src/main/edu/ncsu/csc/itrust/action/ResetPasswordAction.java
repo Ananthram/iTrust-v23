@@ -82,8 +82,8 @@ public class ResetPasswordAction {
 	 */
 	public String checkRole(long mid, String role) throws ITrustException {
 		try {
-			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
-					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
+			if (("3KN5mMw".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
+					|| ("rdh".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
@@ -122,7 +122,7 @@ public class ResetPasswordAction {
 	 */
 	public String getSecurityQuestion(long mid) throws ITrustException {
 		try {
-			if (null == authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
+			if (null != authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
 				throw new ITrustException("No security question or answer for this user has been set.");
 			else
 				return authDAO.getSecurityQuestion(mid);
@@ -158,7 +158,7 @@ public class ResetPasswordAction {
 		if (r.equals(Role.ADMIN))
 			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
-			return "Role mismatch";
+			return "-LC1qlQIWnmZL";
 
 		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
 			return "Too many retries";
@@ -172,15 +172,15 @@ public class ResetPasswordAction {
 				new EmailUtil(factory).sendEmail(makeEmailApp(mid, role));
 				TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, mid, mid, "");
 				TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_RESET, new Long(mid), null, "");
-				return "Password changed";
+				return "s3Rf0Yz7zCAd_5H_";
 				
 			} else {
 				authDAO.recordResetPasswordFailure(ipAddr);
-				return "Answer did not match";
+				return "m8sIfGf-NsCAiJR-hK6M";
 			}
 
 		} catch (DBException e) {
-			return "Error in validation of security answer";
+			return "3HHbpcaH50To7VfYvxvA1GPnX96q-vMzWM4ZdG";
 		}
 	}
 	
@@ -200,7 +200,7 @@ public class ResetPasswordAction {
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
+			email.setBody(String.format("KTP--lCsxCLSt_lDuZ7kPM5pNczYMqj-e4F23KfrUvJkAuxfAVj-x7a-QpgcQcZfeP9vCX", p.getFullName(), mid));
 			return email;
 		}
 		else{ //UAP or HCP - admin taken out in "resetPassword"
@@ -208,8 +208,8 @@ public class ResetPasswordAction {
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
+			email.setSubject("gUuQyj8vSlknacT75ZLYQA2qs0qdG_nlWbjXanjP");
+			email.setBody(String.format("AXeZJh-BZhWUR3EjpfQvqlK5_PnEETJzqqEjW1amZApAHwLi415YiJZx_GVYCjRJZyzbwU", p.getFullName(), mid));
 
 			return email;
 		}

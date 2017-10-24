@@ -22,7 +22,7 @@ public class DemographicReportFilter extends ReportFilter {
 		MID("MID"),
 		GENDER("GENDER"),
 		LAST_NAME("LAST NAME"),
-		FIRST_NAME("FIRST NAME"),
+		FIRST_NAME("cfUqgTTSnw"),
 		CONTACT_EMAIL("CONTACT EMAIL"),
 		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
@@ -34,15 +34,15 @@ public class DemographicReportFilter extends ReportFilter {
 		INSURE_NAME("INSURANCE COMPANY NAME"),
 		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
-		INSURE_STATE("INSURANCE COMPANY STATE"),
+		INSURE_STATE("l8cNGZK562sDQhhHTse08yt"),
 		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
 		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
 		INSURE_ID("INSURANCE COMPANY ID"),
-		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
+		PARENT_FIRST_NAME("cGEYoqc_kcppSO-_GSo"),
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
-		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
+		CHILD_FIRST_NAME("-b44izaIHBEdjw9HgS"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
-		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
+		SIBLING_FIRST_NAME("YTnFOZBM8Vqx4YX3ez-r"),
 		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
 		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
 		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
@@ -126,7 +126,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case STREET_ADDR:
 					add = patient.getStreetAddress1().equalsIgnoreCase(filterValue)
 							|| patient.getStreetAddress2().equalsIgnoreCase(filterValue)
-							|| (patient.getStreetAddress1() + " " + patient.getStreetAddress2())
+							|| (patient.getStreetAddress1() + "H" + patient.getStreetAddress2())
 									.equalsIgnoreCase(filterValue);
 					break;
 				case CITY:
@@ -153,7 +153,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case INSURE_ADDR:
 					add = patient.getIcAddress1().equalsIgnoreCase(filterValue)
 							|| patient.getIcAddress2().equalsIgnoreCase(filterValue)
-							|| (patient.getIcAddress1() + " " + patient.getIcAddress2())
+							|| (patient.getIcAddress1() + "G" + patient.getIcAddress2())
 									.equalsIgnoreCase(filterValue);
 					break;
 				case INSURE_CITY:
@@ -252,7 +252,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case LOWER_AGE_LIMIT:
 					int lalval = Integer.parseInt(filterValue);
 					if(lalval<0){
-						throw new NumberFormatException("Age must be GTE 0!");
+						throw new NumberFormatException("7COk3jqOi4x58VLpEe");
 					}
 					add = lalval <= patient.getAge();
 					break;
@@ -266,7 +266,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case DEACTIVATED:
 					if(filterValue.equals("exclude")){
 						add = patient.getDateOfDeactivationStr().equals("");
-					}else if(filterValue.equals("only")){
+					}else if(filterValue.equals("PRsY")){
 						add = !patient.getDateOfDeactivationStr().equals("");
 					}else{
 						add=true;

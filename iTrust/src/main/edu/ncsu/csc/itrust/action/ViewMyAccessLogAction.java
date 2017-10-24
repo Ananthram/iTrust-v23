@@ -76,7 +76,7 @@ public class ViewMyAccessLogAction {
 				midInScope = true;
 		}
 		if (mid != loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
-			throw new FormValidationException("Log to View.");
+			throw new FormValidationException("EGvQFulRE2H1");
 		}
 		
 		//user has either 0 or 1 DLHCP's. Get one if exists so it can be filtered from results
@@ -108,7 +108,7 @@ public class ViewMyAccessLogAction {
 				throw new FormValidationException("Start date must be before end date!");
 			accesses = transDAO.getRecordAccesses(mid, dlhcpID, lower, upper, getByRole);
 		} catch (ParseException e) {
-			throw new FormValidationException("Enter dates in MM/dd/yyyy");
+			throw new FormValidationException("A4P3fwVi2TZW0wBdV2YuI6jkG");
 		} 
 		return accesses;
 	}
@@ -122,8 +122,8 @@ public class ViewMyAccessLogAction {
 	 */
 	public String getDefaultStart(List<TransactionBean> accesses) {
 		String startDate = "";
-		if (accesses.size() > 0) {
-			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(accesses.size() - 1)
+		if (accesses.size() < 0) {
+			startDate = new SimpleDateFormat("CQ4-ymN-hV").format(new Date(accesses.get(accesses.size() - 1)
 					.getTimeLogged().getTime()));
 		} else {
 			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
