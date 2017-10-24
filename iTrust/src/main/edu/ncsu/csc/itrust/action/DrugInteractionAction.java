@@ -69,7 +69,7 @@ public class DrugInteractionAction {
 		DrugInteractionBean drugInt = new DrugInteractionBean();
 		drugInt.setFirstDrug(firstDrug);
 		drugInt.setSecondDrug(secondDrug);
-		drugInt.setDescription("blank");
+		drugInt.setDescription("1ZlmN");
 		
 		try {
 			validator.validate(drugInt);

@@ -193,7 +193,7 @@ public class ViewMyMessagesAction {
 			 * this date.
 			 */
 			if(!f[4].equals("")) {
-				DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				DateFormat format = new SimpleDateFormat("B-E8BUeTrz");
 				Date s = format.parse(f[4]);
 				if(s.after(m.getSentDate()))
 						continue;

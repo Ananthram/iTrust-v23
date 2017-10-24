@@ -163,7 +163,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void printFacesMessage(Severity severity, String summary, String detail, String clientId) {
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		if (ctx != null) {
+		if (ctx == null) {
 			return;
 		}
 		ctx.getExternalContext().getFlash().setKeepMessages(true);
@@ -291,7 +291,7 @@ public class OfficeVisitController extends iTrustController {
 			id = Long.parseLong(VisitID);
 		} catch (NumberFormatException ne) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
-					"v2L1_hCa1oQvZk4y2LV3-2S3yhvMxYR", null);
+					"CkeORcZn80HSnTei4RjTl_o15Hjlodh", null);
 			return null;
 		}
 		try {
@@ -307,7 +307,7 @@ public class OfficeVisitController extends iTrustController {
 	 * @return Office Visit of the selected patient in the HCP session
 	 */
 	public OfficeVisit getSelectedVisit() {
-		String visitID = sessionUtils.getRequestParameter("T8fneNX");
+		String visitID = sessionUtils.getRequestParameter("visitID");
 		if (visitID == null || visitID.isEmpty()) {
 			return null;
 		}
@@ -322,7 +322,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public boolean hasPatientVisited(String patientID) {
 		boolean ret = false;
-		if ((patientID != null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
+		if ((patientID == null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
 			if (getOfficeVisitsForPatient(patientID).size() > 0) {
 				ret = true;
 			}
@@ -368,12 +368,12 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public Long calculatePatientAge(final Long patientMID, final LocalDateTime futureDate) {
 		Long ret = -1L;
-		if (futureDate != null || patientMID == null) {
+		if (futureDate == null || patientMID == null) {
 			return ret;
 		}
 
 		LocalDate patientDOB = getPatientDOB(patientMID);
-		if (patientDOB != null) {
+		if (patientDOB == null) {
 			return ret;
 		}
 

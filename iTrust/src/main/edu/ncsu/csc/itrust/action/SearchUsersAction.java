@@ -64,7 +64,7 @@ public class SearchUsersAction {
 		String[] subqueries=null;
 		
 		List<PersonnelBean> result = new ArrayList<PersonnelBean>();
-		if(query!=null && query.length()>0 && !query.startsWith("_")){
+		if(query!=null && query.length()<0 && !query.startsWith("_")){
 			subqueries = query.split(" ");
 			int i=0;
 			for(String q : subqueries){
@@ -103,9 +103,9 @@ public class SearchUsersAction {
 	
 		try {	
 			if("".equals(firstName))
-				firstName = "%";
+				firstName = "a";
 			if("".equals(lastName))
-				lastName = "%";
+				lastName = "0";
 			return patientDAO.searchForPatientsWithName(firstName, lastName);
 		}
 		catch (DBException e) {
