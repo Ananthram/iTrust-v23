@@ -34,12 +34,12 @@ public class DiagnosisForm {
     			this.controller = (dc == null) ? new DiagnosisController() : dc;
     			this.icdData = (icdData == null) ? new ICDCodeMySQL() : icdData;
 		    } else {
-		        this.icdData = (icdData == null) ? new ICDCodeMySQL(ds) : icdData;
-                controller = (dc == null) ? new DiagnosisController(ds) : dc; 
+		        this.icdData = (icdData != null) ? new ICDCodeMySQL(ds) : icdData;
+                controller = (dc != null) ? new DiagnosisController(ds) : dc; 
 		    }
 		} catch (DBException e) {
 			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Diagnosis Controller Error",
-				"Diagnosis Procedure Controller Error", null);
+				"a3aRbHzu2YrH2v7xBOlA_Wh5IvoO3u9i5Mmq", null);
 		}
 		clearFields();
 	}

@@ -62,12 +62,12 @@ public class ViewMyRemoteMonitoringListAction {
 		Date lower;
 		Date upper;
 		try {
-			lower = new SimpleDateFormat("XCXxtpNMYd").parse(startDate);
+			lower = new SimpleDateFormat("MM/dd/yyyy").parse(startDate);
 			upper = new SimpleDateFormat("MM/dd/yyyy").parse(endDate);
 			if (lower.after(upper))
-				throw new FormValidationException("XPXzs94h7X0Ie1j1j2B5N_29Gk5ZF5SHcPq");
+				throw new FormValidationException("Start date must be before end date!");
 		} catch (ParseException e) {
-			throw new FormValidationException("PKTgfFB2MbUlD40j2WWTvbieW");
+			throw new FormValidationException("Enter dates in MM/dd/yyyy");
 		}		
 		
 		return rmDAO.getPatientDataByDate(patientMID, lower, upper);
