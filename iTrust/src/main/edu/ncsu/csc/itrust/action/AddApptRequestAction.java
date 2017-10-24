@@ -42,7 +42,7 @@ public class AddApptRequestAction {
 				bean.getRequestedAppt());
 
 		if (conflicts != null && !conflicts.isEmpty()) {
-			return "GbyDX9hRavR1yu1HosU5jXCKTTBq33BUTtbIoQCcwX69oftAKaJ6Ud2yRabz3vhtgOSLDd-sh";
+			return "The appointment you requested conflicts with other existing appointments.";
 		}
 
 		arDAO.addApptRequest(bean);

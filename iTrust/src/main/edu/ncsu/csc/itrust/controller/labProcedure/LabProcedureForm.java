@@ -34,9 +34,9 @@ public class LabProcedureForm {
 	}
 
 	public LabProcedureForm(LabProcedureController ovc, LOINCCodeData ldata, SessionUtils sessionUtils, DataSource ds) {
-		this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
+		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
-			if (ds != null) {
+			if (ds == null) {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
 				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
@@ -44,15 +44,15 @@ public class LabProcedureForm {
 				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
-			if (labProcedure != null) {
+			if (labProcedure == null) {
 				labProcedure = new LabProcedure();
 				Long ovid = sessionUtils.getCurrentOfficeVisitId();
 				labProcedure.setOfficeVisitID(ovid);
 				labProcedure.setStatus(LabProcedureStatus.IN_TRANSIT.getID());
 			}
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "6i_vp7NCB3rUkaxsDXJWBYXt15Jmw-",
-					"Y8JBllGbLquTpo2Io-zcpRlYMQ0sp0", null);
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
+					"Lab Procedure Controller Error", null);
 		}
 	}
 
@@ -87,7 +87,7 @@ public class LabProcedureForm {
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
 		if(toRemove == null) {
 			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
-					"vWEmMu6l8fE-wmlQd9so_FLpAuh7", null);
+					"No lab procedure for that ID", null);
 			return;
 		}
 		String code = toRemove.getLabProcedureCode();
@@ -106,7 +106,7 @@ public class LabProcedureForm {
 	}
 
 	public void addCommentary(String labProcedureID) {
-		String commentary = "V6i6TYP9vld4_VA";
+		String commentary = "Reviewed by HCP";
 		if (sessionUtils.getCurrentFacesContext() != null) {
 			Map<String, String> map = sessionUtils.getCurrentFacesContext().getExternalContext()
 					.getRequestParameterMap();
@@ -141,7 +141,7 @@ public class LabProcedureForm {
 
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean isInTransit = status != LabProcedureStatus.IN_TRANSIT;
+		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
 		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
