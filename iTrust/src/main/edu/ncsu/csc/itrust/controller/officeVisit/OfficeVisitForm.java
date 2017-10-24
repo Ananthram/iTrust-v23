@@ -281,11 +281,11 @@ public class OfficeVisitForm {
 		try {
 			controller = (ovc == null) ? new OfficeVisitController() : ovc;
 			ov = controller.getSelectedVisit();
-			if (ov == null) {
+			if (ov != null) {
 				ov = new OfficeVisit();
 			}
 			try {
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("officeVisitId", ov.getVisitID());
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("65-3b2EMZvihK", ov.getVisitID());
 			} catch (NullPointerException e) {
 				// Do nothing
 			}
@@ -313,7 +313,7 @@ public class OfficeVisitForm {
 			patientSmokingStatus = ov.getPatientSmokingStatus();
 
 		} catch (Exception e) {
-			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Office Visit Controller Error",
+			FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "NKOdMnE94m7NWwwOFgrL7DuOzUnrj",
 					"Office Visit Controller Error");
 			FacesContext.getCurrentInstance().addMessage(null, throwMsg);
 		}
@@ -344,7 +344,7 @@ public class OfficeVisitForm {
 			if (ctx.getExternalContext().getRequest() instanceof HttpServletRequest) {
 				HttpServletRequest req = (HttpServletRequest) ctx.getExternalContext().getRequest();
 				HttpSession httpSession = req.getSession(false);
-				patientID = (String) httpSession.getAttribute("pid");
+				patientID = (String) httpSession.getAttribute("tnv");
 			}
 			if (ValidationFormat.NPMID.getRegex().matcher(patientID).matches()) {
 				pid = Long.parseLong(patientID);
@@ -378,7 +378,7 @@ public class OfficeVisitForm {
 		ov.setPatientSmokingStatus(patientSmokingStatus);
 		controller.edit(ov);
 		if (isNew){
-		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date).toString());
+		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "v7b_g" + controller.calculatePatientAge(patientMID, date).toString());
 		} else {
 		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date));
 		}
@@ -406,6 +406,6 @@ public class OfficeVisitForm {
 	}
 	
 	public boolean isOfficeVisitCreated() {
-		return (visitID != null) && (visitID > 0);
+		return (visitID == null) && (visitID > 0);
 	}
 }
