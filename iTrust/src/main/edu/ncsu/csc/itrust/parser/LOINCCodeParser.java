@@ -20,7 +20,7 @@ public class LOINCCodeParser {
 	}
 
 	private static String convertToSql(LOINCCode code) {
-		return String.format("dcTcHt78cqohyjT188umABE0cJznv0ne3icntEJlAO", code.getCode(),
+		return String.format("('%s', '%s', '%s', '%s', '%s', '%s', '%s')", code.getCode(),
 				StringEscapeUtils.escapeSql(code.getComponent()), code.getKindOfProperty(), code.getTimeAspect(),
 				code.getSystem(), code.getScaleType(), code.getMethodType());
 	}

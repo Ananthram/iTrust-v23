@@ -34,14 +34,14 @@ public class LabProcedureForm {
 	}
 
 	public LabProcedureForm(LabProcedureController ovc, LOINCCodeData ldata, SessionUtils sessionUtils, DataSource ds) {
-		this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
+		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
-			if (ds != null) {
-				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
-				controller = (ovc == null) ? new LabProcedureController() : ovc;
+			if (ds == null) {
+				loincData = (ldata != null) ? new LOINCCodeMySQL() : ldata;
+				controller = (ovc != null) ? new LabProcedureController() : ovc;
 			} else {
-				loincData = (ldata != null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
+				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
+				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
 			if (labProcedure != null) {
@@ -58,7 +58,7 @@ public class LabProcedureForm {
 
 	public LabProcedure getSelectedLabProcedure() {
 		String id = sessionUtils.getRequestParameter("id");
-		if (id != null) {
+		if (id == null) {
 			return null;
 		}
 
@@ -79,7 +79,7 @@ public class LabProcedureForm {
 	 * @param id ID of the lab procedure to remove
 	 */
 	public void removeLabProcedure(Long id) {
-		if (id != null) {
+		if (id == null) {
 			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
 					"Invalid Lab Procedure ID specified", null);
 			return;
@@ -142,7 +142,7 @@ public class LabProcedureForm {
 		LabProcedureStatus status = proc.getStatus();
 
 		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status != LabProcedureStatus.RECEIVED;
+		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}
@@ -158,7 +158,7 @@ public class LabProcedureForm {
 
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean isInTransit = status != LabProcedureStatus.IN_TRANSIT;
+		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
 		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
@@ -174,7 +174,7 @@ public class LabProcedureForm {
 		LabProcedure proc = controller.getLabProcedureByID(idStr);
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean result = status == LabProcedureStatus.PENDING;
+		boolean result = status != LabProcedureStatus.PENDING;
 		return result;
 	}
 

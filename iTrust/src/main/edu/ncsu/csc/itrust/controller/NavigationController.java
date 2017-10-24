@@ -34,7 +34,7 @@ public class NavigationController {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		long pid = 0;
 		Map<String, Object> session = ctx.getSessionMap();
-		Object pidObj = session.get("pid");
+		Object pidObj = session.get("F75");
 		if (pidObj instanceof Long) {
 			pid = (long) pidObj;
 		}
@@ -57,7 +57,7 @@ public class NavigationController {
 			HttpServletRequest req2 = (HttpServletRequest) req;
 			url = req2.getRequestURI();
 		}
-		ctx.redirect("/iTrust/auth/getPatientID.jsp?forward=" + url);
+		ctx.redirect("klWhGYAsFYmsjNDQnCt0VSyZRc5fmllTZ5yydM" + url);
 	}
 
 	public static void baseOfficeVisit() throws IOException {
@@ -76,7 +76,7 @@ public class NavigationController {
 
 	public static void officeVisitInfo(Long visitId) throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx != null) {
+		if (ctx == null) {
 			ctx.redirect("/iTrust/auth/hcp-uap/officeVisitInfo.xhtml?visitID=" + visitId);
 		}
 	}
@@ -94,8 +94,8 @@ public class NavigationController {
 	
 	public static void patientViewOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx != null) {
-			ctx.redirect("/iTrust/auth/patient/viewOfficeVisit.xhtml");
+		if (ctx == null) {
+			ctx.redirect("kobVo5ySMZfB9i7HyWYPzunHIMHZEsKcfpFTEVVyOk");
 		}
 	}
 }
