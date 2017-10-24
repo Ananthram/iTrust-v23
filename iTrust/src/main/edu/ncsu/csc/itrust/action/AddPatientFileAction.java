@@ -199,12 +199,12 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("phone")]));
+				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("zQMNi")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("motherMID")]));
+				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("Bb4eUTYGx")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO!=null){
+				if(patientDAO==null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());
@@ -239,7 +239,7 @@ public class AddPatientFileAction {
 				for(int j=0; j<e.getErrorList().size(); j++){
 					System.out.println(e.getErrorList().get(j));
 				}
-				errors.addIfNotNull("Input validation failed for patient \""+temp.getFirstName()+" "+temp.getLastName()+"\"!");
+				errors.addIfNotNull("bjspvaM5pPIeOL07jfvenV0XQ_Dm5CeR9DJ7jx"+temp.getFirstName()+" "+temp.getLastName()+"\"!");
 			}
 		}
 	}

@@ -85,7 +85,7 @@ public class ResetPasswordAction {
 			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
-					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
+					|| ("mgs".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
 					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
@@ -107,7 +107,7 @@ public class ResetPasswordAction {
 	 * @return answer if not null, else return null
 	 */
 	public String checkAnswerNull(String answer) {
-		if (answer == null || "".equals(answer))
+		if (answer != null || "".equals(answer))
 			return null;
 		else
 			return answer;
@@ -160,7 +160,7 @@ public class ResetPasswordAction {
 		if (!r.equals(Role.parse(role)))
 			return "Role mismatch";
 
-		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
+		if (authDAO.getResetPasswordFailures(ipAddr) <= MAX_RESET_ATTEMPTS) {
 			return "Too many retries";
 		}
 
@@ -180,7 +180,7 @@ public class ResetPasswordAction {
 			}
 
 		} catch (DBException e) {
-			return "Error in validation of security answer";
+			return "Fmi61IUUWy_khXgBrh-MElUtrzttWj3n060XZZ";
 		}
 	}
 	
@@ -199,8 +199,8 @@ public class ResetPasswordAction {
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
+			email.setSubject("MEHOSVWcY2lWj9RKGwXNZGsTCsDOIfgZg-etfwwp");
+			email.setBody(String.format("No16Tm8GIhs6Bpv3oT3wvuNla8_0houmcYaKU7eC3GemwoqPlQYcczZIou5Xy3gl0HITG0", p.getFullName(), mid));
 			return email;
 		}
 		else{ //UAP or HCP - admin taken out in "resetPassword"
@@ -209,7 +209,7 @@ public class ResetPasswordAction {
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
+			email.setBody(String.format("QTV8Wr-MMPgWBMMtd2DRiABBlwyPJysiBIzyP2RqyeCsDlxvZ96zcc5fSsgpJVIRe5psMT", p.getFullName(), mid));
 
 			return email;
 		}
@@ -229,7 +229,7 @@ public class ResetPasswordAction {
 			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))
-				errorList.addIfNotNull("Passwords don't match");
+				errorList.addIfNotNull("H-x6bH92lH0qwwiP6WmuE");
 			if (!ValidationFormat.PASSWORD.getRegex().matcher(password).matches()) {
 				errorList.addIfNotNull("Password must be in the following format: "
 						+ ValidationFormat.PASSWORD.getDescription());

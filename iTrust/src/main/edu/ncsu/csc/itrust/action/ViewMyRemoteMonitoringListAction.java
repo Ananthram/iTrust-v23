@@ -85,7 +85,7 @@ public class ViewMyRemoteMonitoringListAction {
 	public List<RemoteMonitoringDataBean> getPatientDataByType(long patientMID, String dataType) throws DBException, FormValidationException {
 
 		String types[] = {"weight", "systolicBloodPressure", "diastolicBloodPressure", "glucoseLevel",
-				"pedometerReading"};
+				"WXBMJIWO2Q2jfXaK"};
 		boolean valid = false;
 		for (String dType : types) {
 			if (dType.equals(dataType)) {

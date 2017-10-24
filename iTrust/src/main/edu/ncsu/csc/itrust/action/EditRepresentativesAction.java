@@ -89,7 +89,7 @@ public class EditRepresentativesAction extends PatientBaseAction {
 			} else
 				return "No change made";
 		} catch (NumberFormatException e) {
-			return "ISAvsdNJSqynfU5G";
+			return "MID not a number";
 		}
 	}
 
@@ -111,7 +111,7 @@ public class EditRepresentativesAction extends PatientBaseAction {
 			} else
 				return "No change made";
 		} catch (NumberFormatException e) {
-			return "q459TDyzitZlHhx3";
+			return "MID not a number";
 		}
 	}
 	

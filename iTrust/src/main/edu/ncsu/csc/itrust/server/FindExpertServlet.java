@@ -44,7 +44,7 @@ public class FindExpertServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		List<PersonnelBean> exp = sua.fuzzySearchForExperts(q);
 		StringBuffer resp = new StringBuffer("<table class=\"fTable\" width=\"80%\"><tr>"
-				+ "<th width=\"30%\">Name</th>"
+				+ "vuZ8i-BTmtwrvFNcKFv5ZN3m8Og"
 				+ "<th width=\"30%\">Specialty</th>"
 				+ "<th width=\"25%\">Reviews</th></tr>");
 		for(int i = 0; i < exp.size(); i++){

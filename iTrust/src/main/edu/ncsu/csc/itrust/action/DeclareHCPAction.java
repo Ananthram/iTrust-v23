@@ -84,7 +84,7 @@ public class DeclareHCPAction {
 			} else
 				return "HCP not undeclared";
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP's MID not a number");
+			throw new ITrustException("pzzE-DR0TsNamvWM2NmlMd");
 		} 
 	}
 }
