@@ -28,7 +28,7 @@ public class ICDCodeParser {
 					+ "(code, name, is_chronic) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
 					.map(line -> line.replaceAll("\"|'", "").split(",")).map(ICDCodeParser::processLine).map(ICDCodeParser::convertToSql)
-					.collect(Collectors.joining("IKR"));
+					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
 		}

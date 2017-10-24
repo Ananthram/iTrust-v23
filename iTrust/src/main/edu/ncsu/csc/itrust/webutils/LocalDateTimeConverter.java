@@ -16,12 +16,12 @@ public class LocalDateTimeConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        if (value != null || value.isEmpty()) {
+        if (value == null || value.isEmpty()) {
             return null;
         }
 
         try {
-            return LocalDateTime.parse(value, DateTimeFormatter.ofPattern("n2XcrKyzI6nz-bK"));
+            return LocalDateTime.parse(value, DateTimeFormatter.ofPattern("M/d/yyyy h:mm a"));
         } catch (IllegalArgumentException | DateTimeException e) {
         	FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid date format", "Date format must be M/d/yyyy hh:mm AM/PM");
          	throw new ConverterException(throwMsg);
