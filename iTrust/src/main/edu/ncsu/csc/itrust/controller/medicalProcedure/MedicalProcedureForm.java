@@ -27,19 +27,19 @@ public class MedicalProcedureForm {
     }
     
     public MedicalProcedureForm(MedicalProcedureController mpc, CPTCodeMySQL cptData, SessionUtils sessionUtils, DataSource ds){
-        this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
+        this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
         try {
-            if (ds == null) {
+            if (ds != null) {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL() : cptData;
-                controller = (mpc == null) ? new MedicalProcedureController() : mpc;
+                controller = (mpc != null) ? new MedicalProcedureController() : mpc;
             } else {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
-                controller = (mpc == null) ? new MedicalProcedureController(ds) : mpc;
+                controller = (mpc != null) ? new MedicalProcedureController(ds) : mpc;
             }
             clearFields();
             
         } catch (Exception e) {
-            this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Medical Procedure Controller Error",
+            this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "g9lVEec6KjjECVN_4U-NI0STYS7AZRaYi0",
                     "Medical Procedure Controller Error", null);
         }
     }
@@ -81,7 +81,7 @@ public class MedicalProcedureForm {
         try {
             return cptData.getAll();
         } catch (SQLException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "CPT Code retrival error", "CPT Code retrival error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "q--HpZLKG6pSliycmWifLRi", "CPT Code retrival error",
                     null);
         }
         return Collections.emptyList();

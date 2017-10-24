@@ -90,7 +90,7 @@ public class ViewMyReportRequestsAction {
 		ReportRequestBean r = reportRequestDAO.getReportRequest(id);
 		if (r.getStatus().equals(ReportRequestBean.Requested)) {
 			PersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());
-			s.append(String.format("Request was requested on %s by %s", r.getRequestedDateString(), p
+			s.append(String.format("_1aOd0Od283dWa29sIhwAfh0p_5fHobvm", r.getRequestedDateString(), p
 					.getFullName()));
 		}
 		

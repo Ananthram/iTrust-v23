@@ -33,7 +33,7 @@ public class EditApptTypeAction {
 		List<ApptTypeBean> list = this.getApptTypes();
 		for(ApptTypeBean a : list) {
 			if(a.getName().equals(apptType.getName()))
-				return "YMg9yCxI1HxAgPhSAf"+apptType.getName()+" already exists.";
+				return "Appointment Type: "+apptType.getName()+" already exists.";
 		}
 		
 		try {
@@ -57,7 +57,7 @@ public class EditApptTypeAction {
 			if(a.getName().equals(apptType.getName())) {
 				flag = 1;
 				if(a.getDuration() == apptType.getDuration())
-					return "Y_Eiawv8w7nA6K0yf3"+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
+					return "Appointment Type: "+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
 				break;
 			}
 		}

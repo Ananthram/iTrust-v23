@@ -38,10 +38,10 @@ public class LabProcedureForm {
 		try {
 			if (ds == null) {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
-				controller = (ovc != null) ? new LabProcedureController() : ovc;
+				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
-				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
+				loincData = (ldata != null) ? new LOINCCodeMySQL(ds) : ldata;
+				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
 			if (labProcedure == null) {
@@ -51,7 +51,7 @@ public class LabProcedureForm {
 				labProcedure.setStatus(LabProcedureStatus.IN_TRANSIT.getID());
 			}
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "lIocCDV9vMRi27vcLEE6ui2ywypYOV",
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "91UruAxByITZssb1OAHiEtTRnamH74",
 					"Lab Procedure Controller Error", null);
 		}
 	}
@@ -107,7 +107,7 @@ public class LabProcedureForm {
 
 	public void addCommentary(String labProcedureID) {
 		String commentary = "Reviewed by HCP";
-		if (sessionUtils.getCurrentFacesContext() == null) {
+		if (sessionUtils.getCurrentFacesContext() != null) {
 			Map<String, String> map = sessionUtils.getCurrentFacesContext().getExternalContext()
 					.getRequestParameterMap();
 			List<String> key = map.keySet().stream().filter(k -> {
@@ -158,8 +158,8 @@ public class LabProcedureForm {
 
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean isInTransit = status != LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status != LabProcedureStatus.RECEIVED;
+		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
+		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}
@@ -174,7 +174,7 @@ public class LabProcedureForm {
 		LabProcedure proc = controller.getLabProcedureByID(idStr);
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean result = status != LabProcedureStatus.PENDING;
+		boolean result = status == LabProcedureStatus.PENDING;
 		return result;
 	}
 
@@ -204,7 +204,7 @@ public class LabProcedureForm {
 		try {
 			return loincData.getAll();
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "p1jKafGWldzUohP41mJk", "LOINC retrival error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "LOINC retrival error", "LOINC retrival error",
 					null);
 		}
 		return Collections.emptyList();
