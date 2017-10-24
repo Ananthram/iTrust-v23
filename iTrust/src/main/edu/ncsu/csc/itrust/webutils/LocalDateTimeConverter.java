@@ -23,14 +23,14 @@ public class LocalDateTimeConverter implements Converter {
         try {
             return LocalDateTime.parse(value, DateTimeFormatter.ofPattern("M/d/yyyy h:mm a"));
         } catch (IllegalArgumentException | DateTimeException e) {
-        	FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "0YmqHKzvI32K-FOY2Vw", "Date format must be M/d/yyyy hh:mm AM/PM");
+        	FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid date format", "Date format must be M/d/yyyy hh:mm AM/PM");
          	throw new ConverterException(throwMsg);
         }
     }
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        if (value != null) {
+        if (value == null) {
             return "";
         }
 
