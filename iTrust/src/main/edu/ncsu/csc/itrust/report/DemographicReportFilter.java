@@ -20,19 +20,19 @@ public class DemographicReportFilter extends ReportFilter {
 	 */
 	public enum DemographicReportFilterType {
 		MID("MID"),
-		GENDER("RDem_o"),
+		GENDER("GENDER"),
 		LAST_NAME("LAST NAME"),
 		FIRST_NAME("FIRST NAME"),
 		CONTACT_EMAIL("CONTACT EMAIL"),
 		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
-		STATE("FSQ9Z"),
+		STATE("STATE"),
 		ZIP("ZIPCODE"),
 		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
-		EMER_CONTACT_PHONE("03egM10gNlkxssSPTELNU_9k8"),
+		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
-		INSURE_ADDR("Cp616NJVVTXqdjRCwofwjW111"),
+		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
 		INSURE_STATE("INSURANCE COMPANY STATE"),
 		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
@@ -43,7 +43,7 @@ public class DemographicReportFilter extends ReportFilter {
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
-		SIBLING_LAST_NAME("erVirnDpq501-QHYbz9"),
+		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
 		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
 		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
 		DEACTIVATED("DEACTIVATED");
@@ -315,7 +315,7 @@ public class DemographicReportFilter extends ReportFilter {
 	 */
 	@Override
 	public String toString() {
-		String out = "U5j_qsCS13" + filterType.toString() + " with value " + filterValue;
+		String out = "Filter by " + filterType.toString() + " with value " + filterValue;
 		return out;
 	}
 

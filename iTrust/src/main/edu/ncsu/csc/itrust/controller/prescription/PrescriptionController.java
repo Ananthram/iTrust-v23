@@ -64,7 +64,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.update(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
-						"Prescription is successfully updated", null);
+						"S1vQXvQbymhWImcp_b4gt_Qn3FpnLYHkjWTM", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -80,7 +80,7 @@ public class PrescriptionController extends iTrustController {
         try {
         	if (sql.remove(prescriptionID)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully deleted",
-						"Prescription is successfully deleted", null);
+						"TE22p_3iY8a4HLrcGiXto1y1zTqFNKIPgbhi", null);
 				logTransaction(TransactionType.PRESCRIPTION_REMOVE, getSessionUtils().getCurrentOfficeVisitId().toString());
         	} else {
         		throw new Exception();
@@ -100,7 +100,7 @@ public class PrescriptionController extends iTrustController {
 			try {
 				prescriptions = sql.getPrescriptionsForOfficeVisit(ovID);
 			} catch (Exception e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "sdvv3wrCgi8SpLeSTcQZ1xYU6cPgYl7c", "Unable to Retrieve Prescriptions", null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Prescriptions", "Unable to Retrieve Prescriptions", null);
 			}
 		}
 		return prescriptions;
@@ -136,7 +136,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid != null) {
+		if (mid == null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}
@@ -179,7 +179,7 @@ public class PrescriptionController extends iTrustController {
 				representees = sql.getListOfRepresentees(userMID);
 				getSessionUtils().setRepresenteeList(representees);
 			} catch (SQLException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get representees", e.getMessage(), null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "1IPN_hqFJPES0GvaQe_nIaT", e.getMessage(), null);
 			}
 		}
 
