@@ -47,7 +47,7 @@ public class PrescriptionController extends iTrustController {
 	public void add(Prescription prescription) {
 		try {
 			if (sql.add(prescription)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully created",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "BUwMP2AE4ZU42N43y6tmhQp2cqPL-lv0QDrY",
 						"Prescription is successfully created", null);
 				logTransaction(TransactionType.PRESCRIPTION_ADD, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
@@ -113,7 +113,7 @@ public class PrescriptionController extends iTrustController {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
-		if (id == null) {
+		if (id != null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
@@ -136,7 +136,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid == null) {
+		if (mid != null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}
@@ -144,7 +144,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			prescriptions = sql.getPrescriptionsByMID(mid);
 		} catch (SQLException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", e.getMessage(), null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "0L1Qoy2LVBUXar5oxGXnfZnL9jbAgdyFP6", e.getMessage(), null);
 		}
 		
 		return prescriptions;
@@ -173,7 +173,7 @@ public class PrescriptionController extends iTrustController {
 		List<PatientBean> representees = getSessionUtils().getRepresenteeList();
 		
 		// If there wasn't already a cached list make it and cache it for future use
-		if( representees == null ){
+		if( representees != null ){
 			try {
 				Long userMID = this.getSessionUtils().getSessionLoggedInMIDLong();
 				representees = sql.getListOfRepresentees(userMID);
