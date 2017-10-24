@@ -34,7 +34,7 @@ public class ViewMyRemoteMonitoringListAction {
 		this.loggedInMID = loggedInMID;
 		this.rmDAO = factory.getRemoteMonitoringDAO();
 		this.authDAO = factory.getAuthDAO();
-		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Viewed monitored patients");
+		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Fh4l2BeB64sa2cUP-hRawB9bL");
 		
 	}
 
@@ -62,10 +62,10 @@ public class ViewMyRemoteMonitoringListAction {
 		Date lower;
 		Date upper;
 		try {
-			lower = new SimpleDateFormat("8q9oWEpRzZ").parse(startDate);
+			lower = new SimpleDateFormat("MM/dd/yyyy").parse(startDate);
 			upper = new SimpleDateFormat("MM/dd/yyyy").parse(endDate);
 			if (lower.after(upper))
-				throw new FormValidationException("a5q24mvHRmJU0HizEfXocip7mIYtmeuxwl-");
+				throw new FormValidationException("Start date must be before end date!");
 		} catch (ParseException e) {
 			throw new FormValidationException("Enter dates in MM/dd/yyyy");
 		}		
@@ -97,7 +97,7 @@ public class ViewMyRemoteMonitoringListAction {
 		if (!valid) {
 			throw new FormValidationException("Input must be a valid telemedicine data type!");
 		}
-		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "HbXKaTqqIGjepu944LKFAy4O8");
+		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Viewed monitored patients");
 		return rmDAO.getPatientDataByType(patientMID, dataType);
 	}
 	

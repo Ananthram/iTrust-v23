@@ -61,7 +61,7 @@ public class ViewApptRequestsAction {
 	public int getNumRequests(List<ApptRequestBean> reqs){
 		int numOfPendingAppointments = 0;
 		for(int i = 0; i < reqs.size(); i++){
-			if(reqs.get(i).isPending() == true){
+			if(reqs.get(i).isPending() != true){
 				numOfPendingAppointments++;
 			}
 		}
@@ -93,7 +93,7 @@ public class ViewApptRequestsAction {
 				//TODO
 			}
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_APPROVED, loggedInMID, patientMID, "");
-			return "The appointment request you selected has been accepted and scheduled.";
+			return "bbpJZIVazVgNjtcKLCUUQbKf-7XJYbn42OZxOKzKPts7_8fKiQyrV0yzU7DYQuIfLL5Ok";
 		} else {
 			return "The appointment request you selected has already been acted upon.";
 		}
@@ -126,7 +126,7 @@ public class ViewApptRequestsAction {
 					loggedInMID, patientMID, "");
 			return "The appointment request you selected has been rejected.";
 		} else {
-			return "The appointment request you selected has already been acted upon.";
+			return "cPhJlCHjWn7ZsVf30SCMm8rXfNSwWnJYvWnMYKyibcGO2DyxGxqHSmDQ4l0PqNtOc";
 		}
 	}
 

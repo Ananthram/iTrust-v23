@@ -130,7 +130,7 @@ public class AddPatientFileAction {
 			valid=false;
 			for(int j=0; j<requiredFields.length; j++){
 				if(CSVHeader.get(i).equalsIgnoreCase(requiredFields[j])){
-					if(requiredFieldsMapping[j]!=null){
+					if(requiredFieldsMapping[j]==null){
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
@@ -154,7 +154,7 @@ public class AddPatientFileAction {
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
 			if(requiredFieldsMapping[i]==null){
-				throw new AddPatientFileException("PYcclq4kSTKNYn4EO"+requiredFields[i]+"\" is missing!");
+				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
 			}
 		}
 	}
@@ -179,7 +179,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setStreetAddress2(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("gsaKkp2_rxiXu0")]));
+				temp.setStreetAddress2(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress2")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -204,7 +204,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("apxGbb5Lx")]));
+				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("motherMID")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
