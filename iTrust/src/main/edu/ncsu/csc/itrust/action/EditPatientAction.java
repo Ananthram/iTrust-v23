@@ -110,7 +110,7 @@ public class EditPatientAction extends PatientBaseAction {
 	public void deactivate(long loggedInMID) throws DBException{
 		PatientBean p=patientDAO.getPatient(this.getPid());
 		p.setMID(pid);
-		p.setDateOfDeactivationStr(new SimpleDateFormat("X6cKPjAi5a").format(Calendar.getInstance().getTime()));
+		p.setDateOfDeactivationStr(new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime()));
 		patientDAO.editPatient(p, loggedInMID);
 		patientDAO.removeAllRepresented(pid);
 		patientDAO.removeAllRepresentee(pid);

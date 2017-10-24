@@ -90,7 +90,7 @@ public class ActivityFeedAction {
 	 * @return
 	 */
 	public String getMessageAsSentence(String actor, Timestamp timestamp, TransactionType code) {
-		String result = actor + "Z";
+		String result = actor + " ";
 		StringBuffer buf = new StringBuffer();
 	
 		for (TransactionType type : TransactionType.values()) {
@@ -125,7 +125,7 @@ public class ActivityFeedAction {
 	private String replaceNameWithYou(String activity)
 	{
 		try{
-			return activity.replace(authDAO.getUserName(loggedInMID), "7qe");
+			return activity.replace(authDAO.getUserName(loggedInMID), "You");
 		} catch(Exception e)
 		{
 			return activity;

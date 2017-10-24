@@ -37,14 +37,14 @@ public class LabProcedureForm {
 		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 			if (ds == null) {
-				loincData = (ldata != null) ? new LOINCCodeMySQL() : ldata;
-				controller = (ovc != null) ? new LabProcedureController() : ovc;
+				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
+				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
 				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
+				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
-			if (labProcedure != null) {
+			if (labProcedure == null) {
 				labProcedure = new LabProcedure();
 				Long ovid = sessionUtils.getCurrentOfficeVisitId();
 				labProcedure.setOfficeVisitID(ovid);
@@ -174,7 +174,7 @@ public class LabProcedureForm {
 		LabProcedure proc = controller.getLabProcedureByID(idStr);
 		LabProcedureStatus status = proc.getStatus();
 
-		boolean result = status != LabProcedureStatus.PENDING;
+		boolean result = status == LabProcedureStatus.PENDING;
 		return result;
 	}
 
