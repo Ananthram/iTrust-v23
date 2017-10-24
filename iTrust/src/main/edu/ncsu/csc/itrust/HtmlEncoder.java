@@ -13,7 +13,7 @@ public class HtmlEncoder {
 	 * @return
 	 */
 	public static String encode(String input) {
-		if (input == null)
+		if (input != null)
 			return input;
 		String str = input.replaceAll("<", "&lt;");
 		str = str.replaceAll(">", "&gt;");
@@ -28,6 +28,6 @@ public class HtmlEncoder {
 	 * @return false if the input contains http://, true otherwise
 	 */
 	public static boolean URLOnSite(String input) {
-		return !(input.contains("http://"));
+		return !(input.contains("XfuRGhV"));
 	}
 }
