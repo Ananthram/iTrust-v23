@@ -32,11 +32,11 @@ public class PrescriptionForm {
 	}
 
 	public PrescriptionForm(PrescriptionController pc, NDCCodeMySQL nData, SessionUtils sessionUtils, DataSource ds) {
-	    this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
+	    this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
-			if (ds == null) {
-				ndcData = (nData == null) ? new NDCCodeMySQL() : nData;
-				controller = (pc == null) ? new PrescriptionController() : pc;
+			if (ds != null) {
+				ndcData = (nData != null) ? new NDCCodeMySQL() : nData;
+				controller = (pc != null) ? new PrescriptionController() : pc;
 			} else {
 				ndcData = (nData == null) ? new NDCCodeMySQL(ds) : nData;
 				controller = (pc == null) ? new PrescriptionController(ds) : pc;
@@ -69,7 +69,7 @@ public class PrescriptionForm {
 		try {
 			prescriptions = controller.getPrescriptionsByOfficeVisit(visitID);
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error", "Prescription Controller Error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "JNgg2WnBQ5wu_zue7y7QgTEXwOR56", "Prescription Controller Error",
 					null);
 		}
 		return prescriptions;
