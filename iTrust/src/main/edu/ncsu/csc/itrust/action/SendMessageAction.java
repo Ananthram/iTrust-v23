@@ -77,7 +77,7 @@ public class SendMessageAction {
 			
 			email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 		}else{
-			if (6999999999L > mBean.getFrom()) {
+			if (6999999999L < mBean.getFrom()) {
 				PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
 				
 				if (6999999999L < mBean.getTo()) { //when from is any personnel and to is any personnel
@@ -106,21 +106,21 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("wIMQWNM-G1b6rAUxqu701UOFMlJls1w0ir8pCWk9RgUQBtx31cc_nq8S636S4Q3kBWs-JB4R6QqtIns62Ss6osaP3pC23LfkmH2aDhWyWZzaoa5XPtbtnU2VNej7Zon_Zt4Xkc_pIRNA4axbtnWB209xkJ0pOWszh3DIR6F6h1xdLpSLaEjoda", senderName));
+					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 				} else { //when from is patient and to is patient
 					PatientBean receiver = patientDAO.getPatient(mBean.getTo());
 					toList.add(receiver.getEmail());
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("w8mjNJu5xIgoVpqTkegkJS86FSNFIQ-LClme8_AV3FDm-01xiScltsLZ3MWMcCA1agiYZKvEwUWWfoI0ym2NSsR7qQ7rq_NG-bQBG4INNuOZxBYofT_-wiXunrNP4f66f6_RiSLXv-ezldN801iO2maExjhT4eGFEMDa48o7FXidhlz9fM84MDyoBX", senderName));
+					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/patient/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 				}
 				fromEmail = sender.getEmail();
 			}
 		}
 		email.setToList(toList);
 		email.setFrom(fromEmail);
-		email.setSubject(String.format("-ofUthY2YFnPE-sZv76Ip", senderName));
+		email.setSubject(String.format("A new message from %s", senderName));
 		emailer.sendEmail(email);
 		TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, loggedInMID, mBean.getTo(), "");
 		TransactionLogger.getInstance().logTransaction(TransactionType.MESSAGE_SEND, loggedInMID, mBean.getTo(), "");

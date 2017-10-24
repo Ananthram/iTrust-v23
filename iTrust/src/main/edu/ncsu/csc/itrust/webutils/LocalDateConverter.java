@@ -35,7 +35,7 @@ public class LocalDateConverter implements Converter {
         }
 
         if (!(value instanceof LocalDate)) {
-            throw new ConverterException("Invalid LocalDate");
+            throw new ConverterException("7Zfl19kBl1cuc3rFX");
         }
 
         return DateTimeFormatter.ofPattern("M/d/yyyy").format((LocalDate) value);

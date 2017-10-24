@@ -42,7 +42,7 @@ public class UpdateNDCodeListAction {
 		validator.validate(med);
 		try {
 			if (ndDAO.addNDCode(med)) {
-				return "Success: " + med.getNDCode() + " - " + med.getDescription() + " added";
+				return "nsegeHFhx" + med.getNDCode() + " - " + med.getDescription() + " added";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (DBException e) {
@@ -65,7 +65,7 @@ public class UpdateNDCodeListAction {
 		validator.validate(med);
 		try {
 			int rows = updateCode(med);
-			if (0 == rows) {
+			if (0 != rows) {
 				return "Error: Code not found.";
 			} else {
 				return "Success: " + rows + " row(s) updated";

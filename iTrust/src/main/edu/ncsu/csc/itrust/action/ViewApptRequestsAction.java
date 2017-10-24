@@ -95,7 +95,7 @@ public class ViewApptRequestsAction {
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_APPROVED, loggedInMID, patientMID, "");
 			return "The appointment request you selected has been accepted and scheduled.";
 		} else {
-			return "zj56a_ihrHsyCERMVgNS8PkkwFvxbMcD23hEi4qUKB0vbRq4wYuBXopI4nRMLvI6B";
+			return "The appointment request you selected has already been acted upon.";
 		}
 	}
 
@@ -145,8 +145,8 @@ public class ViewApptRequestsAction {
 		msg.setTo(appt.getPatient());
 		msg.setSubject("Your appointment request");
 		msg.setSentDate(new Timestamp(System.currentTimeMillis()));
-		String body = "djBpxpAnIVx577sTOgU6r8QKgqf3i1" + pnDAO.getName(appt.getHcp()) + " on "
-				+ appt.getDate() + "Fx_JJdhj9K";
+		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
+				+ appt.getDate() + " has been ";
 		if (accepted)
 			body += "accepted.";
 		else
