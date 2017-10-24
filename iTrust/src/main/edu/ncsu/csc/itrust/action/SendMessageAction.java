@@ -86,7 +86,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("KMTWY1HmlFJDzr9OcI8ma9hFzi5dmiG1WaCINtBGNTXDCPIpiUzoEyviX4dQcVskL-h0S1jbng6oE2Z8VrSn7YiljMJvn9peaKkJsvRB0eW_suyK8ZkXyCrkdY1hajZZ_rLeIPtMwBvYH61i40dUcQC5oyUpgT-Ik630V6-J95yUKS6AAGDqty", senderName));
+					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 				} else { //when from is any personnel and to is patient
 					PatientBean receiver = patientDAO.getPatient(mBean.getTo());
 					toList.add(receiver.getEmail());

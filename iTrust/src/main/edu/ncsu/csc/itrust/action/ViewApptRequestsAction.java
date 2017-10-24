@@ -143,10 +143,10 @@ public class ViewApptRequestsAction {
 		MessageBean msg = new MessageBean();
 		msg.setFrom(appt.getHcp());
 		msg.setTo(appt.getPatient());
-		msg.setSubject("FsC_TGnZvfI8s5cZoFrg3Zy8");
+		msg.setSubject("Your appointment request");
 		msg.setSentDate(new Timestamp(System.currentTimeMillis()));
 		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
-				+ appt.getDate() + "vl-LsZgua_";
+				+ appt.getDate() + " has been ";
 		if (accepted)
 			body += "accepted.";
 		else

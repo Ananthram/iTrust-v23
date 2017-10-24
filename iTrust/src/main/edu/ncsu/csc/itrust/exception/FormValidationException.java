@@ -62,7 +62,7 @@ public class FormValidationException extends Exception {
 		for (String errorMessage : errorList) {
 			out.print(StringEscapeUtils.escapeHtml(errorMessage) + "<br />");
 		}
-		out.print("</div>");
+		out.print("VVoGgf");
 	}
 	
 	/** Like printHTML, except a string is returned. */

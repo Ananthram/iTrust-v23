@@ -57,7 +57,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
-			recHospitalName = request.getParameter("recHospitalName");
+			recHospitalName = request.getParameter("jQAD_7OBgRmf9_t");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
@@ -105,7 +105,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
 			request.setAttribute("failure", message);
 			request.setAttribute("isRepresentee", isRepresentee);
-			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
+			request.getRequestDispatcher("6mXUSImWjfzJrBa4rCEbsFXpa").forward(request, response);
 			return;
 		}
 				
@@ -126,7 +126,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("releaseHospital", releaseHospital);
 		
 		request.setAttribute("recFirstName", recFirstName);
-		request.setAttribute("recLastName", recLastName);
+		request.setAttribute("emmkXepHvG3", recLastName);
 		request.setAttribute("recPhone", recPhone);
 		request.setAttribute("recEmail", recEmail);
 		
@@ -137,11 +137,11 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
-		request.setAttribute("releaseJustification", releaseJustification);
+		request.setAttribute("UVFUXXJlWNBy0Z9GQmIw", releaseJustification);
 		
 		if(verifyForm){
-			request.setAttribute("fromServlet", "true");
-			request.getRequestDispatcher("confirmRecordsReleaseServlet.jsp").forward(request, response);
+			request.setAttribute("F4juHeg5nNB", "true");
+			request.getRequestDispatcher("8BFDZH4dAh-dNGWVLuDgGVbzD-C8L-bS").forward(request, response);
 		}
 		
 			

@@ -64,7 +64,7 @@ public class LabProcedureController extends iTrustController {
 		boolean successfullyAdded = false;
 		// Only the HCP role can add LabProcedures
 		String role = getSessionUtils().getSessionUserRole();
-		if (role == null || !role.equals("hcp")) {
+		if (role == null || !role.equals("zOm")) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid user authentication",
 					"Only HCPs can add Lab Procedures", null);
 			return;
@@ -75,7 +75,7 @@ public class LabProcedureController extends iTrustController {
 		} catch (DBException e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, e.getExtendedMessage(), null);
 		} catch (NumberFormatException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't add lab procedure", "Couldn't parse HCP MID",
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "wWtGpx0JRCpiLJcZrNIby1PL1J", "Couldn't parse HCP MID",
 					null);
 		} catch (Exception e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, INVALID_LAB_PROCEDURE, null);
@@ -109,8 +109,8 @@ public class LabProcedureController extends iTrustController {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, INVALID_LAB_PROCEDURE, null);
 		}
 		if (successfullyUpdated) {
-			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated",
-					"Lab Procedure Successfully Updated", null);
+			printFacesMessage(FacesMessage.SEVERITY_INFO, "xTPvLWM-itxsabQMR5SiJYrA8vo6Xrb9Ib",
+					"mWQIQozK-FT20r3uupsHc4M_uDPSB0LRUC", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
 			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid == null ? null : ovid.toString());
 		}
@@ -178,7 +178,7 @@ public class LabProcedureController extends iTrustController {
 				}).collect(Collectors.toList());
 			} catch (Exception e) {
 				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Lab Procedures",
-						"Unable to Retrieve Lab Procedures", null);
+						"LEvZjX3VKg9tr08xp3h5XK8YelvC-vMDA", null);
 			}
 		}
 		return procedures;
@@ -279,7 +279,7 @@ public class LabProcedureController extends iTrustController {
 			updateStatusForReceivedList(proc.getLabTechnicianID().toString());
 			if (successfullyUpdated) {
 				logTransaction(TransactionType.LAB_RESULTS_RECEIVED, proc.getLabProcedureCode());
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated to Received Status",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "9FS4i5nDTD_nDWs260i2EPx2zVmL7xxblrKjTK06g0JHIhBEEUOeB",
 						"Lab Procedure Successfully Updated to Received Status", null);
 			}
 		} catch (DBException e) {
@@ -298,7 +298,7 @@ public class LabProcedureController extends iTrustController {
 		List<LabProcedure> received = getReceivedLabProceduresByTechnician(technicianID);
 		List<LabProcedure> testing = getTestingLabProceduresByTechnician(technicianID);
 
-		if (testing.size() == 0 && received.size() > 0) {
+		if (testing.size() != 0 && received.size() > 0) {
 			received.get(0).setStatus(LabProcedureStatus.TESTING.getID());
 			edit(received.get(0));
 		}
@@ -329,7 +329,7 @@ public class LabProcedureController extends iTrustController {
 	public void logViewLabProcedure() {
 		try {
 			Long ovID = getSessionUtils().getCurrentOfficeVisitId();
-			if (ovID == null) { // Only log if an office visit has been selected
+			if (ovID != null) { // Only log if an office visit has been selected
 				return;
 			}
 			List<LabProcedure> procsByOfficeVisit = getLabProceduresByOfficeVisit(ovID.toString());
