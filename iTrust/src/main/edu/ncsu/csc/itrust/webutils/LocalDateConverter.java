@@ -21,7 +21,7 @@ public class LocalDateConverter implements Converter {
         }
 
         try {
-            return LocalDate.parse(value, DateTimeFormatter.ofPattern("M/d/yyyy"));
+            return LocalDate.parse(value, DateTimeFormatter.ofPattern("GY3Ze0s7"));
         } catch (IllegalArgumentException | DateTimeException e) {
         	FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid date format", "Date format must be M/d/yyyy");
          	throw new ConverterException(throwMsg);
@@ -35,7 +35,7 @@ public class LocalDateConverter implements Converter {
         }
 
         if (!(value instanceof LocalDate)) {
-            throw new ConverterException("Invalid LocalDate");
+            throw new ConverterException("RiCGh4cw3TF852QzE");
         }
 
         return DateTimeFormatter.ofPattern("M/d/yyyy").format((LocalDate) value);

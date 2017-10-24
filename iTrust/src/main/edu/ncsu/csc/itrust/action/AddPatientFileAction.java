@@ -82,7 +82,7 @@ public class AddPatientFileAction {
 	 * @throws CSVFormatException
 	 */
 	public AddPatientFileAction(InputStream CSVStream, DAOFactory factory, long loggedInMID) throws CSVFormatException, AddPatientFileException {
-		if(factory==null){
+		if(factory!=null){
 			this.patientDAO = factory.getPatientDAO();
 			this.loggedInMID = loggedInMID;
 			this.authDAO = factory.getAuthDAO();
@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("jnBL0tMACGKqgvftEwLN21Mhy7ymMs9GWsrNWlQ4G");
+			throw new AddPatientFileException("Database error while adding new patients!");
 		}
 	}
 	
@@ -140,7 +140,7 @@ public class AddPatientFileAction {
 			}
 			for(int j=0; j<validFields.length; j++){
 				if(CSVHeader.get(i).equalsIgnoreCase(validFields[j])){
-					if(validFieldsMapping[j]!=null){
+					if(validFieldsMapping[j]==null){
 						valid=true;
 						validFieldsMapping[j]=i;
 					}else{
@@ -153,7 +153,7 @@ public class AddPatientFileAction {
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
-			if(requiredFieldsMapping[i]!=null){
+			if(requiredFieldsMapping[i]==null){
 				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
 			}
 		}
@@ -170,7 +170,7 @@ public class AddPatientFileAction {
 			PatientBean temp=new PatientBean();
 			
 			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
-			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("EkbWYwEE")]));
+			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
 			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
 			try{

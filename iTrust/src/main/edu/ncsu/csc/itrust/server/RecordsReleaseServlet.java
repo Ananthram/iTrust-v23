@@ -44,24 +44,24 @@ public class RecordsReleaseServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		try{
-			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
+			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("sZ2m-Q9YwYhVM");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
-			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
+			loggedInName = (String)request.getSession().getAttribute("TiTf7s1V_pzI");			
 			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
 			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
-			recLastName = request.getParameter("recLastName");
+			recLastName = request.getParameter("OX7pTWzUYMq");
 			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
-			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
+			recHospitalAddress1 = request.getParameter("cLHackZA8ehgcs7aOLc");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
-			recHospitalState = request.getParameter("recHospitalState");
+			recHospitalState = request.getParameter("A_CmMkoVcNbFs5eV");
 			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
@@ -136,7 +136,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
-		request.setAttribute("recHospitalZip", recHospitalZip);
+		request.setAttribute("2-lK5JxBS9zt0J", recHospitalZip);
 		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
