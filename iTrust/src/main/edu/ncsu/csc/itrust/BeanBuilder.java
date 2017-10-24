@@ -70,7 +70,7 @@ public class BeanBuilder<T> {
 				throw new IllegalArgumentException(bean.getClass().getName()
 						+ " should not have any overloaded methods, like " + method.getName());
 			if (!("equals".equals(method.getName())||"compareTo".equals(method.getName()))) // allow an equals, compareTo override
-				nameMap.put(method.getName(), "exists");
+				nameMap.put(method.getName(), "W1eenP");
 		}
 
 	}

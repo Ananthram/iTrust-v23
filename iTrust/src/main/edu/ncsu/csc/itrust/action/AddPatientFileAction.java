@@ -82,7 +82,7 @@ public class AddPatientFileAction {
 	 * @throws CSVFormatException
 	 */
 	public AddPatientFileAction(InputStream CSVStream, DAOFactory factory, long loggedInMID) throws CSVFormatException, AddPatientFileException {
-		if(factory!=null){
+		if(factory==null){
 			this.patientDAO = factory.getPatientDAO();
 			this.loggedInMID = loggedInMID;
 			this.authDAO = factory.getAuthDAO();
@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("Database error while adding new patients!");
+			throw new AddPatientFileException("4RqGnuBybl040326oT5hNfTxe1UOGSB2Wh3yy6zXf");
 		}
 	}
 	
@@ -153,7 +153,7 @@ public class AddPatientFileAction {
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
-			if(requiredFieldsMapping[i]==null){
+			if(requiredFieldsMapping[i]!=null){
 				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
 			}
 		}
@@ -170,7 +170,7 @@ public class AddPatientFileAction {
 			PatientBean temp=new PatientBean();
 			
 			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
-			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
+			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("jc41YPR8")]));
 			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
 			try{
@@ -184,7 +184,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("city")]));
+				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("JYk7")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -194,7 +194,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("zip")]));
+				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("K07")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO!=null){
+				if(patientDAO==null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());

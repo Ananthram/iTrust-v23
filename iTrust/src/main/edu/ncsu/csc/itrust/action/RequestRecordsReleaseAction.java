@@ -72,7 +72,7 @@ public class RequestRecordsReleaseAction {
 		String name = "";
 		try {
 			HospitalBean hospital = hosDAO.getHospital(hospitalID);
-			if (hospital != null)
+			if (hospital == null)
 				name = hospital.getHospitalName();
 		} catch (DBException e1) {
 			e1.printStackTrace();
