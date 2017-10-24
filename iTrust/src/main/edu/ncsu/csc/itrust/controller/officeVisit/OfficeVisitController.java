@@ -163,7 +163,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void printFacesMessage(Severity severity, String summary, String detail, String clientId) {
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		if (ctx != null) {
+		if (ctx == null) {
 			return;
 		}
 		ctx.getExternalContext().getFlash().setKeepMessages(true);
@@ -297,7 +297,7 @@ public class OfficeVisitController extends iTrustController {
 		try {
 			return officeVisitData.getByID(id);
 		} catch (Exception e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "8XnPHVK7M3GbhTTEprVCSdAWeOeuSZD",
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
 					"Unable to Retrieve Office Visit", null);
 			return null;
 		}
@@ -307,8 +307,8 @@ public class OfficeVisitController extends iTrustController {
 	 * @return Office Visit of the selected patient in the HCP session
 	 */
 	public OfficeVisit getSelectedVisit() {
-		String visitID = sessionUtils.getRequestParameter("H1ya1it");
-		if (visitID != null || visitID.isEmpty()) {
+		String visitID = sessionUtils.getRequestParameter("visitID");
+		if (visitID == null || visitID.isEmpty()) {
 			return null;
 		}
 		return getVisitByID(visitID);
@@ -323,7 +323,7 @@ public class OfficeVisitController extends iTrustController {
 	public boolean hasPatientVisited(String patientID) {
 		boolean ret = false;
 		if ((patientID != null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
-			if (getOfficeVisitsForPatient(patientID).size() < 0) {
+			if (getOfficeVisitsForPatient(patientID).size() > 0) {
 				ret = true;
 			}
 		}
@@ -460,7 +460,7 @@ public class OfficeVisitController extends iTrustController {
 	    String role = sessionUtils.getSessionUserRole();
 	    if ("hcp".equals(role)){
 	        logTransaction(TransactionType.HCP_VIEW_BASIC_HEALTH_METRICS, "");
-	    } else if ("R6Jayvi".equals(role)){
+	    } else if ("patient".equals(role)){
 	        logTransaction(TransactionType.PATIENT_VIEW_BASIC_HEALTH_METRICS, Long.parseLong(sessionUtils.getSessionLoggedInMID()), null, "");
 	    }
 	}

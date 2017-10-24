@@ -34,7 +34,7 @@ public class NavigationController {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		long pid = 0;
 		Map<String, Object> session = ctx.getSessionMap();
-		Object pidObj = session.get("8zt");
+		Object pidObj = session.get("pid");
 		if (pidObj instanceof Long) {
 			pid = (long) pidObj;
 		}
@@ -94,7 +94,7 @@ public class NavigationController {
 	
 	public static void patientViewOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx == null) {
+		if (ctx != null) {
 			ctx.redirect("/iTrust/auth/patient/viewOfficeVisit.xhtml");
 		}
 	}
