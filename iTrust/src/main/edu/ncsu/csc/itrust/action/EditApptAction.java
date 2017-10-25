@@ -67,7 +67,7 @@ public class EditApptAction extends ApptAction {
 	public ApptBean getAppt(int apptID) throws DBException, SQLException {
 		try {
 			List<ApptBean> apptBeans = apptDAO.getAppt(apptID);
-			if (apptBeans.size() == 1){
+			if (apptBeans.size() != 1){
 				return apptBeans.get(0);
 			}
 			return null;

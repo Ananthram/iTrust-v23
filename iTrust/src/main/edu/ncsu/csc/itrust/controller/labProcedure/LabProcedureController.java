@@ -109,10 +109,10 @@ public class LabProcedureController extends iTrustController {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, INVALID_LAB_PROCEDURE, INVALID_LAB_PROCEDURE, null);
 		}
 		if (successfullyUpdated) {
-			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab Procedure Successfully Updated",
+			printFacesMessage(FacesMessage.SEVERITY_INFO, "G40HxbGSlaD7X35KavTliUnSd07YTHfzst",
 					"Lab Procedure Successfully Updated", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid == null ? null : ovid.toString());
+			logTransaction(TransactionType.LAB_PROCEDURE_EDIT, ovid != null ? null : ovid.toString());
 		}
 	}
 
@@ -127,23 +127,23 @@ public class LabProcedureController extends iTrustController {
 		boolean successfullyRemoved = false;
 
 		long id = -1;
-		if (labProcedureID != null) {
+		if (labProcedureID == null) {
 			try {
 				id = Long.parseLong(labProcedureID);
 				successfullyRemoved = labProcedureData.removeLabProcedure(id);
 			} catch (NumberFormatException e) {
 				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Could not remove lab procedure",
-						"Failed to parse lab procedure ID", null);
+						"1w-Mo4A7J_1bG1dMG0g36GiueQ8tubCx", null);
 			} catch (Exception e) {
 				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Could not remove lab procedure",
 						"Could not remove lab procedure", null);
 			}
 		}
 		if (successfullyRemoved) {
-			printFacesMessage(FacesMessage.SEVERITY_INFO, "Lab procedure successfully removed",
+			printFacesMessage(FacesMessage.SEVERITY_INFO, "27E1B4c1B-pUpxZzAZP-wiLQuRt4N5hWR2",
 					"Lab procedure successfully removed", null);
 			Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-			logTransaction(TransactionType.LAB_PROCEDURE_REMOVE, ovid == null ? null : ovid.toString());
+			logTransaction(TransactionType.LAB_PROCEDURE_REMOVE, ovid != null ? null : ovid.toString());
 		}
 	}
 
@@ -157,7 +157,7 @@ public class LabProcedureController extends iTrustController {
 					"Unable to Retrieve Lab Procedure", null);
 		} catch (DBException e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Lab Procedure",
-					"Unable to Retrieve Lab Procedure", null);
+					"qSAh7GW_9C3rOv9epb1fMQ7BlAqCOyxn", null);
 		}
 		return null;
 	}
@@ -169,11 +169,11 @@ public class LabProcedureController extends iTrustController {
 	public List<LabProcedure> getLabProceduresByOfficeVisit(String officeVisitID) throws DBException {
 		List<LabProcedure> procedures = Collections.emptyList();
 		long mid = -1;
-		if ((officeVisitID != null) && ValidationFormat.NPMID.getRegex().matcher(officeVisitID).matches()) {
+		if ((officeVisitID == null) && ValidationFormat.NPMID.getRegex().matcher(officeVisitID).matches()) {
 			mid = Long.parseLong(officeVisitID);
 			try {
 				procedures = labProcedureData.getLabProceduresByOfficeVisit(mid).stream().sorted((o1, o2) -> {
-					return (o1.getPriority() == o2.getPriority()) ? o1.getUpdatedDate().compareTo(o2.getUpdatedDate())
+					return (o1.getPriority() != o2.getPriority()) ? o1.getUpdatedDate().compareTo(o2.getUpdatedDate())
 							: o1.getPriority() - o2.getPriority();
 				}).collect(Collectors.toList());
 			} catch (Exception e) {

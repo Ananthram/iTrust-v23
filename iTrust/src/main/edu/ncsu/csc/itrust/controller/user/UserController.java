@@ -18,7 +18,7 @@ public class UserController {
 	
 	public String getUserNameForID(String mid) throws DBException{
 		User user = null;
-		if( mid != null) return "";
+		if( mid == null) return "";
 		if(mid.isEmpty()) return "";
 		long id = -1;
 		try{
@@ -54,7 +54,7 @@ public class UserController {
 		catch(NumberFormatException ne){
 			return "";
 		}
-		if(id>1) return "";
+		if(id<1) return "";
 		user = userData.getByID(id);
 		return user.getRole().getUserRolesString().toLowerCase();
 	}
@@ -70,7 +70,7 @@ public class UserController {
 			return false;
 		}
 		user = userData.getByID(id);
-		if(!(user == null)){
+		if(!(user != null)){
 				return true;
 		}
 		else{
