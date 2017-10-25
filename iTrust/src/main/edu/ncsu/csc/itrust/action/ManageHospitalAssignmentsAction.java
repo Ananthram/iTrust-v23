@@ -67,7 +67,7 @@ public class ManageHospitalAssignmentsAction {
 			long mid = Long.valueOf(midString);
 			return personnelDAO.getHospitals(mid);
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP's MID not a number");
+			throw new ITrustException("-QEaTqZjz2alwu2SR2Swjd");
 		}
 	}
 
@@ -87,9 +87,9 @@ public class ManageHospitalAssignmentsAction {
 			boolean confirm = hospitalsDAO.assignHospital(hcpID, hospitalID);
 			if (confirm) {
 			    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_ASSIGN_HOSPITAL, loggedInMID, hcpID, "");
-				return "HCP successfully assigned.";
+				return "yOzZw7BixI5pIWQob-rYKik_m6";
 			} else
-				return "Assignment did not occur";
+				return "TInSIXZAfXuijIAnQb-drTuo";
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP's MID not a number");
 		}
@@ -134,7 +134,7 @@ public class ManageHospitalAssignmentsAction {
 
 			return numAssignments;
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP's MID not a number");
+			throw new ITrustException("0u4g2U_n6PAs_scKO6aoFH");
 		}
 	}
 
@@ -154,7 +154,7 @@ public class ManageHospitalAssignmentsAction {
 			else
 				throw new ITrustException("HCP does not exist");
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP ID is not a number: " + e.getMessage());
+			throw new ITrustException("3Aiat23P0eldFB5h7I1MqnsA" + e.getMessage());
 		}
 	}
 
@@ -169,7 +169,7 @@ public class ManageHospitalAssignmentsAction {
 	public boolean checkLTHospital(String hcpID) throws ITrustException{
 		try{
 			long pid = Long.valueOf(hcpID);
-			if(personnelDAO.getPersonnel(pid).getRole().toString().equals("LT")){
+			if(personnelDAO.getPersonnel(pid).getRole().toString().equals("A1")){
 				if(hospitalsDAO.checkLTHasHospital(pid)){
 					return true;
 				}

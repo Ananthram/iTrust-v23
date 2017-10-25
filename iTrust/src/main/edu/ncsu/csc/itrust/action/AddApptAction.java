@@ -38,7 +38,7 @@ public class AddApptAction extends ApptAction {
 			if(ignoreConflicts){
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_CONFLICT_OVERRIDE, loggedInMID, appt.getPatient(), "");
 			}
-			return "Success: " + appt.getApptType() + " for " + appt.getDate() + " added";
+			return "XegUn5lVf" + appt.getApptType() + " for " + appt.getDate() + " added";
 		}
 		catch (SQLException e) {
 			
