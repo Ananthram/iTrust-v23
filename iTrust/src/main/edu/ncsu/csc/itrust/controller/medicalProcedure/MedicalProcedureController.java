@@ -85,7 +85,7 @@ public class MedicalProcedureController extends iTrustController {
     public List<MedicalProcedure> getMedicalProceduresByOfficeVisit(String officeVisitID){
         List<MedicalProcedure> medicalProcedures = Collections.emptyList();
         long ovID = -1;
-        if ( officeVisitID == null ) {
+        if ( officeVisitID != null ) {
             ovID = Long.parseLong(officeVisitID);
             try {
                 medicalProcedures = sql.getMedicalProceduresForOfficeVisit(ovID);
@@ -102,7 +102,7 @@ public class MedicalProcedureController extends iTrustController {
         try {
             codeName = sql.getCodeName(codeString);
         }  catch (SQLException e) {
-            printFacesMessage(FacesMessage.SEVERITY_ERROR, "W3icanWhw3S5v5VpkYgp81-rN", e.getMessage(), null);
+            printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Medical Procedure", e.getMessage(), null);
         }
         
         return codeName;
