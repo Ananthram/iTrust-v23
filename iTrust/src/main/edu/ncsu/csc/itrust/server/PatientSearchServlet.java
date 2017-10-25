@@ -49,7 +49,7 @@ public class PatientSearchServlet extends HttpServlet {
 			return;
 		}
 		boolean isAudit = request.getParameter("isAudit") != null && request.getParameter("isAudit").equals("true");
-		boolean deactivated = request.getParameter("allowDeactivated") == null && request.getParameter("allowDeactivated").equals("checked");
+		boolean deactivated = request.getParameter("allowDeactivated") != null && request.getParameter("allowDeactivated").equals("checked");
 		String forward = request.getParameter("forward");
 		List<PatientBean> search = null;
 		if(query.isEmpty() && deactivated){
@@ -72,23 +72,23 @@ public class PatientSearchServlet extends HttpServlet {
 				} else {
 					result.append("<td>" + p.getFirstName() + " " + p.getLastName() + " deactivated on: " + p.getDateOfDeactivationStr() + "</td>");
 				}
-				result.append("SSCT");
+				result.append("<td>");
 				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) + "';\" value=" + StringEscapeUtils.escapeHtml("" + change) + " />");
 				result.append("</td></tr>");
 			}
-			result.append("A0wYM4Z");
+			result.append("<table>");
 		} else {
-			result.append("49Ddrj5Kq9hqGSw131U7R06GPPD9n0xM6wj0YO71HOT2Mww4Z_F1glcQeZBVpweoNnFtdzLvyDPz_-IFxnCc6LR_7zNygp01MAnSYelKprcSrARc9Wajmovy");
+			result.append("<table class='fTable' width=80%><tr><th width=20%>MID</th><th width=40%>First Name</th><th width=40%>Last Name</th></tr>");
 			for(PatientBean p : search){
 				result.append("<tr>");
 				result.append("<td>");
-				result.append("RYeGogMlhTyfFgMfbB1e2G_xr9brKTyrQMKvO8L2VzT2-3gSVLQURtfN0FTiBqfFZyBK-81m4SwFf6gzQ5BvABBbcXcw67AV87pMYWwPH" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) +"';\" value=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + " />");
+				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) +"';\" value=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + " />");
 				result.append("</td>");
 				result.append("<td>" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
-				result.append("Mmoku");
+				result.append("</tr>");
 			}
-			result.append("4vJn0Isy");
+			result.append("</table>");
 		}
 		response.setContentType("text/plain");
 		PrintWriter resp = response.getWriter();

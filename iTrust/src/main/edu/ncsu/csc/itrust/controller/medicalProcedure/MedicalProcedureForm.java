@@ -33,7 +33,7 @@ public class MedicalProcedureForm {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL() : cptData;
                 controller = (mpc == null) ? new MedicalProcedureController() : mpc;
             } else {
-                this.cptData = (cptData != null) ? new CPTCodeMySQL(ds) : cptData;
+                this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
                 controller = (mpc == null) ? new MedicalProcedureController(ds) : mpc;
             }
             clearFields();
