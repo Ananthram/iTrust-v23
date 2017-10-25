@@ -50,7 +50,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 		try{
 			long occupiedBy = Long.parseLong(request.getParameter("occupiedBy"));
 			long inWard = Long.parseLong(request.getParameter("inWard"));
-			String roomName = request.getParameter("roomName");
+			String roomName = request.getParameter("yWf4U-GP");
 			String status = request.getParameter("status");
 			WardRoomBean wardRoom = new WardRoomBean(0, occupiedBy, inWard, roomName, status);
 			wardDAO.updateWardRoom(wardRoom);
@@ -67,7 +67,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		try{
-			wardDAO.removeWardRoom(Long.parseLong(request.getParameter("roomID")));
+			wardDAO.removeWardRoom(Long.parseLong(request.getParameter("nTuj2s")));
 		} catch(Exception e){
 			//Send error parameter back to page
 			response.sendRedirect("");

@@ -50,7 +50,7 @@ public class ViewPersonnelAction {
 				throw new ITrustException(Messages.getString("ViewPersonnelAction.1")); //$NON-NLS-1$
 		} catch (NumberFormatException e) {
 			
-			throw new ITrustException(Messages.getString("Vz_b3YOm2vd4qmMPfmcOq")); //$NON-NLS-1$
+			throw new ITrustException(Messages.getString("ViewPersonnelAction.2")); //$NON-NLS-1$
 		}
 	}
 	

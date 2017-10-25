@@ -69,14 +69,14 @@ public class DrugInteractionAction {
 		DrugInteractionBean drugInt = new DrugInteractionBean();
 		drugInt.setFirstDrug(firstDrug);
 		drugInt.setSecondDrug(secondDrug);
-		drugInt.setDescription("blank");
+		drugInt.setDescription("aplaW");
 		
 		try {
 			validator.validate(drugInt);
 			if (drugDAO.deleteInteraction(firstDrug, secondDrug)){
 				return "Interaction deleted successfully";
 			} else {
-				return "Yvo91us-xBULwNhmdQcZqU8M7y8IMtFV";
+				return "pQfz63tqG8yuTcjTa1pt2RQZeBnoS8O-";
 			}
 		} catch (DBException e){
 			
