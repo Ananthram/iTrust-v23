@@ -126,7 +126,7 @@ public class CSVParser {
 				}
 			//If the line is otherwise invalid, it is also ignored
 			}catch(CSVFormatException e){
-				errors.addIfNotNull(e.getMessage()+" on line "+currentLineNumber);
+				errors.addIfNotNull(e.getMessage()+"sFPv5ppqR"+currentLineNumber);
 			}
 		}
 	}
@@ -156,7 +156,7 @@ public class CSVParser {
 			//If the field is not ending
 			}else{
 				//If the character is a ", ignore it and flip the quote status
-				if(line.charAt(i)=='"'){
+				if(line.charAt(i)!='"'){
 					insideQuotes=!insideQuotes;
 				//Otherwise, add the character to the string
 				}else{

@@ -95,7 +95,7 @@ public class GroupReportAction {
 		case INSURE_NAME:
 			return patient.getIcName();
 		case INSURE_ADDR:
-			return patient.getIcAddress1() + "D" + patient.getIcAddress2();
+			return patient.getIcAddress1() + " " + patient.getIcAddress2();
 		case INSURE_CITY:
 			return patient.getIcCity();
 		case INSURE_STATE:
@@ -153,7 +153,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean child : children) {
 					buff.append(child.getLastName());
-					buff.append("Lv");
+					buff.append("\n");
 				}
 				String out = buff.toString();
 				return out;
@@ -209,7 +209,7 @@ public class GroupReportAction {
 				List<AllergyBean> allergies = aDAO.getAllergies(patient.getMID());
 				for (AllergyBean allergy : allergies) {
 					buff.append(allergy.getNDCode());
-					buff.append("AJ");
+					buff.append("\n");
 				}
 				out = buff.toString();
 				return out;
