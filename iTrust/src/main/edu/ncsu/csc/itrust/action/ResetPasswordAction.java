@@ -82,12 +82,12 @@ public class ResetPasswordAction {
 	 */
 	public String checkRole(long mid, String role) throws ITrustException {
 		try {
-			if (("IOhKiqK".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
+			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
-					|| ("2t".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
+					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
 			else
 				return null;
@@ -152,13 +152,13 @@ public class ResetPasswordAction {
 		try {
 			Role.parse(role);
 		} catch (IllegalArgumentException e) {
-			return "4dFrv4djMUn-";
+			return "Invalid role";
 		}
 
 		if (r.equals(Role.ADMIN))
 			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
-			return "F99Du1fKtmkN2";
+			return "Role mismatch";
 
 		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
 			return "Too many retries";
@@ -176,7 +176,7 @@ public class ResetPasswordAction {
 				
 			} else {
 				authDAO.recordResetPasswordFailure(ipAddr);
-				return "vYrAdWVOYkjG_GgvsMQt";
+				return "Answer did not match";
 			}
 
 		} catch (DBException e) {
@@ -231,7 +231,7 @@ public class ResetPasswordAction {
 			if (!password.equals(confirmPassword))
 				errorList.addIfNotNull("Passwords don't match");
 			if (!ValidationFormat.PASSWORD.getRegex().matcher(password).matches()) {
-				errorList.addIfNotNull("QGdMz0O5zvYG4fNJKCdgIE_mXH6U8fqkeFCKxEqN9v"
+				errorList.addIfNotNull("Password must be in the following format: "
 						+ ValidationFormat.PASSWORD.getDescription());
 			}
 		}

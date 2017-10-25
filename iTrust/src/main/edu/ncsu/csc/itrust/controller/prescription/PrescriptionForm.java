@@ -44,7 +44,7 @@ public class PrescriptionForm {
 			clearFields();
 			
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Bme13NnXimFi4Qk41wP3lye8b5-0x",
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error",
 					"Prescription Procedure Controller Error", null);
 		}
 	}
@@ -69,7 +69,7 @@ public class PrescriptionForm {
 		try {
 			prescriptions = controller.getPrescriptionsByOfficeVisit(visitID);
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "DpxABTj5wTNcyTKfFDyG8v2zH6krn", "Prescription Controller Error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Prescription Controller Error", "Prescription Controller Error",
 					null);
 		}
 		return prescriptions;
