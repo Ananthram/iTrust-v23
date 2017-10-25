@@ -49,7 +49,7 @@ public class LoginFailureAction {
 			authDAO.recordLoginFailure(ipAddr);
 			int loginFailures = authDAO.getLoginFailures(ipAddr);
 			hasAttempts = true;
-			return "nZMSqSZ3iO93-8-G8Mqa7t" + loginFailures;
+			return "Login failed, attempt " + loginFailures;
 		} catch (DBException e) {
 			
 			return e.getMessage();
@@ -106,7 +106,7 @@ public class LoginFailureAction {
 		int loginFailures = 0;
 		try {
 			loginFailures = authDAO.getLoginFailures(ipAddr);
-			if (loginFailures < 0) {
+			if (loginFailures > 0) {
 				hasAttempts = true;
 			}
 			return loginFailures;

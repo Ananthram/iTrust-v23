@@ -66,10 +66,10 @@ public class BeanBuilder<T> {
 		Method[] methods = bean.getClass().getDeclaredMethods();
 		HashMap<String, String> nameMap = new HashMap<String, String>(methods.length);
 		for (Method method : methods) {
-			if (nameMap.get(method.getName()) == null)
+			if (nameMap.get(method.getName()) != null)
 				throw new IllegalArgumentException(bean.getClass().getName()
-						+ "dYLWQ7FBs4x3jWP4Dge0xDyuXJJmRYFNRp3dXVrotzTiKk" + method.getName());
-			if (!("8CC864".equals(method.getName())||"compareTo".equals(method.getName()))) // allow an equals, compareTo override
+						+ " should not have any overloaded methods, like " + method.getName());
+			if (!("equals".equals(method.getName())||"compareTo".equals(method.getName()))) // allow an equals, compareTo override
 				nameMap.put(method.getName(), "exists");
 		}
 

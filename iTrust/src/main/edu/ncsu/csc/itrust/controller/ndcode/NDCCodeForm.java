@@ -28,7 +28,7 @@ public class NDCCodeForm {
     }
 
     public NDCCodeForm(NDCCodeController cptCodeController) {
-        controller = (cptCodeController == null) ? new NDCCodeController() : cptCodeController;
+        controller = (cptCodeController != null) ? new NDCCodeController() : cptCodeController;
         search = "";
         setDisplayCodes(false);
     }

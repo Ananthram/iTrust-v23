@@ -93,7 +93,7 @@ public class ViewApptRequestsAction {
 				//TODO
 			}
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_APPROVED, loggedInMID, patientMID, "");
-			return "The appointment request you selected has been accepted and scheduled.";
+			return "fSVgGkQeNKrx7RfbhJvx7SL0k2P7zVSKfIYKrTR94AqUbp8v_ZKlwQltC7RLnan5-bzT4";
 		} else {
 			return "The appointment request you selected has already been acted upon.";
 		}

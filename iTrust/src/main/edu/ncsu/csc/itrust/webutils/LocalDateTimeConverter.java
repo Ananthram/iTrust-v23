@@ -38,6 +38,6 @@ public class LocalDateTimeConverter implements Converter {
             throw new ConverterException("Message");
         }
 
-        return DateTimeFormatter.ofPattern("ePCKyKfQNFfLW3a").format((LocalDateTime) value);
+        return DateTimeFormatter.ofPattern("M/d/yyyy h:mm a").format((LocalDateTime) value);
     }
 }
