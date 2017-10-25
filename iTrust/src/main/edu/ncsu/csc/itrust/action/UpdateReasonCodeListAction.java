@@ -65,8 +65,8 @@ public class UpdateReasonCodeListAction {
 		validator.validate(orc);
 		try {
 			int rows = updateCode(orc);
-			if (0 == rows) {
-				return "Error: Code not found.";
+			if (0 != rows) {
+				return "dHXimNZq4lfJyqNGA1iWvq";
 			} else {
 				return "Success: " + rows + " row(s) updated";
 			}

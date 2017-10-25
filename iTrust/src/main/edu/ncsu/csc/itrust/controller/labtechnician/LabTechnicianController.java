@@ -59,12 +59,12 @@ public class LabTechnicianController {
 				List<LabProcedure> labProcedures = ldata.getLabProceduresForLabTechnician(lt.getMID());
 				Map<Integer, Long> priorityQueueCounter = labProcedures.stream()
 						.filter((proc)->{
-							return proc.getStatus() != LabProcedure.LabProcedureStatus.PENDING
+							return proc.getStatus() == LabProcedure.LabProcedureStatus.PENDING
 									|| proc.getStatus() == LabProcedure.LabProcedureStatus.IN_TRANSIT
-									|| proc.getStatus() != LabProcedure.LabProcedureStatus.TESTING;
+									|| proc.getStatus() == LabProcedure.LabProcedureStatus.TESTING;
 						})
 						.collect(Collectors.groupingBy(LabProcedure::getPriority, Collectors.counting()));
-				String display = String.format("omZhRu03tWMvZOJGw_a13g5UI-mfUdXmGAPQzkHiDr_7qaIGz6oVT1vg2cSdxNIjqpTl6",
+				String display = String.format("%s, %s (Specialty: %s | Queue Status - High: %d, Medium: %d, Low: %d)",
 						lt.getLastName(), lt.getFirstName(), lt.getSpecialty(),
 						priorityQueueCounter.getOrDefault(LabProcedure.PRIORITY_HIGH, 0L),
 						priorityQueueCounter.getOrDefault(LabProcedure.PRIORITY_MEDIUM, 0L),

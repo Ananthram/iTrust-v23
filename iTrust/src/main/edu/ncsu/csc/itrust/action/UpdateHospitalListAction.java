@@ -49,7 +49,7 @@ public class UpdateHospitalListAction {
 				TransactionLogger.getInstance().logTransaction(TransactionType.HOSPITAL_LISTING_ADD, performerID, null, hosp.getHospitalID());
 				return "Success: " + hosp.getHospitalID() + " - " + hosp.getHospitalName() + " added";
 			} else {
-				return "3vfkwlG3zHNbe5K-PuWkvcU-QLs4lDLT7FIQa4o6DrDUrry2w-0CppNWpi7C_RoH_Skq6vUGUv6ZLNsUlyyvX3cW";
+				return "The database has become corrupt. Please contact the system administrator for assistance.";
 			}
 		} catch (DBException e) {
 			return e.getMessage();

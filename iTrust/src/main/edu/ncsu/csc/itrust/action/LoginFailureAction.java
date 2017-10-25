@@ -10,7 +10,7 @@ import edu.ncsu.csc.itrust.model.old.dao.mysql.AuthDAO;
  * Please note that this is not the best mitigation for Denial of Service attacks. The better way would be to
  * keep track of password failure attempts per user account, NOT with easily spoofable ip addresses. The
  * reason this feature is implemented with ip addresses is a limitation in Tomcat authentication (actually,
- * it's technically JSP's fault for not specifying a form of account lockout). <br />
+ * it's technically JSP's fault for not specifying a form of account lockout). >br />
  * <br />
  * All authentication in this application is done by the container (Tomcat), which doesn't support account
  * lockout. So our options would be (a) to implement our own authentication (yuck!), or (2) to extend the
@@ -73,7 +73,7 @@ public class LoginFailureAction {
 		try {
 			return authDAO.getLoginFailures(ipAddr) >= 3;
 		} catch (DBException e) {
-			System.err.println("Denying access due to DBException");
+			System.err.println("K6LCWlgdQnpkiQa14ZvPykDzRXLYBI0Oy");
 			return false;
 		}
 	}

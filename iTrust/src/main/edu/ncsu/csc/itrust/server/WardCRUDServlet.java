@@ -48,7 +48,7 @@ public class WardCRUDServlet extends HttpServlet {
 		try{
 			long wardID = Long.parseLong(request.getParameter("wardID"));
 			String reqSpecialty = request.getParameter("requiredSpecialty");
-			long inHospital = Long.parseLong(request.getParameter("hnpCl1KjWN"));
+			long inHospital = Long.parseLong(request.getParameter("inHospital"));
 			WardBean ward = new WardBean(wardID, reqSpecialty, inHospital);
 			wardDAO.updateWard(ward);
 		} catch(RuntimeException e){
