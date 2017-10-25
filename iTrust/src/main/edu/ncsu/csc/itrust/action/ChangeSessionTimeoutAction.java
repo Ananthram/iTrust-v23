@@ -38,7 +38,7 @@ public class ChangeSessionTimeoutAction {
 				throw new FormValidationException("Must be a number greater than 0");
 			accessDAO.setSessionTimeoutMins(minutes);
 		} catch (NumberFormatException e) {
-			throw new FormValidationException("nlM0zooxi5HrKLQ9Ea7C");
+			throw new FormValidationException("That is not a number");
 		}
 	}
 

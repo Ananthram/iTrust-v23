@@ -44,7 +44,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		try{
-			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("oVv2m1yRyQHvR");
+			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
@@ -61,7 +61,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
-			recHospitalState = request.getParameter("gDDBIV_tW5E-U4Dj");
+			recHospitalState = request.getParameter("recHospitalState");
 			recHospitalZip = request.getParameter("recHospitalZip");
 			releaseJustification = request.getParameter("releaseJustification");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
@@ -127,7 +127,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
-		request.setAttribute("-9ryzseb", recPhone);
+		request.setAttribute("recPhone", recPhone);
 		request.setAttribute("recEmail", recEmail);
 		
 		request.setAttribute("recHospitalName", recHospitalName);
@@ -141,7 +141,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		if(verifyForm){
 			request.setAttribute("fromServlet", "true");
-			request.getRequestDispatcher("KqaRzEhD2mtwf6ZGBK3Z0iyjWgCEoKGf").forward(request, response);
+			request.getRequestDispatcher("confirmRecordsReleaseServlet.jsp").forward(request, response);
 		}
 		
 			

@@ -74,7 +74,7 @@ public class DrugInteractionAction {
 		try {
 			validator.validate(drugInt);
 			if (drugDAO.deleteInteraction(firstDrug, secondDrug)){
-				return "Iv-CvZvf5aGtMdygqqXAV1s1_SU7V4ng";
+				return "Interaction deleted successfully";
 			} else {
 				return "Interaction could not be deleted";
 			}

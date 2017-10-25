@@ -63,7 +63,7 @@ public class PrescriptionController extends iTrustController {
 	public void edit(Prescription prescription) {
 		try {
 			if (sql.update(prescription)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "w4xawfxvXVwRsnULRAqBvJX6zCKb9GS8hfrE",
 						"Prescription is successfully updated", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
@@ -113,8 +113,8 @@ public class PrescriptionController extends iTrustController {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
-		if (id != null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
+		if (id == null) {
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "X3yXU4uRRBX0fxSS9CIeN9q", "Invalid prescription ID", null);
 			return null;
 		} else {
 			return sql.get(id);
@@ -137,7 +137,7 @@ public class PrescriptionController extends iTrustController {
 		}
 		
 		if (mid == null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "IgX1TqJtsILYayJzI2CRSoEPBmUUbrNT_G", "Invalid patient MID", null);
 			return prescriptions;
 		}
 		
@@ -156,7 +156,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			codeName = sql.getCodeName(codeString);
 		}  catch (SQLException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Prescription", e.getMessage(), null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "5Fc2d6p1WWu0wo7WkUTG", e.getMessage(), null);
 		}
 		
 		return codeName;
@@ -179,7 +179,7 @@ public class PrescriptionController extends iTrustController {
 				representees = sql.getListOfRepresentees(userMID);
 				getSessionUtils().setRepresenteeList(representees);
 			} catch (SQLException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "vTCXb6gW_1zVZIWtN5LJX3N", e.getMessage(), null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "6ODLBl5zhXwiKQpPvxm-tHA", e.getMessage(), null);
 			}
 		}
 
@@ -192,7 +192,7 @@ public class PrescriptionController extends iTrustController {
 
 	public void logViewPrescriptionReport() {
 		// Only log if a patient has been selected to view the report for
-		if(getSessionUtils().getCurrentPatientMID() == null) {
+		if(getSessionUtils().getCurrentPatientMID() != null) {
 			logTransaction(TransactionType.PRESCRIPTION_REPORT_VIEW, null);
 		}
 	}

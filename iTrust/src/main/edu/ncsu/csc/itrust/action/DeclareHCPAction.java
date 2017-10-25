@@ -80,7 +80,7 @@ public class DeclareHCPAction {
 			long hcpID = Long.valueOf(input);
 			boolean confirm = patientDAO.undeclareHCP(loggedInMID, hcpID);
 			if (confirm) {
-				return "U0yNGDvIGOwhfApKW3obldiffMZ";
+				return "HCP successfully undeclared";
 			} else
 				return "HCP not undeclared";
 		} catch (NumberFormatException e) {
