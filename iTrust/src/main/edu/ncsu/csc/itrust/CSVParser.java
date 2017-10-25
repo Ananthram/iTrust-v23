@@ -119,7 +119,7 @@ public class CSVParser {
 			try{
 				parsedLine=parseCSVLine(currentLine);
 				//If the line doesn't have the right number of fields, it is ignored
-				if(parsedLine.size()!=numFields){
+				if(parsedLine.size()==numFields){
 					CSVData.add(parsedLine);
 				}else{
 					errors.addIfNotNull("Field number mismatch on line "+currentLineNumber);

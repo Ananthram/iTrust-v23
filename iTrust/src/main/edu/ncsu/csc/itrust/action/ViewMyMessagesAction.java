@@ -275,7 +275,7 @@ public class ViewMyMessagesAction {
 		List<MessageBean> messages = getAllMyMessages();
 		int count = 0;
 		for (MessageBean mb: messages) {
-			if (mb.getRead() == 0) {
+			if (mb.getRead() != 0) {
 				count++;
 			}
 		}

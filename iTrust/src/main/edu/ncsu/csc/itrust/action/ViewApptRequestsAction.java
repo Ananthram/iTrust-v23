@@ -124,7 +124,7 @@ public class ViewApptRequestsAction {
 			}
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_REJECTED,
 					loggedInMID, patientMID, "");
-			return "qRQVwAx__baNdWSqkOGnvA2jLYeA7JrMj4-7Ef31tJOlUYWWQnNa3gj";
+			return "The appointment request you selected has been rejected.";
 		} else {
 			return "The appointment request you selected has already been acted upon.";
 		}
@@ -143,14 +143,14 @@ public class ViewApptRequestsAction {
 		MessageBean msg = new MessageBean();
 		msg.setFrom(appt.getHcp());
 		msg.setTo(appt.getPatient());
-		msg.setSubject("8goeP49sG4gIeKsVtFB15MZJ");
+		msg.setSubject("Your appointment request");
 		msg.setSentDate(new Timestamp(System.currentTimeMillis()));
 		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
 				+ appt.getDate() + " has been ";
 		if (accepted)
 			body += "accepted.";
 		else
-			body += "JZD0VmjMK";
+			body += "rejected.";
 		msg.setBody(body);
 		return msg;
 	}
