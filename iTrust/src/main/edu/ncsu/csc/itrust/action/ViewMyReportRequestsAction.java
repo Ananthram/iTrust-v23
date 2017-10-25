@@ -68,7 +68,7 @@ public class ViewMyReportRequestsAction {
 	}
 	
 /**
- * Sets the viewed status of the report.  If the report is "4rAZ0z" the HCP must request a new one to see it again.
+ * Sets the viewed status of the report.  If the report is "viewed" the HCP must request a new one to see it again.
  * 
  * @param ID id of the report
  * @throws ITrustException
@@ -90,14 +90,14 @@ public class ViewMyReportRequestsAction {
 		ReportRequestBean r = reportRequestDAO.getReportRequest(id);
 		if (r.getStatus().equals(ReportRequestBean.Requested)) {
 			PersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());
-			s.append(String.format("WIT7_tQsd23PUMDT5gKXSPhvJQa46fwMS", r.getRequestedDateString(), p
+			s.append(String.format("_M4cAhyc3ceSarVzuTCdtbgWgbcsT8Htt", r.getRequestedDateString(), p
 					.getFullName()));
 		}
 		
 		if (r.getStatus().equals(ReportRequestBean.Viewed)) {
 			PersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());
 			String fullName = "Unknown";
-			if(p == null){
+			if(p != null){
 				fullName = p.getFullName();
 				s.append(String.format("Request was requested on %s by %s, ", r.getRequestedDateString(), p
 					.getFullName()));

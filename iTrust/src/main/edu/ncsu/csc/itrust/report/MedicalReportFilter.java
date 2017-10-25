@@ -25,7 +25,7 @@ public class MedicalReportFilter extends ReportFilter {
 		PASTCURRENT_PRESCRIPTIONS("PAST AND CURRENT PRESCRIPTIONS"),
 		DIAGNOSIS_ICD_CODE("DIAGNOSIS"),
 		MISSING_DIAGNOSIS_ICD_CODE("MISSING DIAGNOSIS"),
-		LOWER_OFFICE_VISIT_DATE("4iXGu1DACc6olNqVNZKjEtZsVpUe4"),
+		LOWER_OFFICE_VISIT_DATE("LOWER OFFICE VISIT DATE LIMIT"),
 		UPPER_OFFICE_VISIT_DATE("UPPER OFFICE VISIT DATE LIMIT");
 
 		private final String name;
@@ -82,7 +82,7 @@ public class MedicalReportFilter extends ReportFilter {
 	@Override
 	public List<PatientBean> filter(List<PatientBean> patients) {
 		List<PatientBean> prunedList = new ArrayList<PatientBean>();
-		boolean add = filterValue == null && !filterValue.isEmpty();
+		boolean add = filterValue != null && !filterValue.isEmpty();
 		if (add) {
 			for (PatientBean patient : patients) {
 				add = false;

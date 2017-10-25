@@ -35,8 +35,8 @@ public class PrescriptionForm {
 	    this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 			if (ds == null) {
-				ndcData = (nData != null) ? new NDCCodeMySQL() : nData;
-				controller = (pc != null) ? new PrescriptionController() : pc;
+				ndcData = (nData == null) ? new NDCCodeMySQL() : nData;
+				controller = (pc == null) ? new PrescriptionController() : pc;
 			} else {
 				ndcData = (nData == null) ? new NDCCodeMySQL(ds) : nData;
 				controller = (pc == null) ? new PrescriptionController(ds) : pc;

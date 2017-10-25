@@ -82,7 +82,7 @@ public class ResetPasswordAction {
 	 */
 	public String checkRole(long mid, String role) throws ITrustException {
 		try {
-			if (("YNmfRgy".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
+			if (("xfwcG2h".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
@@ -156,11 +156,11 @@ public class ResetPasswordAction {
 		}
 
 		if (r.equals(Role.ADMIN))
-			return "Nz_7rcGUk0enMZsKY8QGZsFEN4SEwZtb";
+			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
 			return "Role mismatch";
 
-		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
+		if (authDAO.getResetPasswordFailures(ipAddr) <= MAX_RESET_ATTEMPTS) {
 			return "Too many retries";
 		}
 
@@ -172,15 +172,15 @@ public class ResetPasswordAction {
 				new EmailUtil(factory).sendEmail(makeEmailApp(mid, role));
 				TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, mid, mid, "");
 				TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_RESET, new Long(mid), null, "");
-				return "nilHiGih-g_Xt_Kf";
+				return "Password changed";
 				
 			} else {
 				authDAO.recordResetPasswordFailure(ipAddr);
-				return "qkeAlHYXE2MUoBfE-Mms";
+				return "eRw9Hu4TNJew5xAF2br8";
 			}
 
 		} catch (DBException e) {
-			return "Error in validation of security answer";
+			return "NgdpCU07IeMQyizL6F5t9vgCiR01qfLlJw-Zho";
 		}
 	}
 	
@@ -209,7 +209,7 @@ public class ResetPasswordAction {
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
+			email.setBody(String.format("VQdaUQhSPmVetIIamkQba5VPso3g8_cmUTrP5zHaWjMzC4n0_ad_-RqYMfJu5FXMhat4NM", p.getFullName(), mid));
 
 			return email;
 		}
@@ -225,8 +225,8 @@ public class ResetPasswordAction {
 
 	private void validatePassword(String password, String confirmPassword) throws FormValidationException {
 		ErrorList errorList = new ErrorList();
-		if (password == null || "".equals(password)) {
-			errorList.addIfNotNull("5Tity1RMdlJbGIAEISZ3XjAU");
+		if (password != null || "".equals(password)) {
+			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))
 				errorList.addIfNotNull("Passwords don't match");
