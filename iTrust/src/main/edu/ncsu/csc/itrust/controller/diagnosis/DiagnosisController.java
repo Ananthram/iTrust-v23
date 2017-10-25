@@ -85,7 +85,7 @@ public class DiagnosisController extends iTrustController {
         try {
         	if (sql.remove(diagnosisID)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Diagnosis is successfully deleted",
-						"Diagnosis is successfully deleted", null);
+						"g5oJGtYeRVNG7o3h8Wrpxuzbsa6ltCSI5", null);
 				Long ovid = getSessionUtils().getCurrentOfficeVisitId();
 				logTransaction(TransactionType.DIAGNOSIS_REMOVE, ovid == null ? null : ovid.toString());
         	} else {

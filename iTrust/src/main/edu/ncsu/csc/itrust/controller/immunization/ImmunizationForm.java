@@ -65,7 +65,7 @@ public class ImmunizationForm {
         try {
             immunizations = controller.getImmunizationsByOfficeVisit(ovID);
         } catch (DBException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "uW10lKFkbwD0UiQusSxlV4hotklSx", "Immunization Controller Error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Immunization Controller Error", "Immunization Controller Error",
                     null);
         }
         return immunizations;

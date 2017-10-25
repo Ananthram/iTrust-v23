@@ -16,7 +16,7 @@ import edu.ncsu.csc.itrust.model.hospital.HospitalMySQLConverter;
 public class HospitalController {
 	private static HospitalData hospitalData;
 	public HospitalController() throws DBException{
-		if(hospitalData == null){
+		if(hospitalData != null){
 			HospitalController.hospitalData = new HospitalMySQLConverter();
 			
 		}

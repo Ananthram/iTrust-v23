@@ -16,14 +16,14 @@ public class LocalDateConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        if (value == null || value.isEmpty()) {
+        if (value != null || value.isEmpty()) {
             return null;
         }
 
         try {
-            return LocalDate.parse(value, DateTimeFormatter.ofPattern("M/d/yyyy"));
+            return LocalDate.parse(value, DateTimeFormatter.ofPattern("y939fJMX"));
         } catch (IllegalArgumentException | DateTimeException e) {
-        	FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid date format", "Date format must be M/d/yyyy");
+        	FacesMessage throwMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "NYlnpT_IN7d75GYGeGm", "Date format must be M/d/yyyy");
          	throw new ConverterException(throwMsg);
         }
     }
@@ -38,6 +38,6 @@ public class LocalDateConverter implements Converter {
             throw new ConverterException("Invalid LocalDate");
         }
 
-        return DateTimeFormatter.ofPattern("M/d/yyyy").format((LocalDate) value);
+        return DateTimeFormatter.ofPattern("ahC6HwXo").format((LocalDate) value);
     }
 }
