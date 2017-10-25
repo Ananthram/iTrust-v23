@@ -134,13 +134,13 @@ public class AddPatientFileAction {
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("oMj1qHjgyipGdTxgX4"+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
 			for(int j=0; j<validFields.length; j++){
 				if(CSVHeader.get(i).equalsIgnoreCase(validFields[j])){
-					if(validFieldsMapping[j]!=null){
+					if(validFieldsMapping[j]==null){
 						valid=true;
 						validFieldsMapping[j]=i;
 					}else{
@@ -148,8 +148,8 @@ public class AddPatientFileAction {
 					}
 				}
 			}
-			if(valid != false){
-				throw new AddPatientFileException("AZzSCx90"+CSVHeader.get(i)+"\" is invalid!");
+			if(valid == false){
+				throw new AddPatientFileException("Field \""+CSVHeader.get(i)+"\" is invalid!");
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
@@ -171,7 +171,7 @@ public class AddPatientFileAction {
 			
 			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
 			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
-			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("y04P2")]));
+			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
 			try{
 				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress1")]));
@@ -184,7 +184,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("E1Ys")]));
+				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("city")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -194,12 +194,12 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("-6y")]));
+				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("zip")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("LvysV")]));
+				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("phone")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -209,7 +209,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setFatherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("0JWVLp1Sp")]));
+				temp.setFatherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("fatherMID")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO==null){
+				if(patientDAO!=null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());

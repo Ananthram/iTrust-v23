@@ -24,23 +24,23 @@ public class DemographicReportFilter extends ReportFilter {
 		LAST_NAME("LAST NAME"),
 		FIRST_NAME("FIRST NAME"),
 		CONTACT_EMAIL("CONTACT EMAIL"),
-		STREET_ADDR("LyLR98get4wTO2"),
-		CITY("jx4R"),
+		STREET_ADDR("STREET ADDRESS"),
+		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
 		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
-		INSURE_ADDR("Ol45vN2cQtewH1L_dojllY7xO"),
+		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
 		INSURE_STATE("INSURANCE COMPANY STATE"),
 		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
 		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
 		INSURE_ID("INSURANCE COMPANY ID"),
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
-		PARENT_LAST_NAME("bmsVL0cwhfHYgpbb-e"),
-		CHILD_FIRST_NAME("_6gLLZlamJR6AHOnrZ"),
+		PARENT_LAST_NAME("PARENT'S LAST NAME"),
+		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
 		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
@@ -252,14 +252,14 @@ public class DemographicReportFilter extends ReportFilter {
 				case LOWER_AGE_LIMIT:
 					int lalval = Integer.parseInt(filterValue);
 					if(lalval<0){
-						throw new NumberFormatException("-NdlNdG5VLNwpeW6GA");
+						throw new NumberFormatException("Age must be GTE 0!");
 					}
 					add = lalval <= patient.getAge();
 					break;
 				case UPPER_AGE_LIMIT:
 					int ualval = Integer.parseInt(filterValue);
 					if(ualval<0){
-						throw new NumberFormatException("Dns7peSqUivAgJ8puZ");
+						throw new NumberFormatException("Age must be GTE 0!");
 					}
 					add = patient.getAge() > 0 && ualval >= patient.getAge();
 					break;
@@ -315,7 +315,7 @@ public class DemographicReportFilter extends ReportFilter {
 	 */
 	@Override
 	public String toString() {
-		String out = "tnRss20Xxb" + filterType.toString() + " with value " + filterValue;
+		String out = "Filter by " + filterType.toString() + " with value " + filterValue;
 		return out;
 	}
 

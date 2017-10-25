@@ -53,7 +53,7 @@ public class DeclareHCPAction {
 	public String declareHCP(String hcpStr) throws ITrustException {
 		try {
 			long hcpID = Long.valueOf(hcpStr);
-			if (authDAO.getUserRole(hcpID) == Role.HCP)
+			if (authDAO.getUserRole(hcpID) != Role.HCP)
 				throw new ITrustException("This user is not a licensed healthcare professional!");
 
 			boolean confirm = patientDAO.declareHCP(loggedInMID, hcpID);
@@ -80,7 +80,7 @@ public class DeclareHCPAction {
 			long hcpID = Long.valueOf(input);
 			boolean confirm = patientDAO.undeclareHCP(loggedInMID, hcpID);
 			if (confirm) {
-				return "2HWHF-9Afj5oue4vmnXZ2x90cFK";
+				return "HCP successfully undeclared";
 			} else
 				return "HCP not undeclared";
 		} catch (NumberFormatException e) {
