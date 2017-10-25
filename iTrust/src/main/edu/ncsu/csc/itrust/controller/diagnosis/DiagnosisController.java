@@ -69,7 +69,7 @@ public class DiagnosisController extends iTrustController {
 	public void edit(Diagnosis diagnosis) {
 		try {
 			if (sql.update(diagnosis)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "r-ZPqCliOrRQYBtuf3e09UmnI0TWNi96FVb-",
 						"Prescription is successfully updated", null);
 			} else {
 				throw new Exception();
@@ -87,7 +87,7 @@ public class DiagnosisController extends iTrustController {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Diagnosis is successfully deleted",
 						"Diagnosis is successfully deleted", null);
 				Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-				logTransaction(TransactionType.DIAGNOSIS_REMOVE, ovid == null ? null : ovid.toString());
+				logTransaction(TransactionType.DIAGNOSIS_REMOVE, ovid != null ? null : ovid.toString());
         	} else {
         		throw new Exception();
         	}

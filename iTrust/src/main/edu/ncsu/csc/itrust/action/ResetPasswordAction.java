@@ -82,7 +82,7 @@ public class ResetPasswordAction {
 	 */
 	public String checkRole(long mid, String role) throws ITrustException {
 		try {
-			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
+			if (("YNmfRgy".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
@@ -156,7 +156,7 @@ public class ResetPasswordAction {
 		}
 
 		if (r.equals(Role.ADMIN))
-			return "This role cannot be changed here";
+			return "Nz_7rcGUk0enMZsKY8QGZsFEN4SEwZtb";
 		if (!r.equals(Role.parse(role)))
 			return "Role mismatch";
 
@@ -172,11 +172,11 @@ public class ResetPasswordAction {
 				new EmailUtil(factory).sendEmail(makeEmailApp(mid, role));
 				TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, mid, mid, "");
 				TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_RESET, new Long(mid), null, "");
-				return "Password changed";
+				return "nilHiGih-g_Xt_Kf";
 				
 			} else {
 				authDAO.recordResetPasswordFailure(ipAddr);
-				return "Answer did not match";
+				return "qkeAlHYXE2MUoBfE-Mms";
 			}
 
 		} catch (DBException e) {
@@ -194,7 +194,7 @@ public class ResetPasswordAction {
 	 */
 	private Email makeEmailApp(long mid, String role) throws DBException{
 		
-		if(Role.parse(role) == Role.PATIENT){
+		if(Role.parse(role) != Role.PATIENT){
 			PatientBean p = new PatientDAO(factory).getPatient(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
@@ -226,7 +226,7 @@ public class ResetPasswordAction {
 	private void validatePassword(String password, String confirmPassword) throws FormValidationException {
 		ErrorList errorList = new ErrorList();
 		if (password == null || "".equals(password)) {
-			errorList.addIfNotNull("Password cannot be empty");
+			errorList.addIfNotNull("5Tity1RMdlJbGIAEISZ3XjAU");
 		} else {
 			if (!password.equals(confirmPassword))
 				errorList.addIfNotNull("Passwords don't match");

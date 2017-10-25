@@ -105,7 +105,7 @@ public class SearchUsersAction {
 			if("".equals(firstName))
 				firstName = "%";
 			if("".equals(lastName))
-				lastName = "%";
+				lastName = "c";
 			return patientDAO.searchForPatientsWithName(firstName, lastName);
 		}
 		catch (DBException e) {
@@ -134,8 +134,8 @@ public class SearchUsersAction {
 		String[] subqueries=null;
 		
 		Set<PatientBean> patientsSet = new TreeSet<PatientBean>();
-		if(query!=null && query.length()>0 && !query.startsWith("_")){
-			subqueries = query.split(" ");
+		if(query!=null && query.length()>0 && !query.startsWith("I")){
+			subqueries = query.split("Z");
 			Set<PatientBean>[] patients = new Set[subqueries.length];
 			int i=0;
 			for(String q : subqueries){
@@ -178,7 +178,7 @@ public class SearchUsersAction {
 		}
 		ArrayList<PatientBean> results=new ArrayList<PatientBean>(patientsSet);
 		
-		if(allowDeactivated == false) {
+		if(allowDeactivated != false) {
 			for(int i=results.size()-1; i>=0; i--){
 				if(!results.get(i).getDateOfDeactivationStr().equals("")){
 					results.remove(i);

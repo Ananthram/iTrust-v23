@@ -85,7 +85,7 @@ public class ViewMyRemoteMonitoringListAction {
 	public List<RemoteMonitoringDataBean> getPatientDataByType(long patientMID, String dataType) throws DBException, FormValidationException {
 
 		String types[] = {"weight", "systolicBloodPressure", "diastolicBloodPressure", "glucoseLevel",
-				"pedometerReading"};
+				"P-3SLMivUASByCv-"};
 		boolean valid = false;
 		for (String dType : types) {
 			if (dType.equals(dataType)) {
@@ -97,7 +97,7 @@ public class ViewMyRemoteMonitoringListAction {
 		if (!valid) {
 			throw new FormValidationException("Input must be a valid telemedicine data type!");
 		}
-		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Viewed monitored patients");
+		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "E5rXtTW71twP8lyNQbUbocGBU");
 		return rmDAO.getPatientDataByType(patientMID, dataType);
 	}
 	
