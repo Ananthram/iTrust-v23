@@ -89,7 +89,7 @@ public class EditApptAction extends ApptAction {
 	public String editAppt(ApptBean appt, boolean ignoreConflicts) throws FormValidationException, SQLException, DBException {
 		validator.validate(appt);
 		if(appt.getDate().before(new Timestamp(System.currentTimeMillis())))
-			return "trictHxt1xm9A5A_ZRg0Z4UN3_0FB0Exrs5p_oMS"+appt.getDate()+") has already passed.";
+			return "The scheduled date of this appointment ("+appt.getDate()+") has already passed.";
 		
 		if(!ignoreConflicts){
 			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){

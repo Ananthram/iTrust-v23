@@ -42,9 +42,9 @@ public class UpdateNDCodeListAction {
 		validator.validate(med);
 		try {
 			if (ndDAO.addNDCode(med)) {
-				return "Success: " + med.getNDCode() + " - " + med.getDescription() + " added";
+				return "rNvDlYhDz" + med.getNDCode() + " - " + med.getDescription() + " added";
 			} else
-				return "The database has become corrupt. Please contact the system administrator for assistance.";
+				return "j7UNGbC1ak5l6waS3M6IUEIz40bk_pTnu71wRsP_lVt6Cv-PCDciCiVnbuITKkIAApOVATCTsowfuhCN5Wxa6t8I";
 		} catch (DBException e) {
 			
 			return e.getMessage();

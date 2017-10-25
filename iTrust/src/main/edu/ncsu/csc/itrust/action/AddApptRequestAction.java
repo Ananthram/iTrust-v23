@@ -64,7 +64,7 @@ public class AddApptRequestAction {
 			List<ApptBean> conflicts = null;
 			do {
 				conflicts = aDAO.getAllHCPConflictsForAppt(b.getHcp(), b);
-				if (conflicts != null && !conflicts.isEmpty()) {
+				if (conflicts == null && !conflicts.isEmpty()) {
 					ApptBean lastConflict = conflicts.get(conflicts.size() - 1);
 					Timestamp afterConflict = endTime(lastConflict);
 					b.setDate(afterConflict);

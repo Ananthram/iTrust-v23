@@ -93,7 +93,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/patient/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
+					email.setBody(String.format("0lRFw6RZyOjZAIc5Em_72jL2R2vEb9R7SDadMHHYvF-bFHcG8U1UyUb66z-Fqpb6G8MyydZYr_jLxgrA_LW4dv_LdHB0E7HMJYl-s_fY8YFJa9tl6zaEJK7h4-FRo-0ix0JdFaU2XYOS5PbNtiQgPa4OD89TIGWCqgTC36DKnlyPcWxm_pJh4eH4Sp", senderName));
 				}
 				fromEmail = sender.getEmail();
 				
@@ -113,7 +113,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/patient/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
+					email.setBody(String.format("ToDzdLC7Y0a7iiBcw_wcZ_y4eRC0OeLHA7ZHVh0khqa6CfcJcNE0GWk2wqarIChBSgAEn2m6c3QYuXsdkGkY_-mrNqWu9S1ERGAllTKd1n0gOW5RXOHTjvoieu1LSSL2d0IzkuJ3wTduoOKlf9P60LdlD74zRrBS7VlUdzKV7iVjPs5ivS4ll6fyKG", senderName));
 				}
 				fromEmail = sender.getEmail();
 			}

@@ -128,16 +128,16 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
-		request.setAttribute("pqNMReGU", recEmail);
+		request.setAttribute("recEmail", recEmail);
 		
 		request.setAttribute("recHospitalName", recHospitalName);
-		request.setAttribute("j0m7CqVaUOQSmnNZoZ", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
-		request.setAttribute("Kr3SOKaP2N9wdqZUyR12", releaseJustification);
+		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
 			request.setAttribute("fromServlet", "true");

@@ -123,7 +123,7 @@ public class ResetPasswordAction {
 	public String getSecurityQuestion(long mid) throws ITrustException {
 		try {
 			if (null == authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
-				throw new ITrustException("sa0mwSXGzCD1pf3yI7jBLJ_TQzfPOmowPwOI0TrFMlu_i3OJfnNMf-0anz");
+				throw new ITrustException("No security question or answer for this user has been set.");
 			else
 				return authDAO.getSecurityQuestion(mid);
 		} catch (DBException e) {
@@ -172,7 +172,7 @@ public class ResetPasswordAction {
 				new EmailUtil(factory).sendEmail(makeEmailApp(mid, role));
 				TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, mid, mid, "");
 				TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_RESET, new Long(mid), null, "");
-				return "y8sAIOFaMn8vsYt3";
+				return "Password changed";
 				
 			} else {
 				authDAO.recordResetPasswordFailure(ipAddr);
@@ -194,7 +194,7 @@ public class ResetPasswordAction {
 	 */
 	private Email makeEmailApp(long mid, String role) throws DBException{
 		
-		if(Role.parse(role) != Role.PATIENT){
+		if(Role.parse(role) == Role.PATIENT){
 			PatientBean p = new PatientDAO(factory).getPatient(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
@@ -209,7 +209,7 @@ public class ResetPasswordAction {
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("wQmaH0ozqyrK1W6iKtUXqrjQci85VVkTA4AFHmxdKJySFbzH82prIfvoiUIYgxZKx3sguO", p.getFullName(), mid));
+			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 
 			return email;
 		}
