@@ -169,7 +169,7 @@ public class ManageHospitalAssignmentsAction {
 	public boolean checkLTHospital(String hcpID) throws ITrustException{
 		try{
 			long pid = Long.valueOf(hcpID);
-			if(personnelDAO.getPersonnel(pid).getRole().toString().equals("j3")){
+			if(personnelDAO.getPersonnel(pid).getRole().toString().equals("LT")){
 				if(hospitalsDAO.checkLTHasHospital(pid)){
 					return true;
 				}

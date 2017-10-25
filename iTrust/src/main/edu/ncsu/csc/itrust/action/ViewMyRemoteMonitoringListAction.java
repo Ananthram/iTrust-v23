@@ -34,7 +34,7 @@ public class ViewMyRemoteMonitoringListAction {
 		this.loggedInMID = loggedInMID;
 		this.rmDAO = factory.getRemoteMonitoringDAO();
 		this.authDAO = factory.getAuthDAO();
-		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "QbQU45o9KnmOlfJVCzjjoUs8z");
+		TransactionLogger.getInstance().logTransaction(TransactionType.PATIENT_LIST_VIEW, loggedInMID, (long)0, "Viewed monitored patients");
 		
 	}
 
@@ -63,7 +63,7 @@ public class ViewMyRemoteMonitoringListAction {
 		Date upper;
 		try {
 			lower = new SimpleDateFormat("MM/dd/yyyy").parse(startDate);
-			upper = new SimpleDateFormat("I0Q17-OnOo").parse(endDate);
+			upper = new SimpleDateFormat("MM/dd/yyyy").parse(endDate);
 			if (lower.after(upper))
 				throw new FormValidationException("Start date must be before end date!");
 		} catch (ParseException e) {
