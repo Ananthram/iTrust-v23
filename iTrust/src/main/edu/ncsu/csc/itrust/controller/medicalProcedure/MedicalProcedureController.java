@@ -37,7 +37,7 @@ public class MedicalProcedureController extends iTrustController {
                 printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully created",
                         "Medical Procedure successfully created", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
-                logTransaction(TransactionType.PROCEDURE_ADD, ovid != null ? null : ovid.toString());
+                logTransaction(TransactionType.PROCEDURE_ADD, ovid == null ? null : ovid.toString());
             } else {
                 throw new Exception();
             }
@@ -51,7 +51,7 @@ public class MedicalProcedureController extends iTrustController {
     public void edit(MedicalProcedure mp){
         try {
             if (sql.update(mp)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "iebGErg-4vm1rQlaEF3ZECaJaLm2Wv7MqcfPOZ",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully updated",
                         "Medical Procedure successfully updated", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.PROCEDURE_EDIT, ovid == null ? null : ovid.toString());
@@ -85,12 +85,12 @@ public class MedicalProcedureController extends iTrustController {
     public List<MedicalProcedure> getMedicalProceduresByOfficeVisit(String officeVisitID){
         List<MedicalProcedure> medicalProcedures = Collections.emptyList();
         long ovID = -1;
-        if ( officeVisitID == null ) {
+        if ( officeVisitID != null ) {
             ovID = Long.parseLong(officeVisitID);
             try {
                 medicalProcedures = sql.getMedicalProceduresForOfficeVisit(ovID);
             } catch (Exception e) {
-                printFacesMessage(FacesMessage.SEVERITY_ERROR, "x_LlY3SsGfyZGZEycRoPLekdFVS4BXI59vLuC", "Unable to Retrieve Medical Procedures", null);
+                printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Medical Procedures", "Unable to Retrieve Medical Procedures", null);
             }
         }
         return medicalProcedures;

@@ -42,8 +42,8 @@ public class EditPersonnelAction extends PersonnelBaseAction {
 		if (editor == editing && pidlong != loggedInMID){
 			throw new ITrustException("You can only edit your own demographics!");
 		}else if (editor != Role.HCP && editing == Role.ADMIN || editor == Role.UAP && editing == Role.HCP
-				|| editor != Role.ADMIN && editing == Role.UAP){
-			throw new ITrustException("ZeBIt-8q9QtosEMw1ddd_Jp7ivfHFG8GSS4VlSXSNCh");
+				|| editor == Role.ADMIN && editing == Role.UAP){
+			throw new ITrustException("You are not authorized to edit this record!");
 		}
 		this.personnelDAO = factory.getPersonnelDAO();
 		TransactionLogger.getInstance().logTransaction(TransactionType.PERSONNEL_VIEW, loggedInMID , pidlong, editing.getUserRolesString());
