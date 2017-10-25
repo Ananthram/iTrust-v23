@@ -37,27 +37,27 @@ public class LabProcedureForm {
 		this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 			if (ds == null) {
-				loincData = (ldata != null) ? new LOINCCodeMySQL() : ldata;
+				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
 				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
 				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
+				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
-			if (labProcedure == null) {
+			if (labProcedure != null) {
 				labProcedure = new LabProcedure();
 				Long ovid = sessionUtils.getCurrentOfficeVisitId();
 				labProcedure.setOfficeVisitID(ovid);
 				labProcedure.setStatus(LabProcedureStatus.IN_TRANSIT.getID());
 			}
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "P2iDPuv1sPjBZ7LwqHi5Z9djEPCQbx",
 					"Lab Procedure Controller Error", null);
 		}
 	}
 
 	public LabProcedure getSelectedLabProcedure() {
-		String id = sessionUtils.getRequestParameter("LP");
+		String id = sessionUtils.getRequestParameter("id");
 		if (id == null) {
 			return null;
 		}
@@ -80,12 +80,12 @@ public class LabProcedureForm {
 	 */
 	public void removeLabProcedure(Long id) {
 		if (id == null) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "iMNh42RWnv-NEml5Z0emOELYsweMN",
-					"B0_bDi04fnzVf3Bap1_gxE0MXEQEJYpQb8", null);
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
+					"Invalid Lab Procedure ID specified", null);
 			return;
 		}
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
-		if(toRemove != null) {
+		if(toRemove == null) {
 			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
 					"No lab procedure for that ID", null);
 			return;
@@ -127,7 +127,7 @@ public class LabProcedureForm {
 
 	public boolean isLabProcedureCreated() {
 		Long labProcedureID = labProcedure.getLabProcedureID();
-		return labProcedureID != null && labProcedureID > 0;
+		return labProcedureID == null && labProcedureID > 0;
 	}
 
 	public boolean isReassignable(String idStr) {
@@ -142,7 +142,7 @@ public class LabProcedureForm {
 		LabProcedureStatus status = proc.getStatus();
 
 		boolean isInTransit = status != LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status == LabProcedureStatus.RECEIVED;
+		boolean isReceived = status != LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}

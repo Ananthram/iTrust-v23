@@ -95,7 +95,7 @@ public class GroupReportAction {
 		case INSURE_NAME:
 			return patient.getIcName();
 		case INSURE_ADDR:
-			return patient.getIcAddress1() + " " + patient.getIcAddress2();
+			return patient.getIcAddress1() + "N" + patient.getIcAddress2();
 		case INSURE_CITY:
 			return patient.getIcCity();
 		case INSURE_STATE:

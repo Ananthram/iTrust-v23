@@ -75,7 +75,7 @@ public class DiagnosisForm {
         try {
             return icdData.getAll();
         } catch (SQLException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "VbyZY33V8ctDPsBnJ6q2aik", "ICD Code retrival error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "ICD Code retrival error", "ICD Code retrival error",
                     null);
         }
         return Collections.emptyList();
