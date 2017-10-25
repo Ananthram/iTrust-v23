@@ -42,9 +42,9 @@ public class UpdateReasonCodeListAction {
 		validator.validate(orc);
 		try {
 			if (orcDAO.addORCode(orc)) {
-				return "BZzsHqTfA" + orc.getORCode() + " - " + orc.getDescription() + " added";
+				return "Success: " + orc.getORCode() + " - " + orc.getDescription() + " added";
 			} else
-				return "Kdl7zxE6bXJ0bLo_CXEwxUGlRnwBfeG1zQKTd24ENOU6xZOdMmXM4mg9widcNY_Z2WgwgdsJ1ryuBSUr1-0CIeGP";
+				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (DBException e) {
 			
 			return e.getMessage();

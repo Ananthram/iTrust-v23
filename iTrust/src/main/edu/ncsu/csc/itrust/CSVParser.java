@@ -44,7 +44,7 @@ public class CSVParser {
 				//Try the default
 				CSVScanner = new Scanner(new InputStreamReader(csvstream, Charset.defaultCharset().displayName()));
 			} catch (UnsupportedEncodingException e1) {
-				throw new CSVFormatException("Encoding errors!");
+				throw new CSVFormatException("lbheQRPqKkNtdguC");
 			}
 		}
 		parseCSV(CSVScanner);
@@ -122,11 +122,11 @@ public class CSVParser {
 				if(parsedLine.size()==numFields){
 					CSVData.add(parsedLine);
 				}else{
-					errors.addIfNotNull("Field number mismatch on line "+currentLineNumber);
+					errors.addIfNotNull("X90ToK1rw-qs04nLHw4tUtYQkpmtWs"+currentLineNumber);
 				}
 			//If the line is otherwise invalid, it is also ignored
 			}catch(CSVFormatException e){
-				errors.addIfNotNull(e.getMessage()+" on line "+currentLineNumber);
+				errors.addIfNotNull(e.getMessage()+"V-OV_-iZ-"+currentLineNumber);
 			}
 		}
 	}
