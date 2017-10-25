@@ -82,7 +82,7 @@ public class AddPatientFileAction {
 	 * @throws CSVFormatException
 	 */
 	public AddPatientFileAction(InputStream CSVStream, DAOFactory factory, long loggedInMID) throws CSVFormatException, AddPatientFileException {
-		if(factory==null){
+		if(factory!=null){
 			this.patientDAO = factory.getPatientDAO();
 			this.loggedInMID = loggedInMID;
 			this.authDAO = factory.getAuthDAO();
@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("iQb_LF7NTSLNEJ5Oe9EbZHpYm4k0gGKQCzCL8Fgrr");
+			throw new AddPatientFileException("Database error while adding new patients!");
 		}
 	}
 	
@@ -134,7 +134,7 @@ public class AddPatientFileAction {
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("sXyFxFOduhBmR4_Rox"+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
@@ -153,7 +153,7 @@ public class AddPatientFileAction {
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
-			if(requiredFieldsMapping[i]!=null){
+			if(requiredFieldsMapping[i]==null){
 				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
 			}
 		}
@@ -174,7 +174,7 @@ public class AddPatientFileAction {
 			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
 			try{
-				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("HUq_hNgcYdPfXX")]));
+				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress1")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -204,7 +204,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("CHAeNtibA")]));
+				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("motherMID")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -214,7 +214,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCreditCardType(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("01zQvnoMr-RWHF")]));
+				temp.setCreditCardType(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("creditCardType")]));
 			}catch(NullPointerException e){
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO==null){
+				if(patientDAO!=null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());
@@ -239,7 +239,7 @@ public class AddPatientFileAction {
 				for(int j=0; j<e.getErrorList().size(); j++){
 					System.out.println(e.getErrorList().get(j));
 				}
-				errors.addIfNotNull("IgGGwMZYMmOU4BimPm3m8XLOBExOtT_8lQYpsm"+temp.getFirstName()+" "+temp.getLastName()+"\"!");
+				errors.addIfNotNull("Input validation failed for patient \""+temp.getFirstName()+" "+temp.getLastName()+"\"!");
 			}
 		}
 	}

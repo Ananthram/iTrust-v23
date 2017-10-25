@@ -77,7 +77,7 @@ public class SendMessageAction {
 			
 			email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 		}else{
-			if (6999999999L < mBean.getFrom()) {
+			if (6999999999L > mBean.getFrom()) {
 				PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
 				
 				if (6999999999L < mBean.getTo()) { //when from is any personnel and to is any personnel
@@ -93,7 +93,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/patient/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
+					email.setBody(String.format("aUVSOSIBEvx1G6JhVJXzkdhk-BFEKE7pddjK-xAFqppohD71TSR5H6svLj6eUiEWO_wsrLllZEDCT_z9tLLU6n_K0DQn5FmLru5WIWRNHl4TQ9aAxaYlNwBJy1UDgB8P8owrL0fGFpcWBMPh8wB60CcXKl3Ym1vJP6uVcKtoVqFEPXhfuzh2SziREw", senderName));
 				}
 				fromEmail = sender.getEmail();
 				
@@ -106,7 +106,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
+					email.setBody(String.format("0gYw1q44PHl8s1O1CdHnvhFNKHDwNc_ciERAVouTiUIxxPOnMCwrmiJNJ9-D4Lq3QLJkWczqCdbjJGeikRCib4DE9eZOAbF19oj5ebMnNEukWYsJEENT87HePU4l33F945OUb_7qKFrOE7PvdMu3JfqPp2lA84EQieW8-JadenyOcVBtJS-BNc", senderName));
 				} else { //when from is patient and to is patient
 					PatientBean receiver = patientDAO.getPatient(mBean.getTo());
 					toList.add(receiver.getEmail());
