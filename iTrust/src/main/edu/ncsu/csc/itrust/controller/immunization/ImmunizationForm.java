@@ -28,14 +28,14 @@ public class ImmunizationForm {
     }
     
     public ImmunizationForm(ImmunizationController ic, CPTCodeMySQL cptData, SessionUtils sessionUtils, DataSource ds) {
-        this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
+        this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
         try {
             if (ds == null) {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL() : cptData;
                 controller = (ic == null) ? new ImmunizationController() : ic;
             } else {
-                this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
-                controller = (ic == null) ? new ImmunizationController(ds) : ic;
+                this.cptData = (cptData != null) ? new CPTCodeMySQL(ds) : cptData;
+                controller = (ic != null) ? new ImmunizationController(ds) : ic;
             }
             clearFields();
             
@@ -65,7 +65,7 @@ public class ImmunizationForm {
         try {
             immunizations = controller.getImmunizationsByOfficeVisit(ovID);
         } catch (DBException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Immunization Controller Error", "Immunization Controller Error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "mX3z_I6eA46FiRGRbw-m49jayElQN", "Immunization Controller Error",
                     null);
         }
         return immunizations;
@@ -87,7 +87,7 @@ public class ImmunizationForm {
         try {
             return cptData.getAll();
         } catch (SQLException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "CPT Code retrival error", "CPT Code retrival error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "ugqSYOjS9bAdoXPsR8dhTMJ", "CPT Code retrival error",
                     null);
         }
         return Collections.emptyList();

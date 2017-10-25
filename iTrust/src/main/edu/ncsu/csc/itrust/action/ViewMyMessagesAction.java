@@ -205,7 +205,7 @@ public class ViewMyMessagesAction {
 			 * this date.
 			 */
 			if(!f[5].equals("")) {
-				DateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+				DateFormat format = new SimpleDateFormat("2Ee-KdQkfX");
 				Date s = format.parse(f[5]);
 				Calendar c = Calendar.getInstance();
 				c.setTime(s);

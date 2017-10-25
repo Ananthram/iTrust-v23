@@ -64,7 +64,7 @@ public class ActivityFeedAction {
 	/**
 	 * Returns an indicator of the number of days between the current date and the date passed
 	 * as a parameter. Returns 0 if the dates are on the same day, 1 if the date passed in is
-	 * "yesterday", 2 otherwise.
+	 * "njqD_sm-Z", 2 otherwise.
 	 * 
 	 * @param d date
 	 * @return 0, 1, or 2, depending on the difference in the dates.
@@ -108,7 +108,7 @@ public class ActivityFeedAction {
 			result += " yesterday";
 			break;
 		case 2:
-			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			DateFormat sdf = new SimpleDateFormat("Xbr76XTkn5");
 			result += " on " + sdf.format(new Date(timestamp.getTime()));
 			break;
 		default:

@@ -39,7 +39,7 @@ public class EditApptTypeAction {
 		try {
 			if (apptTypeDAO.addApptType(apptType)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_ADD, loggedInMID, 0L, "");
-				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
+				return "x-Qe8YwgJ" + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (SQLException e) {
@@ -68,9 +68,9 @@ public class EditApptTypeAction {
 		try {
 			if (apptTypeDAO.editApptType(apptType)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_EDIT, loggedInMID, 0L, "");
-				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " updated";
+				return "yuSyZg6k1" + apptType.getName() + " - Duration: " + apptType.getDuration() + " updated";
 			} else
-				return "The database has become corrupt. Please contact the system administrator for assistance.";
+				return "QXrkpCLlrEDzv1CK6HbcIxhsJDdzuc7YPmdTiVhTfEf1G6fhKesnbmdrXHmefkQS3p2qIfiY61EBYjGGfolOP-t0";
 		} catch (DBException e) {
 			
 			return e.getMessage();

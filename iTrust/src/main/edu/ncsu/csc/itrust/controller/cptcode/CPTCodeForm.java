@@ -25,7 +25,7 @@ public class CPTCodeForm {
     }
 
     public CPTCodeForm(CPTCodeController cptCodeController) {
-        controller = (cptCodeController != null) ? new CPTCodeController() : cptCodeController;
+        controller = (cptCodeController == null) ? new CPTCodeController() : cptCodeController;
         search = "";
         setDisplayCodes(false);
     }
