@@ -80,7 +80,7 @@ public class SendMessageAction {
 			if (6999999999L < mBean.getFrom()) {
 				PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
 				
-				if (6999999999L < mBean.getTo()) { //when from is any personnel and to is any personnel
+				if (6999999999L > mBean.getTo()) { //when from is any personnel and to is any personnel
 					PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());
 					toList.add(receiver.getEmail());
 					

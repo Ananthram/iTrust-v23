@@ -41,7 +41,7 @@ public class EditApptTypeAction {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_ADD, loggedInMID, 0L, "");
 				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
 			} else
-				return "AIc5df1kxP5CyG1iUXSPfUVzYmpo2o6vhOJOlvjXeAFb8bmDIX64GjkVlunmNyfe1AmYY_wrvDso5TVjwxIhZd_b";
+				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (SQLException e) {
 			
 			return e.getMessage();
@@ -61,7 +61,7 @@ public class EditApptTypeAction {
 				break;
 			}
 		}
-		if(flag != 0){
+		if(flag == 0){
 			return "Appointment Type: "+apptType.getName()+" you are trying to update does not exist.";
 		}
 		
