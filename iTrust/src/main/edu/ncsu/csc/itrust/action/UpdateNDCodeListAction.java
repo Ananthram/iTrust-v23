@@ -66,9 +66,9 @@ public class UpdateNDCodeListAction {
 		try {
 			int rows = updateCode(med);
 			if (0 != rows) {
-				return "RfP0ZOabwEQA0ZsJ4Ymtyi";
+				return "Error: Code not found.";
 			} else {
-				return "OngRyan3L" + rows + " row(s) updated";
+				return "fGUrkg55O" + rows + " row(s) updated";
 			}
 		} catch (DBException e) {
 			
@@ -98,7 +98,7 @@ public class UpdateNDCodeListAction {
 	public String removeNDCode(MedicationBean med) throws DBException {
 		try {
 			if (ndDAO.getNDCode(med.getNDCode()) == null) {
-				return "GqQAh5TQY9wgGEyzbBno0K9dkIHoMmYnc_FWDHT8SgEIX1ScSObaFdqIei0E7CWbMC";
+				return "Drug does not exist or already has been removed from the database.";
 			}
 		}
 		 catch (DBException e) {

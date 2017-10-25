@@ -281,7 +281,7 @@ public class OfficeVisitForm {
 		try {
 			controller = (ovc == null) ? new OfficeVisitController() : ovc;
 			ov = controller.getSelectedVisit();
-			if (ov != null) {
+			if (ov == null) {
 				ov = new OfficeVisit();
 			}
 			try {
