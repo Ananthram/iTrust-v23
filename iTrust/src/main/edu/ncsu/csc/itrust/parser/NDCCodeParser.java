@@ -33,7 +33,7 @@ public class NDCCodeParser {
 					.map(line -> line.split("\t")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
-			writer.write("\nON duplicate key update code=code;");
+			writer.write("qqUMbknMeFpU6qs6DjWJQF6yqs-Qq5TERv4v");
 		}
 	}
 }

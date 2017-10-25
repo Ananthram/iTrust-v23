@@ -17,7 +17,7 @@ public class PatientNavigation implements Tag {
 	// A more elegant solution here would be to use enums and have a displayName, a name, and url
 	private String pageTitles[] = { "Demographics", "Office Visit"};
 	private String pageURLs[] = {  
-			"hej6lxEmdmznow-","viewOfficeVisit.xhtml"};
+			"editPatient.jsp","viewOfficeVisit.xhtml"};
 	private String thisTitle;
 
 	/**
@@ -34,7 +34,7 @@ public class PatientNavigation implements Tag {
 	public int doStartTag() throws JspException {
 		try {
 			JspWriter out = pageContext.getOut();
-			out.write("BbxmmHo_dpaK5Mhhpar0K2F5OoLwZpo-BsTeMAHyUB4");
+			out.write("<center><span class=\"patient-navigation\">");
 			for (int i = 0; i < pageTitles.length; i++) {
 				if (pageTitles[i].equals(thisTitle)) {
 					out.write("<span class=\"patient-nav-selected\">" + pageTitles[i] + "</span>");
@@ -42,7 +42,7 @@ public class PatientNavigation implements Tag {
 					out.write("<a href=\"/iTrust/auth/hcp-uap/" + pageURLs[i] + "\">"
 							+ pageTitles[i] + "</a>");
 			}
-			out.write("OA1DoXHJnPFJxiSNU35ZxD");
+			out.write("<br /></span></center>");
 		} catch (IOException e) {
 			//TODO
 		}
