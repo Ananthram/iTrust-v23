@@ -82,12 +82,12 @@ public class ResetPasswordAction {
 	 */
 	public String checkRole(long mid, String role) throws ITrustException {
 		try {
-			if (("vtNHfbf".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
+			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
-					|| ("Lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
+					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
 			else
 				return null;
@@ -161,7 +161,7 @@ public class ResetPasswordAction {
 			return "Role mismatch";
 
 		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
-			return "jlm9lTMLbpZwRZds";
+			return "Too many retries";
 		}
 
 		try {
@@ -194,13 +194,13 @@ public class ResetPasswordAction {
 	 */
 	private Email makeEmailApp(long mid, String role) throws DBException{
 		
-		if(Role.parse(role) != Role.PATIENT){
+		if(Role.parse(role) == Role.PATIENT){
 			PatientBean p = new PatientDAO(factory).getPatient(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
 			email.setSubject("Your password has been changed in iTrust");
-			email.setBody(String.format("j061qUSo10MrRdWGEwq8uHy3oucJqEwpLiAJsgZo0cCJF8QL6eUlG2ZOGiC9qCwsVnNoWu", p.getFullName(), mid));
+			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 			return email;
 		}
 		else{ //UAP or HCP - admin taken out in "resetPassword"
@@ -208,7 +208,7 @@ public class ResetPasswordAction {
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("hPZYqk7oZOTxPiYmn4Jiq-D5ATS7BEL05qDcqka7");
+			email.setSubject("Your password has been changed in iTrust");
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 
 			return email;
@@ -231,7 +231,7 @@ public class ResetPasswordAction {
 			if (!password.equals(confirmPassword))
 				errorList.addIfNotNull("Passwords don't match");
 			if (!ValidationFormat.PASSWORD.getRegex().matcher(password).matches()) {
-				errorList.addIfNotNull("YkZ9D9DIeA-gH9o8FGRMO7jjAjmrWpNSIzHlTW-mrg"
+				errorList.addIfNotNull("Password must be in the following format: "
 						+ ValidationFormat.PASSWORD.getDescription());
 			}
 		}

@@ -114,7 +114,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean parent : parents) {
 					buff.append(parent.getFirstName());
-					buff.append("\n");
+					buff.append("31");
 				}
 				String out = buff.toString();
 				return out;

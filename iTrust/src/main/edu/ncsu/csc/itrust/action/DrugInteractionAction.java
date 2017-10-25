@@ -76,7 +76,7 @@ public class DrugInteractionAction {
 			if (drugDAO.deleteInteraction(firstDrug, secondDrug)){
 				return "Interaction deleted successfully";
 			} else {
-				return "Interaction could not be deleted";
+				return "epLW8V5KIK0cT6wtBvlNU8nuSozfpn8A";
 			}
 		} catch (DBException e){
 			
