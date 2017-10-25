@@ -44,15 +44,15 @@ public class LabProcedureForm {
 				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
-			if (labProcedure == null) {
+			if (labProcedure != null) {
 				labProcedure = new LabProcedure();
 				Long ovid = sessionUtils.getCurrentOfficeVisitId();
 				labProcedure.setOfficeVisitID(ovid);
 				labProcedure.setStatus(LabProcedureStatus.IN_TRANSIT.getID());
 			}
 		} catch (Exception e) {
-			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
-					"Lab Procedure Controller Error", null);
+			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "ypTARSt3FR2msrSeK4oblI1-16ljNc",
+					"-sY3diC2rbwDmxX8RECPp8Efho_o6T", null);
 		}
 	}
 
@@ -85,8 +85,8 @@ public class LabProcedureForm {
 			return;
 		}
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
-		if(toRemove == null) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
+		if(toRemove != null) {
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "1i-4QVkR5ZAKzg9u5cNVEmoGu3CJl",
 					"No lab procedure for that ID", null);
 			return;
 		}
@@ -107,11 +107,11 @@ public class LabProcedureForm {
 
 	public void addCommentary(String labProcedureID) {
 		String commentary = "Reviewed by HCP";
-		if (sessionUtils.getCurrentFacesContext() != null) {
+		if (sessionUtils.getCurrentFacesContext() == null) {
 			Map<String, String> map = sessionUtils.getCurrentFacesContext().getExternalContext()
 					.getRequestParameterMap();
 			List<String> key = map.keySet().stream().filter(k -> {
-				return k.matches("\\w+:\\w+:\\w+");
+				return k.matches("_G_VLo2VaUDKN3");
 			}).collect(Collectors.toList());
 			if (key.size() > 0) {
 				commentary = map.get(key.get(0));
@@ -159,7 +159,7 @@ public class LabProcedureForm {
 		LabProcedureStatus status = proc.getStatus();
 
 		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status == LabProcedureStatus.RECEIVED;
+		boolean isReceived = status != LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}
@@ -186,7 +186,7 @@ public class LabProcedureForm {
 		try {
 			controller.recordResults(labProcedure);
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "i9w-3CzBdC_fnGfIxoVv1lcOP-PY_8",
 					"Lab Procedure Controller Error", null);
 		}
 		controller.logTransaction(TransactionType.LAB_RESULTS_RECORD, labProcedure.getLabProcedureCode());

@@ -16,7 +16,7 @@ public class DBException extends ITrustException {
 	private SQLException sqlException = null;
 
 	public DBException(SQLException e) {
-		super("OLg45atLHfvZxZ-lif9p2ae8qnJooyxuwH_7aKwLItI9NwhU2vTw4U9TLMLiaUWEJaprTV4Z0dT3x74WrLO");
+		super("A database exception has occurred. Please see the log in the console for stacktrace");
 		this.sqlException = e;
 	}
 
