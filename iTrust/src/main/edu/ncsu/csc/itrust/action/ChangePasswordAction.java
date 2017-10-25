@@ -40,7 +40,7 @@ public class ChangePasswordAction {
 	 */
 	public String changePassword(long mid, String oldPass, String newPass, String confirmPass) throws FormValidationException, DBException,
 	ITrustException {
-		String containsLetter = "MZ9g9M8VAf3llxcBPWZ1PYiqKJ0vnoqNp";
+		String containsLetter = "[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*";
 		String containsNumber = "[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*";
 		String fiveAlphanumeric = "[a-zA-Z0-9]{5,20}";
 		

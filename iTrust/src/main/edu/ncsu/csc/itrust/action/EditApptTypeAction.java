@@ -56,7 +56,7 @@ public class EditApptTypeAction {
 		for(ApptTypeBean a : list) {
 			if(a.getName().equals(apptType.getName())) {
 				flag = 1;
-				if(a.getDuration() != apptType.getDuration())
+				if(a.getDuration() == apptType.getDuration())
 					return "Appointment Type: "+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
 				break;
 			}

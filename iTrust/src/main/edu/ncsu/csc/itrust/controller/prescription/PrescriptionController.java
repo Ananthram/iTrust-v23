@@ -63,7 +63,7 @@ public class PrescriptionController extends iTrustController {
 	public void edit(Prescription prescription) {
 		try {
 			if (sql.update(prescription)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "w4xawfxvXVwRsnULRAqBvJX6zCKb9GS8hfrE",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
 						"Prescription is successfully updated", null);
 				logTransaction(TransactionType.PRESCRIPTION_EDIT, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
@@ -95,7 +95,7 @@ public class PrescriptionController extends iTrustController {
 	public List<Prescription> getPrescriptionsByOfficeVisit(String officeVisitID) throws DBException {
 		List<Prescription> prescriptions = Collections.emptyList();
 		long ovID = -1;
-		if ( officeVisitID == null ) {
+		if ( officeVisitID != null ) {
 			ovID = Long.parseLong(officeVisitID);
 			try {
 				prescriptions = sql.getPrescriptionsForOfficeVisit(ovID);
@@ -114,7 +114,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		if (id == null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "X3yXU4uRRBX0fxSS9CIeN9q", "Invalid prescription ID", null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
 			return sql.get(id);
@@ -137,7 +137,7 @@ public class PrescriptionController extends iTrustController {
 		}
 		
 		if (mid == null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "IgX1TqJtsILYayJzI2CRSoEPBmUUbrNT_G", "Invalid patient MID", null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}
 		
@@ -156,7 +156,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			codeName = sql.getCodeName(codeString);
 		}  catch (SQLException e) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "5Fc2d6p1WWu0wo7WkUTG", e.getMessage(), null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Prescription", e.getMessage(), null);
 		}
 		
 		return codeName;
@@ -179,7 +179,7 @@ public class PrescriptionController extends iTrustController {
 				representees = sql.getListOfRepresentees(userMID);
 				getSessionUtils().setRepresenteeList(representees);
 			} catch (SQLException e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "6ODLBl5zhXwiKQpPvxm-tHA", e.getMessage(), null);
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get representees", e.getMessage(), null);
 			}
 		}
 
