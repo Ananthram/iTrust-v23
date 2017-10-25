@@ -58,7 +58,7 @@ public class ViewPatientAction extends PatientBaseAction {
 			result.add(0, viewer);
 			
 		} catch (DBException e) {
-			throw new ITrustException("GYs63iZ00yBq");
+			throw new ITrustException("Invalid User");
 		}
 		return result;
 	}
