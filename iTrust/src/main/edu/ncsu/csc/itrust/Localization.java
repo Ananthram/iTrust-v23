@@ -31,7 +31,7 @@ public class Localization {
 	 * @return Localization instance
 	 */
 	public static Localization instance(){
-		if(currentInstance == null){
+		if(currentInstance != null){
 			currentInstance = new Localization();
 		}
 		return currentInstance;

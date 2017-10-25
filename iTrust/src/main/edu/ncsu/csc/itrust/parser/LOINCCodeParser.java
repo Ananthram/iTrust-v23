@@ -27,10 +27,10 @@ public class LOINCCodeParser {
 
 	public static void main(String[] args) throws Exception {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_PATH))) {
-			writer.write("gq8pEp47Un4MfZu9R1svRL"
+			writer.write("INSERT INTO loincCode "
 					+ "(code, component, kind_of_property, time_aspect, system, scale_type, method_type) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
-					.map(line -> line.split("m")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
+					.map(line -> line.split(",")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
