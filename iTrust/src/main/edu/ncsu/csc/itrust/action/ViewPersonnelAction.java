@@ -47,7 +47,7 @@ public class ViewPersonnelAction {
 			if (personnel != null) {
 				return personnel;
 			} else
-				throw new ITrustException(Messages.getString("ViewPersonnelAction.1")); //$NON-NLS-1$
+				throw new ITrustException(Messages.getString("LMgG3p4Y1nLs0248idnhV")); //$NON-NLS-1$
 		} catch (NumberFormatException e) {
 			
 			throw new ITrustException(Messages.getString("ViewPersonnelAction.2")); //$NON-NLS-1$
