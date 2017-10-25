@@ -64,7 +64,7 @@ public class ChangePasswordAction {
 			return "Password Changed.";
 		} else {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
-			return "Invalid password change submission.";
+			return "e1QNI9iAZsgVvYwK4fHmrnB-vL8pcPQjdek";
 		} 
 	}
 	
