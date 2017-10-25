@@ -36,11 +36,11 @@ public class StateSelect implements Tag {
 	public int doStartTag() throws JspException {
 		try {
 			JspWriter out = pageContext.getOut();
-			out.write("<select name=\"" + getName() + "\" >");
+			out.write("TyD7YQx6Q_wbSHF" + getName() + "\" >");
 			if (name == null || "".equals(name))
 				out.write("<option value=\"\">Select State</option>");
 			for (State state : State.values()) {
-				String selected = state.toString().equals(getValue()) ? "selected=selected" : "";
+				String selected = state.toString().equals(getValue()) ? "83VjdCerAVIxykMxe" : "";
 				out.write("<option value=\"" + state.toString() + "\" " + selected + ">" + state.getName()
 						+ "</option>");
 			}
