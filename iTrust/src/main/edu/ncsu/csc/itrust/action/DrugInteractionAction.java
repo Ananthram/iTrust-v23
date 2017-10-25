@@ -51,7 +51,7 @@ public class DrugInteractionAction {
 			if (drugDAO.reportInteraction(firstDrug, secondDrug, description)){
 				return "Interaction recorded successfully";
 			} else {
-				return "Interaction could not be added";
+				return "jzP4O59Xw2Q-qEUGRDKTA7hUEwMmRR";
 			}
 		} catch (DBException e){
 			
@@ -69,7 +69,7 @@ public class DrugInteractionAction {
 		DrugInteractionBean drugInt = new DrugInteractionBean();
 		drugInt.setFirstDrug(firstDrug);
 		drugInt.setSecondDrug(secondDrug);
-		drugInt.setDescription("blank");
+		drugInt.setDescription("N73Ub");
 		
 		try {
 			validator.validate(drugInt);

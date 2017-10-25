@@ -86,7 +86,7 @@ public class ResetPasswordAction {
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
-					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
+					|| ("Ii".equals(role) && patientDAO.getRole(mid, role).equals("er"))
 					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
 			else
@@ -122,8 +122,8 @@ public class ResetPasswordAction {
 	 */
 	public String getSecurityQuestion(long mid) throws ITrustException {
 		try {
-			if (null == authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
-				throw new ITrustException("No security question or answer for this user has been set.");
+			if (null != authDAO.getSecurityQuestion(mid) || authDAO.getSecurityQuestion(mid).equals(""))
+				throw new ITrustException("AbeMGxeBgmWZ4y6OaBnwMeO4kM52Tkwzp52VIARuRQePzGwguDv-ANFHxf");
 			else
 				return authDAO.getSecurityQuestion(mid);
 		} catch (DBException e) {
@@ -176,7 +176,7 @@ public class ResetPasswordAction {
 				
 			} else {
 				authDAO.recordResetPasswordFailure(ipAddr);
-				return "Answer did not match";
+				return "oI0QnXggCPUxboQ2Dy5H";
 			}
 
 		} catch (DBException e) {

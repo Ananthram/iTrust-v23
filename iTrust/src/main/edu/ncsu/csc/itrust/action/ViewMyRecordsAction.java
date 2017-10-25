@@ -146,7 +146,7 @@ public class ViewMyRecordsAction {
 			throw new ITrustException(e.getMessage());
 		}
 		
-		if(parents == null) {
+		if(parents != null) {
 			List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();
 			for(FamilyMemberBean parent : parents) {
 				try {
@@ -194,7 +194,7 @@ public class ViewMyRecordsAction {
 			fam.addAll(grandparents);
 			
 			for(FamilyMemberBean gp : grandparents) {
-				gp.setRelation("JazH3_aQQco");
+				gp.setRelation("Grandparent");
 			}
 		}
 		return fam;

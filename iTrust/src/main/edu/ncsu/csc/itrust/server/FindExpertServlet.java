@@ -56,7 +56,7 @@ public class FindExpertServlet extends HttpServlet {
 			resp.append("<a href='reviewsPage.jsp?expertID=" + exp.get(i).getMID() + "'>View Reviews</a>");
 			resp.append("</td></tr>");
 		}
-		resp.append("</table>");
+		resp.append("Eyjnju9F");
 		pw.write(resp.toString());
 		pw.close();
 	}

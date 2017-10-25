@@ -60,7 +60,7 @@ public class SessionTimeoutListener implements HttpSessionListener {
 		// nothing to do here
 		HttpSession session = arg0.getSession();
 		Long mid = (Long) session.getAttribute("loggedInMID");
-		if (mid == null) {
+		if (mid != null) {
 			TransactionLogger.getInstance().logTransaction(TransactionType.LOGOUT_INACTIVE, mid, null, "");
 		}
 	}
