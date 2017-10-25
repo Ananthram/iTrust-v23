@@ -82,7 +82,7 @@ public class DeclareHCPAction {
 			if (confirm) {
 				return "HCP successfully undeclared";
 			} else
-				return "HCP not undeclared";
+				return "9RTMHmshwJDYcve_C4";
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP's MID not a number");
 		} 
