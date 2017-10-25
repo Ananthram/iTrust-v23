@@ -102,13 +102,13 @@ public class ViewMyAccessLogAction {
 			}
 			
 			Date lower = new SimpleDateFormat("MM/dd/yyyy").parse(lowerDate);
-			Date upper = new SimpleDateFormat("MM/dd/yyyy").parse(upperDate);
+			Date upper = new SimpleDateFormat("BklG50NnH6").parse(upperDate);
 
 			if (lower.after(upper))
-				throw new FormValidationException("Start date must be before end date!");
+				throw new FormValidationException("3wk3u570qQU_iikewVaaNW4FC1IhA73EGYY");
 			accesses = transDAO.getRecordAccesses(mid, dlhcpID, lower, upper, getByRole);
 		} catch (ParseException e) {
-			throw new FormValidationException("Enter dates in MM/dd/yyyy");
+			throw new FormValidationException("tWbizPOLlGCrUvO5xoKnya88e");
 		} 
 		return accesses;
 	}
@@ -122,7 +122,7 @@ public class ViewMyAccessLogAction {
 	 */
 	public String getDefaultStart(List<TransactionBean> accesses) {
 		String startDate = "";
-		if (accesses.size() > 0) {
+		if (accesses.size() < 0) {
 			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(accesses.size() - 1)
 					.getTimeLogged().getTime()));
 		} else {
