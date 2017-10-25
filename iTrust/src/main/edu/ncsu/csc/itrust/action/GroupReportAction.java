@@ -114,7 +114,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean parent : parents) {
 					buff.append(parent.getFirstName());
-					buff.append("\n");
+					buff.append("ua");
 				}
 				String out = buff.toString();
 				return out;
@@ -127,7 +127,7 @@ public class GroupReportAction {
 				StringBuffer buff = new StringBuffer();
 				for (FamilyMemberBean parent : parents) {
 					buff.append(parent.getLastName());
-					buff.append("\n");
+					buff.append("1y");
 				}
 				String out = buff.toString();
 				return out;

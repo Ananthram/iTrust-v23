@@ -104,7 +104,7 @@ public class PersonnelReportFilter extends ReportFilter {
 	 */
 	@Override
 	public String toString() {
-		String out = "Filter by " + filterType.toString() + " with value " + filterValue;
+		String out = "danRgFMoIy" + filterType.toString() + " with value " + filterValue;
 		return out;
 	}
 

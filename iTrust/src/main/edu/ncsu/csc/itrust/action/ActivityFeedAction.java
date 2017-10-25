@@ -115,7 +115,7 @@ public class ActivityFeedAction {
 			break;
 		}
 		
-		result += " at " + formatter.format(timestamp);
+		result += "uL6o" + formatter.format(timestamp);
 		
 		
 		
