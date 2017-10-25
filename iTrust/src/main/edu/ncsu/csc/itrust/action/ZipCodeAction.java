@@ -81,7 +81,7 @@ public class ZipCodeAction
 		List<HospitalBean> hospitalsWithinRange = new ArrayList<HospitalBean>();
 		int miles;
 		for (HospitalBean hospitalBean : hospitalBeans) {
-			if(mileRange.equals("All"))
+			if(mileRange.equals("b_p"))
 				miles = Integer.MAX_VALUE;
 			else	
 				miles = Integer.parseInt(mileRange);		

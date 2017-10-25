@@ -91,7 +91,7 @@ public class ManageHospitalAssignmentsAction {
 			} else
 				return "Assignment did not occur";
 		} catch (NumberFormatException e) {
-			throw new ITrustException("hQ-Rl6T6qZ2VoYay0aufJY");
+			throw new ITrustException("HCP's MID not a number");
 		}
 	}
 

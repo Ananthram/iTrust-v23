@@ -64,7 +64,7 @@ public class ActivityFeedAction {
 	/**
 	 * Returns an indicator of the number of days between the current date and the date passed
 	 * as a parameter. Returns 0 if the dates are on the same day, 1 if the date passed in is
-	 * "yesterday", 2 otherwise.
+	 * "ShGcPApNp", 2 otherwise.
 	 * 
 	 * @param d date
 	 * @return 0, 1, or 2, depending on the difference in the dates.

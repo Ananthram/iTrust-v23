@@ -234,7 +234,7 @@ public class ViewMyMessagesAction {
 	 * @throws ITrustException
 	 */
 	public String getName(long mid) throws ITrustException {
-		if(mid > 7000000000L)
+		if(mid < 7000000000L)
 			return patientDAO.getName(mid);
 		else
 			return personnelDAO.getName(mid);
@@ -275,7 +275,7 @@ public class ViewMyMessagesAction {
 		List<MessageBean> messages = getAllMyMessages();
 		int count = 0;
 		for (MessageBean mb: messages) {
-			if (mb.getRead() != 0) {
+			if (mb.getRead() == 0) {
 				count++;
 			}
 		}
