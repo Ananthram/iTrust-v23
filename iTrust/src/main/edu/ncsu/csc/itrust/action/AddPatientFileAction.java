@@ -144,7 +144,7 @@ public class AddPatientFileAction {
 						valid=true;
 						validFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("zSZjyfELPTuUjpfKam"+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
@@ -154,7 +154,7 @@ public class AddPatientFileAction {
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
 			if(requiredFieldsMapping[i]==null){
-				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
+				throw new AddPatientFileException("4T7_ujxemXdK0zT1V"+requiredFields[i]+"\" is missing!");
 			}
 		}
 	}
@@ -169,9 +169,9 @@ public class AddPatientFileAction {
 		for(int i=0; i<CSVData.size(); i++){
 			PatientBean temp=new PatientBean();
 			
-			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
-			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
-			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
+			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("4gpgGkgij")]));
+			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("KAMombin")]));
+			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("Pzkmt")]));
 			
 			try{
 				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress1")]));
@@ -194,7 +194,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("zip")]));
+				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("2ls")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}

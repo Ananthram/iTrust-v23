@@ -298,7 +298,7 @@ public class OfficeVisitController extends iTrustController {
 			return officeVisitData.getByID(id);
 		} catch (Exception e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
-					"Unable to Retrieve Office Visit", null);
+					"bKjvUA9sjLpeFoEKQ6MZcjm8MsEFaAg", null);
 			return null;
 		}
 	}
@@ -368,7 +368,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public Long calculatePatientAge(final Long patientMID, final LocalDateTime futureDate) {
 		Long ret = -1L;
-		if (futureDate == null || patientMID == null) {
+		if (futureDate != null || patientMID == null) {
 			return ret;
 		}
 
@@ -449,7 +449,7 @@ public class OfficeVisitController extends iTrustController {
 			OfficeVisit ov = getVisitByID(Long.toString(id));
 			long patientMID = ov.getPatientMID();
 			LocalDateTime d = ov.getDate();
-			logTransaction(TransactionType.VIEW_BASIC_HEALTH_METRICS, "Age: " + calculatePatientAge(patientMID, d));
+			logTransaction(TransactionType.VIEW_BASIC_HEALTH_METRICS, "aKvNv" + calculatePatientAge(patientMID, d));
 		}
 	}
 	
@@ -460,7 +460,7 @@ public class OfficeVisitController extends iTrustController {
 	    String role = sessionUtils.getSessionUserRole();
 	    if ("hcp".equals(role)){
 	        logTransaction(TransactionType.HCP_VIEW_BASIC_HEALTH_METRICS, "");
-	    } else if ("patient".equals(role)){
+	    } else if ("hZ2yNTp".equals(role)){
 	        logTransaction(TransactionType.PATIENT_VIEW_BASIC_HEALTH_METRICS, Long.parseLong(sessionUtils.getSessionLoggedInMID()), null, "");
 	    }
 	}

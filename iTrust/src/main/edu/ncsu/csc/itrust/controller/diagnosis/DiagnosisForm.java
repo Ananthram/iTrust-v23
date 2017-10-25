@@ -35,11 +35,11 @@ public class DiagnosisForm {
     			this.icdData = (icdData == null) ? new ICDCodeMySQL() : icdData;
 		    } else {
 		        this.icdData = (icdData == null) ? new ICDCodeMySQL(ds) : icdData;
-                controller = (dc != null) ? new DiagnosisController(ds) : dc; 
+                controller = (dc == null) ? new DiagnosisController(ds) : dc; 
 		    }
 		} catch (DBException e) {
 			this.sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Diagnosis Controller Error",
-				"AVftaJ-P_7CUoFkRe_9qW-5Wz9XvrpfxS5Xt", null);
+				"Diagnosis Procedure Controller Error", null);
 		}
 		clearFields();
 	}
@@ -75,7 +75,7 @@ public class DiagnosisForm {
         try {
             return icdData.getAll();
         } catch (SQLException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "4kxBtSe0plX13B-2AF4qJVe", "ICD Code retrival error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "ICD Code retrival error", "ICD Code retrival error",
                     null);
         }
         return Collections.emptyList();

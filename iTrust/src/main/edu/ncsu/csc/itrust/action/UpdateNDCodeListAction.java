@@ -109,7 +109,7 @@ public class UpdateNDCodeListAction {
 			if (ndDAO.removeNDCode(med)) {
 				return "Success: " + med.getNDCode() + " - " + med.getDescription() + " removed";
 			} else
-				return "2_1Q4stYOA7otS0U9wx3xp7nFMG4Rf191OnA-IFVyvC4h9HpeejThVhV-KtgcYjAXQOnvTivFZXTv9EJW9vrSE-i";
+				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (DBException e) {
 			
 			return e.getMessage();

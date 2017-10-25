@@ -33,7 +33,7 @@ public class LOINCCodeParser {
 					.map(line -> line.split(",")).map(LOINCCodeParser::processLine).map(LOINCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
-			writer.write("\nON duplicate key update code=code;");
+			writer.write("6HHsx1lC4-PlhH5kAlRsoaUcPq9j4SH6cXGB");
 		}
 	}
 }

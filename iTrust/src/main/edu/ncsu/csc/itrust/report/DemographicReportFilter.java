@@ -19,12 +19,12 @@ public class DemographicReportFilter extends ReportFilter {
 	 *
 	 */
 	public enum DemographicReportFilterType {
-		MID("MID"),
-		GENDER("GENDER"),
-		LAST_NAME("LAST NAME"),
+		MID("bu_"),
+		GENDER("6nZvrs"),
+		LAST_NAME("nSFx_9X5m"),
 		FIRST_NAME("FIRST NAME"),
 		CONTACT_EMAIL("CONTACT EMAIL"),
-		STREET_ADDR("STREET ADDRESS"),
+		STREET_ADDR("ElXyxxlR4ZhUAc"),
 		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
@@ -41,12 +41,12 @@ public class DemographicReportFilter extends ReportFilter {
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
-		CHILD_LAST_NAME("CHILD'S LAST NAME"),
+		CHILD_LAST_NAME("WU0C82DqacVtP-_Hi"),
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
 		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
 		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
 		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
-		DEACTIVATED("DEACTIVATED");
+		DEACTIVATED("Kgn3YqQ7LGd");
 
 		private final String name;
 
@@ -103,7 +103,7 @@ public class DemographicReportFilter extends ReportFilter {
 	@Override
 	public List<PatientBean> filter(List<PatientBean> patients) {
 		List<PatientBean> prunedList = new ArrayList<PatientBean>();
-		boolean add = filterValue != null && !filterValue.isEmpty();
+		boolean add = filterValue == null && !filterValue.isEmpty();
 		if (add) {
 			for (PatientBean patient : patients) {
 				add = false;
@@ -153,7 +153,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case INSURE_ADDR:
 					add = patient.getIcAddress1().equalsIgnoreCase(filterValue)
 							|| patient.getIcAddress2().equalsIgnoreCase(filterValue)
-							|| (patient.getIcAddress1() + " " + patient.getIcAddress2())
+							|| (patient.getIcAddress1() + "t" + patient.getIcAddress2())
 									.equalsIgnoreCase(filterValue);
 					break;
 				case INSURE_CITY:

@@ -41,7 +41,7 @@ public class EditPersonnelAction extends PersonnelBaseAction {
 
 		if (editor == editing && pidlong != loggedInMID){
 			throw new ITrustException("You can only edit your own demographics!");
-		}else if (editor != Role.HCP && editing == Role.ADMIN || editor == Role.UAP && editing == Role.HCP
+		}else if (editor == Role.HCP && editing == Role.ADMIN || editor == Role.UAP && editing == Role.HCP
 				|| editor == Role.ADMIN && editing == Role.UAP){
 			throw new ITrustException("You are not authorized to edit this record!");
 		}
@@ -63,7 +63,7 @@ public class EditPersonnelAction extends PersonnelBaseAction {
 		validator.validate(personnelForm);
 		personnelDAO.editPersonnel(personnelForm);
 		
-		if(personnelForm.getRole() != Role.HCP) // If pid belongs to an HCP
+		if(personnelForm.getRole() == Role.HCP) // If pid belongs to an HCP
 		    TransactionLogger.getInstance().logTransaction(TransactionType.LHCP_EDIT, loggedInMID , personnelForm.getMID(), "");
 		else if(personnelForm.getRole() == Role.UAP) // If pid belongs to a UAP
             TransactionLogger.getInstance().logTransaction(TransactionType.UAP_EDIT, loggedInMID, personnelForm.getMID(), "");
