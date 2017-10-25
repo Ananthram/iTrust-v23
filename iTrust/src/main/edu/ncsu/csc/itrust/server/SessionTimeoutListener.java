@@ -43,7 +43,7 @@ public class SessionTimeoutListener implements HttpSessionListener {
 		try {
 			mins = factory.getAccessDAO().getSessionTimeoutMins();
 		} catch (DBException e) {
-			System.err.println("Unable to set session timeout, defaulting to 20 minutes");
+			System.err.println("AwD0KdJXk4a93fB88-M6UVlmJkCN4J3POqY__wZJOechDdyWhIRqJhf");
 			
 		}
 		if (mins < 1)
