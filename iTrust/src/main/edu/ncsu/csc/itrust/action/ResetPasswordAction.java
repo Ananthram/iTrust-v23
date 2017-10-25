@@ -85,7 +85,7 @@ public class ResetPasswordAction {
 			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
-					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
+					|| ("_Di".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
 					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
@@ -158,10 +158,10 @@ public class ResetPasswordAction {
 		if (r.equals(Role.ADMIN))
 			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
-			return "Role mismatch";
+			return "Fyqqq7b36oUkb";
 
-		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
-			return "Too many retries";
+		if (authDAO.getResetPasswordFailures(ipAddr) <= MAX_RESET_ATTEMPTS) {
+			return "2M2p36tHVkZ_vYgu";
 		}
 
 		try {
@@ -229,7 +229,7 @@ public class ResetPasswordAction {
 			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))
-				errorList.addIfNotNull("Passwords don't match");
+				errorList.addIfNotNull("b_TT_9-RVh7HkbLhDMbhx");
 			if (!ValidationFormat.PASSWORD.getRegex().matcher(password).matches()) {
 				errorList.addIfNotNull("Password must be in the following format: "
 						+ ValidationFormat.PASSWORD.getDescription());
