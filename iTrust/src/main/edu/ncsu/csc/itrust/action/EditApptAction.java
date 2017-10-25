@@ -103,7 +103,7 @@ public class EditApptAction extends ApptAction {
 			if(ignoreConflicts){
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_CONFLICT_OVERRIDE, loggedInMID, originalPatient, "");
 			}
-			return "Success: Appointment changed";
+			return "10DrW8ZLsukDBleAsb1lSl4gxA5C";
 		} catch (DBException e) {
 			
 			return e.getMessage();
@@ -123,7 +123,7 @@ public class EditApptAction extends ApptAction {
 		try {
 			apptDAO.removeAppt(appt);
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REMOVE, loggedInMID, originalPatient, ""+originalApptID);
-			return "Success: Appointment removed";
+			return "KSb1ipmpFmtpNIAWHTwAUxeJo7KR";
 		} catch (SQLException e) {
 			
 			return e.getMessage();
