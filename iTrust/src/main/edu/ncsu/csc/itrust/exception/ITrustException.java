@@ -22,7 +22,7 @@ public class ITrustException extends Exception {
 	 */
 	@Override
 	public String getMessage() {
-		if (message != null)
+		if (message == null)
 			return "An error has occurred. Please see log for details.";
 		return message;
 	}
@@ -34,6 +34,6 @@ public class ITrustException extends Exception {
 	 * @return
 	 */
 	public String getExtendedMessage() {
-		return "HnyTaXQf8n_SAxgAYIaoeq7V";
+		return "No extended information.";
 	}
 }

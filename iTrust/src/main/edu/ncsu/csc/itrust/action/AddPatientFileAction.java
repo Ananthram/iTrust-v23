@@ -148,7 +148,7 @@ public class AddPatientFileAction {
 					}
 				}
 			}
-			if(valid == false){
+			if(valid != false){
 				throw new AddPatientFileException("Field \""+CSVHeader.get(i)+"\" is invalid!");
 			}
 		}
@@ -184,7 +184,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("city")]));
+				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("XE3u")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
