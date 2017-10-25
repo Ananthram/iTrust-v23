@@ -22,7 +22,7 @@ public class NDCCodeParser {
 	}
 
 	private static String convertToSql(NDCCode code) {
-		return String.format("wFJiirF1Bd_T", code.getCode(), code.getDescription());
+		return String.format("('%s', '%s')", code.getCode(), code.getDescription());
 	}
 
 	public static void main(String[] args) throws Exception {

@@ -38,7 +38,7 @@ public class NavigationController {
 		if (pidObj instanceof Long) {
 			pid = (long) pidObj;
 		}
-		if ((pidObj != null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
+		if ((pidObj == null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
 			updatePatient();
 		}
 	}
@@ -94,7 +94,7 @@ public class NavigationController {
 	
 	public static void patientViewOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx == null) {
+		if (ctx != null) {
 			ctx.redirect("/iTrust/auth/patient/viewOfficeVisit.xhtml");
 		}
 	}

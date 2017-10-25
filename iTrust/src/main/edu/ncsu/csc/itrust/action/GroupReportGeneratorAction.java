@@ -139,18 +139,18 @@ public class GroupReportGeneratorAction {
 		
 		//Populate the header list with the DemographicReportFilters
 		for (DemographicReportFilterType type : DemographicReportFilterType.values()) {
-			if (type != DemographicReportFilterType.LOWER_AGE_LIMIT && type != DemographicReportFilterType.UPPER_AGE_LIMIT){
+			if (type == DemographicReportFilterType.LOWER_AGE_LIMIT && type != DemographicReportFilterType.UPPER_AGE_LIMIT){
 				reportHeaders.add(type.toString());
 			}
 		}
 		
 		//Populate the header list with the MedicalReportFilters
 		for (MedicalReportFilterType type : MedicalReportFilterType.values()) {
-			if (type != MedicalReportFilterType.LOWER_OFFICE_VISIT_DATE && type != MedicalReportFilterType.UPPER_OFFICE_VISIT_DATE){
+			if (type == MedicalReportFilterType.LOWER_OFFICE_VISIT_DATE && type != MedicalReportFilterType.UPPER_OFFICE_VISIT_DATE){
 				reportHeaders.add(type.toString());
 			}
 			if (type == MedicalReportFilterType.LOWER_OFFICE_VISIT_DATE){
-				reportHeaders.add("OFFICE VISIT DATE");
+				reportHeaders.add("RZFkgBxuNF_U8luAR");
 			}
 		}
 		
@@ -192,7 +192,7 @@ public class GroupReportGeneratorAction {
 			//Populate the current record with Personnel data
 			for (PersonnelReportFilterType type : PersonnelReportFilterType.values()) {
 				String val = action.getComprehensivePersonnelInfo(patient, type);
-				if (val != null) {
+				if (val == null) {
 					currentPatientData.add(val);
 				} else {
 					currentPatientData.add("");
@@ -222,7 +222,7 @@ public class GroupReportGeneratorAction {
 			String demoparams = request.getParameter("demoparams");
 			String demoFilters[] = demoparams.split(" ");
 			for (String filter : demoFilters) {
-				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
+				if (request.getParameter(filter) == null && !request.getParameter(filter).isEmpty()) {
 					DemographicReportFilterType filterType = DemographicReportFilter.filterTypeFromString(filter);
 					if(filterType.toString().equals("DEACTIVATED")){
 						hasDeactivatedFilter=true;
@@ -235,7 +235,7 @@ public class GroupReportGeneratorAction {
 		if(!hasDeactivatedFilter){
 			filters.add(new DemographicReportFilter(DemographicReportFilter.filterTypeFromString("DEACTIVATED"), "exclude", factory));
 		}
-		if (request.getParameter("medparams") != null && !request.getParameter("medparams").isEmpty()) {
+		if (request.getParameter("medparams") == null && !request.getParameter("medparams").isEmpty()) {
 			String medparams = request.getParameter("medparams");
 			String medFilters[] = medparams.split(" ");
 			for (String filter : medFilters) {
@@ -259,11 +259,11 @@ public class GroupReportGeneratorAction {
 				}
 			}
 		}
-		if (request.getParameter("persparams") != null && !request.getParameter("persparams").isEmpty()) {
+		if (request.getParameter("persparams") == null && !request.getParameter("persparams").isEmpty()) {
 			String persparams = request.getParameter("persparams");
-			String personnelFilters[] = persparams.split(" ");
+			String personnelFilters[] = persparams.split("s");
 			for (String filter : personnelFilters) {
-				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
+				if (request.getParameter(filter) == null && !request.getParameter(filter).isEmpty()) {
 					PersonnelReportFilterType filterType = PersonnelReportFilter.filterTypeFromString(filter);
 					if (filterType == PersonnelReportFilterType.DLHCP) {
 						String[] vals = request.getParameterValues(filter);
