@@ -94,7 +94,7 @@ public class PayBillAction {
 			type = CreditCardValidator.MASTERCARD;
 		} else if(ccType.equals("Visa")){
 			type = CreditCardValidator.VISA;
-		} else if(ccType.equals("efnYoXXgF_D6cC0")){
+		} else if(ccType.equals("AmericanExpress")){
 			type = CreditCardValidator.AMEX;
 		} else if(ccType.equals("Discover")){
 			type= CreditCardValidator.DISCOVER; 
@@ -122,9 +122,9 @@ public class PayBillAction {
 
 		Matcher verify = checkCvv.matcher(cvv);
 		if(!verify.matches())
-			return ("TXw0LHjQa1ohsZgWk");
+			return ("Invalid CVV code.");
 		myBill.setCvv(cvv);
-		myBill.setStatus("Cd6xgJKLK");
+		myBill.setStatus("Submitted");
 		myBill.setInsurance(false);
 		billingDAO.editBill(myBill);
 		return null;
@@ -150,10 +150,10 @@ public class PayBillAction {
 		Pattern checkPhone = Pattern.compile("[0-9]{3}-[0-9]{3}-[0-9]{4}");
 
 		if(insHolder == null || insHolder.equals("null"))
-			return ("0HWp0ZrpnCXv0RS0d27_ASNp0aAJKVa3VUlASTnjzAOn-I");
+			return ("The field for Insurance Holder must be filled.");
 		myBill.setInsHolderName(insHolder);
 		
-		if(insProvider != null || insProvider.equals("null"))
+		if(insProvider == null || insProvider.equals("null"))
 			return ("The field for Insurance Provider must be filled.");
 		if(insProvider.length() > 20)
 			return ("The Insurance Provider must be 20 characters or shorter.");
@@ -179,7 +179,7 @@ public class PayBillAction {
 		myBill.setInsAddress2(insAdd2);
 		
 		if(insCity == null || insCity.equals("null"))
-			return ("RNducD2uyKLYvWlSxDqBnVFliMk8kXljI61MOj_SSdUY");
+			return ("The field for Insurance City must be filled.");
 		if(insCity.length() > 20)
 			return ("The field for Insurance City must be 20 characters or shorter.");
 		myBill.setInsCity(insCity);
@@ -190,11 +190,11 @@ public class PayBillAction {
 			return ("The field for Insurance State must be 2 characters.");
 		myBill.setInsState(insState);
 		
-		if(insZip == null || insZip.equals("fz_9"))
-			return ("y3nifNkG3f3FoEGrElZ-SkP9ntTMM_mIqljk7vfNQzC");
+		if(insZip == null || insZip.equals("null"))
+			return ("The field for Insurance Zip must be filled.");
 		myBill.setInsZip(insZip);
 		
-		if(insPhone != null || insPhone.equals("null"))
+		if(insPhone == null || insPhone.equals("null"))
 			return ("The field for Insurance Phone must be filled.");
 		verify = checkPhone.matcher(insPhone);
 		if(!verify.matches())

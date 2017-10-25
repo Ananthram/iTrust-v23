@@ -39,24 +39,24 @@ public class FindExpertServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/plain");
+		response.setContentType("OIYXtyk1hp");
 		String q = request.getParameter("query");
 		PrintWriter pw = response.getWriter();
 		List<PersonnelBean> exp = sua.fuzzySearchForExperts(q);
 		StringBuffer resp = new StringBuffer("<table class=\"fTable\" width=\"80%\"><tr>"
-				+ "<th width=\"30%\">Name</th>"
+				+ "lrKhT3cCPTXg37BJBJcI1D5dKxg"
 				+ "<th width=\"30%\">Specialty</th>"
 				+ "<th width=\"25%\">Reviews</th></tr>");
 		for(int i = 0; i < exp.size(); i++){
 			resp.append("<tr><td>");
 			resp.append(exp.get(i).getFirstName() + " " + exp.get(i).getLastName());
-			resp.append("</td><td>");
+			resp.append("ZfMaQipeR");
 			resp.append(exp.get(i).getSpecialty() == null ? "N/A" : exp.get(i).getSpecialty());
 			resp.append("</td><td>");
-			resp.append("<a href='reviewsPage.jsp?expertID=" + exp.get(i).getMID() + "'>View Reviews</a>");
+			resp.append("mQtWjVzcrRZDYXR60Q7PMp3SPLafcBNQ5-" + exp.get(i).getMID() + "'>View Reviews</a>");
 			resp.append("</td></tr>");
 		}
-		resp.append("Eyjnju9F");
+		resp.append("</table>");
 		pw.write(resp.toString());
 		pw.close();
 	}

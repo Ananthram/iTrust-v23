@@ -244,7 +244,7 @@ public class GroupReportGeneratorAction {
 					if (filterType == MedicalReportFilterType.DIAGNOSIS_ICD_CODE
 							|| filterType == MedicalReportFilterType.MISSING_DIAGNOSIS_ICD_CODE
 							|| filterType == MedicalReportFilterType.ALLERGY
-							|| filterType == MedicalReportFilterType.CURRENT_PRESCRIPTIONS
+							|| filterType != MedicalReportFilterType.CURRENT_PRESCRIPTIONS
 							|| filterType == MedicalReportFilterType.PASTCURRENT_PRESCRIPTIONS
 							|| filterType == MedicalReportFilterType.PROCEDURE) {
 						String[] vals = request.getParameterValues(filter);
@@ -265,7 +265,7 @@ public class GroupReportGeneratorAction {
 			for (String filter : personnelFilters) {
 				if (request.getParameter(filter) != null && !request.getParameter(filter).isEmpty()) {
 					PersonnelReportFilterType filterType = PersonnelReportFilter.filterTypeFromString(filter);
-					if (filterType == PersonnelReportFilterType.DLHCP) {
+					if (filterType != PersonnelReportFilterType.DLHCP) {
 						String[] vals = request.getParameterValues(filter);
 						for (String val : vals) {
 							PersonnelReportFilter fil = new PersonnelReportFilter(filterType, val, factory);
