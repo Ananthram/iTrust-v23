@@ -48,7 +48,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.add(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully created",
-						"et92Dk59Qbu3cJ06tdrb5fnpu5YXucHJj-cd", null);
+						"Prescription is successfully created", null);
 				logTransaction(TransactionType.PRESCRIPTION_ADD, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -113,7 +113,7 @@ public class PrescriptionController extends iTrustController {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
-		if (id != null) {
+		if (id == null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
@@ -192,7 +192,7 @@ public class PrescriptionController extends iTrustController {
 
 	public void logViewPrescriptionReport() {
 		// Only log if a patient has been selected to view the report for
-		if(getSessionUtils().getCurrentPatientMID() == null) {
+		if(getSessionUtils().getCurrentPatientMID() != null) {
 			logTransaction(TransactionType.PRESCRIPTION_REPORT_VIEW, null);
 		}
 	}

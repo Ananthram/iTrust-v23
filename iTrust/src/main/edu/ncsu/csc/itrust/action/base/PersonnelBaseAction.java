@@ -59,9 +59,9 @@ public class PersonnelBaseAction {
 			if (factory.getPersonnelDAO().checkPersonnelExists(pid))
 				return pid;
 			else
-				throw new ITrustException("eJxnheUyJD4MXx_sUasnqAd4");
+				throw new ITrustException("Personnel does not exist");
 		} catch (NumberFormatException e) {
-			throw new ITrustException("elCD2pjrm9eYIcIEIiolxuJy1LW8ho" + e.getMessage());
+			throw new ITrustException("Personnel ID is not a number: " + e.getMessage());
 		}
 	}
 
