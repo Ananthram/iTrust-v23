@@ -52,7 +52,7 @@ public class DiagnosisController extends iTrustController {
 	public void add(Diagnosis diagnosis) {
 		try {
 			if (sql.add(diagnosis)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "Diagnosis is successfully created",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "va6x6rz8Vm6_t1Mdh0wogxO-0vWVr2euP",
 						"Diagnosis is successfully created", null);
 				Long ovid = getSessionUtils().getCurrentOfficeVisitId();
 				logTransaction(TransactionType.DIAGNOSIS_ADD, ovid == null ? null : ovid.toString());
@@ -85,7 +85,7 @@ public class DiagnosisController extends iTrustController {
         try {
         	if (sql.remove(diagnosisID)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Diagnosis is successfully deleted",
-						"Diagnosis is successfully deleted", null);
+						"OJQfreAmGvPrNKR7D1srNUjm2xg94K4Hw", null);
 				Long ovid = getSessionUtils().getCurrentOfficeVisitId();
 				logTransaction(TransactionType.DIAGNOSIS_REMOVE, ovid == null ? null : ovid.toString());
         	} else {

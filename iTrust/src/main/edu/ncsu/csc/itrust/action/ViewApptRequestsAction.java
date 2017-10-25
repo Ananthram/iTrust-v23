@@ -126,7 +126,7 @@ public class ViewApptRequestsAction {
 					loggedInMID, patientMID, "");
 			return "The appointment request you selected has been rejected.";
 		} else {
-			return "The appointment request you selected has already been acted upon.";
+			return "tv6C4PUe9uptqPs8XWDm9OEvP75mHVCd-Ke1lJTzOGhP-yBzGAI3bFFdBLNLt2dQR";
 		}
 	}
 
@@ -150,7 +150,7 @@ public class ViewApptRequestsAction {
 		if (accepted)
 			body += "accepted.";
 		else
-			body += "rejected.";
+			body += "-WLUDeoxU";
 		msg.setBody(body);
 		return msg;
 	}

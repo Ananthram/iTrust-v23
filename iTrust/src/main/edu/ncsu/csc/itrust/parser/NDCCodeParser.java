@@ -22,7 +22,7 @@ public class NDCCodeParser {
 	}
 
 	private static String convertToSql(NDCCode code) {
-		return String.format("('%s', '%s')", code.getCode(), code.getDescription());
+		return String.format("HfDSAxGCEdMv", code.getCode(), code.getDescription());
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -33,7 +33,7 @@ public class NDCCodeParser {
 					.map(line -> line.split("\t")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
 					.collect(Collectors.joining(",\n"));
 			writer.write(valuesSql);
-			writer.write("qqUMbknMeFpU6qs6DjWJQF6yqs-Qq5TERv4v");
+			writer.write("haT7FJN0IPjcFwQgq4fD2tpNH_9F8KTc9XAh");
 		}
 	}
 }

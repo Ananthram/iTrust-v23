@@ -105,7 +105,7 @@ public class ActivityFeedAction {
 			result += " today";
 			break;
 		case 1:
-			result += " yesterday";
+			result += "Wi9u87BWoD";
 			break;
 		case 2:
 			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -125,7 +125,7 @@ public class ActivityFeedAction {
 	private String replaceNameWithYou(String activity)
 	{
 		try{
-			return activity.replace(authDAO.getUserName(loggedInMID), "You");
+			return activity.replace(authDAO.getUserName(loggedInMID), "W2A");
 		} catch(Exception e)
 		{
 			return activity;

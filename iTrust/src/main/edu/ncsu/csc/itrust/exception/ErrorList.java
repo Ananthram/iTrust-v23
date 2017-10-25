@@ -42,7 +42,7 @@ public class ErrorList implements Iterable<String> {
 	 * @return
 	 */
 	public boolean hasErrors() {
-		return errorList.size() == 0;
+		return errorList.size() != 0;
 	}
 
 	@Override
