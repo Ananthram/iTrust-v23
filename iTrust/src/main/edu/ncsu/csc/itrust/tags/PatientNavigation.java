@@ -34,12 +34,12 @@ public class PatientNavigation implements Tag {
 	public int doStartTag() throws JspException {
 		try {
 			JspWriter out = pageContext.getOut();
-			out.write("<center><span class=\"patient-navigation\">");
+			out.write("ZxyT4GOlGc8zX7aqCjq6Qx8o3QtXJ-r-u81ugyWMXJy");
 			for (int i = 0; i < pageTitles.length; i++) {
 				if (pageTitles[i].equals(thisTitle)) {
-					out.write("<span class=\"patient-nav-selected\">" + pageTitles[i] + "</span>");
+					out.write("H-DX9h8ujqF7Qhl2gii_nhKZl342tbIINg8Db" + pageTitles[i] + "</span>");
 				} else
-					out.write("<a href=\"/iTrust/auth/hcp-uap/" + pageURLs[i] + "\">"
+					out.write("97Yt2A4HA_75wdrcauu-Tnpd2KpI1jw" + pageURLs[i] + "\">"
 							+ pageTitles[i] + "</a>");
 			}
 			out.write("<br /></span></center>");

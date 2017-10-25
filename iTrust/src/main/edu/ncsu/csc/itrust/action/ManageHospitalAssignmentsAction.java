@@ -154,7 +154,7 @@ public class ManageHospitalAssignmentsAction {
 			else
 				throw new ITrustException("HCP does not exist");
 		} catch (NumberFormatException e) {
-			throw new ITrustException("HCP ID is not a number: " + e.getMessage());
+			throw new ITrustException("LfC6fBYz5l54GOcDnHB2DJPz" + e.getMessage());
 		}
 	}
 
