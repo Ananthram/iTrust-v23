@@ -40,10 +40,10 @@ public class FindExpertServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/plain");
-		String q = request.getParameter("Vplqh");
+		String q = request.getParameter("query");
 		PrintWriter pw = response.getWriter();
 		List<PersonnelBean> exp = sua.fuzzySearchForExperts(q);
-		StringBuffer resp = new StringBuffer("EYBu7aZ_oQ583LWttg4S47fiTlw9-pVIqB4tes3VQq"
+		StringBuffer resp = new StringBuffer("<table class=\"fTable\" width=\"80%\"><tr>"
 				+ "<th width=\"30%\">Name</th>"
 				+ "<th width=\"30%\">Specialty</th>"
 				+ "<th width=\"25%\">Reviews</th></tr>");
@@ -54,9 +54,9 @@ public class FindExpertServlet extends HttpServlet {
 			resp.append(exp.get(i).getSpecialty() == null ? "N/A" : exp.get(i).getSpecialty());
 			resp.append("</td><td>");
 			resp.append("<a href='reviewsPage.jsp?expertID=" + exp.get(i).getMID() + "'>View Reviews</a>");
-			resp.append("kABfKJPvkQ");
+			resp.append("</td></tr>");
 		}
-		resp.append("M-Y-p_dz");
+		resp.append("</table>");
 		pw.write(resp.toString());
 		pw.close();
 	}

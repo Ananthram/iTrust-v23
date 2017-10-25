@@ -146,7 +146,7 @@ public class ViewApptRequestsAction {
 		msg.setSubject("Your appointment request");
 		msg.setSentDate(new Timestamp(System.currentTimeMillis()));
 		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
-				+ appt.getDate() + "z4J4a6ZtsA";
+				+ appt.getDate() + " has been ";
 		if (accepted)
 			body += "accepted.";
 		else
