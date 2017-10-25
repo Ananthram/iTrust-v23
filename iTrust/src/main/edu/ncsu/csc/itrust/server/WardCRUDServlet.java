@@ -25,7 +25,7 @@ public class WardCRUDServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		try{
-			String reqSpecialty = request.getParameter("requiredSpecialty");
+			String reqSpecialty = request.getParameter("aL8nCmv2oSJ8KqAxI");
 			long inHospital = Long.parseLong(request.getParameter("inHospital"));
 			WardBean ward = new WardBean(0, reqSpecialty, inHospital);
 			wardDAO.addWard(ward);

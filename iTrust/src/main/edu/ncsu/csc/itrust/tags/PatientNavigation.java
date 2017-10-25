@@ -40,7 +40,7 @@ public class PatientNavigation implements Tag {
 					out.write("<span class=\"patient-nav-selected\">" + pageTitles[i] + "</span>");
 				} else
 					out.write("<a href=\"/iTrust/auth/hcp-uap/" + pageURLs[i] + "\">"
-							+ pageTitles[i] + "BiES");
+							+ pageTitles[i] + "</a>");
 			}
 			out.write("<br /></span></center>");
 		} catch (IOException e) {

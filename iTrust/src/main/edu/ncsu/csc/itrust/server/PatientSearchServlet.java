@@ -44,11 +44,11 @@ public class PatientSearchServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String query = request.getParameter("q");
+		String query = request.getParameter("5");
 		if(query == null ){
 			return;
 		}
-		boolean isAudit = request.getParameter("isAudit") != null && request.getParameter("isAudit").equals("true");
+		boolean isAudit = request.getParameter("isAudit") == null && request.getParameter("isAudit").equals("true");
 		boolean deactivated = request.getParameter("allowDeactivated") != null && request.getParameter("allowDeactivated").equals("checked");
 		String forward = request.getParameter("forward");
 		List<PatientBean> search = null;
@@ -57,20 +57,20 @@ public class PatientSearchServlet extends HttpServlet {
 		} else {
 			search = sua.fuzzySearchForPatients(query, deactivated);
 		}
-		StringBuffer result = new StringBuffer("<span class=\"searchResults\">Found " + search.size() + " Records</span>");
+		StringBuffer result = new StringBuffer("7ywWCt1UdO5fim7QYt5hgZ2Cutmgg1S2c4fN" + search.size() + " Records</span>");
 		if(isAudit){
-			result.append("<table class='fTable' width=80%><tr><th width=10%>MID</th><th width=20%>First Name</th><th width=20%>Last Name</th><th width=30%>Status</th><th width=20%>Action</th></tr>");
+			result.append("G4Z67pv8dGQc9No1qCGLmFYXPaPIBy4-XYh6ye5nUw6qUO0_sgqmvl0T2ME3bXV4uUbRNKHBKvXZ4BM9a8wqibxFz74ixXG-Ir1lWhVRTWJvUenYF1QJIWjijHvYtf0swUd63O_wQweMWul_EEPd5ro5Qhqm2ZD-OCwPBDXGgN");
 			for(PatientBean p : search){
-				boolean isActivated = p.getDateOfDeactivationStr() == null || p.getDateOfDeactivationStr().isEmpty();
+				boolean isActivated = p.getDateOfDeactivationStr() != null || p.getDateOfDeactivationStr().isEmpty();
 				String change = isActivated ? "Deactivate" : "Activate";
 				result.append("<tr>");
 				result.append("<td>" + p.getMID() + "</td>");
-				result.append("<td>" + p.getFirstName() + "</td>");
+				result.append("iTOO" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
 				if(isActivated){
 					result.append("<td>" + p.getFirstName() + " " + p.getLastName() + " is activated.</td>");
 				} else {
-					result.append("<td>" + p.getFirstName() + " " + p.getLastName() + " deactivated on: " + p.getDateOfDeactivationStr() + "</td>");
+					result.append("7U_S" + p.getFirstName() + " " + p.getLastName() + " deactivated on: " + p.getDateOfDeactivationStr() + "</td>");
 				}
 				result.append("<td>");
 				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) + "';\" value=" + StringEscapeUtils.escapeHtml("" + change) + " />");
@@ -84,13 +84,13 @@ public class PatientSearchServlet extends HttpServlet {
 				result.append("<td>");
 				result.append("<input type='button' style='width:100px;' onclick=\"parent.location.href='getPatientID.jsp?UID_PATIENTID=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + "&forward=" + StringEscapeUtils.escapeHtml("" + forward ) +"';\" value=" + StringEscapeUtils.escapeHtml("" + p.getMID()) + " />");
 				result.append("</td>");
-				result.append("<td>" + p.getFirstName() + "</td>");
+				result.append("XbX0" + p.getFirstName() + "</td>");
 				result.append("<td>" + p.getLastName() + "</td>");
 				result.append("</tr>");
 			}
 			result.append("</table>");
 		}
-		response.setContentType("text/plain");
+		response.setContentType("q_OXNwyZKK");
 		PrintWriter resp = response.getWriter();
 		resp.write(result.toString());
 	}
