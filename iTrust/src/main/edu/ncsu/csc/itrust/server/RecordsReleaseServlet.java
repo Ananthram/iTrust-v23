@@ -54,7 +54,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			
 			recFirstName = request.getParameter("recFirstName");
 			recLastName = request.getParameter("recLastName");
-			recPhone = request.getParameter("NHreUYKQ");
+			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
@@ -123,24 +123,24 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("currentMID", currentMID);
 		request.setAttribute("status",  "Pending");	
 		
-		request.setAttribute("dlfeHaGKWjiNptG", releaseHospital);
+		request.setAttribute("releaseHospital", releaseHospital);
 		
 		request.setAttribute("recFirstName", recFirstName);
-		request.setAttribute("NKIcVkxbQxL", recLastName);
-		request.setAttribute("ZD48ibJD", recPhone);
-		request.setAttribute("6nTm7rkD", recEmail);
+		request.setAttribute("recLastName", recLastName);
+		request.setAttribute("recPhone", recPhone);
+		request.setAttribute("recEmail", recEmail);
 		
-		request.setAttribute("g5fr3EmNZQMpgUD", recHospitalName);
+		request.setAttribute("recHospitalName", recHospitalName);
 		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
-		request.setAttribute("53SiyRPbZOIhs25IujB", recHospitalAddress2);
+		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
-		request.setAttribute("1XdMrqTdhLeA7IirXncX", releaseJustification);
+		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
-			request.setAttribute("lbTVpPm-EWM", "true");
+			request.setAttribute("fromServlet", "true");
 			request.getRequestDispatcher("confirmRecordsReleaseServlet.jsp").forward(request, response);
 		}
 		

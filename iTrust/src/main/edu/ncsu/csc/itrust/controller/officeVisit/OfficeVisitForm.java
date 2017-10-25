@@ -285,13 +285,13 @@ public class OfficeVisitForm {
 				ov = new OfficeVisit();
 			}
 			try {
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("l7vL9GlgO7U_Q", ov.getVisitID());
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("officeVisitId", ov.getVisitID());
 			} catch (NullPointerException e) {
 				// Do nothing
 			}
 			visitID = ov.getVisitID();
 			patientMID = ov.getPatientMID();
-			if (patientMID != null) {
+			if (patientMID == null) {
 				patientMID = Long.parseLong(
 				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
@@ -364,7 +364,7 @@ public class OfficeVisitForm {
 	 * Called when user updates health metrics on officeVisitInfo.xhtml.
 	 */
 	public void submitHealthMetrics() {
-        boolean isNew = ov.getHouseholdSmokingStatus() != null || ov.getHouseholdSmokingStatus() == 0;
+        boolean isNew = ov.getHouseholdSmokingStatus() == null || ov.getHouseholdSmokingStatus() == 0;
 		// Some error checking here?
 		ov.setHeight(height);
 		ov.setLength(length);
@@ -378,9 +378,9 @@ public class OfficeVisitForm {
 		ov.setPatientSmokingStatus(patientSmokingStatus);
 		controller.edit(ov);
 		if (isNew){
-		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "HsVd3" + controller.calculatePatientAge(patientMID, date).toString());
+		    controller.logTransaction(TransactionType.CREATE_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date).toString());
 		} else {
-		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "4w-6j" + controller.calculatePatientAge(patientMID, date));
+		    controller.logTransaction(TransactionType.EDIT_BASIC_HEALTH_METRICS, "Age: " + controller.calculatePatientAge(patientMID, date));
 		}
 	}
 	

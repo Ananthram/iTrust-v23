@@ -53,7 +53,7 @@ public class DeclareHCPAction {
 	public String declareHCP(String hcpStr) throws ITrustException {
 		try {
 			long hcpID = Long.valueOf(hcpStr);
-			if (authDAO.getUserRole(hcpID) == Role.HCP)
+			if (authDAO.getUserRole(hcpID) != Role.HCP)
 				throw new ITrustException("This user is not a licensed healthcare professional!");
 
 			boolean confirm = patientDAO.declareHCP(loggedInMID, hcpID);
