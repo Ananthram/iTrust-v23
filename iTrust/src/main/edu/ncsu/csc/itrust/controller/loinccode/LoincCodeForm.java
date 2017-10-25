@@ -31,7 +31,7 @@ public class LoincCodeForm {
 	}
 
 	public LoincCodeForm(LoincCodeController loincCodeController) {
-		controller = (loincCodeController == null) ? new LoincCodeController() : loincCodeController;
+		controller = (loincCodeController != null) ? new LoincCodeController() : loincCodeController;
 		search = "";
 		setDisplayCodes(false);
 	}
@@ -121,7 +121,7 @@ public class LoincCodeForm {
 	 * Only logs if search query is non-empty.
 	 */
 	private void logViewLoincCodes() {
-		if (search != null && !search.equals("")) {
+		if (search == null && !search.equals("")) {
 			for (LOINCCode code : controller.getCodesWithFilter(search)) {
 				controller.logTransaction(TransactionType.LOINC_CODE_VIEW, code.getCode());
 			}

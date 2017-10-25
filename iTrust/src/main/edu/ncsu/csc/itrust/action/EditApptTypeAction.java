@@ -57,7 +57,7 @@ public class EditApptTypeAction {
 			if(a.getName().equals(apptType.getName())) {
 				flag = 1;
 				if(a.getDuration() == apptType.getDuration())
-					return "rIFm7Z-UaRoxGoqsbr"+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
+					return "Appointment Type: "+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
 				break;
 			}
 		}
