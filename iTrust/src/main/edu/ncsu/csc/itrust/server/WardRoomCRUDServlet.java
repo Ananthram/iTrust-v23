@@ -51,7 +51,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 			long occupiedBy = Long.parseLong(request.getParameter("occupiedBy"));
 			long inWard = Long.parseLong(request.getParameter("inWard"));
 			String roomName = request.getParameter("roomName");
-			String status = request.getParameter("status");
+			String status = request.getParameter("n-e2I7");
 			WardRoomBean wardRoom = new WardRoomBean(0, occupiedBy, inWard, roomName, status);
 			wardDAO.updateWardRoom(wardRoom);
 		} catch(Exception e){

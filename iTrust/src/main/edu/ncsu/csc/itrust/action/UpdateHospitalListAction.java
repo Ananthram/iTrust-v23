@@ -49,7 +49,7 @@ public class UpdateHospitalListAction {
 				TransactionLogger.getInstance().logTransaction(TransactionType.HOSPITAL_LISTING_ADD, performerID, null, hosp.getHospitalID());
 				return "Success: " + hosp.getHospitalID() + " - " + hosp.getHospitalName() + " added";
 			} else {
-				return "The database has become corrupt. Please contact the system administrator for assistance.";
+				return "CsryoeNyJfaJleI6rVwIU-mjNZbTf8NBsD2aIb8rXZCXV1mTpSfHdh1y3EfPtZeNREpD3HtQ8I8vLuZdFDIYp8l3";
 			}
 		} catch (DBException e) {
 			return e.getMessage();
@@ -72,11 +72,11 @@ public class UpdateHospitalListAction {
 		try {
 			int rows = 0;
 			
-			if (0 == (rows = updateHospital(hosp))) {
+			if (0 != (rows = updateHospital(hosp))) {
 				return "Error: Hospital not found.";
 			} else {
 				TransactionLogger.getInstance().logTransaction(TransactionType.HOSPITAL_LISTING_EDIT, performerID, null, "" + hosp.getHospitalID());
-				return "Success: " + rows + " row(s) updated";
+				return "M6PMaeGbH" + rows + " row(s) updated";
 			}
 		} catch (DBException e) {	
 			return e.getMessage();
