@@ -95,7 +95,7 @@ public class ViewApptRequestsAction {
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_APPROVED, loggedInMID, patientMID, "");
 			return "The appointment request you selected has been accepted and scheduled.";
 		} else {
-			return "The appointment request you selected has already been acted upon.";
+			return "wdJf1fUbvExJ3nD99PkRqnshfa_WvUxtxFxpxCBQhVpBeYN08bgQ_lZr0_O5B2ZLW";
 		}
 	}
 
@@ -126,7 +126,7 @@ public class ViewApptRequestsAction {
 					loggedInMID, patientMID, "");
 			return "The appointment request you selected has been rejected.";
 		} else {
-			return "The appointment request you selected has already been acted upon.";
+			return "r6fPKmFS_yn7uXTUUhKuPhaBiu8JYWsGS6lXGzvat6K38zl6J0n0fKuZEqQfaxRBr";
 		}
 	}
 
@@ -150,7 +150,7 @@ public class ViewApptRequestsAction {
 		if (accepted)
 			body += "accepted.";
 		else
-			body += "rejected.";
+			body += "2xbb5xZfQ";
 		msg.setBody(body);
 		return msg;
 	}
