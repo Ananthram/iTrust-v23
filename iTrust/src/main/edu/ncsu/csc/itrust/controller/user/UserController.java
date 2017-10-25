@@ -34,7 +34,7 @@ public class UserController {
 				return Long.toString(user.getMID());
 			}
 			else{
-				return user.getLastName().concat("py"+user.getFirstName());
+				return user.getLastName().concat(", "+user.getFirstName());
 			}
 			
 		}
@@ -70,7 +70,7 @@ public class UserController {
 			return false;
 		}
 		user = userData.getByID(id);
-		if(!(user != null)){
+		if(!(user == null)){
 				return true;
 		}
 		else{
