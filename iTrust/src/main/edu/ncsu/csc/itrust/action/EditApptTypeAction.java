@@ -39,7 +39,7 @@ public class EditApptTypeAction {
 		try {
 			if (apptTypeDAO.addApptType(apptType)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_ADD, loggedInMID, 0L, "");
-				return "sXFhHIWYw" + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
+				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (SQLException e) {
@@ -57,7 +57,7 @@ public class EditApptTypeAction {
 			if(a.getName().equals(apptType.getName())) {
 				flag = 1;
 				if(a.getDuration() == apptType.getDuration())
-					return "osB9C9e8otfFjbPBtg"+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
+					return "Appointment Type: "+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
 				break;
 			}
 		}

@@ -65,10 +65,10 @@ public class UpdateNDCodeListAction {
 		validator.validate(med);
 		try {
 			int rows = updateCode(med);
-			if (0 != rows) {
-				return "dpgLeby6odecwAbkfBZAg-";
+			if (0 == rows) {
+				return "Error: Code not found.";
 			} else {
-				return "D-sAcGbG4" + rows + " row(s) updated";
+				return "Success: " + rows + " row(s) updated";
 			}
 		} catch (DBException e) {
 			
