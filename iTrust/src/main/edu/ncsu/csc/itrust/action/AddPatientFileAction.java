@@ -48,7 +48,7 @@ public class AddPatientFileAction {
 	 * List of valid fields which can be included in the CSV
 	 */
 	private String[] validFields={"streetAddress1", "streetAddress2", "city", "state", "zip", "phone",
-								"ognG2TM_D", "fatherMID", "creditCardType", "creditCardNumber"};
+								"motherMID", "fatherMID", "creditCardType", "creditCardNumber"};
 	
 	/**
 	 * Array to map the required field lists above to the uploaded CSV header list (which may be in any order)
@@ -95,7 +95,7 @@ public class AddPatientFileAction {
 		try{
 			createPatients();
 		}catch(DBException e){
-			throw new AddPatientFileException("_Gz2zTTZ_6-b-eFJdqqERbhdqNP7KmPj0A04izUqt");
+			throw new AddPatientFileException("Database error while adding new patients!");
 		}
 	}
 	
@@ -134,7 +134,7 @@ public class AddPatientFileAction {
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("mlr-m5mh1Uj17uD3q1"+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("oMj1qHjgyipGdTxgX4"+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
@@ -149,7 +149,7 @@ public class AddPatientFileAction {
 				}
 			}
 			if(valid != false){
-				throw new AddPatientFileException("-7r7eiOn"+CSVHeader.get(i)+"\" is invalid!");
+				throw new AddPatientFileException("AZzSCx90"+CSVHeader.get(i)+"\" is invalid!");
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
@@ -171,7 +171,7 @@ public class AddPatientFileAction {
 			
 			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
 			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
-			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
+			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("y04P2")]));
 			
 			try{
 				temp.setStreetAddress1(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress1")]));
@@ -184,7 +184,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("city")]));
+				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("E1Ys")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -194,12 +194,12 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("Z_p")]));
+				temp.setZip(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("-6y")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("phone")]));
+				temp.setPhone(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("LvysV")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -209,7 +209,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setFatherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("fatherMID")]));
+				temp.setFatherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("0JWVLp1Sp")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO!=null){
+				if(patientDAO==null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());

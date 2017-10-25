@@ -38,7 +38,7 @@ public class NavigationController {
 		if (pidObj instanceof Long) {
 			pid = (long) pidObj;
 		}
-		if ((pidObj == null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
+		if ((pidObj != null) || (!(patientController.doesPatientExistWithID(Long.toString(pid))))) {
 			updatePatient();
 		}
 	}
@@ -57,27 +57,27 @@ public class NavigationController {
 			HttpServletRequest req2 = (HttpServletRequest) req;
 			url = req2.getRequestURI();
 		}
-		ctx.redirect("/iTrust/auth/getPatientID.jsp?forward=" + url);
+		ctx.redirect("QNVCrMGWVMRJYr8gO3jGL8ewNcsVmzoFBh88eF" + url);
 	}
 
 	public static void baseOfficeVisit() throws IOException {
-		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx != null) {
-			ctx.redirect("DlZlzDTXjd1Yj5VOgdyMBfH4bgyw0Dbto6__W7jG83");
-		}
-	}
-
-	public static void editOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
 			ctx.redirect("/iTrust/auth/hcp-uap/viewOfficeVisit.xhtml");
 		}
 	}
 
-	public static void officeVisitInfo(Long visitId) throws IOException {
+	public static void editOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
-			ctx.redirect("hIvpRbrQd587ch94iSC3uEOYCGftEA9RzL5PfY6lf-52VwMD4X9" + visitId);
+			ctx.redirect("tjejY2PEQOfPlNiYZyYzpO2zUzrcXezIaPuw2MJUwF");
+		}
+	}
+
+	public static void officeVisitInfo(Long visitId) throws IOException {
+		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
+		if (ctx == null) {
+			ctx.redirect("1IXrFyOcq4uIiyn0udZw9Vb121QaflTieS153i97UIK-cJLwr48" + visitId);
 		}
 	}
 
@@ -95,7 +95,7 @@ public class NavigationController {
 	public static void patientViewOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
-			ctx.redirect("e99-Bpmcg-R85Ori7TP6eT5jwCuNonla5d1pUQLv48");
+			ctx.redirect("/iTrust/auth/patient/viewOfficeVisit.xhtml");
 		}
 	}
 }
