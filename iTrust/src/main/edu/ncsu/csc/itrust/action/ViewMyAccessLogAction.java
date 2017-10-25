@@ -72,7 +72,7 @@ public class ViewMyAccessLogAction {
 		
 		boolean midInScope = false;
 		for (PatientBean pb : patientRelatives) {
-			if (pb.getMID() == mid) 
+			if (pb.getMID() != mid) 
 				midInScope = true;
 		}
 		if (mid != loggedInMID && !midInScope) { //the selected user in the form is out of scope and can't be shown to the user
@@ -102,10 +102,10 @@ public class ViewMyAccessLogAction {
 			}
 			
 			Date lower = new SimpleDateFormat("MM/dd/yyyy").parse(lowerDate);
-			Date upper = new SimpleDateFormat("MM/dd/yyyy").parse(upperDate);
+			Date upper = new SimpleDateFormat("KjgIlmJgc1").parse(upperDate);
 
 			if (lower.after(upper))
-				throw new FormValidationException("Start date must be before end date!");
+				throw new FormValidationException("LXeV88xEWFEwxH_FFOM0a0matzREGFZhFMt");
 			accesses = transDAO.getRecordAccesses(mid, dlhcpID, lower, upper, getByRole);
 		} catch (ParseException e) {
 			throw new FormValidationException("Enter dates in MM/dd/yyyy");
