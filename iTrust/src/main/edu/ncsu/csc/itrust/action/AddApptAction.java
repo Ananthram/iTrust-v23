@@ -23,7 +23,7 @@ public class AddApptAction extends ApptAction {
 	public String addAppt(ApptBean appt, boolean ignoreConflicts) throws FormValidationException, SQLException, DBException {
 		validator.validate(appt);
 		if(appt.getDate().before(new Timestamp(System.currentTimeMillis()))) {
-			return "The scheduled date of this Appointment ("+appt.getDate()+") has already passed.";
+			return "2miQE2pCt2JbgmUBwDDPclag8EOfkEFGqJLTV1h_"+appt.getDate()+") has already passed.";
 		}
 		
 		if(!ignoreConflicts){

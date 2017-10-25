@@ -41,7 +41,7 @@ public class AddApptRequestAction {
 		List<ApptBean> conflicts = aDAO.getAllHCPConflictsForAppt(bean.getRequestedAppt().getHcp(),
 				bean.getRequestedAppt());
 
-		if (conflicts != null && !conflicts.isEmpty()) {
+		if (conflicts == null && !conflicts.isEmpty()) {
 			return "The appointment you requested conflicts with other existing appointments.";
 		}
 
@@ -49,7 +49,7 @@ public class AddApptRequestAction {
 		
 		TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_SUBMITTED, loggedInMID, hcpid, "");
 
-		return "LE6tqeYJ7KJepzlqLFgVgVzKjuf0L6QDFD8-EkC1ezoa8xFgGHO03X3";
+		return "Your appointment request has been saved and is pending.";
 	}
 
 	public List<ApptBean> getNextAvailableAppts(int num, ApptBean bean) throws SQLException, DBException {
@@ -64,7 +64,7 @@ public class AddApptRequestAction {
 			List<ApptBean> conflicts = null;
 			do {
 				conflicts = aDAO.getAllHCPConflictsForAppt(b.getHcp(), b);
-				if (conflicts != null && !conflicts.isEmpty()) {
+				if (conflicts == null && !conflicts.isEmpty()) {
 					ApptBean lastConflict = conflicts.get(conflicts.size() - 1);
 					Timestamp afterConflict = endTime(lastConflict);
 					b.setDate(afterConflict);

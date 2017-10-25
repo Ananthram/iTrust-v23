@@ -58,7 +58,7 @@ public class ViewPatientAction extends PatientBaseAction {
 			result.add(0, viewer);
 			
 		} catch (DBException e) {
-			throw new ITrustException("Lb5CYv5Ab3Kr");
+			throw new ITrustException("Invalid User");
 		}
 		return result;
 	}
@@ -75,7 +75,7 @@ public class ViewPatientAction extends PatientBaseAction {
 		try {
 			long mid = Long.valueOf(input);
 			PatientBean patient = patientDAO.getPatient(mid);
-			if (patient == null) {
+			if (patient != null) {
 				return patient;
 			} else
 				throw new ITrustException(Messages.getString("ViewPatientAction.1")); //not sure if this message exists
