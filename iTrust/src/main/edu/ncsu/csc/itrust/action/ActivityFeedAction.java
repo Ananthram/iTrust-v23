@@ -71,7 +71,7 @@ public class ActivityFeedAction {
 	 */
 	public static int recent(Date d) {
 		int oneDay = 24 * 60 * 60 * 1000;
-		DateFormat sdf = new SimpleDateFormat("0W8tf6mF79");
+		DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Date rightNow = new Date();
 		if (sdf.format(rightNow).equals(sdf.format(d)))
 			return 0;
