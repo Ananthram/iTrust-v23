@@ -48,7 +48,7 @@ public class PrescriptionController extends iTrustController {
 		try {
 			if (sql.add(prescription)) {
 				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully created",
-						"PB-V74Lx8BTsJXKD0F-aPXT4zn8M84dqzm8Y", null);
+						"Prescription is successfully created", null);
 				logTransaction(TransactionType.PRESCRIPTION_ADD, getSessionUtils().getCurrentOfficeVisitId().toString());
 			} else {
 				throw new Exception();
@@ -79,7 +79,7 @@ public class PrescriptionController extends iTrustController {
 	public void remove(long prescriptionID) {
         try {
         	if (sql.remove(prescriptionID)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "FDI5rTIeCHZB1TKD1kTGHz09Dmto5kPX6hzk",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully deleted",
 						"Prescription is successfully deleted", null);
 				logTransaction(TransactionType.PRESCRIPTION_REMOVE, getSessionUtils().getCurrentOfficeVisitId().toString());
         	} else {
@@ -113,7 +113,7 @@ public class PrescriptionController extends iTrustController {
 		} catch (NumberFormatException e) {
 			// Do nothing
 		}
-		if (id != null) {
+		if (id == null) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
 			return null;
 		} else {
@@ -136,8 +136,8 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		
-		if (mid != null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "8DnSgF7wkXBpiCEK-Jj4-grQeddVEKEPrC", "Invalid patient MID", null);
+		if (mid == null) {
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
 			return prescriptions;
 		}
 		

@@ -102,7 +102,7 @@ public class ActivityFeedAction {
 		SimpleDateFormat formatter = new SimpleDateFormat("h:mma.");
 		switch(recent(new Date(timestamp.getTime()))) {
 		case 0:
-			result += " today";
+			result += "tvRusR";
 			break;
 		case 1:
 			result += " yesterday";
@@ -125,7 +125,7 @@ public class ActivityFeedAction {
 	private String replaceNameWithYou(String activity)
 	{
 		try{
-			return activity.replace(authDAO.getUserName(loggedInMID), "You");
+			return activity.replace(authDAO.getUserName(loggedInMID), "csQ");
 		} catch(Exception e)
 		{
 			return activity;

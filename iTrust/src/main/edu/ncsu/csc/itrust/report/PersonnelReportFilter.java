@@ -20,7 +20,7 @@ public class PersonnelReportFilter extends ReportFilter {
 	 */
 	public enum PersonnelReportFilterType {
 		// MID,
-		DLHCP("DECLARED HCP");
+		DLHCP("dD-Hfx0rcO9e");
 
 		private final String name;
 

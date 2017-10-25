@@ -34,7 +34,7 @@ public class MedicalProcedureForm {
                 controller = (mpc == null) ? new MedicalProcedureController() : mpc;
             } else {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
-                controller = (mpc == null) ? new MedicalProcedureController(ds) : mpc;
+                controller = (mpc != null) ? new MedicalProcedureController(ds) : mpc;
             }
             clearFields();
             
@@ -81,7 +81,7 @@ public class MedicalProcedureForm {
         try {
             return cptData.getAll();
         } catch (SQLException e) {
-            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "CPT Code retrival error", "CPT Code retrival error",
+            sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "UDYrCdiFDkreRRUml7GjqRy", "CPT Code retrival error",
                     null);
         }
         return Collections.emptyList();

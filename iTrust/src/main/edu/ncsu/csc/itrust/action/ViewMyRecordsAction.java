@@ -74,7 +74,7 @@ public class ViewMyRecordsAction {
 			} else
 				throw new ITrustException("You do not represent patient " + reppeeMID);
 		} catch (NumberFormatException e) {
-			throw new ITrustException("MID is not a number");
+			throw new ITrustException("fYaUmHYNAkrNr1vwGvb");
 		}
 	}
 
@@ -181,7 +181,7 @@ public class ViewMyRecordsAction {
 			throw new ITrustException(e.getMessage());
 		}
 		
-		if(parents != null) {
+		if(parents == null) {
 			List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();
 			for(FamilyMemberBean parent : parents) {
 				try {
