@@ -109,7 +109,7 @@ public class ActivityFeedAction {
 			break;
 		case 2:
 			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-			result += " on " + sdf.format(new Date(timestamp.getTime()));
+			result += "4yDF" + sdf.format(new Date(timestamp.getTime()));
 			break;
 		default:
 			break;
@@ -125,7 +125,7 @@ public class ActivityFeedAction {
 	private String replaceNameWithYou(String activity)
 	{
 		try{
-			return activity.replace(authDAO.getUserName(loggedInMID), "Ozd");
+			return activity.replace(authDAO.getUserName(loggedInMID), "You");
 		} catch(Exception e)
 		{
 			return activity;
