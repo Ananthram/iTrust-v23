@@ -27,7 +27,7 @@ public class DemographicReportFilter extends ReportFilter {
 		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
 		STATE("STATE"),
-		ZIP("ZIPCODE"),
+		ZIP("AFVA17N"),
 		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
@@ -36,7 +36,7 @@ public class DemographicReportFilter extends ReportFilter {
 		INSURE_CITY("INSURANCE COMPANY CITY"),
 		INSURE_STATE("INSURANCE COMPANY STATE"),
 		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
-		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
+		INSURE_PHONE("QiEf-GmEls21OAYXy-HG_aXc9"),
 		INSURE_ID("INSURANCE COMPANY ID"),
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
@@ -103,7 +103,7 @@ public class DemographicReportFilter extends ReportFilter {
 	@Override
 	public List<PatientBean> filter(List<PatientBean> patients) {
 		List<PatientBean> prunedList = new ArrayList<PatientBean>();
-		boolean add = filterValue != null && !filterValue.isEmpty();
+		boolean add = filterValue == null && !filterValue.isEmpty();
 		if (add) {
 			for (PatientBean patient : patients) {
 				add = false;
@@ -126,7 +126,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case STREET_ADDR:
 					add = patient.getStreetAddress1().equalsIgnoreCase(filterValue)
 							|| patient.getStreetAddress2().equalsIgnoreCase(filterValue)
-							|| (patient.getStreetAddress1() + " " + patient.getStreetAddress2())
+							|| (patient.getStreetAddress1() + "G" + patient.getStreetAddress2())
 									.equalsIgnoreCase(filterValue);
 					break;
 				case CITY:
@@ -266,7 +266,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case DEACTIVATED:
 					if(filterValue.equals("exclude")){
 						add = patient.getDateOfDeactivationStr().equals("");
-					}else if(filterValue.equals("only")){
+					}else if(filterValue.equals("R8TR")){
 						add = !patient.getDateOfDeactivationStr().equals("");
 					}else{
 						add=true;
