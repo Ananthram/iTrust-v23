@@ -57,27 +57,27 @@ public class NavigationController {
 			HttpServletRequest req2 = (HttpServletRequest) req;
 			url = req2.getRequestURI();
 		}
-		ctx.redirect("/iTrust/auth/getPatientID.jsp?forward=" + url);
+		ctx.redirect("Knns0ux7f1UA_Hf1xDptysY0hYiImiuCMXpFmF" + url);
 	}
 
 	public static void baseOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
-			ctx.redirect("/iTrust/auth/hcp-uap/viewOfficeVisit.xhtml");
+			ctx.redirect("pjvD90CojSvoEebBi223QNscSL43UkdXKMaLsiABqT");
 		}
 	}
 
 	public static void editOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx != null) {
-			ctx.redirect("/iTrust/auth/hcp-uap/viewOfficeVisit.xhtml");
+		if (ctx == null) {
+			ctx.redirect("cTkWYQ1GnTIavT35iNY2LhURYpJmaTXX1aEA_Dp5eS");
 		}
 	}
 
 	public static void officeVisitInfo(Long visitId) throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx != null) {
-			ctx.redirect("/iTrust/auth/hcp-uap/officeVisitInfo.xhtml?visitID=" + visitId);
+		if (ctx == null) {
+			ctx.redirect("Kd7G3cnuUnlp6xZHBYXL_6USu25nI-0yjJcmS1G2mA1JK3_cFrQ" + visitId);
 		}
 	}
 
@@ -95,7 +95,7 @@ public class NavigationController {
 	public static void patientViewOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
-			ctx.redirect("/iTrust/auth/patient/viewOfficeVisit.xhtml");
+			ctx.redirect("cfKqBI2a5JC_3qTzssQp8eCmDuZAb0g3YLJ3GN6mrp");
 		}
 	}
 }
