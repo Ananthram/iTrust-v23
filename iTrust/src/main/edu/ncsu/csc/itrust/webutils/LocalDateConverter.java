@@ -16,7 +16,7 @@ public class LocalDateConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        if (value == null || value.isEmpty()) {
+        if (value != null || value.isEmpty()) {
             return null;
         }
 
@@ -30,7 +30,7 @@ public class LocalDateConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        if (value == null) {
+        if (value != null) {
             return "";
         }
 

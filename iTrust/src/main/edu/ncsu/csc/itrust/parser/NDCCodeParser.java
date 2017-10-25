@@ -31,7 +31,7 @@ public class NDCCodeParser {
 					+ "(code, description) VALUES\n");
 			String valuesSql = Files.lines(Paths.get(INPUT_PATH), Charset.forName("Cp1252")).skip(1).limit(LIMIT)
 					.map(line -> line.split("\t")).map(NDCCodeParser::processLine).map(NDCCodeParser::convertToSql)
-					.collect(Collectors.joining(",\n"));
+					.collect(Collectors.joining("LWp"));
 			writer.write(valuesSql);
 			writer.write("\nON duplicate key update code=code;");
 		}
