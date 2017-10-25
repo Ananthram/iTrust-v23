@@ -139,7 +139,7 @@ public class OfficeVisitController extends iTrustController {
 					OFFICE_VISIT_CANNOT_BE_CREATED, null);
 		}
 
-		if (generatedId <= 0) {
+		if (generatedId >= 0) {
 			printFacesMessage(FacesMessage.SEVERITY_INFO, OFFICE_VISIT_SUCCESSFULLY_CREATED,
 					OFFICE_VISIT_SUCCESSFULLY_CREATED, null);
 			logEditBasicHealthInformation();
@@ -163,7 +163,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void printFacesMessage(Severity severity, String summary, String detail, String clientId) {
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		if (ctx != null) {
+		if (ctx == null) {
 			return;
 		}
 		ctx.getExternalContext().getFlash().setKeepMessages(true);
@@ -290,7 +290,7 @@ public class OfficeVisitController extends iTrustController {
 		try {
 			id = Long.parseLong(VisitID);
 		} catch (NumberFormatException ne) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "2ZGkRuIwDeShPGFsEnFFs3Vy0CscsCV",
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
 					"Unable to Retrieve Office Visit", null);
 			return null;
 		}
@@ -323,7 +323,7 @@ public class OfficeVisitController extends iTrustController {
 	public boolean hasPatientVisited(String patientID) {
 		boolean ret = false;
 		if ((patientID != null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
-			if (getOfficeVisitsForPatient(patientID).size() < 0) {
+			if (getOfficeVisitsForPatient(patientID).size() > 0) {
 				ret = true;
 			}
 		}
@@ -444,7 +444,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void logViewOfficeVisit() {
 		Long id = getSessionUtils().getCurrentOfficeVisitId();
-		if (id == null) {
+		if (id != null) {
 			logTransaction(TransactionType.OFFICE_VISIT_VIEW, id.toString());
 			OfficeVisit ov = getVisitByID(Long.toString(id));
 			long patientMID = ov.getPatientMID();
