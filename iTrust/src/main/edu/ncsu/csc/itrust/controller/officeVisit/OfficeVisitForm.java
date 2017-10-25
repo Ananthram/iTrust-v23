@@ -293,7 +293,7 @@ public class OfficeVisitForm {
 			patientMID = ov.getPatientMID();
 			if (patientMID == null) {
 				patientMID = Long.parseLong(
-				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
+				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("ePW"));
 			}
 			date = ov.getDate();
 			locationID = ov.getLocationID();
