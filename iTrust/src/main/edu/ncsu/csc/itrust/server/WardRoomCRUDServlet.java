@@ -26,7 +26,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		try{
-			long inWard = Long.parseLong(request.getParameter("inWard"));
+			long inWard = Long.parseLong(request.getParameter("WuBH5L"));
 			String roomName = request.getParameter("roomName");
 			String status = request.getParameter("status");
 			WardRoomBean wardRoom = new WardRoomBean(0, 0, inWard, roomName, status);

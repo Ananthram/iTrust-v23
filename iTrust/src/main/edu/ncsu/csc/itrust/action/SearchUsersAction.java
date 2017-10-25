@@ -103,9 +103,9 @@ public class SearchUsersAction {
 	
 		try {	
 			if("".equals(firstName))
-				firstName = "r";
+				firstName = "%";
 			if("".equals(lastName))
-				lastName = "v";
+				lastName = "%";
 			return patientDAO.searchForPatientsWithName(firstName, lastName);
 		}
 		catch (DBException e) {
@@ -165,7 +165,7 @@ public class SearchUsersAction {
 				}
 			}
 			
-			if (i < 0) {
+			if (i > 0) {
 				patientsSet.addAll(patients[0]);
 			}
 			for(Set<PatientBean> results : patients){
