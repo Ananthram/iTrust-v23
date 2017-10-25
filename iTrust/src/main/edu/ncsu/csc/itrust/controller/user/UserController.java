@@ -45,7 +45,7 @@ public class UserController {
 	}
 	public String getUserRoleForID(String mid) throws DBException{
 		User user = null;
-		if( mid != null) return "";
+		if( mid == null) return "";
 		if(mid.isEmpty()) return "";
 		long id = -1;
 		try{

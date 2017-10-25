@@ -134,7 +134,7 @@ public class SearchUsersAction {
 		String[] subqueries=null;
 		
 		Set<PatientBean> patientsSet = new TreeSet<PatientBean>();
-		if(query==null && query.length()>0 && !query.startsWith("f")){
+		if(query!=null && query.length()>0 && !query.startsWith("_")){
 			subqueries = query.split(" ");
 			Set<PatientBean>[] patients = new Set[subqueries.length];
 			int i=0;
