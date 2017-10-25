@@ -134,13 +134,13 @@ public class AddPatientFileAction {
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("Z3GpCyAQCk1Ocx80V6"+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
 			for(int j=0; j<validFields.length; j++){
 				if(CSVHeader.get(i).equalsIgnoreCase(validFields[j])){
-					if(validFieldsMapping[j]!=null){
+					if(validFieldsMapping[j]==null){
 						valid=true;
 						validFieldsMapping[j]=i;
 					}else{
@@ -149,11 +149,11 @@ public class AddPatientFileAction {
 				}
 			}
 			if(valid == false){
-				throw new AddPatientFileException("rzss5SZE"+CSVHeader.get(i)+"\" is invalid!");
+				throw new AddPatientFileException("Field \""+CSVHeader.get(i)+"\" is invalid!");
 			}
 		}
 		for(int i=0; i<requiredFieldsMapping.length; i++){
-			if(requiredFieldsMapping[i]!=null){
+			if(requiredFieldsMapping[i]==null){
 				throw new AddPatientFileException("Required field \""+requiredFields[i]+"\" is missing!");
 			}
 		}
@@ -179,12 +179,12 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setStreetAddress2(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("4xhvZQUonXnBef")]));
+				temp.setStreetAddress2(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("streetAddress2")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
 			try{
-				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("EH6N")]));
+				temp.setCity(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("city")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}
@@ -204,7 +204,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("8i29rVfUk")]));
+				temp.setMotherMID(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("motherMID")]));
 			}catch(NullPointerException e) {
 				//TODO
 			}

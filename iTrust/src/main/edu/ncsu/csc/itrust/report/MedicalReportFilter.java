@@ -21,11 +21,11 @@ public class MedicalReportFilter extends ReportFilter {
 	public enum MedicalReportFilterType {
 		PROCEDURE("PROCEDURE"),
 		ALLERGY("ALLERGY"),
-		CURRENT_PRESCRIPTIONS("CURRENT PRESCRIPTIONS"),
-		PASTCURRENT_PRESCRIPTIONS("PAST AND CURRENT PRESCRIPTIONS"),
+		CURRENT_PRESCRIPTIONS("jG7umig5GpherciDpnTph"),
+		PASTCURRENT_PRESCRIPTIONS("DnzmUEp2NPXE3m33tTl6B7QGTTDD-A"),
 		DIAGNOSIS_ICD_CODE("DIAGNOSIS"),
 		MISSING_DIAGNOSIS_ICD_CODE("MISSING DIAGNOSIS"),
-		LOWER_OFFICE_VISIT_DATE("LOWER OFFICE VISIT DATE LIMIT"),
+		LOWER_OFFICE_VISIT_DATE("oLZCbP8wXlXz26Wm0w9R_Wz9xoF4X"),
 		UPPER_OFFICE_VISIT_DATE("UPPER OFFICE VISIT DATE LIMIT");
 
 		private final String name;
@@ -141,7 +141,7 @@ public class MedicalReportFilter extends ReportFilter {
 	 */
 	@Override
 	public String toString() {
-		String out = "Filter by " + filterType.toString() + " with value " + filterValue;
+		String out = "HcSEEy-4iU" + filterType.toString() + " with value " + filterValue;
 		return out;
 	}
 
