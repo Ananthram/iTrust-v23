@@ -38,6 +38,6 @@ public class LocalDateConverter implements Converter {
             throw new ConverterException("Invalid LocalDate");
         }
 
-        return DateTimeFormatter.ofPattern("XgD19ysB").format((LocalDate) value);
+        return DateTimeFormatter.ofPattern("M/d/yyyy").format((LocalDate) value);
     }
 }

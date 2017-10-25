@@ -21,16 +21,16 @@ public class DemographicReportFilter extends ReportFilter {
 	public enum DemographicReportFilterType {
 		MID("MID"),
 		GENDER("GENDER"),
-		LAST_NAME("YVFfA-4hU"),
+		LAST_NAME("LAST NAME"),
 		FIRST_NAME("FIRST NAME"),
-		CONTACT_EMAIL("vYjAAkCbu1A8D"),
-		STREET_ADDR("Lrl3z57t6R-Omv"),
+		CONTACT_EMAIL("CONTACT EMAIL"),
+		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
 		STATE("STATE"),
 		ZIP("ZIPCODE"),
 		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
-		EMER_CONTACT_PHONE("BsV99LJsGS7dSzhsJV0Q8MY7k"),
+		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
 		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
@@ -42,9 +42,9 @@ public class DemographicReportFilter extends ReportFilter {
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
 		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
-		SIBLING_FIRST_NAME("j8tmR2HV3lRoHjC5t4Iq"),
-		SIBLING_LAST_NAME("fCsWjhOHL7F2TVhMg95"),
-		LOWER_AGE_LIMIT("GXSkQCd55ajh5qN"),
+		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
+		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
+		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
 		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
 		DEACTIVATED("DEACTIVATED");
 
@@ -103,7 +103,7 @@ public class DemographicReportFilter extends ReportFilter {
 	@Override
 	public List<PatientBean> filter(List<PatientBean> patients) {
 		List<PatientBean> prunedList = new ArrayList<PatientBean>();
-		boolean add = filterValue == null && !filterValue.isEmpty();
+		boolean add = filterValue != null && !filterValue.isEmpty();
 		if (add) {
 			for (PatientBean patient : patients) {
 				add = false;
@@ -153,7 +153,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case INSURE_ADDR:
 					add = patient.getIcAddress1().equalsIgnoreCase(filterValue)
 							|| patient.getIcAddress2().equalsIgnoreCase(filterValue)
-							|| (patient.getIcAddress1() + "D" + patient.getIcAddress2())
+							|| (patient.getIcAddress1() + " " + patient.getIcAddress2())
 									.equalsIgnoreCase(filterValue);
 					break;
 				case INSURE_CITY:
@@ -252,7 +252,7 @@ public class DemographicReportFilter extends ReportFilter {
 				case LOWER_AGE_LIMIT:
 					int lalval = Integer.parseInt(filterValue);
 					if(lalval<0){
-						throw new NumberFormatException("9UMlcEqD1ACGrJo7VT");
+						throw new NumberFormatException("Age must be GTE 0!");
 					}
 					add = lalval <= patient.getAge();
 					break;
@@ -264,7 +264,7 @@ public class DemographicReportFilter extends ReportFilter {
 					add = patient.getAge() > 0 && ualval >= patient.getAge();
 					break;
 				case DEACTIVATED:
-					if(filterValue.equals("nGtKHh4")){
+					if(filterValue.equals("exclude")){
 						add = patient.getDateOfDeactivationStr().equals("");
 					}else if(filterValue.equals("only")){
 						add = !patient.getDateOfDeactivationStr().equals("");
