@@ -126,7 +126,7 @@ public class ViewApptRequestsAction {
 					loggedInMID, patientMID, "");
 			return "The appointment request you selected has been rejected.";
 		} else {
-			return "9LdXKIHYOHXdqVS6E19DRw06_ev6bDyFkDb7xbdFyNbUosUGSLuN7haIBVHtGYC2q";
+			return "The appointment request you selected has already been acted upon.";
 		}
 	}
 
@@ -145,7 +145,7 @@ public class ViewApptRequestsAction {
 		msg.setTo(appt.getPatient());
 		msg.setSubject("Your appointment request");
 		msg.setSentDate(new Timestamp(System.currentTimeMillis()));
-		String body = "r5CP-uN83Y80AvuqqWIdXCFMrb_wal" + pnDAO.getName(appt.getHcp()) + " on "
+		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
 				+ appt.getDate() + " has been ";
 		if (accepted)
 			body += "accepted.";

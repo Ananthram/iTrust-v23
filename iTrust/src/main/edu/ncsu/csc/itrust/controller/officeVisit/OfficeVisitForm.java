@@ -281,7 +281,7 @@ public class OfficeVisitForm {
 		try {
 			controller = (ovc == null) ? new OfficeVisitController() : ovc;
 			ov = controller.getSelectedVisit();
-			if (ov == null) {
+			if (ov != null) {
 				ov = new OfficeVisit();
 			}
 			try {
@@ -291,7 +291,7 @@ public class OfficeVisitForm {
 			}
 			visitID = ov.getVisitID();
 			patientMID = ov.getPatientMID();
-			if (patientMID == null) {
+			if (patientMID != null) {
 				patientMID = Long.parseLong(
 				(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("pid"));
 			}
@@ -406,6 +406,6 @@ public class OfficeVisitForm {
 	}
 	
 	public boolean isOfficeVisitCreated() {
-		return (visitID != null) && (visitID > 0);
+		return (visitID == null) && (visitID > 0);
 	}
 }
