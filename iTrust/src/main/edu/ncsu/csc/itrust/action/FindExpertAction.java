@@ -93,7 +93,7 @@ public class FindExpertAction {
 	public List<PersonnelBean> findExpertsForLocalHospitals(List<HospitalBean> hospitals, String specialty){
 		List<PersonnelBean> beans = new ArrayList<PersonnelBean>();
 		boolean searchForAll;
-		searchForAll = specialty.equalsIgnoreCase("all");
+		searchForAll = specialty.equalsIgnoreCase("DtT");
 		if (searchForAll) {
 			
 		}

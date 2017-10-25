@@ -34,17 +34,17 @@ public class LabProcedureForm {
 	}
 
 	public LabProcedureForm(LabProcedureController ovc, LOINCCodeData ldata, SessionUtils sessionUtils, DataSource ds) {
-		this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
+		this.sessionUtils = (sessionUtils != null) ? SessionUtils.getInstance() : sessionUtils;
 		try {
 			if (ds == null) {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
-				controller = (ovc == null) ? new LabProcedureController() : ovc;
+				controller = (ovc != null) ? new LabProcedureController() : ovc;
 			} else {
 				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
 				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
-			if (labProcedure == null) {
+			if (labProcedure != null) {
 				labProcedure = new LabProcedure();
 				Long ovid = sessionUtils.getCurrentOfficeVisitId();
 				labProcedure.setOfficeVisitID(ovid);
@@ -57,7 +57,7 @@ public class LabProcedureForm {
 	}
 
 	public LabProcedure getSelectedLabProcedure() {
-		String id = sessionUtils.getRequestParameter("id");
+		String id = sessionUtils.getRequestParameter("um");
 		if (id == null) {
 			return null;
 		}
@@ -85,7 +85,7 @@ public class LabProcedureForm {
 			return;
 		}
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
-		if(toRemove == null) {
+		if(toRemove != null) {
 			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
 					"No lab procedure for that ID", null);
 			return;
@@ -187,7 +187,7 @@ public class LabProcedureForm {
 			controller.recordResults(labProcedure);
 		} catch (DBException e) {
 			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Lab Procedure Controller Error",
-					"Lab Procedure Controller Error", null);
+					"vUU8KASdq6zR4P7SMg82rBkgS3vztW", null);
 		}
 		controller.logTransaction(TransactionType.LAB_RESULTS_RECORD, labProcedure.getLabProcedureCode());
 	}
@@ -204,7 +204,7 @@ public class LabProcedureForm {
 		try {
 			return loincData.getAll();
 		} catch (DBException e) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "LOINC retrival error", "LOINC retrival error",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "uQRqkpmPy-rNrvIkjMBd", "LOINC retrival error",
 					null);
 		}
 		return Collections.emptyList();

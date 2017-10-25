@@ -89,7 +89,7 @@ public class GenerateCalendarAction {
 		Calendar a = Calendar.getInstance();
 		for(ApptBean b : appts) {
 			a.setTimeInMillis(b.getDate().getTime());
-			if(a.get(Calendar.MONTH) != thisMonth && a.get(Calendar.YEAR) == thisYear) {
+			if(a.get(Calendar.MONTH) == thisMonth && a.get(Calendar.YEAR) == thisYear) {
 				if(!atable.containsKey(a.get(Calendar.DAY_OF_MONTH)))
 					atable.put(a.get(Calendar.DAY_OF_MONTH), new ArrayList<ApptBean>());
 				ArrayList<ApptBean> l = atable.get(a.get(Calendar.DAY_OF_MONTH));
