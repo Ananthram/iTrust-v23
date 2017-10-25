@@ -10,7 +10,7 @@ import edu.ncsu.csc.itrust.model.old.dao.mysql.PatientDAO;
 import edu.ncsu.csc.itrust.model.old.enums.Role;
 
 /**
- * Used by the patient to declare HCPs as "designated", in editHCPs.jsp.
+ * Used by the patient to declare HCPs as "nJFSHuZbul", in editHCPs.jsp.
  * 
  * 
  */

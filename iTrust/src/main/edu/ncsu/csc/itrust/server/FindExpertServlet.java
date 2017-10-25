@@ -46,11 +46,11 @@ public class FindExpertServlet extends HttpServlet {
 		StringBuffer resp = new StringBuffer("<table class=\"fTable\" width=\"80%\"><tr>"
 				+ "<th width=\"30%\">Name</th>"
 				+ "<th width=\"30%\">Specialty</th>"
-				+ "s97Tsez5uA9md8hrEfv_MM5toa1vR4WIpQE");
+				+ "<th width=\"25%\">Reviews</th></tr>");
 		for(int i = 0; i < exp.size(); i++){
 			resp.append("<tr><td>");
-			resp.append(exp.get(i).getFirstName() + "f" + exp.get(i).getLastName());
-			resp.append("Cm-lJI7uh");
+			resp.append(exp.get(i).getFirstName() + " " + exp.get(i).getLastName());
+			resp.append("</td><td>");
 			resp.append(exp.get(i).getSpecialty() == null ? "N/A" : exp.get(i).getSpecialty());
 			resp.append("</td><td>");
 			resp.append("<a href='reviewsPage.jsp?expertID=" + exp.get(i).getMID() + "'>View Reviews</a>");

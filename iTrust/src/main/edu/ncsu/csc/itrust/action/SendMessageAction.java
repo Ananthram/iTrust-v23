@@ -80,7 +80,7 @@ public class SendMessageAction {
 			if (6999999999L < mBean.getFrom()) {
 				PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
 				
-				if (6999999999L < mBean.getTo()) { //when from is any personnel and to is any personnel
+				if (6999999999L > mBean.getTo()) { //when from is any personnel and to is any personnel
 					PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());
 					toList.add(receiver.getEmail());
 					
@@ -93,7 +93,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("oglBo7VsiqBzJLHI1quNba5jJE8wjzuVL5nTjVFdwFeZvFh1C-suQTwY1OzFk1K74EXJFgcoyk12BnBTsnMLUeajp7vo0tvg0XtiFWkLUMVnjF5MxvLEEaMvvYotjTRSU88jV3CZf6qy-j7BjQ2eMipCD5a785A7BPkjLCgOxzl9-UsrdOpiyA5iuE", senderName));
+					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/patient/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 				}
 				fromEmail = sender.getEmail();
 				
@@ -106,14 +106,14 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
+					email.setBody(String.format("0W6TeO3xWEMjxgKeku61gF5kZLyoLnVo-c1J_Uq7P8Yun3slR2tAj5YjWcKo0qLO5jSqH9dUxSQm3za-xaSO6KkNfDSVQeKRD7Tv2kCn0kfVB7MP9CJ3eU1APzou2C39N3qIgkYitcSFFcDrGOtaufFYauANkMp4JmETmZzE9LQwl9J_LdWJ98", senderName));
 				} else { //when from is patient and to is patient
 					PatientBean receiver = patientDAO.getPatient(mBean.getTo());
 					toList.add(receiver.getEmail());
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/patient/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
+					email.setBody(String.format("600vUO5IRXJR7nX_5npMChu04fXi06ewMbAOhWf-U1vVZMF9UB6gGb50ZGQ4WOqcKh9hkn_iFqWh6wKNX4goPXNISbtNn4bX2G1toyL7JuYqTc5fLiks3MvNPFaPcB3T9dXFqo7b9TSUaEUlMiPIhj86f0IWFGz7PEQ0bqEx8AimaPTJ6hgtZJlox1", senderName));
 				}
 				fromEmail = sender.getEmail();
 			}

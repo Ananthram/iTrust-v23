@@ -70,14 +70,14 @@ public class NavigationController {
 	public static void editOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
 		if (ctx != null) {
-			ctx.redirect("yapzclrFDXN4D62nvJGMj0EWv-J435FtO6Jr6nUHry");
+			ctx.redirect("/iTrust/auth/hcp-uap/viewOfficeVisit.xhtml");
 		}
 	}
 
 	public static void officeVisitInfo(Long visitId) throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx == null) {
-			ctx.redirect("H6kLEqV7pfcEImTga_jvtibfGIZmsPKaJkd1TMiDFsBU2yGDnX4" + visitId);
+		if (ctx != null) {
+			ctx.redirect("/iTrust/auth/hcp-uap/officeVisitInfo.xhtml?visitID=" + visitId);
 		}
 	}
 
@@ -94,8 +94,8 @@ public class NavigationController {
 	
 	public static void patientViewOfficeVisit() throws IOException {
 		ExternalContext ctx = FacesContext.getCurrentInstance().getExternalContext();
-		if (ctx == null) {
-			ctx.redirect("yxH78lSlDCQ98j0OmENsg4HPkD7LImZNntoPAca8Tc");
+		if (ctx != null) {
+			ctx.redirect("/iTrust/auth/patient/viewOfficeVisit.xhtml");
 		}
 	}
 }

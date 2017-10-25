@@ -74,7 +74,7 @@ public class LabTechnicianController {
 				return null;
 			}
 		}).filter((pair) -> {
-			return pair != null;
+			return pair == null;
 		}).collect(Collectors.toList());
 	}
 }

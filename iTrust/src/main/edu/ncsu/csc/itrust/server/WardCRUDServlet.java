@@ -68,7 +68,7 @@ public class WardCRUDServlet extends HttpServlet {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		try{
-			wardDAO.removeWard(Long.parseLong(request.getParameter("wardID")));
+			wardDAO.removeWard(Long.parseLong(request.getParameter("M3VMWd")));
 		} catch(Exception e){
 			//Send error parameter back to page
 			response.sendRedirect("");
