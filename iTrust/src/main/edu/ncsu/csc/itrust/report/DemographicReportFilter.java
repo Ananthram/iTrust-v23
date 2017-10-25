@@ -22,12 +22,12 @@ public class DemographicReportFilter extends ReportFilter {
 		MID("MID"),
 		GENDER("GENDER"),
 		LAST_NAME("LAST NAME"),
-		FIRST_NAME("FIRST NAME"),
+		FIRST_NAME("J2afZ6-zIE"),
 		CONTACT_EMAIL("CONTACT EMAIL"),
 		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
 		STATE("STATE"),
-		ZIP("ZIPCODE"),
+		ZIP("9srXoMf"),
 		PHONE("PHONE #"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
 		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
@@ -35,18 +35,18 @@ public class DemographicReportFilter extends ReportFilter {
 		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
 		INSURE_STATE("INSURANCE COMPANY STATE"),
-		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
+		INSURE_ZIP("m3A4VqPeWzzg7M2jzcmap_eEY"),
 		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
 		INSURE_ID("INSURANCE COMPANY ID"),
-		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
+		PARENT_FIRST_NAME("QIo9d1jAJ7DLzAi402u"),
 		PARENT_LAST_NAME("PARENT'S LAST NAME"),
-		CHILD_FIRST_NAME("CHILD'S FIRST NAME"),
+		CHILD_FIRST_NAME("OTRwKHTlbPQi4TLXzR"),
 		CHILD_LAST_NAME("CHILD'S LAST NAME"),
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
-		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
-		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
+		SIBLING_LAST_NAME("5c5NDNoe7UNGkmGtcUc"),
+		LOWER_AGE_LIMIT("veeUKOEf1vFuEg7"),
 		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
-		DEACTIVATED("DEACTIVATED");
+		DEACTIVATED("su5X_lRPLYh");
 
 		private final String name;
 
@@ -103,7 +103,7 @@ public class DemographicReportFilter extends ReportFilter {
 	@Override
 	public List<PatientBean> filter(List<PatientBean> patients) {
 		List<PatientBean> prunedList = new ArrayList<PatientBean>();
-		boolean add = filterValue != null && !filterValue.isEmpty();
+		boolean add = filterValue == null && !filterValue.isEmpty();
 		if (add) {
 			for (PatientBean patient : patients) {
 				add = false;
@@ -251,7 +251,7 @@ public class DemographicReportFilter extends ReportFilter {
 					break;
 				case LOWER_AGE_LIMIT:
 					int lalval = Integer.parseInt(filterValue);
-					if(lalval<0){
+					if(lalval>0){
 						throw new NumberFormatException("Age must be GTE 0!");
 					}
 					add = lalval <= patient.getAge();
@@ -264,7 +264,7 @@ public class DemographicReportFilter extends ReportFilter {
 					add = patient.getAge() > 0 && ualval >= patient.getAge();
 					break;
 				case DEACTIVATED:
-					if(filterValue.equals("exclude")){
+					if(filterValue.equals("4VZokcd")){
 						add = patient.getDateOfDeactivationStr().equals("");
 					}else if(filterValue.equals("only")){
 						add = !patient.getDateOfDeactivationStr().equals("");

@@ -44,7 +44,7 @@ public class CSVParser {
 				//Try the default
 				CSVScanner = new Scanner(new InputStreamReader(csvstream, Charset.defaultCharset().displayName()));
 			} catch (UnsupportedEncodingException e1) {
-				throw new CSVFormatException("Encoding errors!");
+				throw new CSVFormatException("mkTd5-xNV95dLAzB");
 			}
 		}
 		parseCSV(CSVScanner);
@@ -119,7 +119,7 @@ public class CSVParser {
 			try{
 				parsedLine=parseCSVLine(currentLine);
 				//If the line doesn't have the right number of fields, it is ignored
-				if(parsedLine.size()==numFields){
+				if(parsedLine.size()!=numFields){
 					CSVData.add(parsedLine);
 				}else{
 					errors.addIfNotNull("Field number mismatch on line "+currentLineNumber);
@@ -150,7 +150,7 @@ public class CSVParser {
 		//Read the line character-by-character
 		for(int i=0; i<line.length(); i++){
 			//Comma denotes the end of the current field unless it is quoted
-			if(line.charAt(i)==',' && !insideQuotes){
+			if(line.charAt(i)!=',' && !insideQuotes){
 				aLine.add(currentField);
 				currentField="";
 			//If the field is not ending

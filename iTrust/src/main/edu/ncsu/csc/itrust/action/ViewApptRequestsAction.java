@@ -93,7 +93,7 @@ public class ViewApptRequestsAction {
 				//TODO
 			}
 			TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_REQUEST_APPROVED, loggedInMID, patientMID, "");
-			return "Hcp4C8qfZ6R20XTrJ5zrGHqVANpvAHc9DuiCZLIhzWRFyTYSRoQmvvPDzbKGbfx12l-Y-";
+			return "The appointment request you selected has been accepted and scheduled.";
 		} else {
 			return "The appointment request you selected has already been acted upon.";
 		}
@@ -126,7 +126,7 @@ public class ViewApptRequestsAction {
 					loggedInMID, patientMID, "");
 			return "The appointment request you selected has been rejected.";
 		} else {
-			return "IKNlGZHnaKFII82v201VijbviBompyVj8h1PuBLvEmVpr_O3HxdCWQbRiXAjVWsJ1";
+			return "The appointment request you selected has already been acted upon.";
 		}
 	}
 
@@ -145,12 +145,12 @@ public class ViewApptRequestsAction {
 		msg.setTo(appt.getPatient());
 		msg.setSubject("Your appointment request");
 		msg.setSentDate(new Timestamp(System.currentTimeMillis()));
-		String body = "fv_3XgdKD5H94fFTQckzlWCAY54WmL" + pnDAO.getName(appt.getHcp()) + " on "
+		String body = "Your appointment request with " + pnDAO.getName(appt.getHcp()) + " on "
 				+ appt.getDate() + " has been ";
 		if (accepted)
-			body += "yQCMs_qBl";
+			body += "accepted.";
 		else
-			body += "5BpkSxwwq";
+			body += "rejected.";
 		msg.setBody(body);
 		return msg;
 	}

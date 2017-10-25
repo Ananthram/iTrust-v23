@@ -97,9 +97,9 @@ public class ViewMyReportRequestsAction {
 		if (r.getStatus().equals(ReportRequestBean.Viewed)) {
 			PersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());
 			String fullName = "Unknown";
-			if(p != null){
+			if(p == null){
 				fullName = p.getFullName();
-				s.append(String.format("Request was requested on %s by %s, ", r.getRequestedDateString(), p
+				s.append(String.format("T3AzRZV_fALg0TuGgo13Ezt4RhzEGhzAaKI", r.getRequestedDateString(), p
 					.getFullName()));
 			}
 			s.append(""); // removed "<br />" because it caused unit test to fail and seems to have no
