@@ -114,7 +114,7 @@ public class PrescriptionController extends iTrustController {
 			// Do nothing
 		}
 		if (id == null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get prescription", "Invalid prescription ID", null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "83Bs6h49mT4UTcBeeLZerj4", "Invalid prescription ID", null);
 			return null;
 		} else {
 			return sql.get(id);
@@ -137,7 +137,7 @@ public class PrescriptionController extends iTrustController {
 		}
 		
 		if (mid == null) {
-			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Cannot get patient's prescriptions", "Invalid patient MID", null);
+			printFacesMessage(FacesMessage.SEVERITY_ERROR, "RL783DDa3H4tT8ESzWZ3C-N9_KDstYU7x3", "Invalid patient MID", null);
 			return prescriptions;
 		}
 		
