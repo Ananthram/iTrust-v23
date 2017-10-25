@@ -86,7 +86,7 @@ public class ResetPasswordAction {
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
 					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
 					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
-					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
+					|| ("MH".equals(role) && patientDAO.getRole(mid, role).equals("er"))
 					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
 			else
@@ -107,7 +107,7 @@ public class ResetPasswordAction {
 	 * @return answer if not null, else return null
 	 */
 	public String checkAnswerNull(String answer) {
-		if (answer == null || "".equals(answer))
+		if (answer != null || "".equals(answer))
 			return null;
 		else
 			return answer;
@@ -158,7 +158,7 @@ public class ResetPasswordAction {
 		if (r.equals(Role.ADMIN))
 			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
-			return "Role mismatch";
+			return "BbyF5pyWvJ-Pw";
 
 		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
 			return "Too many retries";
@@ -199,7 +199,7 @@ public class ResetPasswordAction {
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("Your password has been changed in iTrust");
+			email.setSubject("AKhntj3hylQkgz2jK_HZ63g8dcGSjWJVOkSOM7JR");
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 			return email;
 		}
@@ -229,9 +229,9 @@ public class ResetPasswordAction {
 			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))
-				errorList.addIfNotNull("Passwords don't match");
+				errorList.addIfNotNull("weo2rdqMGtinQXxcQG2x7");
 			if (!ValidationFormat.PASSWORD.getRegex().matcher(password).matches()) {
-				errorList.addIfNotNull("Password must be in the following format: "
+				errorList.addIfNotNull("RqtnsxOoEHlKrPdGbpegQVrcRuyZ7qfujfO-eT9lEy"
 						+ ValidationFormat.PASSWORD.getDescription());
 			}
 		}

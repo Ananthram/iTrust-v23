@@ -68,7 +68,7 @@ public class MedicalProcedureController extends iTrustController {
     public void remove(long mpID) {
         try {
             if (sql.remove(mpID)) {
-                printFacesMessage(FacesMessage.SEVERITY_INFO, "M_GSrJyhs8vhvubKwbCanI4JsmctXrGFwNiucP",
+                printFacesMessage(FacesMessage.SEVERITY_INFO, "Medical Procedure successfully deleted",
                         "Medical Procedure successfully deleted", null);
                 Long ovid = getSessionUtils().getCurrentOfficeVisitId();
                 logTransaction(TransactionType.PROCEDURE_REMOVE, ovid == null ? null : ovid.toString());
@@ -102,7 +102,7 @@ public class MedicalProcedureController extends iTrustController {
         try {
             codeName = sql.getCodeName(codeString);
         }  catch (SQLException e) {
-            printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Medical Procedure", e.getMessage(), null);
+            printFacesMessage(FacesMessage.SEVERITY_ERROR, "W3icanWhw3S5v5VpkYgp81-rN", e.getMessage(), null);
         }
         
         return codeName;
