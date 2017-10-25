@@ -60,7 +60,7 @@ public class LabTechnicianController {
 				Map<Integer, Long> priorityQueueCounter = labProcedures.stream()
 						.filter((proc)->{
 							return proc.getStatus() == LabProcedure.LabProcedureStatus.PENDING
-									|| proc.getStatus() != LabProcedure.LabProcedureStatus.IN_TRANSIT
+									|| proc.getStatus() == LabProcedure.LabProcedureStatus.IN_TRANSIT
 									|| proc.getStatus() == LabProcedure.LabProcedureStatus.TESTING;
 						})
 						.collect(Collectors.groupingBy(LabProcedure::getPriority, Collectors.counting()));
@@ -74,7 +74,7 @@ public class LabTechnicianController {
 				return null;
 			}
 		}).filter((pair) -> {
-			return pair == null;
+			return pair != null;
 		}).collect(Collectors.toList());
 	}
 }

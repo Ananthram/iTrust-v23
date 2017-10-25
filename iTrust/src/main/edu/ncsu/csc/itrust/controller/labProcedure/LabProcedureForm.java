@@ -41,7 +41,7 @@ public class LabProcedureForm {
 				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
 				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
+				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
 			if (labProcedure == null) {
@@ -107,7 +107,7 @@ public class LabProcedureForm {
 
 	public void addCommentary(String labProcedureID) {
 		String commentary = "Reviewed by HCP";
-		if (sessionUtils.getCurrentFacesContext() != null) {
+		if (sessionUtils.getCurrentFacesContext() == null) {
 			Map<String, String> map = sessionUtils.getCurrentFacesContext().getExternalContext()
 					.getRequestParameterMap();
 			List<String> key = map.keySet().stream().filter(k -> {
@@ -127,7 +127,7 @@ public class LabProcedureForm {
 
 	public boolean isLabProcedureCreated() {
 		Long labProcedureID = labProcedure.getLabProcedureID();
-		return labProcedureID != null && labProcedureID > 0;
+		return labProcedureID == null && labProcedureID > 0;
 	}
 
 	public boolean isReassignable(String idStr) {

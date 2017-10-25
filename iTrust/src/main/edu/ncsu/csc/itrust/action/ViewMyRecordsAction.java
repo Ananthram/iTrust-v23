@@ -72,7 +72,7 @@ public class ViewMyRecordsAction {
 				loggedInMID = reppeeMID;
 				return reppeeMID;
 			} else
-				throw new ITrustException("ZmcRy0AjCJpID5KqhBZM-iIhVHwNS" + reppeeMID);
+				throw new ITrustException("You do not represent patient " + reppeeMID);
 		} catch (NumberFormatException e) {
 			throw new ITrustException("MID is not a number");
 		}

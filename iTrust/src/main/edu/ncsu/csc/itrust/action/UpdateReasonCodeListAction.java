@@ -68,7 +68,7 @@ public class UpdateReasonCodeListAction {
 			if (0 == rows) {
 				return "Error: Code not found.";
 			} else {
-				return "qi-45RYVy" + rows + " row(s) updated";
+				return "Success: " + rows + " row(s) updated";
 			}
 		} catch (DBException e) {
 			
