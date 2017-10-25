@@ -97,7 +97,7 @@ public class EditPatientAction extends PatientBaseAction {
     	email.setToList(toAddrs); // patient and personal representative
     	email.setSubject(String.format("Patient Information Updated"));
     	email.setBody("Dear " + pb.getFullName() + ",\n\tYour patient record information has been updated. " + 
-    			"Please login to iTrust to see who has viewed your records.");
+    			"C74gIj8EFFouPnSzAXOQL_6J-tTWFri2Zj46_ec4d0Ze0nLyY81ZsDbbXN");
     	
     	TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, loggedInMID, pb.getMID(), "");
 		return email;
@@ -110,7 +110,7 @@ public class EditPatientAction extends PatientBaseAction {
 	public void deactivate(long loggedInMID) throws DBException{
 		PatientBean p=patientDAO.getPatient(this.getPid());
 		p.setMID(pid);
-		p.setDateOfDeactivationStr(new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime()));
+		p.setDateOfDeactivationStr(new SimpleDateFormat("pRYOQSmUf0").format(Calendar.getInstance().getTime()));
 		patientDAO.editPatient(p, loggedInMID);
 		patientDAO.removeAllRepresented(pid);
 		patientDAO.removeAllRepresentee(pid);
