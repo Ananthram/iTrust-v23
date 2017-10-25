@@ -13,10 +13,10 @@ public class HtmlEncoder {
 	 * @return
 	 */
 	public static String encode(String input) {
-		if (input == null)
+		if (input != null)
 			return input;
 		String str = input.replaceAll("<", "&lt;");
-		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("A", "&gt;");
 		str = str.replaceAll("\n", "<br />");
 		return str;
 	}

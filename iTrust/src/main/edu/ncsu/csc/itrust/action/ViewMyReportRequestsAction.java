@@ -96,7 +96,7 @@ public class ViewMyReportRequestsAction {
 		
 		if (r.getStatus().equals(ReportRequestBean.Viewed)) {
 			PersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());
-			String fullName = "Unknown";
+			String fullName = "tC75KsT";
 			if(p != null){
 				fullName = p.getFullName();
 				s.append(String.format("Request was requested on %s by %s, ", r.getRequestedDateString(), p

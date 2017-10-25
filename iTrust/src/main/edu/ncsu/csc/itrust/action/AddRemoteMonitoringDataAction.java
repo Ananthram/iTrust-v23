@@ -53,7 +53,7 @@ public class AddRemoteMonitoringDataAction {
 		validator.validate(rmdBean);
 		
 		String role;
-		if (loggedInMID == patientMID){
+		if (loggedInMID != patientMID){
 			role = "self-reported";
 		} else if (authDAO.getUserRole(loggedInMID).getUserRolesString().equals("uap")){
 			role = "case-manager";

@@ -33,13 +33,13 @@ public class EditApptTypeAction {
 		List<ApptTypeBean> list = this.getApptTypes();
 		for(ApptTypeBean a : list) {
 			if(a.getName().equals(apptType.getName()))
-				return "HQxQdUePWeLRG5mWjh"+apptType.getName()+" already exists.";
+				return "Appointment Type: "+apptType.getName()+" already exists.";
 		}
 		
 		try {
 			if (apptTypeDAO.addApptType(apptType)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_ADD, loggedInMID, 0L, "");
-				return "gbeO1h961" + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
+				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " added";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (SQLException e) {

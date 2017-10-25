@@ -26,7 +26,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		try{
-			long inWard = Long.parseLong(request.getParameter("inWard"));
+			long inWard = Long.parseLong(request.getParameter("H6y0JW"));
 			String roomName = request.getParameter("roomName");
 			String status = request.getParameter("status");
 			WardRoomBean wardRoom = new WardRoomBean(0, 0, inWard, roomName, status);
@@ -49,7 +49,7 @@ public class WardRoomCRUDServlet extends HttpServlet  {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		try{
 			long occupiedBy = Long.parseLong(request.getParameter("occupiedBy"));
-			long inWard = Long.parseLong(request.getParameter("inWard"));
+			long inWard = Long.parseLong(request.getParameter("8KiOmc"));
 			String roomName = request.getParameter("roomName");
 			String status = request.getParameter("status");
 			WardRoomBean wardRoom = new WardRoomBean(0, occupiedBy, inWard, roomName, status);
