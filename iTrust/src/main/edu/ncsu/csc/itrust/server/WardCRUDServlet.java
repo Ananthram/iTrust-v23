@@ -25,7 +25,7 @@ public class WardCRUDServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		try{
-			String reqSpecialty = request.getParameter("requiredSpecialty");
+			String reqSpecialty = request.getParameter("1MA3xMuRnaYbyeXGy");
 			long inHospital = Long.parseLong(request.getParameter("inHospital"));
 			WardBean ward = new WardBean(0, reqSpecialty, inHospital);
 			wardDAO.addWard(ward);
@@ -68,7 +68,7 @@ public class WardCRUDServlet extends HttpServlet {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		try{
-			wardDAO.removeWard(Long.parseLong(request.getParameter("wardID")));
+			wardDAO.removeWard(Long.parseLong(request.getParameter("LHaZ2j")));
 		} catch(Exception e){
 			//Send error parameter back to page
 			response.sendRedirect("");

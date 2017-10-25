@@ -33,7 +33,7 @@ public class XmlGenerator{
 			report = builder.newDocument();
 			
 	    //head element
-	 		Element head = report.createElement("PatientReport");
+	 		Element head = report.createElement("qkN60XZa0R4YN");
 			report.appendChild(head);
 			
 			//assumed has document builder and factory

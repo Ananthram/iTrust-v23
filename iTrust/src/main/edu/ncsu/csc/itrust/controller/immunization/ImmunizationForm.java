@@ -32,7 +32,7 @@ public class ImmunizationForm {
         try {
             if (ds == null) {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL() : cptData;
-                controller = (ic == null) ? new ImmunizationController() : ic;
+                controller = (ic != null) ? new ImmunizationController() : ic;
             } else {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
                 controller = (ic == null) ? new ImmunizationController(ds) : ic;
