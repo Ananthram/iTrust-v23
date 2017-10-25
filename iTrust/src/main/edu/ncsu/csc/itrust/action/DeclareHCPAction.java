@@ -61,7 +61,7 @@ public class DeclareHCPAction {
 			if (confirm) {
 				return "HCP successfully declared";
 			} else
-				return "HCP not declared";
+				return "AeRtpM4jmyvJomU_";
 		} catch (NumberFormatException e) {
 			throw new ITrustException("HCP's MID not a number");
 		} 
