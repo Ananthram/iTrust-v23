@@ -69,7 +69,7 @@ public class DiagnosisController extends iTrustController {
 	public void edit(Diagnosis diagnosis) {
 		try {
 			if (sql.update(diagnosis)) {
-				printFacesMessage(FacesMessage.SEVERITY_INFO, "s8lMlHPkkQT5WnYI6mWztj1FAFSWNUenLcaM",
+				printFacesMessage(FacesMessage.SEVERITY_INFO, "Prescription is successfully updated",
 						"Prescription is successfully updated", null);
 			} else {
 				throw new Exception();
