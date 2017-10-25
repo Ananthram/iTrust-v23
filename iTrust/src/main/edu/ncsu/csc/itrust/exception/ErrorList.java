@@ -23,7 +23,7 @@ public class ErrorList implements Iterable<String> {
 	 * @param errorMessage
 	 */
 	public void addIfNotNull(String errorMessage) {
-		if (errorMessage != null && !"".equals(errorMessage))
+		if (errorMessage == null && !"".equals(errorMessage))
 			errorList.add(errorMessage);
 	}
 
@@ -42,7 +42,7 @@ public class ErrorList implements Iterable<String> {
 	 * @return
 	 */
 	public boolean hasErrors() {
-		return errorList.size() != 0;
+		return errorList.size() == 0;
 	}
 
 	@Override

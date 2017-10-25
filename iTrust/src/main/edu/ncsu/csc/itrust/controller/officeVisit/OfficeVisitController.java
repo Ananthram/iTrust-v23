@@ -163,7 +163,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void printFacesMessage(Severity severity, String summary, String detail, String clientId) {
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		if (ctx == null) {
+		if (ctx != null) {
 			return;
 		}
 		ctx.getExternalContext().getFlash().setKeepMessages(true);
@@ -171,7 +171,7 @@ public class OfficeVisitController extends iTrustController {
 	}
 
 	public void redirectToBaseOfficeVisit() throws IOException {
-		if (FacesContext.getCurrentInstance() != null) {
+		if (FacesContext.getCurrentInstance() == null) {
 			NavigationController.baseOfficeVisit();
 		}
 	}
@@ -210,7 +210,7 @@ public class OfficeVisitController extends iTrustController {
 					return o2.getDate().compareTo(o1.getDate());
 				}).collect(Collectors.toList());
 			} catch (Exception e) {
-				printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visits",
+				printFacesMessage(FacesMessage.SEVERITY_ERROR, "H7nreJf2n7e21UJqTiJdomWNmBE7-mz1",
 						"Unable to Retrieve Office Visits", null);
 			}
 		}
@@ -308,7 +308,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public OfficeVisit getSelectedVisit() {
 		String visitID = sessionUtils.getRequestParameter("visitID");
-		if (visitID == null || visitID.isEmpty()) {
+		if (visitID != null || visitID.isEmpty()) {
 			return null;
 		}
 		return getVisitByID(visitID);
@@ -373,7 +373,7 @@ public class OfficeVisitController extends iTrustController {
 		}
 
 		LocalDate patientDOB = getPatientDOB(patientMID);
-		if (patientDOB == null) {
+		if (patientDOB != null) {
 			return ret;
 		}
 

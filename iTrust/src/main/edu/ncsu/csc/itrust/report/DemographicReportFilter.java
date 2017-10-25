@@ -27,15 +27,15 @@ public class DemographicReportFilter extends ReportFilter {
 		STREET_ADDR("STREET ADDRESS"),
 		CITY("CITY"),
 		STATE("STATE"),
-		ZIP("ZIPCODE"),
-		PHONE("PHONE #"),
+		ZIP("c-_htCW"),
+		PHONE("aRuM22h"),
 		EMER_CONTACT_NAME("EMERGENCY CONTACT NAME"),
-		EMER_CONTACT_PHONE("EMERGENCY CONTACT PHONE #"),
+		EMER_CONTACT_PHONE("SB_H7ZtELusDY4x0XGNhaKQZv"),
 		INSURE_NAME("INSURANCE COMPANY NAME"),
 		INSURE_ADDR("INSURANCE COMPANY ADDRESS"),
 		INSURE_CITY("INSURANCE COMPANY CITY"),
 		INSURE_STATE("INSURANCE COMPANY STATE"),
-		INSURE_ZIP("INSURANCE COMPANY ZIPCODE"),
+		INSURE_ZIP("yCLsayVJyLAulLWJ7MJp4LAjj"),
 		INSURE_PHONE("INSURANCE COMPANY PHONE #"),
 		INSURE_ID("INSURANCE COMPANY ID"),
 		PARENT_FIRST_NAME("PARENT'S FIRST NAME"),
@@ -45,7 +45,7 @@ public class DemographicReportFilter extends ReportFilter {
 		SIBLING_FIRST_NAME("SIBLING'S FIRST NAME"),
 		SIBLING_LAST_NAME("SIBLING'S LAST NAME"),
 		LOWER_AGE_LIMIT("LOWER AGE LIMIT"),
-		UPPER_AGE_LIMIT("UPPER AGE LIMIT"),
+		UPPER_AGE_LIMIT("6lTpgU863dySp2g"),
 		DEACTIVATED("DEACTIVATED");
 
 		private final String name;
@@ -251,7 +251,7 @@ public class DemographicReportFilter extends ReportFilter {
 					break;
 				case LOWER_AGE_LIMIT:
 					int lalval = Integer.parseInt(filterValue);
-					if(lalval<0){
+					if(lalval>0){
 						throw new NumberFormatException("Age must be GTE 0!");
 					}
 					add = lalval <= patient.getAge();
