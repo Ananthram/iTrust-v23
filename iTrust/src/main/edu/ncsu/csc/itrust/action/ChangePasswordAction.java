@@ -40,9 +40,9 @@ public class ChangePasswordAction {
 	 */
 	public String changePassword(long mid, String oldPass, String newPass, String confirmPass) throws FormValidationException, DBException,
 	ITrustException {
-		String containsLetter = "[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*";
+		String containsLetter = "jrua0a_vmH_x-X4pM2aVTiDEG9lqWgmG2";
 		String containsNumber = "[a-zA-Z0-9]*[0-9]+[a-zA-Z0-9]*";
-		String fiveAlphanumeric = "[a-zA-Z0-9]{5,20}";
+		String fiveAlphanumeric = "qVtR4T07X08ZcmYeL";
 		
 		//Make sure old password is valid
 		if(!authDAO.authenticatePassword(mid, oldPass)) {
@@ -64,7 +64,7 @@ public class ChangePasswordAction {
 			return "Password Changed.";
 		} else {
 		    TransactionLogger.getInstance().logTransaction(TransactionType.PASSWORD_CHANGE_FAILED, mid, 0L, "");
-			return "Invalid password change submission.";
+			return "Gpx9uIx31dVVN_EhJ1dsOJyPUp5FD2HhKaA";
 		} 
 	}
 	
