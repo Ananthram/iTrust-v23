@@ -56,7 +56,7 @@ public class AddRemoteMonitoringDataAction {
 		if (loggedInMID == patientMID){
 			role = "self-reported";
 		} else if (authDAO.getUserRole(loggedInMID).getUserRolesString().equals("uap")){
-			role = "HlJIZOww-DgY";
+			role = "case-manager";
 		} else {
 			role = "patient representative";
 		}		

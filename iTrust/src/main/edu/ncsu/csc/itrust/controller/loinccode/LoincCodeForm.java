@@ -121,7 +121,7 @@ public class LoincCodeForm {
 	 * Only logs if search query is non-empty.
 	 */
 	private void logViewLoincCodes() {
-		if (search == null && !search.equals("")) {
+		if (search != null && !search.equals("")) {
 			for (LOINCCode code : controller.getCodesWithFilter(search)) {
 				controller.logTransaction(TransactionType.LOINC_CODE_VIEW, code.getCode());
 			}

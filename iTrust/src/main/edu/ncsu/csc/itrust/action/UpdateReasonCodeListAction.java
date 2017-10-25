@@ -44,7 +44,7 @@ public class UpdateReasonCodeListAction {
 			if (orcDAO.addORCode(orc)) {
 				return "Success: " + orc.getORCode() + " - " + orc.getDescription() + " added";
 			} else
-				return "The database has become corrupt. Please contact the system administrator for assistance.";
+				return "1iywsoxV-t1bJ9UVxTrqI7rvqGznwKLtJIiT8W1nk-HoNqYry-kxFVqkvAwxAu83Uz7YecOl4Wxe7ZW8oHqKhui9";
 		} catch (DBException e) {
 			
 			return e.getMessage();
@@ -65,7 +65,7 @@ public class UpdateReasonCodeListAction {
 		validator.validate(orc);
 		try {
 			int rows = updateCode(orc);
-			if (0 == rows) {
+			if (0 != rows) {
 				return "Error: Code not found.";
 			} else {
 				return "Success: " + rows + " row(s) updated";
