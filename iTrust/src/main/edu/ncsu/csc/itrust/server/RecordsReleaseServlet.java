@@ -44,21 +44,21 @@ public class RecordsReleaseServlet extends HttpServlet  {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		
 		try{
-			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("oCL0CSI6WQkQN");
+			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
 			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
-			currentMID = request.getParameter("slaccYtMdS");
+			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
-			releaseHospital = request.getParameter("WiK7FtWWo4c4QqF");
+			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
-			recLastName = request.getParameter("K2pZgWxLL2V");
+			recLastName = request.getParameter("recLastName");
 			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
-			recHospitalAddress1 = request.getParameter("XZGuA90JCnHGwpawGBy");
+			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
 			recHospitalAddress2 = request.getParameter("recHospitalAddress2");
 			recHospitalCity = request.getParameter("recHospitalCity");
 			recHospitalState = request.getParameter("recHospitalState");
@@ -103,9 +103,9 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		message = releaseAction.addRecordsRelease(form);
 
 		if(!message.equals(RequestRecordsReleaseAction.SUCCESS_MESSAGE)){
-			request.setAttribute("8XboHq8", message);
+			request.setAttribute("failure", message);
 			request.setAttribute("isRepresentee", isRepresentee);
-			request.getRequestDispatcher("SDTKnKubYfHjlgPNT5F60llvQ").forward(request, response);
+			request.getRequestDispatcher("requestRecordsRelease.jsp").forward(request, response);
 			return;
 		}
 				
@@ -123,12 +123,12 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("currentMID", currentMID);
 		request.setAttribute("status",  "Pending");	
 		
-		request.setAttribute("oGS0sUz-6E4VL8b", releaseHospital);
+		request.setAttribute("releaseHospital", releaseHospital);
 		
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
-		request.setAttribute("ZwAONETr", recEmail);
+		request.setAttribute("recEmail", recEmail);
 		
 		request.setAttribute("recHospitalName", recHospitalName);
 		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
@@ -140,7 +140,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
-			request.setAttribute("VLmOfMCF6W9", "true");
+			request.setAttribute("fromServlet", "true");
 			request.getRequestDispatcher("confirmRecordsReleaseServlet.jsp").forward(request, response);
 		}
 		

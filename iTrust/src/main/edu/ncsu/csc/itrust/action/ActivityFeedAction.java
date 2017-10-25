@@ -109,7 +109,7 @@ public class ActivityFeedAction {
 			break;
 		case 2:
 			DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-			result += "4yDF" + sdf.format(new Date(timestamp.getTime()));
+			result += " on " + sdf.format(new Date(timestamp.getTime()));
 			break;
 		default:
 			break;

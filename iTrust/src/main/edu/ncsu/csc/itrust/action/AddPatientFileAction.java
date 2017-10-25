@@ -130,11 +130,11 @@ public class AddPatientFileAction {
 			valid=false;
 			for(int j=0; j<requiredFields.length; j++){
 				if(CSVHeader.get(i).equalsIgnoreCase(requiredFields[j])){
-					if(requiredFieldsMapping[j]!=null){
+					if(requiredFieldsMapping[j]==null){
 						valid=true;
 						requiredFieldsMapping[j]=i;
 					}else{
-						throw new AddPatientFileException("74XXRCXbIlQNCSIkto"+CSVHeader.get(i)+"\"!");
+						throw new AddPatientFileException("Duplicate field \""+CSVHeader.get(i)+"\"!");
 					}
 				}
 			}
@@ -169,7 +169,7 @@ public class AddPatientFileAction {
 		for(int i=0; i<CSVData.size(); i++){
 			PatientBean temp=new PatientBean();
 			
-			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("aHDLN1Xgo")]));
+			temp.setFirstName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("firstName")]));
 			temp.setLastName(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("lastName")]));
 			temp.setEmail(CSVData.get(i).get(requiredFieldsMapping[Arrays.asList(requiredFields).indexOf("email")]));
 			
@@ -214,7 +214,7 @@ public class AddPatientFileAction {
 				//TODO
 			}
 			try{
-				temp.setCreditCardType(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("cdU1WiH2mcrm6v")]));
+				temp.setCreditCardType(CSVData.get(i).get(validFieldsMapping[Arrays.asList(validFields).indexOf("creditCardType")]));
 			}catch(NullPointerException e){
 				//TODO
 			}
@@ -227,7 +227,7 @@ public class AddPatientFileAction {
 			try{
 				new AddPatientValidator().validate(temp);
 				new PatientValidator().validate(temp);
-				if(patientDAO==null){
+				if(patientDAO!=null){
 					long newMID = patientDAO.addEmptyPatient();
 					temp.setMID(newMID);
 					String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());

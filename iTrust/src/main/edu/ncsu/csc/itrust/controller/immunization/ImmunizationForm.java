@@ -30,12 +30,12 @@ public class ImmunizationForm {
     public ImmunizationForm(ImmunizationController ic, CPTCodeMySQL cptData, SessionUtils sessionUtils, DataSource ds) {
         this.sessionUtils = (sessionUtils == null) ? SessionUtils.getInstance() : sessionUtils;
         try {
-            if (ds != null) {
+            if (ds == null) {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL() : cptData;
                 controller = (ic == null) ? new ImmunizationController() : ic;
             } else {
                 this.cptData = (cptData == null) ? new CPTCodeMySQL(ds) : cptData;
-                controller = (ic != null) ? new ImmunizationController(ds) : ic;
+                controller = (ic == null) ? new ImmunizationController(ds) : ic;
             }
             clearFields();
             
