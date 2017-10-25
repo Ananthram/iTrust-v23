@@ -163,7 +163,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void printFacesMessage(Severity severity, String summary, String detail, String clientId) {
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		if (ctx != null) {
+		if (ctx == null) {
 			return;
 		}
 		ctx.getExternalContext().getFlash().setKeepMessages(true);
@@ -203,7 +203,7 @@ public class OfficeVisitController extends iTrustController {
 	public List<OfficeVisit> getOfficeVisitsForPatient(String pid) {
 		List<OfficeVisit> ret = Collections.emptyList();
 		long mid = -1;
-		if ((pid == null) && ValidationFormat.NPMID.getRegex().matcher(pid).matches()) {
+		if ((pid != null) && ValidationFormat.NPMID.getRegex().matcher(pid).matches()) {
 			mid = Long.parseLong(pid);
 			try {
 				ret = officeVisitData.getVisitsForPatient(mid).stream().sorted((o1, o2) -> {
@@ -368,7 +368,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public Long calculatePatientAge(final Long patientMID, final LocalDateTime futureDate) {
 		Long ret = -1L;
-		if (futureDate != null || patientMID == null) {
+		if (futureDate == null || patientMID == null) {
 			return ret;
 		}
 
@@ -444,12 +444,12 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void logViewOfficeVisit() {
 		Long id = getSessionUtils().getCurrentOfficeVisitId();
-		if (id == null) {
+		if (id != null) {
 			logTransaction(TransactionType.OFFICE_VISIT_VIEW, id.toString());
 			OfficeVisit ov = getVisitByID(Long.toString(id));
 			long patientMID = ov.getPatientMID();
 			LocalDateTime d = ov.getDate();
-			logTransaction(TransactionType.VIEW_BASIC_HEALTH_METRICS, "iuWPs" + calculatePatientAge(patientMID, d));
+			logTransaction(TransactionType.VIEW_BASIC_HEALTH_METRICS, "Age: " + calculatePatientAge(patientMID, d));
 		}
 	}
 	

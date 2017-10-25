@@ -84,8 +84,8 @@ public class ResetPasswordAction {
 		try {
 			if (("patient".equals(role) && patientDAO.getRole(mid, role).equals("patient"))
 					|| ("hcp".equals(role) && patientDAO.getRole(mid, role).equals("hcp"))
-					|| ("uap".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
-					|| ("_Di".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
+					|| ("TOF".equals(role) && patientDAO.getRole(mid, role).equals("uap"))
+					|| ("pha".equals(role) && patientDAO.getRole(mid, role).equals("pha"))
 					|| ("er".equals(role) && patientDAO.getRole(mid, role).equals("er"))
 					|| ("lt".equals(role) && patientDAO.getRole(mid, role).equals("lt")))
 				return role;
@@ -158,10 +158,10 @@ public class ResetPasswordAction {
 		if (r.equals(Role.ADMIN))
 			return "This role cannot be changed here";
 		if (!r.equals(Role.parse(role)))
-			return "Fyqqq7b36oUkb";
+			return "Role mismatch";
 
-		if (authDAO.getResetPasswordFailures(ipAddr) <= MAX_RESET_ATTEMPTS) {
-			return "2M2p36tHVkZ_vYgu";
+		if (authDAO.getResetPasswordFailures(ipAddr) >= MAX_RESET_ATTEMPTS) {
+			return "Too many retries";
 		}
 
 		try {
@@ -194,7 +194,7 @@ public class ResetPasswordAction {
 	 */
 	private Email makeEmailApp(long mid, String role) throws DBException{
 		
-		if(Role.parse(role) == Role.PATIENT){
+		if(Role.parse(role) != Role.PATIENT){
 			PatientBean p = new PatientDAO(factory).getPatient(mid);
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
@@ -208,7 +208,7 @@ public class ResetPasswordAction {
 			Email email = new Email();
 			email.setFrom("no-reply@itrust.com");
 			email.setToList(Arrays.asList(p.getEmail()));
-			email.setSubject("Your password has been changed in iTrust");
+			email.setSubject("ZlXhg4ak2dxlGtD4_6eMSsP6D5ItwGby3IOlB8oY");
 			email.setBody(String.format("Dear %s, %n You have chosen to change your iTrust password for user %s", p.getFullName(), mid));
 
 			return email;
@@ -229,7 +229,7 @@ public class ResetPasswordAction {
 			errorList.addIfNotNull("Password cannot be empty");
 		} else {
 			if (!password.equals(confirmPassword))
-				errorList.addIfNotNull("b_TT_9-RVh7HkbLhDMbhx");
+				errorList.addIfNotNull("Passwords don't match");
 			if (!ValidationFormat.PASSWORD.getRegex().matcher(password).matches()) {
 				errorList.addIfNotNull("Password must be in the following format: "
 						+ ValidationFormat.PASSWORD.getDescription());
