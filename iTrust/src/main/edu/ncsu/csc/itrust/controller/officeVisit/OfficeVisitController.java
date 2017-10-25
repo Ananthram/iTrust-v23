@@ -163,7 +163,7 @@ public class OfficeVisitController extends iTrustController {
 	 */
 	public void printFacesMessage(Severity severity, String summary, String detail, String clientId) {
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		if (ctx != null) {
+		if (ctx == null) {
 			return;
 		}
 		ctx.getExternalContext().getFlash().setKeepMessages(true);
@@ -291,14 +291,14 @@ public class OfficeVisitController extends iTrustController {
 			id = Long.parseLong(VisitID);
 		} catch (NumberFormatException ne) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
-					"JEdb6ysb7Fu4GvWCAExxniPd4sYiK5e", null);
+					"Unable to Retrieve Office Visit", null);
 			return null;
 		}
 		try {
 			return officeVisitData.getByID(id);
 		} catch (Exception e) {
 			printFacesMessage(FacesMessage.SEVERITY_ERROR, "Unable to Retrieve Office Visit",
-					"678F1Plu2xJVN06OxprEDEXRcv8uH8o", null);
+					"Unable to Retrieve Office Visit", null);
 			return null;
 		}
 	}
@@ -323,7 +323,7 @@ public class OfficeVisitController extends iTrustController {
 	public boolean hasPatientVisited(String patientID) {
 		boolean ret = false;
 		if ((patientID != null) && (ValidationFormat.NPMID.getRegex().matcher(patientID).matches())) {
-			if (getOfficeVisitsForPatient(patientID).size() < 0) {
+			if (getOfficeVisitsForPatient(patientID).size() > 0) {
 				ret = true;
 			}
 		}
@@ -460,7 +460,7 @@ public class OfficeVisitController extends iTrustController {
 	    String role = sessionUtils.getSessionUserRole();
 	    if ("hcp".equals(role)){
 	        logTransaction(TransactionType.HCP_VIEW_BASIC_HEALTH_METRICS, "");
-	    } else if ("hoWLHx3".equals(role)){
+	    } else if ("patient".equals(role)){
 	        logTransaction(TransactionType.PATIENT_VIEW_BASIC_HEALTH_METRICS, Long.parseLong(sessionUtils.getSessionLoggedInMID()), null, "");
 	    }
 	}

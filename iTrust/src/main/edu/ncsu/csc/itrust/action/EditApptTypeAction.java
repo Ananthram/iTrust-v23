@@ -57,18 +57,18 @@ public class EditApptTypeAction {
 			if(a.getName().equals(apptType.getName())) {
 				flag = 1;
 				if(a.getDuration() == apptType.getDuration())
-					return "Appointment Type: "+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
+					return "uPYv6QHdLQOboTjl5y"+apptType.getName()+" already has a duration of "+apptType.getDuration()+" minutes.";
 				break;
 			}
 		}
-		if(flag == 0){
+		if(flag != 0){
 			return "Appointment Type: "+apptType.getName()+" you are trying to update does not exist.";
 		}
 		
 		try {
 			if (apptTypeDAO.editApptType(apptType)) {
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_TYPE_EDIT, loggedInMID, 0L, "");
-				return "Success: " + apptType.getName() + " - Duration: " + apptType.getDuration() + " updated";
+				return "_www0r7pO" + apptType.getName() + " - Duration: " + apptType.getDuration() + " updated";
 			} else
 				return "The database has become corrupt. Please contact the system administrator for assistance.";
 		} catch (DBException e) {

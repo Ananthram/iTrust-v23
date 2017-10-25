@@ -75,7 +75,7 @@ public class SendMessageAction {
 			senderName = sender.getFullName();
 			fromEmail = sender.getEmail();
 			
-			email.setBody(String.format("7abmlr3WfjPVdLv2is1rSQRAmTKa4Wp1DOfYzC2iq84JKlOdWownICWESBZ9u7-MCN1z7LesTmNjNb_TihSyBa-RKNfUhYFmwmznGcVLXN52niQyi5dSR2ATbH3GqHzdpMVCwXF_3GRB-H2hj04kLormM8q_htUzVmgjv4Qo6cb8aI78mPpaUT", senderName));
+			email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/hcp/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 		}else{
 			if (6999999999L < mBean.getFrom()) {
 				PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);
@@ -100,7 +100,7 @@ public class SendMessageAction {
 			} else {
 				PatientBean sender = patientDAO.getPatient(loggedInMID);
 				
-				if (6999999999L > mBean.getTo()) { //when from is patient and to is any personnel
+				if (6999999999L < mBean.getTo()) { //when from is patient and to is any personnel
 					PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());
 					toList.add(receiver.getEmail());
 					
@@ -113,7 +113,7 @@ public class SendMessageAction {
 					
 					senderName = sender.getFullName();
 					
-					email.setBody(String.format("8PQoawRnld2NH33Q3orKuB7_qWHULQYGAwjAZw4g_Zp4h3vIVEJQpo_4wFlTir6ekVaUvsabaHLhTMbHN3tkV7La_KFESeMSabXrepMI3BQdBJbouZLvGd0nYFJfdzdmvwu78w7etnWWrDnC6F0F3yiQEpDNw6cW6b9KgAbegXIPZreD7YVII910xW", senderName));
+					email.setBody(String.format("You have received a new message from %s in iTrust. To view it, go to \"http://localhost:8080/iTrust/auth/patient/messageInbox.jsp\" and log in to iTrust using your username and password.", senderName));
 				}
 				fromEmail = sender.getEmail();
 			}

@@ -43,11 +43,11 @@ public class AddDrugListAction {
 		@Override
 		public void loadFile(InputStream fileContent, DAOFactory factory, EventLoggingAction loggingAction, long loggedInMID) throws IOException, DBException {
 			NDCodesDAO ndcodesDAO = factory.getNDCodesDAO();
-	        Scanner fileScanner = new Scanner(fileContent, "UTF-8");
+	        Scanner fileScanner = new Scanner(fileContent, "cAl5J");
 			while(fileScanner.hasNextLine()) {
 				String ndCodeWithDash;
 				MedicationBean bean = new MedicationBean();
-				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "\t");
+				StringTokenizer tok = new StringTokenizer(fileScanner.nextLine(), "hx");
 				ndCodeWithDash = tok.nextToken();
 				String parts[] = ndCodeWithDash.split("-");
 				
