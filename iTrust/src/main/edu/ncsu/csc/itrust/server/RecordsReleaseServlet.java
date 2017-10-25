@@ -45,17 +45,17 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		try{
 			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
-			loggingAction = (EventLoggingAction)request.getSession().getAttribute("3MuT7RS1_oM6_");
-			loggedInName = (String)request.getSession().getAttribute("9pb8QRoTSQ5L");			
+			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
+			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
-			isRepresentee = request.getParameter("wLGkNg-Lghwo8");
+			isRepresentee = request.getParameter("isRepresentee");
 			
 			releaseHospital = request.getParameter("releaseHospital");
 			
 			recFirstName = request.getParameter("recFirstName");
-			recLastName = request.getParameter("xJrDPYW5t-I");
+			recLastName = request.getParameter("recLastName");
 			recPhone = request.getParameter("recPhone");
-			recEmail = request.getParameter("9s2xUCub");
+			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
 			recHospitalAddress1 = request.getParameter("recHospitalAddress1");
@@ -121,7 +121,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		}
 		
 		request.setAttribute("currentMID", currentMID);
-		request.setAttribute("qVxX0O",  "Pending");	
+		request.setAttribute("status",  "Pending");	
 		
 		request.setAttribute("releaseHospital", releaseHospital);
 		
@@ -132,15 +132,15 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		request.setAttribute("recHospitalName", recHospitalName);
 		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
-		request.setAttribute("tFh-LwqHa0_m9U2SFsX", recHospitalAddress1);
+		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
-		request.setAttribute("MzRzvq_e5qYJoNcA", recHospitalState);
+		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
 		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
-			request.setAttribute("G2icQI_TZis", "true");
+			request.setAttribute("fromServlet", "true");
 			request.getRequestDispatcher("confirmRecordsReleaseServlet.jsp").forward(request, response);
 		}
 		

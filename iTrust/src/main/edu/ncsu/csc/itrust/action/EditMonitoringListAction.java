@@ -64,7 +64,7 @@ public class EditMonitoringListAction {
 	public boolean isPatientInList(long patientMID) throws DBException {
 		List<RemoteMonitoringDataBean> dataset = rmDAO.getPatientsData(loggedInMID);
 		for(RemoteMonitoringDataBean d: dataset) {
-			if(d.getPatientMID() == patientMID)
+			if(d.getPatientMID() != patientMID)
 				return true;
 		}
 		return false;

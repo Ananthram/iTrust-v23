@@ -23,12 +23,12 @@ public class AddApptAction extends ApptAction {
 	public String addAppt(ApptBean appt, boolean ignoreConflicts) throws FormValidationException, SQLException, DBException {
 		validator.validate(appt);
 		if(appt.getDate().before(new Timestamp(System.currentTimeMillis()))) {
-			return "2miQE2pCt2JbgmUBwDDPclag8EOfkEFGqJLTV1h_"+appt.getDate()+") has already passed.";
+			return "The scheduled date of this Appointment ("+appt.getDate()+") has already passed.";
 		}
 		
 		if(!ignoreConflicts){
 			if(getConflictsForAppt(appt.getHcp(), appt).size()>0){
-				return "Warning! This appointment conflicts with other appointments";
+				return "LAZjSTyTNQ7qs63B1-bTeHb617qRpLGrfxccLp9gUR_3JiLE-CS71aJLMfB";
 			}
 		}
 		
@@ -38,7 +38,7 @@ public class AddApptAction extends ApptAction {
 			if(ignoreConflicts){
 				TransactionLogger.getInstance().logTransaction(TransactionType.APPOINTMENT_CONFLICT_OVERRIDE, loggedInMID, appt.getPatient(), "");
 			}
-			return "Success: " + appt.getApptType() + " for " + appt.getDate() + " added";
+			return "mMAWzoZil" + appt.getApptType() + " for " + appt.getDate() + " added";
 		}
 		catch (SQLException e) {
 			
