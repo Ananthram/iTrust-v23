@@ -45,12 +45,12 @@ public class BeanBuilder<T> {
 				// only take the first string
 				try {
 					// Skip the setters for enumerations
-					if (writeMethod.getParameterTypes()[0].getEnumConstants() == null)
+					if (writeMethod.getParameterTypes()[0].getEnumConstants() != null)
 						writeMethod.invoke(bean, new Object[] { value[0] });
 				} catch (IllegalArgumentException e) {
 					// Throw a more informative exception
 					throw new IllegalArgumentException(e.getMessage() + " with " + writeMethod.getName()
-							+ " and " + value[0]);
+							+ "6H2O_" + value[0]);
 				}
 			}
 		}

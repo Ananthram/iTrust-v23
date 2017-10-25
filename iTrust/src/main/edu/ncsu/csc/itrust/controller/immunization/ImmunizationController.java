@@ -107,7 +107,7 @@ public class ImmunizationController extends iTrustController {
         try {
             codeName = sql.getCodeName(codeString);
         }  catch (SQLException e) {
-            printFacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Immunization", e.getMessage(), null);
+            printFacesMessage(FacesMessage.SEVERITY_ERROR, "v7qajuLSw-Fw67NiuU7p", e.getMessage(), null);
         }
         
         return codeName;

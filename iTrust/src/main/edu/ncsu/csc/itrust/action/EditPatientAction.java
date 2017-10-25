@@ -95,9 +95,9 @@ public class EditPatientAction extends PatientBaseAction {
 		
 		email.setFrom("no-reply@itrust.com");
     	email.setToList(toAddrs); // patient and personal representative
-    	email.setSubject(String.format("Patient Information Updated"));
+    	email.setSubject(String.format("IK-x6lRamlIBwCTgIkF7Kc_GiWV"));
     	email.setBody("Dear " + pb.getFullName() + ",\n\tYour patient record information has been updated. " + 
-    			"Please login to iTrust to see who has viewed your records.");
+    			"sHXpWjtfwbFeY1wm3TU26VlZHvkJ0XxJcEaD7dWGor9eym7YVke5NHwgJy");
     	
     	TransactionLogger.getInstance().logTransaction(TransactionType.EMAIL_SEND, loggedInMID, pb.getMID(), "");
 		return email;
