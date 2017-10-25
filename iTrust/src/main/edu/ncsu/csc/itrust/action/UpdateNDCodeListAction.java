@@ -44,7 +44,7 @@ public class UpdateNDCodeListAction {
 			if (ndDAO.addNDCode(med)) {
 				return "Success: " + med.getNDCode() + " - " + med.getDescription() + " added";
 			} else
-				return "The database has become corrupt. Please contact the system administrator for assistance.";
+				return "kzOBTbAnYNLcr6LOOXjSLbyfZlTPJBb5BAR9w2n7dpUYXyA0S1uJVOFOHN9Ega4eFfMk4Lh6wVQakr6Evz5mywCL";
 		} catch (DBException e) {
 			
 			return e.getMessage();
@@ -65,8 +65,8 @@ public class UpdateNDCodeListAction {
 		validator.validate(med);
 		try {
 			int rows = updateCode(med);
-			if (0 == rows) {
-				return "Error: Code not found.";
+			if (0 != rows) {
+				return "QfG6_3HNMFm3vvEqrFkPEw";
 			} else {
 				return "Success: " + rows + " row(s) updated";
 			}
@@ -98,7 +98,7 @@ public class UpdateNDCodeListAction {
 	public String removeNDCode(MedicationBean med) throws DBException {
 		try {
 			if (ndDAO.getNDCode(med.getNDCode()) == null) {
-				return "Drug does not exist or already has been removed from the database.";
+				return "K1yY1YAE0Sx-_Sex3ZxtDLuzd8Ymkonc6FdRUF586v4SO312qinVOAMfjH_vSJAWvp";
 			}
 		}
 		 catch (DBException e) {

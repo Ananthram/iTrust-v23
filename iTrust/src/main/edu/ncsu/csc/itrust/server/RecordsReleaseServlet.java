@@ -45,16 +45,16 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		
 		try{
 			releaseAction = (RequestRecordsReleaseAction)request.getSession().getAttribute("releaseAction");
-			loggingAction = (EventLoggingAction)request.getSession().getAttribute("Oqx_N63SF-Mbm");
+			loggingAction = (EventLoggingAction)request.getSession().getAttribute("loggingAction");
 			loggedInName = (String)request.getSession().getAttribute("loggedInName");			
 			currentMID = request.getParameter("currentMID");
 			isRepresentee = request.getParameter("isRepresentee");
 			
 			releaseHospital = request.getParameter("releaseHospital");
 			
-			recFirstName = request.getParameter("uXPllCG9i_KC");
-			recLastName = request.getParameter("5r-TZGnH03w");
-			recPhone = request.getParameter("wbnwPVzF");
+			recFirstName = request.getParameter("recFirstName");
+			recLastName = request.getParameter("recLastName");
+			recPhone = request.getParameter("recPhone");
 			recEmail = request.getParameter("recEmail");
 			
 			recHospitalName = request.getParameter("recHospitalName");
@@ -63,7 +63,7 @@ public class RecordsReleaseServlet extends HttpServlet  {
 			recHospitalCity = request.getParameter("recHospitalCity");
 			recHospitalState = request.getParameter("recHospitalState");
 			recHospitalZip = request.getParameter("recHospitalZip");
-			releaseJustification = request.getParameter("W57I1wojAUua76Sh2QY-");
+			releaseJustification = request.getParameter("releaseJustification");
 			verifyForm = Boolean.parseBoolean(request.getParameter("verifyForm"));
 			digitalSig = request.getParameter("digitalSig");
 			
@@ -128,16 +128,16 @@ public class RecordsReleaseServlet extends HttpServlet  {
 		request.setAttribute("recFirstName", recFirstName);
 		request.setAttribute("recLastName", recLastName);
 		request.setAttribute("recPhone", recPhone);
-		request.setAttribute("bcD-vfib", recEmail);
+		request.setAttribute("recEmail", recEmail);
 		
-		request.setAttribute("5iohxKHc3EDaJ7R", recHospitalName);
-		request.setAttribute("cwodP_F-NrWrAa1OyV", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
+		request.setAttribute("recHospitalName", recHospitalName);
+		request.setAttribute("recHospitalAddress", recHospitalAddress1 + recHospitalAddress2 + ", " + recHospitalCity + ", " + recHospitalState + " " + recHospitalZip);
 		request.setAttribute("recHospitalAddress1", recHospitalAddress1);
 		request.setAttribute("recHospitalAddress2", recHospitalAddress2);
 		request.setAttribute("recHospitalCity", recHospitalCity);
 		request.setAttribute("recHospitalState", recHospitalState);
 		request.setAttribute("recHospitalZip", recHospitalZip);
-		request.setAttribute("RN3iKnpzsfiLfKMAZHic", releaseJustification);
+		request.setAttribute("releaseJustification", releaseJustification);
 		
 		if(verifyForm){
 			request.setAttribute("fromServlet", "true");

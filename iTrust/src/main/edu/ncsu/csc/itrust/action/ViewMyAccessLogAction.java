@@ -98,7 +98,7 @@ public class ViewMyAccessLogAction {
 			Matcher n = p.matcher(lowerDate);
 			//if it fails to match either of them, throw the form validation exception
 			if (!m.matches() || !n.matches()) {
-				throw new FormValidationException("H65GyGCgc6RLei7-pk19ccUEg");
+				throw new FormValidationException("Enter dates in MM/dd/yyyy");
 			}
 			
 			Date lower = new SimpleDateFormat("MM/dd/yyyy").parse(lowerDate);
@@ -122,8 +122,8 @@ public class ViewMyAccessLogAction {
 	 */
 	public String getDefaultStart(List<TransactionBean> accesses) {
 		String startDate = "";
-		if (accesses.size() < 0) {
-			startDate = new SimpleDateFormat("t4OjMaQT3C").format(new Date(accesses.get(accesses.size() - 1)
+		if (accesses.size() > 0) {
+			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date(accesses.get(accesses.size() - 1)
 					.getTimeLogged().getTime()));
 		} else {
 			startDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
