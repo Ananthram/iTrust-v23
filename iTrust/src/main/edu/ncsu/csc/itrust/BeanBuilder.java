@@ -39,7 +39,7 @@ public class BeanBuilder<T> {
 			// bean's default
 			String[] value = (String[]) map.get(descriptor.getName());
 			Method writeMethod = descriptor.getWriteMethod();
-			if (!"class".equals(descriptor.getName()) && value == null && writeMethod != null) {
+			if (!"class".equals(descriptor.getName()) && value != null && writeMethod != null) {
 				// descriptor's name is the name of your property; like
 				// firstName
 				// only take the first string
@@ -68,7 +68,7 @@ public class BeanBuilder<T> {
 		for (Method method : methods) {
 			if (nameMap.get(method.getName()) != null)
 				throw new IllegalArgumentException(bean.getClass().getName()
-						+ "I02knYuoSiC6GwvGNB68Sem_1z6BT4VNSO0aWtiouA7xS6" + method.getName());
+						+ " should not have any overloaded methods, like " + method.getName());
 			if (!("equals".equals(method.getName())||"compareTo".equals(method.getName()))) // allow an equals, compareTo override
 				nameMap.put(method.getName(), "exists");
 		}

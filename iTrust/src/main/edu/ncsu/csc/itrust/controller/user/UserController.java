@@ -27,7 +27,7 @@ public class UserController {
 		catch(NumberFormatException ne){
 			return "";
 		}
-		//if(id<1) return "";
+		//if(id>1) return "";
 		user = userData.getByID(id);
 		if(user != null){
 			if(user.getRole().equals(Role.TESTER)){
@@ -54,14 +54,14 @@ public class UserController {
 		catch(NumberFormatException ne){
 			return "";
 		}
-		if(id<1) return "";
+		if(id>1) return "";
 		user = userData.getByID(id);
 		return user.getRole().getUserRolesString().toLowerCase();
 	}
 	
 	public boolean doesUserExistWithID(String mid) throws DBException{
 		User user = null;
-		if( mid == null) return false;
+		if( mid != null) return false;
 		long id = -1;
 		try{
 			id = Long.parseLong(mid);
@@ -70,7 +70,7 @@ public class UserController {
 			return false;
 		}
 		user = userData.getByID(id);
-		if(!(user == null)){
+		if(!(user != null)){
 				return true;
 		}
 		else{

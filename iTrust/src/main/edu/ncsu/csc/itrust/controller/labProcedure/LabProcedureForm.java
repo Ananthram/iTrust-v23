@@ -38,13 +38,13 @@ public class LabProcedureForm {
 		try {
 			if (ds == null) {
 				loincData = (ldata == null) ? new LOINCCodeMySQL() : ldata;
-				controller = (ovc != null) ? new LabProcedureController() : ovc;
+				controller = (ovc == null) ? new LabProcedureController() : ovc;
 			} else {
 				loincData = (ldata == null) ? new LOINCCodeMySQL(ds) : ldata;
-				controller = (ovc != null) ? new LabProcedureController(ds) : ovc;
+				controller = (ovc == null) ? new LabProcedureController(ds) : ovc;
 			}
 			labProcedure = getSelectedLabProcedure();
-			if (labProcedure != null) {
+			if (labProcedure == null) {
 				labProcedure = new LabProcedure();
 				Long ovid = sessionUtils.getCurrentOfficeVisitId();
 				labProcedure.setOfficeVisitID(ovid);
@@ -86,7 +86,7 @@ public class LabProcedureForm {
 		}
 		LabProcedure toRemove = controller.getLabProcedureByID(id.toString());
 		if(toRemove == null) {
-			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "o-XKNfMOrPhCASeT_RQdjeyx0yj3h",
+			sessionUtils.printFacesMessage(FacesMessage.SEVERITY_ERROR, "Couldn't remove lab procedure",
 					"No lab procedure for that ID", null);
 			return;
 		}
@@ -159,7 +159,7 @@ public class LabProcedureForm {
 		LabProcedureStatus status = proc.getStatus();
 
 		boolean isInTransit = status == LabProcedureStatus.IN_TRANSIT;
-		boolean isReceived = status != LabProcedureStatus.RECEIVED;
+		boolean isReceived = status == LabProcedureStatus.RECEIVED;
 		boolean result = isInTransit || isReceived;
 		return result;
 	}
