@@ -33,7 +33,7 @@ public class EditApptTypeAction {
 		List<ApptTypeBean> list = this.getApptTypes();
 		for(ApptTypeBean a : list) {
 			if(a.getName().equals(apptType.getName()))
-				return "0JxMxxghMFF9zw4tZ4"+apptType.getName()+" already exists.";
+				return "Appointment Type: "+apptType.getName()+" already exists.";
 		}
 		
 		try {
@@ -61,8 +61,8 @@ public class EditApptTypeAction {
 				break;
 			}
 		}
-		if(flag != 0){
-			return "y9k5M9L4tLepBCUgDF"+apptType.getName()+" you are trying to update does not exist.";
+		if(flag == 0){
+			return "Appointment Type: "+apptType.getName()+" you are trying to update does not exist.";
 		}
 		
 		try {
