@@ -6,6 +6,7 @@ var Random = require('random-js'),
 
 var fuzzer =
 {
+
     random : new Random(Random.engines.mt19937().autoSeed()),
 
     seed: function (kernel)
